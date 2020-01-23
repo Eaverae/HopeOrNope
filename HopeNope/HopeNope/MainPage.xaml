@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,10 +6,13 @@
              x:Class="HopeNope.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label Text="You age:" />
+        <Entry x:Name="EntryFirstAge" Keyboard="Numeric"></Entry>
+        <Label Text="Target age:" />
+        <Entry x:Name="EntrySecondAge" Keyboard="Numeric"></Entry>
+        <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
+        <Label x:Name="LabelResult" />
+        <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
     </StackLayout>
 
 </ContentPage>
