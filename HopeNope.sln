@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeNope.Android", "HopeNop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeNope.iOS", "HopeNope\HopeNope.iOS\HopeNope.iOS.csproj", "{D32AF5E1-7F00-47A4-A8E3-3AA8A4697710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeNope", "HopeNope\HopeNope\HopeNope.csproj", "{C2CC701D-3E10-4425-95F6-1C65E90CA8B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HopeNope", "HopeNope\HopeNope\HopeNope.csproj", "{C2CC701D-3E10-4425-95F6-1C65E90CA8B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +26,6 @@ Global
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Debug|iPhone.Deploy.0 = Debug|Any CPU
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0A7B2FC-6FFF-461D-977F-0F7E728A9997}.Release|Any CPU.Deploy.0 = Release|Any CPU
