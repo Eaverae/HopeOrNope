@@ -1,9 +1,11 @@
-﻿using System;
+﻿using HopeNope.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope
@@ -13,6 +15,21 @@ namespace HopeNope
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
+		string currentAgeKey = "currentAge";
+
+		public int CurrentAge
+		{
+			get
+			{
+				return Settings.GetValue<int>(currentAgeKey);
+			}
+			set
+			{
+				Preferences.Set(currentAgeKey, value);
+			}
+		}
+
+
 		public MainPage()
 		{
 			InitializeComponent();
@@ -21,6 +38,10 @@ namespace HopeNope
 		private void ButtonCalculate_Clicked(object sender, EventArgs e)
 		{
 			int firstAge = Convert.ToInt32(EntryFirstAge.Text);
+
+			if (CurrentAge == 0)
+				CurrentAge = firstAge;
+
 			int secondAge = Convert.ToInt32(EntrySecondAge.Text);
 
 			int calcA = firstAge > secondAge ? firstAge : secondAge;
