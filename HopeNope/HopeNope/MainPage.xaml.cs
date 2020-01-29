@@ -52,5 +52,10 @@ namespace HopeNope
 		{
 			Application.Current.MainPage.Navigation.PushAsync(new CalculatorPage());
 		}
+
+		private async void AboutButton_Clicked(object sender, EventArgs e)
+		{
+			await Application.Current.MainPage.Navigation.PushAsync(new AboutPage());
+		}
 	}
 }

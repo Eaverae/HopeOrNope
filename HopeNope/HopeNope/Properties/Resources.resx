@@ -117,6 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>HOPE or NOPE! is an application which uses an algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead. If it is iffy, the app judges you.
+
+This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require monetization.</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© copyright {0} Guido Schippers</value>
   </data>

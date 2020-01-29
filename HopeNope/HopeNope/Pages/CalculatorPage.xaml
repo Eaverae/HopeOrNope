@@ -3,10 +3,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Class="HopeNope.Pages.CalculatorPage">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <Image Source="Logo.png" Margin="25" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
             <Label Text="Your age:" />
             <controls:CustomEntry x:Name="EntryFirstAge" Keyboard="Numeric"
@@ -31,6 +33,8 @@
             <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
             <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" />
         </StackLayout>
+        
+        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
     </controls:CustomStackLayout>
 
 </ContentPage>

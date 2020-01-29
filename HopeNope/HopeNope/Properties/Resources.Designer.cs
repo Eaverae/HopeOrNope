@@ -61,6 +61,17 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HOPE or NOPE! is an application which uses an algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead. If it is iffy, the app judges you.
+        ///
+        ///This app was developed as a showcase for guidoschippers.com and it&apos;s sole purpose is to demonstrate that I can create apps that require monetization..
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to © copyright {0} Guido Schippers.
         /// </summary>
         internal static string Copyright {

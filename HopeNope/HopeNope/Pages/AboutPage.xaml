@@ -3,13 +3,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Class="HopeNope.Pages.AboutPage">
-    
-    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
-        <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand">
+        <Image Source="Logo.png" Margin="25" />
+        <Label x:Name="LabelAbout" HorizontalOptions="Center" />
+        <Label x:Name="LabelCopyright" HorizontalOptions="Start" FontSize="Micro" />
+        <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" HorizontalOptions="Center" VerticalOptions="End" />
+        
+        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
     </controls:CustomStackLayout>
 </ContentPage>

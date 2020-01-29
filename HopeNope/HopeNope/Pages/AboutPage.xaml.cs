@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +10,13 @@ namespace HopeNope.Pages
 		public AboutPage()
 		{
 			InitializeComponent();
+			LabelCopyright.Text = String.Format(Properties.Resources.Copyright, DateTime.Now.Year);
+			LabelAbout.Text = Properties.Resources.About;
+		}
+
+		private async void ButtonBack_Clicked(object sender, EventArgs e)
+		{
+			await Application.Current.MainPage.Navigation.PopToRootAsync();
 		}
 	}
 }
