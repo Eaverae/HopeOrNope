@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
+using Android.Gms.Ads;
 
 namespace HopeNope.Droid
 {
@@ -23,11 +24,12 @@ namespace HopeNope.Droid
 
             base.OnCreate(savedInstanceState);
 
-
             CurrentActivity = this;
-
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-3950359454148049~9381262238");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

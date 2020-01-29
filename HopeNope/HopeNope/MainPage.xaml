@@ -5,6 +5,7 @@
              mc:Ignorable="d"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              x:Class="HopeNope.MainPage">
 
@@ -15,6 +16,9 @@
             <Button x:Name="AboutButton" Text="About" />
             <Button x:Name="RemoveAdsButton" Text="Remove ads" />
         </StackLayout>
+
+        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
+
     </controls:CustomStackLayout>
 
 </ContentPage>

@@ -3,6 +3,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="HopeNope.App">
     <Application.Resources>
         <Style TargetType="Button">
@@ -13,6 +15,14 @@
             <Setter Property="BorderWidth" Value="5" />
             <Setter Property="Padding" Value="5" />
             <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <Style TargetType="controls1:MTAdView">
+            <Setter Property="HeightRequest">
+                <Setter.Value>
+                    <x:OnIdiom Phone="50" Tablet="90"></x:OnIdiom>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>

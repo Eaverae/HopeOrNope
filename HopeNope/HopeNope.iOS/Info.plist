@@ -34,5 +34,9 @@
     <string>HopeNope</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+	  <key>GADApplicationIdentifier</key>
+	  <string>ca-app-pub-3950359454148049~9381262238</string>
+	  <key>GADIsAdManagerApp</key>
+	  <true/>
 </dict>
 </plist>
