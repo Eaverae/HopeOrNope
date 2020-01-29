@@ -8,7 +8,7 @@
              x:Class="HopeNope.Pages.CalculatorPage">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-            <Label Text="You age:" />
+            <Label Text="Your age:" />
             <controls:CustomEntry x:Name="EntryFirstAge" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
@@ -17,16 +17,19 @@
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
                                   UnderlineColor="Transparent" />
-            <Label Text="Target age:" />
+            <Label Text="Your date's age:" />
             <controls:CustomEntry x:Name="EntrySecondAge" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
                                   FontSize="Large"
+                                  HorizontalOptions="Center"
                                   HorizontalTextAlignment="Center"
-                                  UnderlineColor="White" />
+                                  WidthRequest="125"
+                                  UnderlineColor="Transparent" />
             <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
             <Label x:Name="LabelResult" />
             <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
+            <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" />
         </StackLayout>
     </controls:CustomStackLayout>
 

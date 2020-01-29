@@ -10,6 +10,8 @@
              x:Class="HopeNope.MainPage">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <Image Source="Logo.png" Margin="25" />
+
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="Start" Clicked="StartButton_Clicked" />
             <Button x:Name="SettingsButton" Text="Settings" />
@@ -17,8 +19,8 @@
             <Button x:Name="RemoveAdsButton" Text="Remove ads" />
         </StackLayout>
 
+        <Label x:Name="LabelCopyright" HorizontalOptions="Center" />
         <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
-
     </controls:CustomStackLayout>
 
 </ContentPage>

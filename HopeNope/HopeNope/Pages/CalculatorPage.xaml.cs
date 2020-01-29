@@ -15,7 +15,7 @@ namespace HopeNope.Pages
 		{
 			get
 			{
-				return Settings.GetValue<int>(currentAgeKey);
+				return Preferences.Get(currentAgeKey, 0);
 			}
 			set
 			{
@@ -27,6 +27,11 @@ namespace HopeNope.Pages
 			InitializeComponent();
 		}
 		
+		private async void ButtonBack_Clicked(object sender, EventArgs e)
+		{
+			await Application.Current.MainPage.Navigation.PopToRootAsync();
+		}
+
 		private void ButtonCalculate_Clicked(object sender, EventArgs e)
 		{
 			if (!EntryFirstAge.Text.IsNullOrWhiteSpace() && !EntrySecondAge.Text.IsNullOrWhiteSpace())

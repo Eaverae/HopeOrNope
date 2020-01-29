@@ -14,28 +14,33 @@ namespace HopeNope
 		{
 			InitializeComponent();
 
+			LabelCopyright.Text = String.Format(Properties.Resources.Copyright, DateTime.Now.Year);
+
 			// TODO make setting
 			CrossMTAdmob.Current.UserPersonalizedAds = true;
 			CrossMTAdmob.Current.OnInterstitialClosed += Current_OnInterstitialClosed;
 			CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
 		}
 
-		private void StartButton_Clicked(object sender, EventArgs e)
+		private async void StartButton_Clicked(object sender, EventArgs e)
 		{
 			bool exceptionOccurred = false;
-
-			try
+			if (App.AdsEnabled)
 			{
-				CrossMTAdmob.Current.LoadInterstitial(App.MainTransitionAdId);
-			}
-			catch (Exception ex)
-			{
-				string temp = ex.ToString();
-				exceptionOccurred = true;
+				try
+				{
+					CrossMTAdmob.Current.LoadInterstitial(App.MainTransitionAdId);
+					exceptionOccurred = !CrossMTAdmob.Current.IsInterstitialLoaded();
+				}
+				catch (Exception ex)
+				{
+					string temp = ex.ToString();
+					exceptionOccurred = true;
+				}
 			}
 
 			if (!App.AdsEnabled || exceptionOccurred)
-				Application.Current.MainPage.Navigation.PushAsync(new CalculatorPage());
+				await Application.Current.MainPage.Navigation.PushAsync(new CalculatorPage());
 		}
 
 		private void Current_OnInterstitialLoaded(object sender, EventArgs e)
