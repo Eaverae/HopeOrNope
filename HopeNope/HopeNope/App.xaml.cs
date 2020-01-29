@@ -1,28 +1,27 @@
-﻿using System;
+﻿using HopeNope.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace HopeNope
 {
 	public partial class App : Application
 	{
+		string addmodAppId = "ca-app-pub-3950359454148049~9381262238";
+		string mainBannerAdId = "ca-app-pub-3950359454148049/6551084769";
+		string mainTransitionAdId = "ca-app-pub-3950359454148049/3683332556";
+
+		IStatusBarService statusBarService;
+
 		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+			// Hide statusbar before navigating
+			if (statusBarService == null)
+				statusBarService = DependencyService.Get<IStatusBarService>();
 
-		protected override void OnStart()
-		{
-		}
+			statusBarService.HideStatusBar();
 
-		protected override void OnSleep()
-		{
-		}
-
-		protected override void OnResume()
-		{
+			MainPage = new NavigationPage(new MainPage());
 		}
 	}
 }

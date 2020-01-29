@@ -4,17 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             NavigationPage.HasNavigationBar="False"
              x:Class="HopeNope.MainPage">
 
-    <StackLayout>
-        <Label Text="You age:" />
-        <Entry x:Name="EntryFirstAge" Keyboard="Numeric"></Entry>
-        <Label Text="Target age:" />
-        <Entry x:Name="EntrySecondAge" Keyboard="Numeric"></Entry>
-        <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
-        <Label x:Name="LabelResult" />
-        <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
-    </StackLayout>
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Button x:Name="StartButton" Text="Start" Clicked="StartButton_Clicked" />
+            <Button x:Name="SettingsButton" Text="Settings" />
+            <Button x:Name="AboutButton" Text="About" />
+            <Button x:Name="RemoveAdsButton" Text="Remove ads" />
+        </StackLayout>
+    </controls:CustomStackLayout>
 
 </ContentPage>

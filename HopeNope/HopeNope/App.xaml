@@ -1,11 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HopeNope.App">
     <Application.Resources>
-
+        <Style TargetType="Button">
+            <Setter Property="WidthRequest" Value="200" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BorderColor" Value="White" />
+            <Setter Property="BorderWidth" Value="5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
     </Application.Resources>
 </Application>

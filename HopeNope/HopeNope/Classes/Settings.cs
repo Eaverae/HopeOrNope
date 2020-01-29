@@ -8,14 +8,19 @@ namespace HopeNope.Classes
 	internal static class Settings
 	{
 		internal static T GetValue<T>(string resourceKey)
-		{ 
+		{
 			if (resourceKey.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(resourceKey));
 
 			T returnValue = default(T);
 
 			if (Preferences.ContainsKey(resourceKey))
-			returnValue = (T)Convert.ChangeType(Preferences.Get(resourceKey, string.Empty), typeof(T));
+			{
+				string value = Preferences.Get(resourceKey, string.Empty);
+
+				if (!value.IsNullOrWhiteSpace())
+					returnValue = (T)Convert.ChangeType(value, typeof(T));
+			}
 
 			return returnValue;
 		}
