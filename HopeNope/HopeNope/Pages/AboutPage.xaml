@@ -3,9 +3,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Class="HopeNope.Pages.AboutPage">
-    <controls:CustomStackLayout>
+    
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
         <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

@@ -3,16 +3,31 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Class="HopeNope.Pages.CalculatorPage">
-    <controls:CustomStackLayout>
-        <Label Text="You age:" />
-        <Entry x:Name="EntryFirstAge" Keyboard="Numeric"></Entry>
-        <Label Text="Target age:" />
-        <Entry x:Name="EntrySecondAge" Keyboard="Numeric"></Entry>
-        <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
-        <Label x:Name="LabelResult" />
-        <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
+            <Label Text="You age:" />
+            <controls:CustomEntry x:Name="EntryFirstAge" Keyboard="Numeric"
+                                  BackgroundColor="Transparent" 
+                                  TextColor="White"
+                                  FontSize="Large"
+                                  HorizontalOptions="Center"
+                                  HorizontalTextAlignment="Center"
+                                  WidthRequest="125"
+                                  UnderlineColor="Transparent" />
+            <Label Text="Target age:" />
+            <controls:CustomEntry x:Name="EntrySecondAge" Keyboard="Numeric"
+                                  BackgroundColor="Transparent" 
+                                  TextColor="White"
+                                  FontSize="Large"
+                                  HorizontalTextAlignment="Center"
+                                  UnderlineColor="White" />
+            <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
+            <Label x:Name="LabelResult" />
+            <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
+        </StackLayout>
     </controls:CustomStackLayout>
 
 </ContentPage>

@@ -7,6 +7,12 @@
              xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="HopeNope.App">
     <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+        
         <Style TargetType="Button">
             <Setter Property="WidthRequest" Value="200" />
             <Setter Property="BackgroundColor" Value="Transparent" />
