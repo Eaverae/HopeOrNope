@@ -10,7 +10,7 @@
              x:Class="HopeNope.MainPage">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
-        <Image Source="Logo.png" Margin="25" />
+        <Image Source="Logo.png" Margin="0" HeightRequest="250" />
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="Start" Clicked="StartButton_Clicked" />

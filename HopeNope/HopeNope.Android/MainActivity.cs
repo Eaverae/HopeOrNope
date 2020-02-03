@@ -1,17 +1,12 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-using Plugin.CurrentActivity;
 using Android.Gms.Ads;
+using Android.OS;
+using Android.Runtime;
 
 namespace HopeNope.Droid
 {
-    [Activity(Label = "HopeNope", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, 
+    [Activity(Label = "HopeNope", Theme = "@style/MainTheme", MainLauncher = false, 
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
