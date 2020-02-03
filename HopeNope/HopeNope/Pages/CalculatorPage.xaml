@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="HopeNope.Pages.CalculatorPage">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
-        <Image Source="Logo.png" Margin="0" HeightRequest="250" />
+        <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
             <Label Text="Your age:" />
             <controls:CustomEntry x:Name="EntryFirstAge" Keyboard="Numeric"
@@ -18,7 +18,7 @@
                                   HorizontalOptions="Center"
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
-                                  UnderlineColor="Transparent" />
+                                  UnderlineColor="White" />
             <Label Text="Your date's age:" />
             <controls:CustomEntry x:Name="EntrySecondAge" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
@@ -27,11 +27,10 @@
                                   HorizontalOptions="Center"
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
-                                  UnderlineColor="Transparent" />
+                                  UnderlineColor="White" />
             <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
-            <Label x:Name="LabelResult" />
-            <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" />
-            <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" />
+            <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" Margin="0" />
+            <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" Margin="0" />
         </StackLayout>
         
         <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />

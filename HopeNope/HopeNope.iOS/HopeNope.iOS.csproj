@@ -171,4 +171,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo_White.png" />
+  </ItemGroup>
 </Project>

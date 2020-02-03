@@ -10,6 +10,7 @@ namespace HopeNope.Pages
 	public partial class CalculatorPage : ContentPage
 	{
 		string currentAgeKey = "currentAge";
+		int threshold = 16;
 
 		public int CurrentAge
 		{
@@ -26,13 +27,13 @@ namespace HopeNope.Pages
 		{
 			InitializeComponent();
 		}
-		
+
 		private async void ButtonBack_Clicked(object sender, EventArgs e)
 		{
 			await Application.Current.MainPage.Navigation.PopToRootAsync();
 		}
 
-		private void ButtonCalculate_Clicked(object sender, EventArgs e)
+		private async void ButtonCalculate_Clicked(object sender, EventArgs e)
 		{
 			if (!EntryFirstAge.Text.IsNullOrWhiteSpace() && !EntrySecondAge.Text.IsNullOrWhiteSpace())
 			{
@@ -50,18 +51,22 @@ namespace HopeNope.Pages
 
 				string result = string.Empty;
 
-				if (minimum <= calcB)
-					result = $"Yes you can! {minimum} is the minimum age for your date.";
+				if (calcA >= threshold && calcB >= threshold)
+				{
+					if (minimum <= calcB)
+						result = $"Yes you can! {minimum} is the minimum age for your date.";
+					else
+						result = $"This could be iffy..";
+				}
 				else
-					result = $"Oh hell no! {minimum} is the minimum age for your date!";
+					result = $"Oh hell no! 16 should be the minimum age!";
 
-				LabelResult.Text = result;
+				await DisplayAlert("Your results", result, "OK");
 			}
 		}
 
 		private void ButtonReset_Clicked(object sender, EventArgs e)
 		{
-			LabelResult.Text = string.Empty;
 			EntrySecondAge.Text = string.Empty;
 		}
 	}

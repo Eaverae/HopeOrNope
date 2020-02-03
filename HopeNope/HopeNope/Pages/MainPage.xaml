@@ -10,11 +10,11 @@
              x:Class="HopeNope.MainPage">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
-        <Image Source="Logo.png" HeightRequest="250" />
+        <Image Source="Logo_White.png" HeightRequest="250" />
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="Start" Clicked="StartButton_Clicked" />
-            <Button x:Name="SettingsButton" Text="Settings" />
+            <Button x:Name="SettingsButton" Text="Settings" IsEnabled="False" />
             <Button x:Name="AboutButton" Text="About" Clicked="AboutButton_Clicked" />
             <Button x:Name="RemoveAdsButton" Text="Remove ads" />
         </StackLayout>

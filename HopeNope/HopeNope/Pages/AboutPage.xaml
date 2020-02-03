@@ -9,7 +9,7 @@
              x:Class="HopeNope.Pages.AboutPage">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
-        <Image Source="Logo.png" Margin="0" HeightRequest="250" />
+        <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
         <Label x:Name="LabelAbout" HorizontalOptions="Center" />
         <Label x:Name="LabelCopyright" HorizontalOptions="Start" FontSize="Micro" />
         <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" HorizontalOptions="Center" VerticalOptions="End" />
