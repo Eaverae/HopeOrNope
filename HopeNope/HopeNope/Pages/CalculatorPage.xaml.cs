@@ -11,6 +11,7 @@ namespace HopeNope.Pages
 	{
 		string currentAgeKey = "currentAge";
 		int threshold = 16;
+		int legalThreshold = 18;
 
 		public int CurrentAge
 		{
@@ -37,26 +38,29 @@ namespace HopeNope.Pages
 		{
 			if (!EntryFirstAge.Text.IsNullOrWhiteSpace() && !EntrySecondAge.Text.IsNullOrWhiteSpace())
 			{
-				int firstAge = Convert.ToInt32(EntryFirstAge.Text);
+				double firstAge = Convert.ToDouble(EntryFirstAge.Text);
 
 				if (CurrentAge == 0)
-					CurrentAge = firstAge;
+					CurrentAge = (int)Math.Ceiling(firstAge);
 
-				int secondAge = Convert.ToInt32(EntrySecondAge.Text);
+				double secondAge = Convert.ToDouble(EntrySecondAge.Text);
 
-				int calcA = firstAge > secondAge ? firstAge : secondAge;
-				int calcB = firstAge > secondAge ? secondAge : firstAge;
+				double calcA = firstAge > secondAge ? firstAge : secondAge;
+				double calcB = firstAge > secondAge ? secondAge : firstAge;
 
-				int minimum = (calcA / 2) + 7;
+				double minimum = Math.Ceiling((calcA / 2.0) + 7.0);
 
 				string result = string.Empty;
 
 				if (calcA >= threshold && calcB >= threshold)
 				{
+					/*if (calcB == threshold && calcA > legalThreshold || calcA == threshold && calcB > legalThreshold)
+						result = "This may be illegal in some countries. Better check first!";
+					else */
 					if (minimum <= calcB)
-						result = $"Yes you can! {minimum} is the minimum age for your date.";
+						result = "Yes you can! There is Hope for you two!";					
 					else
-						result = $"This could be iffy..";
+						result = "Nope! This could be frowned upon.";
 				}
 				else
 					result = $"Oh hell no! 16 should be the minimum age!";
