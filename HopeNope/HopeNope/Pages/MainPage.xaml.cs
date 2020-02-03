@@ -16,10 +16,15 @@ namespace HopeNope
 
 			LabelCopyright.Text = String.Format(Properties.Resources.Copyright, DateTime.Now.Year);
 
-			// TODO make setting
-			CrossMTAdmob.Current.UserPersonalizedAds = true;
-			CrossMTAdmob.Current.OnInterstitialClosed += Current_OnInterstitialClosed;
-			CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
+			try
+			{
+				// TODO make setting
+				CrossMTAdmob.Current.UserPersonalizedAds = true;
+				CrossMTAdmob.Current.OnInterstitialClosed += Current_OnInterstitialClosed;
+				CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
+			}
+			catch
+			{ }
 		}
 
 		private async void StartButton_Clicked(object sender, EventArgs e)
