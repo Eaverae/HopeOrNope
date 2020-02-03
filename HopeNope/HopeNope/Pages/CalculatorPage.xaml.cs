@@ -58,7 +58,7 @@ namespace HopeNope.Pages
 						result = "This may be illegal in some countries. Better check first!";
 					else */
 					if (minimum <= calcB)
-						result = "Yes you can! There is Hope for you two!";					
+						result = "Yes you can! There is Hope for you two!";
 					else
 						result = "Nope! This could be frowned upon.";
 				}
@@ -66,12 +66,10 @@ namespace HopeNope.Pages
 					result = $"Oh hell no! 16 should be the minimum age!";
 
 				await DisplayAlert("Your results", result, "OK");
-			}
-		}
 
-		private void ButtonReset_Clicked(object sender, EventArgs e)
-		{
-			EntrySecondAge.Text = string.Empty;
+				if (await DisplayAlert("Reset?", "Want to try again?", "OK", "Cancel"))
+					EntrySecondAge.Text = string.Empty;
+			}
 		}
 	}
 }

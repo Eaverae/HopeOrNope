@@ -29,7 +29,6 @@
                                   WidthRequest="125"
                                   UnderlineColor="White" />
             <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
-            <Button x:Name="ButtonReset" Text="Reset" Clicked="ButtonReset_Clicked" Margin="0" />
             <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" Margin="0" />
         </StackLayout>
         
