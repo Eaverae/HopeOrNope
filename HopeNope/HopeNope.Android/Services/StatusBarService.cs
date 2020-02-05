@@ -2,7 +2,6 @@
 using Android.Views;
 using HopeNope.Droid.Services;
 using HopeNope.Services;
-using Plugin.CurrentActivity;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(StatusBarService))]

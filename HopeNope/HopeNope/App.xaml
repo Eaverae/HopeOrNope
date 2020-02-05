@@ -1,10 +1,11 @@
-﻿<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:controls="clr-namespace:HopeNope.Controls"
-             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+﻿<local:GuidApp xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               mc:Ignorable="d"
+               xmlns:local="clr-namespace:HopeNope"
+               xmlns:controls="clr-namespace:HopeNope.Controls"
+               xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="HopeNope.App">
     <Application.Resources>
         <Style TargetType="Label">
@@ -12,7 +13,7 @@
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="5" />
         </Style>
-        
+
         <Style TargetType="Button">
             <Setter Property="WidthRequest" Value="200" />
             <Setter Property="BackgroundColor" Value="Transparent" />
@@ -31,4 +32,4 @@
             </Setter>
         </Style>
     </Application.Resources>
-</Application>
+</local:GuidApp>

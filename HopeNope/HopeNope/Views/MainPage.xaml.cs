@@ -1,5 +1,4 @@
-﻿using HopeNope.Pages;
-using HopeNope.Services;
+﻿using HopeNope.Views;
 using MarcTron.Plugin;
 using System;
 using System.ComponentModel;
@@ -45,7 +44,7 @@ namespace HopeNope
 			}
 
 			if (!App.AdsEnabled || exceptionOccurred)
-				await Application.Current.MainPage.Navigation.PushAsync(new CalculatorPage());
+				await Application.Current.MainPage.Navigation.PushAsync(new CalculatorView());
 		}
 
 		private void Current_OnInterstitialLoaded(object sender, EventArgs e)
@@ -55,12 +54,12 @@ namespace HopeNope
 
 		private void Current_OnInterstitialClosed(object sender, EventArgs e)
 		{
-			Application.Current.MainPage.Navigation.PushAsync(new CalculatorPage());
+			Application.Current.MainPage.Navigation.PushAsync(new CalculatorView());
 		}
 
 		private async void AboutButton_Clicked(object sender, EventArgs e)
 		{
-			await Application.Current.MainPage.Navigation.PushAsync(new AboutPage());
+			await Application.Current.MainPage.Navigation.PushAsync(new AboutView());
 		}
 	}
 }

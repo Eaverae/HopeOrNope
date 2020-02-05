@@ -6,12 +6,13 @@
              xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
-             x:Class="HopeNope.Pages.CalculatorPage">
+             x:Class="HopeNope.Views.CalculatorView">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
         <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
             <Label Text="Your age:" />
-            <controls:CustomEntry x:Name="EntryFirstAge" Keyboard="Numeric"
+            <controls:CustomEntry Text="{Binding FirstAge}" 
+                                  Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
                                   FontSize="Large"
@@ -20,7 +21,7 @@
                                   WidthRequest="125"
                                   UnderlineColor="White" />
             <Label Text="Your date's age:" />
-            <controls:CustomEntry x:Name="EntrySecondAge" Keyboard="Numeric"
+            <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
                                   FontSize="Large"
@@ -28,11 +29,11 @@
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
                                   UnderlineColor="White" />
-            <Button x:Name="ButtonCalculate" Text="Calculate!" Clicked="ButtonCalculate_Clicked" />
-            <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" Margin="0" />
+            <Button Text="Calculate!" Command="{Binding CalculateCommand}" />
+            <Button Text="Back" Command="{Binding BackCommand}" Margin="0" />
         </StackLayout>
         
-        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
+        <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
     </controls:CustomStackLayout>
 
 </ContentPage>

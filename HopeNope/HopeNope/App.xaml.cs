@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace HopeNope
 {
-	public partial class App : Application
+	public partial class App : GuidApp
 	{
 		IStatusBarService statusBarService;
 
@@ -24,6 +24,11 @@ namespace HopeNope
 		public App()
 		{
 			InitializeComponent();
+		}
+
+		protected override void OnStart()
+		{
+			base.OnStart();
 
 			// Hide statusbar before navigating
 			if (statusBarService == null)

@@ -6,14 +6,14 @@
              xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
-             x:Class="HopeNope.Pages.AboutPage">
+             x:Class="HopeNope.Views.AboutView">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
         <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
-        <Label x:Name="LabelAbout" HorizontalOptions="Center" />
-        <Label x:Name="LabelCopyright" HorizontalOptions="Start" FontSize="Micro" />
-        <Button x:Name="ButtonBack" Text="Back" Clicked="ButtonBack_Clicked" HorizontalOptions="Center" VerticalOptions="End" />
-        
-        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
+        <Label Text="{Binding AboutText}" HorizontalOptions="Center" />
+        <Label Text="{Binding CopyrightText}" HorizontalOptions="Start" FontSize="Micro" />
+        <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
+
+        <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
     </controls:CustomStackLayout>
 </ContentPage>
