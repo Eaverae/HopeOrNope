@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using HopeNope.Interfaces;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -108,7 +109,7 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// The back command
 		/// </summary>
-		public ICommand BackCommand = new Command(async () =>
+		public ICommand BackCommand => new Command(async () =>
 		{
 			await GuidApp.Current.MainPage.Navigation.PopToRootAsync();
 		});

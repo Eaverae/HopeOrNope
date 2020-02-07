@@ -1,5 +1,6 @@
 ﻿using HopeNope.Services;
 using MarcTron.Plugin;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace HopeNope
@@ -12,8 +13,7 @@ namespace HopeNope
 		{
 			get
 			{
-				// return !Debugger.IsAttached; 
-				return CrossMTAdmob.IsSupported;
+				return !Debugger.IsAttached && CrossMTAdmob.IsSupported;
 			}
 		}
 

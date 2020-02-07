@@ -7,8 +7,13 @@
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Class="HopeNope.Views.CalculatorView">
-    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
-        <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
+    
+        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
+
+            <Button Text="Back" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Row="0" />
+
+
+            <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
             <Label Text="Your age:" />
             <controls:CustomEntry Text="{Binding FirstAge}" 
@@ -30,10 +35,8 @@
                                   WidthRequest="125"
                                   UnderlineColor="White" />
             <Button Text="Calculate!" Command="{Binding CalculateCommand}" />
-            <Button Text="Back" Command="{Binding BackCommand}" Margin="0" />
         </StackLayout>
         
         <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
     </controls:CustomStackLayout>
-
 </ContentPage>
