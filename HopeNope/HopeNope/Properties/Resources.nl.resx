@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>HOOP of NOPE! is een toepassing die een algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app je groen licht. Als het dubieus is, oordeelt de app over jou.
+
+Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die inkomsten genereren.</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© copyright {0} Guido Schippers</value>
+  </data>
+</root>

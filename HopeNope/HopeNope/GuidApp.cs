@@ -1,10 +1,16 @@
 ﻿using Autofac;
+using HopeNope.Extensions;
 using HopeNope.Handlers;
 using HopeNope.Interfaces;
+using System;
 using Xamarin.Forms;
 
 namespace HopeNope
 {
+	/// <summary>
+	/// Baseclass for the application
+	/// </summary>
+	/// <seealso cref="Xamarin.Forms.Application" />
 	public class GuidApp : Application
 	{
 		/// <summary>
@@ -46,16 +52,16 @@ namespace HopeNope
 		{
 			if (!ignoreDefaults)
 			{
-				//if (!Current.Resources.ContainsKey("FontAwesomeSolid"))
-				//	throw new InvalidOperationException("Missing key in application dictionary! Key 'FontAwesomeSolid' was not found.");
+				if (!Current.Resources.ContainsKey("FontAwesomeSolid"))
+					throw new InvalidOperationException("Missing key in application dictionary! Key 'FontAwesomeSolid' was not found.");
 
-				//string fontFamily = Current.Resources.PlatformSpecificValue<string>("FontAwesomeSolid");
+				string fontFamily = Current.Resources.PlatformSpecificValue<string>("FontAwesomeSolid");
 
 				ContainerBuilder.RegisterType<LogHandler>().As<ILogHandler>();
 				ContainerBuilder.RegisterType<AlertHandler>().As<IAlertHandler>();
 
-				//if (!fontFamily.IsNullOrWhiteSpace())
-				//	ContainerBuilder.RegisterType<ToastHandler>().As<IToastHandler>().WithParameter(new NamedParameter("fontFamily", fontFamily));
+				if (!fontFamily.IsNullOrWhiteSpace())
+					ContainerBuilder.RegisterType<ToastHandler>().As<IToastHandler>().WithParameter(new NamedParameter("fontFamily", fontFamily));
 
 				//ContainerBuilder.RegisterType<ValidationHandler>().As<IValidationHandler>();
 

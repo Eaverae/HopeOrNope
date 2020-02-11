@@ -4,15 +4,38 @@
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                mc:Ignorable="d"
                xmlns:local="clr-namespace:HopeNope"
-               xmlns:controls="clr-namespace:HopeNope.Controls"
-               xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+               xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="HopeNope.App">
     <Application.Resources>
+        <!--Colors-->
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
+        <Color x:Key="GrayColor">#757575</Color>
+        <Color x:Key="SuccessColor">#50BE64</Color>
+        <Color x:Key="WarningColor">#F9C24D</Color>
+        <Color x:Key="ErrorColor">#FF5252</Color>
+
+        <!--Fonts-->
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid">
+            <On Platform="iOS">FontAwesome5Free-Solid</On>
+            <On Platform="Android">fontawesome_solid.ttf#FontAwesome</On>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegular">
+            <On Platform="iOS">FontAwesome5Free-Regular</On>
+            <On Platform="Android">fontawesome_regular.ttf#FontAwesome</On>
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeBrands">
+            <On Platform="iOS">FontAwesome5Free-Brands</On>
+            <On Platform="Android">fontawesome_brands.ttf#FontAwesome</On>
+        </OnPlatform>
+
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="White" />
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="5" />
         </Style>
+        
 
         <Style TargetType="Button">
             <Setter Property="WidthRequest" Value="200" />
@@ -24,7 +47,7 @@
             <Setter Property="Margin" Value="10" />
         </Style>
 
-        <Style TargetType="controls1:MTAdView">
+        <Style TargetType="controls:MTAdView">
             <Setter Property="HeightRequest">
                 <Setter.Value>
                     <x:OnIdiom Phone="50" Tablet="90"></x:OnIdiom>

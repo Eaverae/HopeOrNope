@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="nl" original="HOPENOPE/PROPERTIES/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6915.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="HOPENOPE/PROPERTIES/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="About" translate="yes" xml:space="preserve">
+          <source>HOPE or NOPE! is an application which uses an algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead. If it is iffy, the app judges you.
+
+This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require monetization.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">HOOP of NOPE! is een toepassing die een algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app je groen licht. Als het dubieus is, oordeelt de app over jou.
+
+Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die inkomsten genereren.</target>
+        </trans-unit>
+        <trans-unit id="Copyright" translate="yes" xml:space="preserve">
+          <source>© copyright {0} Guido Schippers</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">© copyright {0} Guido Schippers</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
