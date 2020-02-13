@@ -72,11 +72,29 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © copyright {0} Guido Schippers.
+        ///   Looks up a localized string similar to © copyright Guido Schippers.
         /// </summary>
         internal static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your date&apos;s age.
+        /// </summary>
+        internal static string EnterDateAge {
+            get {
+                return ResourceManager.GetString("EnterDateAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your age.
+        /// </summary>
+        internal static string EnterYourAge {
+            get {
+                return ResourceManager.GetString("EnterYourAge", resourceCulture);
             }
         }
     }

@@ -123,6 +123,12 @@
 This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require monetization.</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© copyright {0} Guido Schippers</value>
+    <value>© copyright Guido Schippers</value>
+  </data>
+  <data name="EnterDateAge" xml:space="preserve">
+    <value>Enter your date's age</value>
+  </data>
+  <data name="EnterYourAge" xml:space="preserve">
+    <value>Enter your age</value>
   </data>
 </root>

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using HopeNope.Classes;
+using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -19,6 +18,20 @@ namespace HopeNope.ViewModels
 
 		private string firstAge;
 		private string secondAge;
+
+		/// <summary>
+		/// Gets a value indicating whether this instance has default age.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this instance has default age; otherwise, <c>false</c>.
+		/// </value>
+		public bool HasDefaultAge
+		{
+			get
+			{
+				return Settings.HasDefaultAge;
+			}
+		}
 
 		/// <summary>
 		/// Gets the current age.

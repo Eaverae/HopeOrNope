@@ -11,8 +11,8 @@
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
         <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
-        <Label Text="{ext:Translate AboutText}" HorizontalOptions="Center" />
-        <Label Text="{ext:Translate CopyrightText}" HorizontalOptions="Start" FontSize="Micro" />
+        <Label Text="{ext:Translate About}" HorizontalOptions="Center" />
+        <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
         <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
 
         <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />

@@ -18,6 +18,14 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>© copyright {0} Guido Schippers</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">© copyright {0} Guido Schippers</target>
         </trans-unit>
+        <trans-unit id="EnterDateAge" translate="yes" xml:space="preserve">
+          <source>Enter your date's age</source>
+          <target state="new">Enter your date's age</target>
+        </trans-unit>
+        <trans-unit id="EnterYourAge" translate="yes" xml:space="preserve">
+          <source>Enter your age</source>
+          <target state="new">Enter your age</target>
+        </trans-unit>
       </group>
     </body>
   </file>
