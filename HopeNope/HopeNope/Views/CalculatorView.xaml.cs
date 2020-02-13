@@ -8,6 +8,8 @@ namespace HopeNope.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CalculatorView : CarouselPage
 	{
+		private int maxAds = 3;
+
 		private CalculatorViewModel viewModel = new CalculatorViewModel();
 
 		public CalculatorView()
@@ -19,7 +21,6 @@ namespace HopeNope.Views
 
 			BindingContext = viewModel;
 		}
-
 
 		/// <summary>
 		/// Event that is raised when the back button is pressed.

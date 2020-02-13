@@ -92,8 +92,6 @@
                 </Grid>
 
                 <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
-
-
             </controls:CustomStackLayout>
         </ContentPage>
     </CarouselPage.Children>

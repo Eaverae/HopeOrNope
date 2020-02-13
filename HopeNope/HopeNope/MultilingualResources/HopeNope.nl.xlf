@@ -15,8 +15,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
 Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die inkomsten genereren.</target>
         </trans-unit>
         <trans-unit id="Copyright" translate="yes" xml:space="preserve">
-          <source>© copyright {0} Guido Schippers</source>
+          <source>© copyright Guido Schippers</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">© copyright {0} Guido Schippers</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="EnterDateAge" translate="yes" xml:space="preserve">
           <source>Enter your date's age</source>
