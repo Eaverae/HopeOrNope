@@ -3,6 +3,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:ext="clr-namespace:HopeNope.Extensions"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:controls="clr-namespace:HopeNope.Controls"
              xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
@@ -19,7 +20,7 @@
             <Button x:Name="RemoveAdsButton" Text="Remove ads" IsEnabled="False" />
         </StackLayout>
 
-        <Label x:Name="LabelCopyright" HorizontalOptions="Center" FontSize="Micro" />
+        <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />
         <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
     </controls:CustomStackLayout>
 

@@ -1,4 +1,4 @@
-﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,15 +8,14 @@
              mc:Ignorable="d"
              x:Class="HopeNope.Views.CalculatorView">
     
+    <ContentPage x:Name="Page1">
         <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
-
             <Button Text="Back" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Row="0" />
 
-
             <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-            <Label Text="Your age:" />
-            <controls:CustomEntry Text="{Binding FirstAge}" 
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
+                <Label Text="Your age:" />
+                <controls:CustomEntry Text="{Binding FirstAge}" 
                                   Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
@@ -25,8 +24,8 @@
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
                                   UnderlineColor="White" />
-            <Label Text="Your date's age:" />
-            <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
+                <Label Text="Your date's age:" />
+                <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
                                   FontSize="Large"
@@ -34,9 +33,13 @@
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
                                   UnderlineColor="White" />
-            <Button Text="Calculate!" Command="{Binding CalculateCommand}" />
-        </StackLayout>
-        
-        <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
-    </controls:CustomStackLayout>
-</ContentPage>
+                <Button Text="Calculate!" Command="{Binding CalculateCommand}" />
+            </StackLayout>
+
+            <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
+        </controls:CustomStackLayout>
+    </ContentPage>
+    <ContentPage x:Name="Page2" BackgroundColor="Beige"></ContentPage>
+
+    <ContentPage x:Name="Page3" BackgroundColor="Red"></ContentPage>
+</CarouselPage>

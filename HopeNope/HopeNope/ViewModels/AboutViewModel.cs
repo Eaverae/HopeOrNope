@@ -1,29 +1,9 @@
-﻿using HopeNope.Properties;
-using System;
-
-namespace HopeNope.ViewModels
+﻿namespace HopeNope.ViewModels
 {
+	/// <summary>
+	/// AboutViewModel
+	/// </summary>
+	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
 	public class AboutViewModel : BaseViewModel
-	{
-		public string CopyrightText
-		{
-			get
-			{
-				return String.Format(Properties.Resources.Copyright, DateTime.Now.Year);
-			}
-		}
-
-		public string AboutText
-		{
-			get
-			{
-				return Resources.About;
-			}
-		}
-
-		public AboutViewModel() : base()
-		{
-
-		}
-	}
+	{ }
 }

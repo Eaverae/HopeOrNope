@@ -1,4 +1,5 @@
-﻿using HopeNope.Views;
+﻿using HopeNope.ViewModels;
+using HopeNope.Views;
 using MarcTron.Plugin;
 using System;
 using System.ComponentModel;
@@ -9,11 +10,13 @@ namespace HopeNope
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
+		MainViewModel viewModel = new MainViewModel();
+
 		public MainPage()
 		{
 			InitializeComponent();
 
-			LabelCopyright.Text = String.Format(Properties.Resources.Copyright, DateTime.Now.Year);
+			BindingContext = viewModel;
 
 			try
 			{
@@ -33,7 +36,7 @@ namespace HopeNope
 			{
 				try
 				{
-					CrossMTAdmob.Current.LoadInterstitial(App.MainTransitionAdId);
+					CrossMTAdmob.Current.LoadInterstitial(viewModel.MainTransitionAdId);
 					exceptionOccurred = !CrossMTAdmob.Current.IsInterstitialLoaded();
 				}
 				catch (Exception ex)
@@ -42,7 +45,7 @@ namespace HopeNope
 					exceptionOccurred = true;
 				}
 			}
-
+			
 			if (!App.AdsEnabled || exceptionOccurred)
 				await Application.Current.MainPage.Navigation.PushAsync(new CalculatorView());
 		}

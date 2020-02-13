@@ -1,4 +1,5 @@
-﻿using Plugin.Multilingual;
+﻿using HopeNope.Properties;
+using Plugin.Multilingual;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -20,7 +21,7 @@ namespace HopeNope.Extensions
 		/// <summary>
 		/// The resource identifier
 		/// </summary>
-		private const string resourceId = "HopeNope.Resources.AppResources";
+		private const string resourceId = "HopeNope.Properties.Resources";
 
 		/// <summary>
 		/// The Resource Manager
@@ -51,7 +52,7 @@ namespace HopeNope.Extensions
 				throw new ArgumentNullException(nameof(serviceProvider));
 
 			CultureInfo cultureInfo = CrossMultilingual.Current.CurrentCultureInfo;
-
+			
 			// Fallback to the default culture when no culture can be found
 			string translation = resourceManager.Value.GetString(Text, cultureInfo) ?? resourceManager.Value.GetString(Text);
 
