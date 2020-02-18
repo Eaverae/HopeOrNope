@@ -1,5 +1,10 @@
-﻿using HopeNope.ViewModels;
+﻿using HopeNope.Classes;
+using HopeNope.Handlers;
+using HopeNope.ViewModels;
 using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -49,7 +54,10 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToSecondTab(object sender, EventArgs e)
 		{
-			SelectedItem = Page2;
+			AdHandler.ShowFullScreenAd(viewModel.BannerAdId, () =>
+			{
+				SelectedItem = Page2;
+			});
 		}
 
 		/// <summary>
@@ -59,7 +67,7 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToThirdTab(object sender, EventArgs e)
 		{
-			SelectedItem = ResultPage;
+			SelectedItem = Children.Last();
 		}
 	}
 }

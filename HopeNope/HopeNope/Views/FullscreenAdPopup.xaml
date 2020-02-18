@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ext="clr-namespace:HopeNope.Extensions"
+             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             x:Class="HopeNope.Views.FullscreenAdPopup">
+    <ContentPage.Content>
+        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
+            <Grid Margin="0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="{ext:Translate Loading}" Grid.Column="0" />
+                <Button FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00d;" 
+                        Grid.Column="1" HorizontalOptions="End"
+                        BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
+            </Grid>
+            <controls1:MTAdView AdsId="{Binding AdId}" IsVisible="true" BackgroundColor="AliceBlue" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" />
+        </controls:CustomStackLayout>
+    </ContentPage.Content>
+</ContentPage>

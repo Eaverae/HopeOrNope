@@ -9,7 +9,7 @@
               mc:Ignorable="d"
               x:Class="HopeNope.Views.CalculatorView">
     <CarouselPage.Children>
-        <ContentPage x:Name="Page1">
+        <ContentPage x:Name="Page1" AutomationId="Page1">
             <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
                     <Label Text="{ext:Translate EnterYourAge}" />
@@ -45,7 +45,7 @@
                 <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
             </controls:CustomStackLayout>
         </ContentPage>
-        <ContentPage x:Name="Page2">
+        <ContentPage x:Name="Page2" AutomationId="Page2">
             <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
 
                 <Label Text="Your date's age:" />
@@ -72,7 +72,7 @@
             </controls:CustomStackLayout>
         </ContentPage>
 
-        <ContentPage x:Name="ResultPage">
+        <ContentPage x:Name="ResultPage" AutomationId="ResultPage">
             <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
                 <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
 

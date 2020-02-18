@@ -41,6 +41,9 @@
     <Compile Update="Views\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\FullscreenAdPopup.xaml.cs">
+      <DependentUpon>FullscreenAdPopup.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\AboutView.xaml">
@@ -52,6 +55,9 @@
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FullscreenAdPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ToastPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

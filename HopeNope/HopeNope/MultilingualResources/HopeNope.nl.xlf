@@ -27,6 +27,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Enter your age</source>
           <target state="new">Enter your age</target>
         </trans-unit>
+        <trans-unit id="Loading" translate="yes" xml:space="preserve">
+          <source>Loading..</source>
+          <target state="new">Loading..</target>
+        </trans-unit>
       </group>
     </body>
   </file>
