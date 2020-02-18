@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\AdBannerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
     <Compile Include="Services\StatusBarService.cs" />

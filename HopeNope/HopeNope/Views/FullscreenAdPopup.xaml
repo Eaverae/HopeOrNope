@@ -4,11 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:ext="clr-namespace:HopeNope.Extensions"
-             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              xmlns:controls="clr-namespace:HopeNope.Controls"
              x:Class="HopeNope.Views.FullscreenAdPopup">
     <ContentPage.Content>
         <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
+            <controls:CustomStackLayout.Padding>
+                <OnPlatform x:TypeArguments="d:Thickness">
+                    <On Platform="iOS">0,25,0,25</On>
+                    <On Platform="Android">0,5,0,5</On>
+                </OnPlatform>
+            </controls:CustomStackLayout.Padding>
             <Grid Margin="0" Padding="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -19,7 +24,7 @@
                         Grid.Column="1" HorizontalOptions="End"
                         BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
             </Grid>
-            <controls1:MTAdView AdsId="{Binding AdId}" IsVisible="true" BackgroundColor="AliceBlue" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" />
+            <controls:AdBanner AdId="{Binding AdId}" Size="WideSkyscraper" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </controls:CustomStackLayout>
     </ContentPage.Content>
 </ContentPage>
