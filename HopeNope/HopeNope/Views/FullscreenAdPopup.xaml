@@ -8,14 +8,14 @@
              xmlns:controls="clr-namespace:HopeNope.Controls"
              x:Class="HopeNope.Views.FullscreenAdPopup">
     <ContentPage.Content>
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,0,0,25">
+        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
             <Grid Margin="0" Padding="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Label Text="{ext:Translate Loading}" Grid.Column="0" />
-                <Button FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00d;" 
+                <Button FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00d;" Command="{Binding BackCommand}"
                         Grid.Column="1" HorizontalOptions="End"
                         BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
             </Grid>

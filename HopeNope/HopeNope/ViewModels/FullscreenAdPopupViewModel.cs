@@ -2,7 +2,7 @@
 
 namespace HopeNope.ViewModels
 {
-	internal class FullscreenAdPopupViewModel
+	internal class FullscreenAdPopupViewModel : BaseViewModel
 	{
 		public string AdId
 		{
@@ -16,6 +16,11 @@ namespace HopeNope.ViewModels
 				throw new ArgumentNullException(nameof(adId));
 
 			AdId = adId;
+		}
+
+		public override async void BackAsync()
+		{
+			await GuidApp.Current.MainPage.Navigation.PopModalAsync();
 		}
 	}
 }

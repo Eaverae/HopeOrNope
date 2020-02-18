@@ -40,6 +40,14 @@ namespace HopeNope.ViewModels
 		public IAlertHandler AlertHandler { get; private set; }
 
 		/// <summary>
+		/// Gets the toast handler.
+		/// </summary>
+		/// <value>
+		/// The toast handler.
+		/// </value>
+		public IToastHandler ToastHandler { get; private set; }
+
+		/// <summary>
 		/// Gets the log handler.
 		/// </summary>
 		/// <value>
@@ -109,10 +117,7 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// The back command
 		/// </summary>
-		public ICommand BackCommand => new Command(async () =>
-		{
-			await GuidApp.Current.MainPage.Navigation.PopToRootAsync();
-		});
+		public ICommand BackCommand => new Command(BackAsync);
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseViewModel"/> class.
@@ -126,8 +131,8 @@ namespace HopeNope.ViewModels
 				LogHandler = scope.Resolve<ILogHandler>();
 				AlertHandler = scope.Resolve<IAlertHandler>();
 
-				//if (scope.IsRegistered<IToastHandler>())
-				//	ToastHandler = scope.Resolve<IToastHandler>();
+				if (scope.IsRegistered<IToastHandler>())
+					ToastHandler = scope.Resolve<IToastHandler>();
 			}
 		}
 
@@ -162,5 +167,14 @@ namespace HopeNope.ViewModels
 		{
 			IsInitialized = false;
 		}
+
+		/// <summary>
+		/// Navigates the viewmodel back asynchronous.
+		/// </summary>
+		public virtual async void BackAsync()
+		{
+			await GuidApp.Current.MainPage.Navigation.PopToRootAsync();
+		}
+
 	}
 }
