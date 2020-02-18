@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CoreGraphics;
-using Foundation;
+﻿using CoreGraphics;
 using Google.MobileAds;
 using HopeNope.Controls;
 using HopeNope.Enums;
@@ -46,6 +41,12 @@ namespace HopeNope.iOS.Renderers
 						break;
 					case AdBannerSizes.SmartBannerPortrait:
 						bannerView = new BannerView(AdSizeCons.SmartBannerPortrait, new CGPoint(0, 0));
+						break;
+					case AdBannerSizes.Fluid:
+						bannerView = new BannerView(AdSizeCons.Fluid, new CGPoint(0, 0));
+						break;
+					case AdBannerSizes.WideSkyscraper:
+						bannerView = new BannerView(AdSizeCons.Skyscraper, new CGPoint(0, 0));
 						break;
 					default:
 						bannerView = new BannerView(AdSizeCons.Banner, new CGPoint(0, 0));
