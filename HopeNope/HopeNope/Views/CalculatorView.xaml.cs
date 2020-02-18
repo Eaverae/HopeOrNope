@@ -1,5 +1,6 @@
 ﻿using HopeNope.Classes;
 using HopeNope.Handlers;
+using HopeNope.Services;
 using HopeNope.ViewModels;
 using System;
 using System.Linq;
@@ -54,6 +55,9 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToSecondTab(object sender, EventArgs e)
 		{
+			// Preload the next ad
+			AdHandler.LoadInterstitialAd(viewModel.MainTransitionAdId);
+
 			AdHandler.ShowFullScreenAd(viewModel.BannerAdId, () =>
 			{
 				SelectedItem = Page2;
@@ -67,7 +71,11 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToThirdTab(object sender, EventArgs e)
 		{
-			SelectedItem = Children.Last();
+			AdHandler.ShowInterstitialAd(() =>
+			{
+				SelectedItem = ResultPage;
+			});
+
 		}
 	}
 }

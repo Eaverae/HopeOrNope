@@ -81,6 +81,7 @@
     <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\InterstitialAdService.cs" />
     <Compile Include="Services\StatusBarService.cs" />
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>

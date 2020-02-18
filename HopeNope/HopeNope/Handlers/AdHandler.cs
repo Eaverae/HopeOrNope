@@ -1,7 +1,9 @@
-﻿using HopeNope.ViewModels;
+﻿using HopeNope.Services;
+using HopeNope.ViewModels;
 using HopeNope.Views;
 using MarcTron.Plugin;
 using System;
+using Xamarin.Forms;
 
 namespace HopeNope.Handlers
 {
@@ -10,6 +12,40 @@ namespace HopeNope.Handlers
 	/// </summary>
 	public static class AdHandler
 	{
+		private static IInterstitialAdService adService;
+
+		public static void LoadInterstitialAd(string adId)
+		{
+			if (adId.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(adId));
+
+			if (adService == null)
+				adService = DependencyService.Get<IInterstitialAdService>();
+
+			adService.LoadAd(adId);
+		}
+
+		public static void ShowInterstitialAd(Action continueWithAction = null)
+		{
+			if (adService == null)
+				adService = DependencyService.Get<IInterstitialAdService>();
+
+			try
+			{
+				adService.ShowAd();
+
+				// Execute the given action
+				if (continueWithAction != null)
+					continueWithAction.Invoke();
+			}
+			catch
+			{
+				// Execute the given action
+				if (continueWithAction != null)
+					continueWithAction.Invoke();
+			}
+		}
+
 		/// <summary>
 		/// Shows the full screen ad.
 		/// </summary>
