@@ -22,14 +22,19 @@ namespace HopeNope.iOS.Services
 			// LoadAd();
 			// interstitial.ScreenDismissed += (s, e) => LoadAd();
 		}
+
+		public bool InterstitialAdLoaded { get; private set; }
+
 		public void LoadAd(string adId)
 		{
 			// TODO: change this id to your admob id    
 			interstitial = new Interstitial(adId);
 
-			var request = Request.GetDefaultRequest();
-			// request.TestDevices = new string[] { "Your Test Device ID", "GADSimulator" };
+			Request request = Request.GetDefaultRequest();
+
 			interstitial.LoadRequest(request);
+
+			InterstitialAdLoaded = interstitial.IsReady;
 		}
 
 		public void ShowAd()

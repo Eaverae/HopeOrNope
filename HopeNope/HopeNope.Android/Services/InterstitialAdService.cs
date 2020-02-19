@@ -8,6 +8,8 @@ namespace HopeNope.Droid.Services
 {
 	public class InterstitialAdService : IInterstitialAdService
 	{
+		public bool InterstitialAdLoaded { get; private set; }
+
 		InterstitialAd interstitialAd;
 
 		public InterstitialAdService()
@@ -21,11 +23,12 @@ namespace HopeNope.Droid.Services
 
 			var requestbuilder = new AdRequest.Builder();
 			interstitialAd.LoadAd(requestbuilder.Build());
+			InterstitialAdLoaded = interstitialAd.IsLoaded;
 		}
 
 		public void ShowAd()
 		{
-			if (interstitialAd.IsLoaded)
+			if (InterstitialAdLoaded)
 				interstitialAd.Show();
 		}
 	}

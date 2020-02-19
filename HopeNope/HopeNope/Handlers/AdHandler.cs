@@ -13,6 +13,7 @@ namespace HopeNope.Handlers
 	public static class AdHandler
 	{
 		private static IInterstitialAdService adService;
+		private static bool interstitialAdLoaded = false;
 
 		public static void LoadInterstitialAd(string adId)
 		{
@@ -25,6 +26,10 @@ namespace HopeNope.Handlers
 			adService.LoadAd(adId);
 		}
 
+		/// <summary>
+		/// Shows the interstitial ad.
+		/// </summary>
+		/// <param name="continueWithAction">The continue with action.</param>
 		public static void ShowInterstitialAd(Action continueWithAction = null)
 		{
 			if (adService == null)
@@ -32,7 +37,8 @@ namespace HopeNope.Handlers
 
 			try
 			{
-				adService.ShowAd();
+				if (adService.InterstitialAdLoaded)
+					adService.ShowAd();
 
 				// Execute the given action
 				if (continueWithAction != null)

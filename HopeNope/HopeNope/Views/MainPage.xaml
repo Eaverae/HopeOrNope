@@ -16,8 +16,8 @@
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="Start" Command="{Binding StartCommand}" />
             <Button x:Name="SettingsButton" Text="Settings" IsEnabled="False" />
-            <Button x:Name="AboutButton" Text="About" Clicked="AboutButton_Clicked" />
-            <Button x:Name="RemoveAdsButton" Text="Remove ads" IsEnabled="False" />
+            <Button x:Name="AboutButton" Text="About" Command="{Binding AboutCommand}" />
+            <Button x:Name="RemoveAdsButton" Text="Remove ads" Command="{Binding RemoveAdsCommand}"  />
         </StackLayout>
 
         <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />
