@@ -20,8 +20,7 @@
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.0.0" />
-    <PackageReference Include="MarcTron.Admob" Version="1.4.5" />
+    <PackageReference Include="Autofac" Version="5.1.2" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
     <PackageReference Include="Plugin.InAppBilling" Version="2.0.0" />
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

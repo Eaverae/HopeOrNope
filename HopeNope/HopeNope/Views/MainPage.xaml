@@ -6,7 +6,6 @@
              xmlns:ext="clr-namespace:HopeNope.Extensions"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:controls="clr-namespace:HopeNope.Controls"
-             xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              NavigationPage.HasNavigationBar="False"
              x:Class="HopeNope.MainPage">
 
@@ -21,7 +20,8 @@
         </StackLayout>
 
         <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />
-        <controls1:MTAdView AdsId="ca-app-pub-3950359454148049/6551084769" VerticalOptions="End" />
+        
+        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
     </controls:CustomStackLayout>
 
 </ContentPage>

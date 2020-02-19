@@ -33,10 +33,6 @@ namespace HopeNope.ViewModels
 			}
 		}
 
-		public string MainTransitionAdId = "ca-app-pub-3950359454148049/3683332556";
-		public string MainSmartBannerAd = "ca-app-pub-3950359454148049/8576925375";
-		public string MainRewardAdId = "ca-app-pub-3950359454148049/7304206305";
-
 		/// <summary>
 		/// Gets the current age.
 		/// </summary>

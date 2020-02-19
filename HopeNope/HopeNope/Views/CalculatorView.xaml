@@ -2,7 +2,6 @@
 			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 			  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			  xmlns:controls1="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
 			  xmlns:ext="clr-namespace:HopeNope.Extensions" BackgroundColor="AliceBlue"
 			  xmlns:controls="clr-namespace:HopeNope.Controls"
 			  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
@@ -44,7 +43,7 @@
                     <Button Text="Next" Clicked="NavigateToSecondTab" Margin="0,25,0,0" Grid.Column="1" />
                 </Grid>
 
-                <controls:AdBanner AdId="{Binding BannerAdId}" BackgroundColor="Accent" Size="FullBanner" VerticalOptions="End" />
+            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
             </controls:CustomStackLayout>
         </ContentPage>
         <ContentPage x:Name="Page2" AutomationId="Page2">
@@ -76,7 +75,7 @@
                     <Button Text="Next" Clicked="NavigateToThirdTab" Margin="0,25,0,0" Grid.Column="1" />
                 </Grid>
 
-                <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
+            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
             </controls:CustomStackLayout>
         </ContentPage>
 
@@ -105,7 +104,7 @@
 							VerticalOptions="Center"></Button>
                 </Grid>
 
-                <controls1:MTAdView AdsId="{Binding BannerAdId}" VerticalOptions="End" />
-            </controls:CustomStackLayout>
+            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+        </controls:CustomStackLayout>
         </ContentPage>
 </CarouselPage>

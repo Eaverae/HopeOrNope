@@ -1,7 +1,6 @@
 ﻿using HopeNope.Services;
 using HopeNope.ViewModels;
 using HopeNope.Views;
-using MarcTron.Plugin;
 using System;
 using Xamarin.Forms;
 
@@ -13,7 +12,6 @@ namespace HopeNope.Handlers
 	public static class AdHandler
 	{
 		private static IInterstitialAdService adService;
-		private static bool interstitialAdLoaded = false;
 
 		public static void LoadInterstitialAd(string adId)
 		{
@@ -23,7 +21,8 @@ namespace HopeNope.Handlers
 			if (adService == null)
 				adService = DependencyService.Get<IInterstitialAdService>();
 
-			adService.LoadAd(adId);
+			if (!adService.InterstitialAdLoaded)
+				adService.LoadAd(adId);
 		}
 
 		/// <summary>
@@ -62,45 +61,37 @@ namespace HopeNope.Handlers
 			if (adId.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(adId));
 
-			if (CrossMTAdmob.IsSupported)
+			/*CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
+			CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
+
+			CrossMTAdmob.Current.OnInterstitialClosed += (s, e) =>
 			{
-				/*CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
-				CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
+				// Execute the given action
+				if (continueWithAction != null)
+					continueWithAction.Invoke();
+			};*/
 
-				CrossMTAdmob.Current.OnInterstitialClosed += (s, e) =>
+			try
+			{
+				// CrossMTAdmob.Current.LoadInterstitial(adId);
+
+				FullscreenAdPopup adview = new FullscreenAdPopup()
 				{
-					// Execute the given action
-					if (continueWithAction != null)
-						continueWithAction.Invoke();
-				};*/
+					BindingContext = new FullscreenAdPopupViewModel(adId)
+				};
 
-				try
-				{
-					// CrossMTAdmob.Current.LoadInterstitial(adId);
+				await GuidApp.Current.MainPage.Navigation.PushModalAsync(adview);
 
-					FullscreenAdPopup adview = new FullscreenAdPopup()
-					{
-						BindingContext = new FullscreenAdPopupViewModel(adId)
-					};
-
-					await GuidApp.Current.MainPage.Navigation.PushModalAsync(adview);
-
-					// Execute the given action
-					if (continueWithAction != null)
-						continueWithAction.Invoke();
-				}
-				catch
-				{
-					// Execute the given action
-					if (continueWithAction != null)
-						continueWithAction.Invoke();
-				}
+				// Execute the given action
+				if (continueWithAction != null)
+					continueWithAction.Invoke();
 			}
-		}
-
-		private static void Current_OnInterstitialLoaded(object sender, EventArgs e)
-		{
-			CrossMTAdmob.Current.ShowInterstitial();
+			catch
+			{
+				// Execute the given action
+				if (continueWithAction != null)
+					continueWithAction.Invoke();
+			}
 		}
 	}
 }

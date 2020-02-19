@@ -1,5 +1,4 @@
 ﻿using HopeNope.Services;
-using MarcTron.Plugin;
 using System.Diagnostics;
 using Xamarin.Forms;
 
@@ -13,10 +12,6 @@ namespace HopeNope
 	{
 		private IStatusBarService statusBarService;
 
-		/*public static string addmobAppId = "ca-app-pub-3950359454148049~9381262238";
-		public static string MainBannerAdId = "ca-app-pub-3950359454148049/6551084769";
-		public static string MainTransitionAdId = "ca-app-pub-3950359454148049/3683332556";*/
-
 		/// <summary>
 		/// Gets a value indicating whether [ads enabled].
 		/// </summary>
@@ -27,7 +22,7 @@ namespace HopeNope
 		{
 			get
 			{
-				return !Debugger.IsAttached && CrossMTAdmob.IsSupported;
+				return !Debugger.IsAttached;
 			}
 		}
 

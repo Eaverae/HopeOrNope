@@ -15,31 +15,24 @@ namespace HopeNope.iOS.Services
 {
 	public class InterstitialAdService : IInterstitialAdService
 	{
+		public bool InterstitialAdLoaded { get { return interstitial != null && interstitial.IsReady; } }
+
 		Interstitial interstitial;
-
-		public InterstitialAdService()
-		{
-			// LoadAd();
-			// interstitial.ScreenDismissed += (s, e) => LoadAd();
-		}
-
-		public bool InterstitialAdLoaded { get; private set; }
 
 		public void LoadAd(string adId)
 		{
-			// TODO: change this id to your admob id    
-			interstitial = new Interstitial(adId);
+			// Renew when needed
+			if (interstitial == null || interstitial.AdUnitId != adId)
+				interstitial = new Interstitial(adId);
 
 			Request request = Request.GetDefaultRequest();
 
 			interstitial.LoadRequest(request);
-
-			InterstitialAdLoaded = interstitial.IsReady;
 		}
 
 		public void ShowAd()
 		{
-			if (interstitial.IsReady)
+			if (InterstitialAdLoaded)
 			{
 				var viewController = GetVisibleViewController();
 				interstitial.Present(viewController);

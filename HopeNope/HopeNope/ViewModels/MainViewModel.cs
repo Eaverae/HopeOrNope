@@ -10,14 +10,6 @@ namespace HopeNope.ViewModels
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
 	public class MainViewModel : BaseViewModel
 	{
-		public string MainTransitionAdId
-		{
-			get
-			{
-				return "ca-app-pub-3950359454148049/3683332556";
-			}
-		}
-
 		/// <summary>
 		/// The back command
 		/// </summary>

@@ -22,6 +22,7 @@ namespace HopeNope.Droid
 			Rg.Plugins.Popup.Popup.Init(this, bundle);
 
 			CurrentActivity = this;
+
 			MobileAds.Initialize(ApplicationContext, "ca-app-pub-3950359454148049~9381262238");
 			Xamarin.Essentials.Platform.Init(this, bundle);
 

@@ -8,7 +8,7 @@ namespace HopeNope.Droid.Services
 {
 	public class InterstitialAdService : IInterstitialAdService
 	{
-		public bool InterstitialAdLoaded { get; private set; }
+		public bool InterstitialAdLoaded { get { return interstitialAd != null && interstitialAd.IsLoaded; } }
 
 		InterstitialAd interstitialAd;
 
@@ -19,11 +19,18 @@ namespace HopeNope.Droid.Services
 
 		public void LoadAd(string adId)
 		{
-			interstitialAd.AdUnitId = adId;
+			if (interstitialAd.AdUnitId.IsNullOrWhiteSpace())
+				interstitialAd.AdUnitId = adId;
+			else if (interstitialAd.AdUnitId != adId)
+			{
+				// Renew the interstitial ad
+				interstitialAd.Dispose();
+				interstitialAd = new InterstitialAd(Android.App.Application.Context);
+				interstitialAd.AdUnitId = adId;
+			}
 
-			var requestbuilder = new AdRequest.Builder();
+			AdRequest.Builder requestbuilder = new AdRequest.Builder();
 			interstitialAd.LoadAd(requestbuilder.Build());
-			InterstitialAdLoaded = interstitialAd.IsLoaded;
 		}
 
 		public void ShowAd()
