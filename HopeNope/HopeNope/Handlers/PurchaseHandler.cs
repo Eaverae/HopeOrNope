@@ -3,6 +3,8 @@ using Plugin.InAppBilling;
 using Plugin.InAppBilling.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -52,7 +54,7 @@ namespace HopeNope.Handlers
 						if (makepurchase)
 						{
 							// Make additional billing calls
-							InAppBillingPurchase result = await billing.PurchaseAsync(ProductId, ItemType.InAppPurchase, "test", null);
+							InAppBillingPurchase result = await billing.PurchaseAsync(ProductId, ItemType.InAppPurchase, payload: "test");
 
 							if (result != null && result.State == PurchaseState.Purchased)
 								await AlertHandler.DisplayAlertAsync("Purchased!", "Purchased!", "Ok");
@@ -77,5 +79,51 @@ namespace HopeNope.Handlers
 
 			return returnValue;
 		}
+
+		public async Task<bool> WasItemPurchased(string productId)
+		{
+			var billing = CrossInAppBilling.Current;
+			try
+			{
+				var connected = await billing.ConnectAsync(ItemType.InAppPurchase);
+
+				if (!connected)
+				{
+					//Couldn't connect
+					return false;
+				}
+
+				//check purchases
+				var purchases = await billing.GetPurchasesAsync(ItemType.InAppPurchase);
+
+				//check for null just incase
+				if (purchases?.Any(p => p.ProductId == ProductId) ?? false)
+				{
+					//Purchase restored
+					return true;
+				}
+				else
+				{
+					//no purchases found
+					return false;
+				}
+			}
+			catch (InAppBillingPurchaseException purchaseEx)
+			{
+				//Billing Exception handle this based on the type
+				Debug.WriteLine("Error: " + purchaseEx);
+			}
+			catch (Exception ex)
+			{
+				//Something has gone wrong
+			}
+			finally
+			{
+				await billing.DisconnectAsync();
+			}
+
+			return false;
+		}
+
 	}
 }

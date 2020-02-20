@@ -60,21 +60,9 @@ namespace HopeNope.Handlers
 		{
 			if (adId.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(adId));
-
-			/*CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
-			CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
-
-			CrossMTAdmob.Current.OnInterstitialClosed += (s, e) =>
-			{
-				// Execute the given action
-				if (continueWithAction != null)
-					continueWithAction.Invoke();
-			};*/
-
+			
 			try
 			{
-				// CrossMTAdmob.Current.LoadInterstitial(adId);
-
 				FullscreenAdPopup adview = new FullscreenAdPopup()
 				{
 					BindingContext = new FullscreenAdPopupViewModel(adId)
