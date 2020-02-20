@@ -2,19 +2,15 @@
 using Plugin.InAppBilling;
 using Plugin.InAppBilling.Abstractions;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace HopeNope.Handlers
 {
-	public class PurchaseHandler
+	public class PurchaseHandler : IPurchaseHandler
 	{
-		public IAlertHandler AlertHandler;
-
 		public string ProductId
 		{
 			get
@@ -48,8 +44,8 @@ namespace HopeNope.Handlers
 						var product = await billing.GetProductInfoAsync(ItemType.InAppPurchase, ProductId);
 						bool makepurchase = product != null;
 
-						if (!makepurchase)
-							makepurchase = await AlertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
+						// if (!makepurchase)
+							// makepurchase = await AlertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
 
 						if (makepurchase)
 						{
@@ -57,19 +53,22 @@ namespace HopeNope.Handlers
 							InAppBillingPurchase result = await billing.PurchaseAsync(ProductId, ItemType.InAppPurchase, payload: "test");
 
 							if (result != null && result.State == PurchaseState.Purchased)
-								await AlertHandler.DisplayAlertAsync("Purchased!", "Purchased!", "Ok");
+								returnValue = true;
 							else
-								await AlertHandler.DisplayAlertAsync("Not purchased!", Enum.GetName(typeof(PurchaseState), result.State), "Ok");
+								returnValue = false;
+							/*await AlertHandler.DisplayAlertAsync("Purchased!", "Purchased!", "Ok");
+						else
+							await AlertHandler.DisplayAlertAsync("Not purchased!", Enum.GetName(typeof(PurchaseState), result.State), "Ok");*/
 						}
 					}
-					else
-						await AlertHandler.DisplayAlertAsync("Not connected!", "Not connected!", "Ok");
+					//else
+					//	await AlertHandler.DisplayAlertAsync("Not connected!", "Not connected!", "Ok");
 				}
 				catch (Exception ex)
 				{
 					string temp = ex.ToString();
 
-					await AlertHandler.DisplayAlertAsync("Exception occurred", temp, "Ok");
+					//await AlertHandler.DisplayAlertAsync("Exception occurred", temp, "Ok");
 				}
 				finally
 				{
