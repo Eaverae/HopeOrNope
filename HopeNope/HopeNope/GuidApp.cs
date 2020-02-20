@@ -63,6 +63,7 @@ namespace HopeNope
 				if (!fontFamily.IsNullOrWhiteSpace())
 					ContainerBuilder.RegisterType<ToastHandler>().As<IToastHandler>().WithParameter(new NamedParameter("fontFamily", fontFamily));
 
+				ContainerBuilder.RegisterType<PurchaseHandler>().As<IPurchaseHandler>();
 				//ContainerBuilder.RegisterType<ValidationHandler>().As<IValidationHandler>();
 
 				//ContainerBuilder.RegisterType<NavigationService>().As<INavigationService>();
