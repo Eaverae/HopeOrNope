@@ -80,7 +80,7 @@ namespace HopeNope.Handlers
 			return returnValue;
 		}
 
-		public async Task<bool> WasItemPurchased(string productId)
+		public async Task<bool> WasItemPurchased()
 		{
 			var billing = CrossInAppBilling.Current;
 			try
