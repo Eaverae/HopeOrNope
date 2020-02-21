@@ -9,8 +9,21 @@ using Xamarin.Forms;
 
 namespace HopeNope.Handlers
 {
+	/// <summary>
+	/// Purchase handler which handles all in-app-purchases
+	/// </summary>
+	/// <seealso cref="HopeNope.Interfaces.IPurchaseHandler" />
 	public class PurchaseHandler : IPurchaseHandler
 	{
+		private readonly ILogHandler logHandler;
+		private readonly IAlertHandler alertHandler;
+
+		/// <summary>
+		/// Gets the product identifier.
+		/// </summary>
+		/// <value>
+		/// The product identifier.
+		/// </value>
 		public string ProductId
 		{
 			get
@@ -26,6 +39,21 @@ namespace HopeNope.Handlers
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PurchaseHandler"/> class.
+		/// </summary>
+		/// <param name="logHandler">The log handler.</param>
+		/// <param name="alertHandler">The alert handler</param>
+		public PurchaseHandler(ILogHandler logHandler, IAlertHandler alertHandler)
+		{
+			this.logHandler = logHandler;
+			this.alertHandler = alertHandler;
+		}
+
+		/// <summary>
+		/// Makes the purchase.
+		/// </summary>
+		/// <returns>A boolean value</returns>
 		public async Task<bool> MakePurchase()
 		{
 			bool returnValue = false;
@@ -39,13 +67,13 @@ namespace HopeNope.Handlers
 					bool connected = await billing.ConnectAsync(ItemType.InAppPurchase);
 
 					// Verify the connection to the stores and the product id
-					if (!String.IsNullOrWhiteSpace(ProductId) && connected)
+					if (!ProductId.IsNullOrWhiteSpace() && connected)
 					{
 						var product = await billing.GetProductInfoAsync(ItemType.InAppPurchase, ProductId);
 						bool makepurchase = product != null;
 
-						// if (!makepurchase)
-						// makepurchase = await AlertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
+						if (!makepurchase)
+							makepurchase = await alertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
 
 						if (makepurchase)
 						{
@@ -56,19 +84,14 @@ namespace HopeNope.Handlers
 								returnValue = true;
 							else
 								returnValue = false;
-							/*await AlertHandler.DisplayAlertAsync("Purchased!", "Purchased!", "Ok");
-						else
-							await AlertHandler.DisplayAlertAsync("Not purchased!", Enum.GetName(typeof(PurchaseState), result.State), "Ok");*/
 						}
 					}
-					//else
-					//	await AlertHandler.DisplayAlertAsync("Not connected!", "Not connected!", "Ok");
+					else
+						await alertHandler.DisplayAlertAsync("Not connected!", "Not connected!", "Ok");
 				}
-				catch (Exception ex)
+				catch (Exception exception)
 				{
-					string temp = ex.ToString();
-
-					//await AlertHandler.DisplayAlertAsync("Exception occurred", temp, "Ok");
+					logHandler.LogException(exception);
 				}
 				finally
 				{
@@ -88,7 +111,7 @@ namespace HopeNope.Handlers
 
 				if (!connected)
 				{
-					//Couldn't connect
+					// Couldn't connect
 					return false;
 				}
 
@@ -112,9 +135,10 @@ namespace HopeNope.Handlers
 				//Billing Exception handle this based on the type
 				Debug.WriteLine("Error: " + purchaseEx);
 			}
-			catch (Exception ex)
+			catch (Exception exception)
 			{
-				//Something has gone wrong
+				// Something has gone wrong
+				logHandler.LogException(exception);
 			}
 			finally
 			{
