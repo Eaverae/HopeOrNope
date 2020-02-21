@@ -18,9 +18,9 @@ namespace HopeNope.Handlers
 				string returnValue = string.Empty;
 
 				if (Device.RuntimePlatform == Device.Android)
-					returnValue = "nl20200131adhereremoveads";
-				else if (Device.RuntimePlatform == Device.iOS)
-					returnValue = "1497520749";
+					returnValue = "hopenoperemoveads";
+				//else if (Device.RuntimePlatform == Device.iOS)
+				//returnValue = "1497520749";
 
 				return returnValue;
 			}
@@ -45,7 +45,7 @@ namespace HopeNope.Handlers
 						bool makepurchase = product != null;
 
 						// if (!makepurchase)
-							// makepurchase = await AlertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
+						// makepurchase = await AlertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
 
 						if (makepurchase)
 						{

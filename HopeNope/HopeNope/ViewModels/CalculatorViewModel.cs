@@ -18,6 +18,7 @@ namespace HopeNope.ViewModels
 
 		private string firstAge;
 		private string secondAge;
+		private bool hope;
 
 		/// <summary>
 		/// Gets a value indicating whether this instance has default age.
@@ -91,9 +92,36 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="CalculatorViewModel"/> is hope.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if hope; otherwise, <c>false</c>.
+		/// </value>
+		public bool Hope
+		{
+			get
+			{
+				return hope;
+			}
+			set
+			{
+				hope = value;
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
 		/// The calculate command
 		/// </summary>
 		public ICommand CalculateCommand => new Command(DetermineHopeOrNope, CanExecuteCommands);
+
+		/// <summary>
+		/// Gets the reset command.
+		/// </summary>
+		/// <value>
+		/// The reset command.
+		/// </value>
+		public ICommand ResetCommand => new Command(Reset, CanExecuteCommands);
 
 		/// <summary>
 		/// Determines the hope or nope.
@@ -116,23 +144,24 @@ namespace HopeNope.ViewModels
 
 				double minimum = Math.Ceiling((calcA / 2.0) + 7.0);
 
-				string result = string.Empty;
-
 				if (calcA >= threshold && calcB >= threshold)
 				{
 					if (minimum <= calcB)
-						result = "Yes you can! There is Hope for you two!";
+						Hope = true;
 					else
-						result = "Nope! This could be frowned upon.";
+						Hope = false;
 				}
 				else
-					result = $"Oh hell no! {threshold} should be the minimum age!";
-
-				await AlertHandler.DisplayAlertAsync("Your results", result, "OK");
-
-				if (await AlertHandler.DisplayAlertAsync("Reset?", "Want to try again?", "OK", "Cancel"))
-					SecondAge = string.Empty;
+					await ToastHandler.ShowErrorMessageAsync($"Oh hell no! {threshold} should be the minimum age!");
 			}
+		}
+
+		/// <summary>
+		/// Resets this instance.
+		/// </summary>
+		private void Reset()
+		{
+			SecondAge = string.Empty;
 		}
 	}
 }

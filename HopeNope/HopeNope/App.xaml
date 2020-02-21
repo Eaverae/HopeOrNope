@@ -4,6 +4,7 @@
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                mc:Ignorable="d"
                xmlns:local="clr-namespace:HopeNope"
+               xmlns:converters="clr-namespace:HopeNope.Converters"
                x:Class="HopeNope.App">
     <Application.Resources>
         <!--Colors-->
@@ -12,6 +13,9 @@
         <Color x:Key="SuccessColor">#50BE64</Color>
         <Color x:Key="WarningColor">#F9C24D</Color>
         <Color x:Key="ErrorColor">#FF5252</Color>
+        
+        <!--Converters-->
+        <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter"></converters:ReverseBooleanConverter>
 
         <!--Fonts-->
         <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid">

@@ -189,4 +189,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\Logo_White.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hope.png" />
+  </ItemGroup>
 </Project>
