@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using HopeNope.Interfaces;
-using HopeNope.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -39,6 +38,23 @@ namespace HopeNope.ViewModels
 			await NavigationService.NavigateAsync<AboutViewModel>();
 		});
 
+		/// <summary>
+		/// Gets the settings command.
+		/// </summary>
+		/// <value>
+		/// The settings command.
+		/// </value>
+		public ICommand SettingsCommand => new Command(async () =>
+		{
+			await NavigationService.NavigateAsync<SettingsViewModel>();
+		});
+
+		/// <summary>
+		/// Gets the remove ads command.
+		/// </summary>
+		/// <value>
+		/// The remove ads command.
+		/// </value>
 		public ICommand RemoveAdsCommand => new Command(async () =>
 		{
 			if (await PurchaseHandler.WasItemPurchased())
@@ -50,7 +66,9 @@ namespace HopeNope.ViewModels
 			}
 		});
 
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MainViewModel"/> class.
+		/// </summary>
 		public MainViewModel()
 		{
 			using (ILifetimeScope scope = GuidApp.Container.BeginLifetimeScope())

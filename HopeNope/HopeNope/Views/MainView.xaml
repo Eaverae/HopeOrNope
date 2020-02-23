@@ -6,14 +6,14 @@
              xmlns:ext="clr-namespace:HopeNope.Extensions"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
-             x:Class="HopeNope.MainPage">
+             x:Class="HopeNope.MainView">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
         <Image Source="Logo_White.png" HeightRequest="250" />
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="Start" Command="{Binding StartCommand}" />
-            <Button x:Name="SettingsButton" Text="Settings" IsEnabled="False" />
+            <Button x:Name="SettingsButton" Text="Settings" Command="{Binding SettingsCommand}" />
             <Button x:Name="AboutButton" Text="About" Command="{Binding AboutCommand}" />
             <Button x:Name="RemoveAdsButton" Text="Remove ads" Command="{Binding RemoveAdsCommand}"  />
         </StackLayout>

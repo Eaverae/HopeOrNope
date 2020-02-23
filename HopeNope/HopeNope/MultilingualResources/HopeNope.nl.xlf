@@ -30,6 +30,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Loading..</source>
           <target state="translated" state-qualifier="tm-suggestion">Laden...</target>
         </trans-unit>
+        <trans-unit id="Settings" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Instellingen</target>
+        </trans-unit>
       </group>
     </body>
   </file>

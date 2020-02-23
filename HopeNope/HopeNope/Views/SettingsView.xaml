@@ -1,0 +1,19 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:ext="clr-namespace:HopeNope.Extensions"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="HopeNope.Views.SettingsView">
+
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
+        <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
+        <Label Text="{ext:Translate Settings}" HorizontalOptions="Center" />
+        <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
+        <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
+
+        <controls:AdBanner AdId="{Binding BannerAdId}" BackgroundColor="Accent" Size="Standardbanner" VerticalOptions="End" />
+    </controls:CustomStackLayout>
+</ContentPage>

@@ -63,9 +63,10 @@ namespace HopeNope
 			ViewFactory.DeregisterAll();
 
 			// Generic application views
-			ViewFactory.RegisterView<MainPage, MainViewModel>();
+			ViewFactory.RegisterView<MainView, MainViewModel>();
 			ViewFactory.RegisterView<AboutView, AboutViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
+			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
 		}
 	}
 }

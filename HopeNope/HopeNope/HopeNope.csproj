@@ -40,7 +40,10 @@
     <Compile Update="Views\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\FullscreenAdPopup.xaml.cs">
+    <Compile Update="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Popup\FullscreenAdPopup.xaml.cs">
       <DependentUpon>FullscreenAdPopup.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -55,19 +58,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FullscreenAdPopup.xaml">
+    <EmbeddedResource Update="Views\Popup\FullscreenAdPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ToastPopup.xaml">
+    <EmbeddedResource Update="Views\Popup\ToastPopup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\WizardPage1.xaml">
+    <EmbeddedResource Update="Views\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\WizardPage2.xaml">
+    <EmbeddedResource Update="Views\Wizard\WizardPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\WizardPage3.xaml">
+    <EmbeddedResource Update="Views\Wizard\WizardPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Wizard\WizardPage3.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -29,4 +29,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="Loading" xml:space="preserve">
     <value>Laden...</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
 </root>
