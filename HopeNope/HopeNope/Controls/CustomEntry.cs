@@ -2,6 +2,10 @@
 
 namespace HopeNope.Controls
 {
+	/// <summary>
+	/// Customentry
+	/// </summary>
+	/// <seealso cref="Xamarin.Forms.Entry" />
 	public class CustomEntry : Entry
 	{
 		/// <summary>

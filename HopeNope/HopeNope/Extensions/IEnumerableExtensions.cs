@@ -54,15 +54,12 @@ namespace HopeNope
 		/// <returns>A single string joined from the enumeration.</returns>
 		public static string Join<T>(this IEnumerable<T> enumeration, Func<T, string> toString, string separator)
 		{
-			// Check to see that enumeration is not null
 			if (enumeration == null)
 				throw new ArgumentNullException(nameof(enumeration));
 
-			// Check to see that toString is not null
 			if (toString == null)
 				throw new ArgumentNullException(nameof(toString));
 
-			// Check to see that separator is not null
 			if (separator == null)
 				throw new ArgumentNullException(nameof(separator));
 

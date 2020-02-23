@@ -10,7 +10,7 @@ using System.Timers;
 namespace HopeNope.Handlers
 {
 	/// <summary>
-	/// 
+	/// Toasthandler
 	/// </summary>
 	/// <seealso cref="HopeNope.Interfaces.IToastHandler" />
 	public class ToastHandler : IToastHandler

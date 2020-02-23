@@ -1,7 +1,6 @@
 ﻿using HopeNope.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace HopeNope.Classes
@@ -13,7 +12,6 @@ namespace HopeNope.Classes
 	{
 		/// <summary>
 		/// Returns the ViewModel-View Dictionary with the ViewModel-type as key
-		/// <para>Please note that this is explicitly set to a private static readonly variable.</para>
 		/// </summary>
 		private static readonly IDictionary<Type, Type> viewModelViewDictionary = new Dictionary<Type, Type>();
 

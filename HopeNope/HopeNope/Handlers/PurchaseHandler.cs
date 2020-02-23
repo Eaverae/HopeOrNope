@@ -102,6 +102,10 @@ namespace HopeNope.Handlers
 			return returnValue;
 		}
 
+		/// <summary>
+		/// Wases the item purchased.
+		/// </summary>
+		/// <returns></returns>
 		public async Task<bool> WasItemPurchased()
 		{
 			var billing = CrossInAppBilling.Current;
