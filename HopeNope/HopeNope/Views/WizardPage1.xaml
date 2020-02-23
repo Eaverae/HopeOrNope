@@ -21,7 +21,7 @@
                                   HorizontalTextAlignment="Center"
                                   WidthRequest="125"
                                   UnderlineColor="White" />
-            <StackLayout Orientation="Horizontal" IsVisible="{Binding HasDefaultAge}">
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding HasDefaultAge, Converter={StaticResource ReverseBooleanConverter}}">
                 <Image>
                     <Image.Source>
                         <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf05a;" Color="White" />

@@ -35,7 +35,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				return Settings.HasDefaultAge;
+				return CurrentAge != 0;
 			}
 		}
 
@@ -143,6 +143,32 @@ namespace HopeNope.ViewModels
 		/// The select second tab command.
 		/// </value>
 		public ICommand SelectSecondTabCommand => new Command(SelectSecondTab, CanExecuteCommands);
+
+		/// <summary>
+		/// Initializes this instance.
+		/// <para>Sets IsInitialized to true</para>
+		/// </summary>
+		public override void Init()
+		{
+			if (HasDefaultAge)
+				FirstAge = CurrentAge.ToString();
+
+			base.Init();
+		}
+
+		/// <summary>
+		/// Appearing method
+		/// <para>This method will be called when the page appears</para>
+		/// </summary>
+		/// <param name="sender">Sender of the event</param>
+		/// <param name="e">Event arguments</param>
+		public override void OnAppearing(object sender, EventArgs e)
+		{
+			base.OnAppearing(sender, e);
+
+			if (HasDefaultAge)
+				Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+		}
 
 		/// <summary>
 		/// Determines the hope or nope.
