@@ -24,6 +24,7 @@ namespace HopeNope.ViewModels
 		private string firstAge;
 		private string secondAge;
 		private bool hope;
+		private bool isWizardInitialized;
 
 		/// <summary>
 		/// Gets a value indicating whether this instance has default age.
@@ -165,9 +166,13 @@ namespace HopeNope.ViewModels
 		public override void OnAppearing(object sender, EventArgs e)
 		{
 			base.OnAppearing(sender, e);
-
-			if (HasDefaultAge)
+			
+			// This code may only execute when the wizard first appears.
+			if (HasDefaultAge && !isWizardInitialized)
+			{
 				Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+				isWizardInitialized = true;
+			}
 		}
 
 		/// <summary>

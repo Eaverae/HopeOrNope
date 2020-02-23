@@ -7,29 +7,28 @@
     <body>
       <group id="HOPENOPE/PROPERTIES/RESOURCES.RESX" datatype="resx">
         <trans-unit id="About" translate="yes" xml:space="preserve">
-          <source>HOPE or NOPE! is an application which uses an algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead. If it is iffy, the app judges you.
+          <source>HOPE or NOPE! is an application which uses the world-famous Relatio algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead.
 
-This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require monetization.</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">HOOP of NOPE! is een toepassing die een algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app je groen licht. Als het dubieus is, oordeelt de app over jou.
+This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require custom functionality like monetization.</source>
+          <target state="translated">HOPE or NOPE! is een applicatie die het wereldberoemde Relatio-algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app u groen licht.
 
-Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die inkomsten genereren.</target>
+Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die aangepaste functionaliteit vereisen, zoals het genereren van inkomsten.</target>
         </trans-unit>
         <trans-unit id="Copyright" translate="yes" xml:space="preserve">
           <source>© copyright Guido Schippers</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">© copyright {0} Guido Schippers</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">© copyright Guido Schippers</target>
         </trans-unit>
         <trans-unit id="EnterDateAge" translate="yes" xml:space="preserve">
           <source>Enter your date's age</source>
-          <target state="new">Enter your date's age</target>
+          <target state="translated">Voer de leeftijd van je date in</target>
         </trans-unit>
         <trans-unit id="EnterYourAge" translate="yes" xml:space="preserve">
           <source>Enter your age</source>
-          <target state="new">Enter your age</target>
+          <target state="translated">Vul je leeftijd in</target>
         </trans-unit>
         <trans-unit id="Loading" translate="yes" xml:space="preserve">
           <source>Loading..</source>
-          <target state="new">Loading..</target>
+          <target state="translated" state-qualifier="tm-suggestion">Laden...</target>
         </trans-unit>
       </group>
     </body>

@@ -13,11 +13,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>HOOP of NOPE! is een toepassing die een algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app je groen licht. Als het dubieus is, oordeelt de app over jou.
+    <value>HOPE or NOPE! is een applicatie die het wereldberoemde Relatio-algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app u groen licht.
 
-Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die inkomsten genereren.</value>
+Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die aangepaste functionaliteit vereisen, zoals het genereren van inkomsten.</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© copyright {0} Guido Schippers</value>
+    <value>© copyright Guido Schippers</value>
+  </data>
+  <data name="EnterDateAge" xml:space="preserve">
+    <value>Voer de leeftijd van je date in</value>
+  </data>
+  <data name="EnterYourAge" xml:space="preserve">
+    <value>Vul je leeftijd in</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Laden...</value>
   </data>
 </root>
