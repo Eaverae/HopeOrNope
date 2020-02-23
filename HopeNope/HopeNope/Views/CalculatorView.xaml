@@ -8,10 +8,10 @@
               mc:Ignorable="d"
               x:Class="HopeNope.Views.CalculatorView"
               NavigationPage.HasNavigationBar="False">
-    <ContentPage x:Name="Page1" AutomationId="Page1"  BackgroundColor="AliceBlue"
+    <ContentPage x:Name="Page1" AutomationId="Page1"
                  NavigationPage.HasBackButton="False"
                  NavigationPage.HasNavigationBar="False">
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
+        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
 
             <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
@@ -48,7 +48,9 @@
             <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
         </controls:CustomStackLayout>
     </ContentPage>
-    <ContentPage x:Name="Page2" AutomationId="Page2">
+    <ContentPage x:Name="Page2" AutomationId="Page2"
+                 NavigationPage.HasBackButton="False"
+                 NavigationPage.HasNavigationBar="False">
         <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
             <controls:CustomStackLayout.Padding>
                 <OnPlatform x:TypeArguments="d:Thickness">
@@ -82,7 +84,9 @@
         </controls:CustomStackLayout>
     </ContentPage>
 
-    <ContentPage x:Name="ResultPage" AutomationId="ResultPage">
+    <ContentPage x:Name="ResultPage" AutomationId="ResultPage"
+                 NavigationPage.HasBackButton="False"
+                 NavigationPage.HasNavigationBar="False">
         <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
             <controls:CustomStackLayout.Padding>
                 <OnPlatform x:TypeArguments="d:Thickness">
@@ -92,23 +96,25 @@
             </controls:CustomStackLayout.Padding>
             <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
 
-            <Label Text="The verdict" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
-            <!--Result images-->
-            <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
-            <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
-            
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
+                <Label Text="The verdict" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+                <!--Result images-->
+                <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
+                <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
+            </StackLayout>
+
             <!--Bottom menu-->
-            <Grid VerticalOptions="End">
+            <Grid ColumnSpacing="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button HeightRequest="40" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="0"
-                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf2f9;" FontSize="18" TextColor="White" BackgroundColor="Transparent"
-                            VerticalOptions="Center" Command="{Binding ResetCommand}"></Button>
+                <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="0" Command="{Binding ResetCommand}"
+                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf2f9;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
+                            VerticalOptions="Center"></Button>
 
-                <Button HeightRequest="40" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding BackCommand}"
-                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="18" TextColor="White" BackgroundColor="Transparent"
+                <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding BackCommand}"
+                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
                             VerticalOptions="Center"></Button>
             </Grid>
 
