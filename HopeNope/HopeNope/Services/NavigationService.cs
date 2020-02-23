@@ -94,6 +94,32 @@ namespace HopeNope.Services
 		}
 
 		/// <summary>
+		/// Sets the selected item on the given Multipage object.
+		/// </summary>
+		/// <typeparam name="TPage">The type of the page.</typeparam>
+		/// <param name="automationId">The automation Id of the page</param>
+		public static void MultipageSetSelectedItem<TPage>(string automationId = null)
+			where TPage : ContentPage
+		{
+			// Get a reference to the MultiPage
+			MultiPage<ContentPage> carouselPage = CurrentPage<MultiPage<ContentPage>>();
+
+			if (carouselPage != null)
+			{
+				// Find the childpage by type
+				TPage resultPage = null;
+
+				if (automationId.IsNullOrWhiteSpace())
+					resultPage = (TPage)carouselPage.Children.Single(page => page.GetType().Equals(typeof(TPage)));
+				else
+					resultPage = (TPage)carouselPage.Children.Single(page => page.GetType().Equals(typeof(TPage)) && page.AutomationId.Equals(automationId));
+
+				// Set the resultpage as the selected item
+				carouselPage.SelectedItem = resultPage;
+			}
+		}
+
+		/// <summary>
 		/// Pushes the page to the stack
 		/// </summary>
 		/// <param name="page">Page to be pushed to the stack</param>

@@ -13,6 +13,11 @@ namespace HopeNope.Handlers
 	{
 		private static IInterstitialAdService adService;
 
+		/// <summary>
+		/// Loads the interstitial ad.
+		/// </summary>
+		/// <param name="adId">The ad identifier.</param>
+		/// <exception cref="System.ArgumentNullException">adId</exception>
 		public static void LoadInterstitialAd(string adId)
 		{
 			if (adId.IsNullOrWhiteSpace())

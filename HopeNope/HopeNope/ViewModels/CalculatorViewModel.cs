@@ -1,4 +1,5 @@
 ﻿using HopeNope.Classes;
+using HopeNope.Handlers;
 using HopeNope.Views;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,12 @@ namespace HopeNope.ViewModels
 		private const string currentAgeKey = "currentAge";
 		private const int threshold = 16;
 		private const int legalThreshold = 18;
-		private const int maxAds = 3;
+		private int maxAds = 3;
 
 		private string firstAge;
 		private string secondAge;
 		private bool hope;
-		
+
 		/// <summary>
 		/// Gets a value indicating whether this instance has default age.
 		/// </summary>
@@ -175,8 +176,23 @@ namespace HopeNope.ViewModels
 					await ToastHandler.ShowErrorMessageAsync($"Oh hell no! {threshold} should be the minimum age!");
 			}
 
-			// View the result
-			SetSelectedItem<WizardPage3>();
+			if (maxAds > 0)
+			{
+				AdHandler.ShowFullScreenAd(BannerAdId, () =>
+				{
+					NavigateToResult();
+					maxAds--;
+				});
+			}
+			else
+				NavigateToResult();
+
+			// Local function for navigation
+			void NavigateToResult()
+			{
+				// View the result
+				Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+			}
 		}
 
 		/// <summary>
@@ -184,7 +200,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void SelectFirstTab()
 		{
-			SetSelectedItem<WizardPage1>();
+			Services.NavigationService.MultipageSetSelectedItem<WizardPage1>();
 		}
 
 		/// <summary>
@@ -192,7 +208,22 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void SelectSecondTab()
 		{
-			SetSelectedItem<WizardPage2>();
+			if (maxAds > 0)
+			{
+				AdHandler.ShowFullScreenAd(BannerAdId, () =>
+				{
+					NavigateToSecondTab();
+					maxAds--;
+				});
+			}
+			else
+				NavigateToSecondTab();
+
+			// Local function for navigation
+			void NavigateToSecondTab()
+			{
+				Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+			}
 		}
 
 		/// <summary>
@@ -203,26 +234,6 @@ namespace HopeNope.ViewModels
 			SecondAge = string.Empty;
 
 			SelectSecondTab();
-		}
-
-		/// <summary>
-		/// Sets the selected item.
-		/// </summary>
-		/// <typeparam name="TPage">The type of the page.</typeparam>
-		private static void SetSelectedItem<TPage>()
-			where TPage : ContentPage
-		{
-			// Get a reference to the carouselpage
-			CarouselPage carouselPage = Services.NavigationService.CurrentPage<CarouselPage>();
-
-			if (carouselPage != null)
-			{
-				// Find the childpage
-				var resultPage = carouselPage.Children.Single(page => page.GetType().Equals(typeof(TPage)));
-
-				// Set the resultpage as the selected item
-				carouselPage.SelectedItem = resultPage;
-			}
 		}
 	}
 }
