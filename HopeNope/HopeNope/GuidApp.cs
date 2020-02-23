@@ -2,9 +2,12 @@
 using HopeNope.Extensions;
 using HopeNope.Handlers;
 using HopeNope.Interfaces;
+using HopeNope.Services;
 using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HopeNope
 {
 	/// <summary>
@@ -41,6 +44,7 @@ namespace HopeNope
 			ContainerBuilder = new ContainerBuilder();
 
 			RegisterDependencies();
+
 			Container = ContainerBuilder.Build();
 		}
 
@@ -64,9 +68,8 @@ namespace HopeNope
 					ContainerBuilder.RegisterType<ToastHandler>().As<IToastHandler>().WithParameter(new NamedParameter("fontFamily", fontFamily));
 
 				ContainerBuilder.RegisterType<PurchaseHandler>().As<IPurchaseHandler>();
-				//ContainerBuilder.RegisterType<ValidationHandler>().As<IValidationHandler>();
 
-				//ContainerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+				ContainerBuilder.RegisterType<NavigationService>().As<INavigationService>();
 			}
 		}
 	}

@@ -1,4 +1,7 @@
-﻿using HopeNope.Services;
+﻿using HopeNope.Classes;
+using HopeNope.Services;
+using HopeNope.ViewModels;
+using HopeNope.Views;
 using System.Diagnostics;
 using Xamarin.Forms;
 
@@ -47,7 +50,22 @@ namespace HopeNope
 
 			statusBarService.HideStatusBar();
 
-			MainPage = new NavigationPage(new MainPage());
+			RegisterViews();
+
+			MainPage = new NavigationPage(ViewFactory.CreateView<MainViewModel>());
+		}
+
+		/// <summary>
+		/// Registers the views.
+		/// </summary>
+		private void RegisterViews()
+		{
+			ViewFactory.DeregisterAll();
+
+			// Generic application views
+			ViewFactory.RegisterView<MainPage, MainViewModel>();
+			ViewFactory.RegisterView<AboutView, AboutViewModel>();
+			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 		}
 	}
 }

@@ -10,8 +10,6 @@ namespace HopeNope
 		public MainPage()
 		{
 			InitializeComponent();
-
-			BindingContext = new MainViewModel();
 		}
 	}
 }

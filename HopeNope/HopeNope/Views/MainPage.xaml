@@ -1,11 +1,10 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:ext="clr-namespace:HopeNope.Extensions"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:ext="clr-namespace:HopeNope.Extensions"
+             mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
              x:Class="HopeNope.MainPage">
 

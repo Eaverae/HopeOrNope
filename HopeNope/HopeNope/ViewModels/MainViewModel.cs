@@ -25,7 +25,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		public ICommand StartCommand => new Command(async () =>
 		{
-			await Application.Current.MainPage.Navigation.PushAsync(new CalculatorView());
+			await NavigationService.NavigateAsync<CalculatorViewModel>();
 		});
 
 		/// <summary>
@@ -36,7 +36,7 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand AboutCommand => new Command(async () =>
 		{
-			await Application.Current.MainPage.Navigation.PushAsync(new AboutView());
+			await NavigationService.NavigateAsync<AboutViewModel>();
 		});
 
 		public ICommand RemoveAdsCommand => new Command(async () =>

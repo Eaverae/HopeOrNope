@@ -1,17 +1,19 @@
-﻿using HopeNope.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace HopeNope.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+	/// <summary>
+	/// Aboutview
+	/// </summary>
+	/// <seealso cref="Xamarin.Forms.ContentPage" />
 	public partial class AboutView : ContentPage
 	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AboutView"/> class.
+		/// </summary>
 		public AboutView()
 		{
 			InitializeComponent();
-
-			BindingContext = new AboutViewModel();
 		}
 	}
 }

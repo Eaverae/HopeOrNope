@@ -1,11 +1,9 @@
 ﻿using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
-using Xamarin.Forms.Xaml;
 
 namespace HopeNope.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	/// <summary>
 	/// The toastpopup
 	/// </summary>

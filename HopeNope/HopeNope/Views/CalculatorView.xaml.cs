@@ -1,31 +1,22 @@
-﻿using HopeNope.Classes;
-using HopeNope.Handlers;
-using HopeNope.Services;
-using HopeNope.ViewModels;
+﻿using HopeNope.Handlers;
 using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace HopeNope.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+	/// <summary>
+	/// CalculatorView
+	/// </summary>
+	/// <seealso cref="Xamarin.Forms.CarouselPage" />
 	public partial class CalculatorView : CarouselPage
 	{
-		private int maxAds = 3;
-
-		private CalculatorViewModel viewModel = new CalculatorViewModel();
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CalculatorView"/> class.
+		/// </summary>
 		public CalculatorView()
 		{
 			InitializeComponent();
-
-			if (!viewModel.IsInitialized)
-				viewModel.Init();
-
-			BindingContext = viewModel;
 		}
 
 		/// <summary>
@@ -45,7 +36,7 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToFirstTab(object sender, EventArgs e)
 		{
-			SelectedItem = Page1;
+			// SelectedItem = Page1;
 		}
 
 		/// <summary>
@@ -56,12 +47,12 @@ namespace HopeNope.Views
 		private void NavigateToSecondTab(object sender, EventArgs e)
 		{
 			// Preload the next ad
-			AdHandler.LoadInterstitialAd(viewModel.MainTransitionAdId);
+			/*AdHandler.LoadInterstitialAd(viewModel.MainTransitionAdId);
 
 			AdHandler.ShowFullScreenAd(viewModel.BannerAdId, () =>
 			{
 				SelectedItem = Page2;
-			});
+			});*/
 		}
 
 		/// <summary>
@@ -71,10 +62,10 @@ namespace HopeNope.Views
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void NavigateToThirdTab(object sender, EventArgs e)
 		{
-			AdHandler.ShowInterstitialAd(() =>
+			/*AdHandler.ShowInterstitialAd(() =>
 			{
 				SelectedItem = ResultPage;
-			});
+			});*/
 
 		}
 	}

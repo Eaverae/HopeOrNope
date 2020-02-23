@@ -2,9 +2,9 @@
 
 namespace HopeNope.Views
 {
-	public partial class FullscreenAdPopup : ContentPage
+	public partial class WizardPage1 : ContentPage
 	{
-		public FullscreenAdPopup()
+		public WizardPage1()
 		{
 			InitializeComponent();
 		}

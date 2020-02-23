@@ -1,124 +1,17 @@
 ﻿<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:ext="clr-namespace:HopeNope.Extensions" BackgroundColor="AliceBlue"
-              xmlns:controls="clr-namespace:HopeNope.Controls"
-              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:views="clr-namespace:HopeNope.Views"
               mc:Ignorable="d"
+              x:Name="RelatioWizard"
               x:Class="HopeNope.Views.CalculatorView"
               NavigationPage.HasNavigationBar="False">
-    <ContentPage x:Name="Page1" AutomationId="Page1"
-                 NavigationPage.HasBackButton="False"
-                 NavigationPage.HasNavigationBar="False">
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+    
+    <views:WizardPage1 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
 
-            <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-                <Label Text="{ext:Translate EnterYourAge}" />
-                <controls:CustomEntry Text="{Binding FirstAge}" 
-                                  Keyboard="Numeric"
-                                  BackgroundColor="Transparent" 
-                                  TextColor="White"
-                                  FontSize="Large"
-                                  HorizontalOptions="Center"
-                                  HorizontalTextAlignment="Center"
-                                  WidthRequest="125"
-                                  UnderlineColor="White" />
-                <StackLayout Orientation="Horizontal" IsVisible="{Binding HasDefaultAge}">
-                    <Image>
-                        <Image.Source>
-                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf05a;" Color="White" />
-                        </Image.Source>
-                    </Image>
-                    <Label Text="Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!" />
-                </StackLayout>
-            </StackLayout>
-
-            <!--Bottom menu-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button Text="Back" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Column="0" />
-                <Button Text="Next" Clicked="NavigateToSecondTab" Margin="0,25,0,0" Grid.Column="1" />
-            </Grid>
-
-            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
-        </controls:CustomStackLayout>
-    </ContentPage>
-    <ContentPage x:Name="Page2" AutomationId="Page2"
-                 NavigationPage.HasBackButton="False"
-                 NavigationPage.HasNavigationBar="False">
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
-            <controls:CustomStackLayout.Padding>
-                <OnPlatform x:TypeArguments="d:Thickness">
-                    <On Platform="iOS">0,25,0,25</On>
-                    <On Platform="Android">0,5,0,0</On>
-                </OnPlatform>
-            </controls:CustomStackLayout.Padding>
-            <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-                <Label Text="Your date's age:" />
-                <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
-                                  BackgroundColor="Transparent" 
-                                  TextColor="White"
-                                  FontSize="Large"
-                                  HorizontalOptions="Center"
-                                  HorizontalTextAlignment="Center"
-                                  WidthRequest="125"
-                                  UnderlineColor="White" />
-            </StackLayout>
-            <!--Bottom menu-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button Text="Back" Clicked="NavigateToFirstTab" Margin="0,25,0,0" Grid.Column="0" />
-                <Button Text="Next" Command="{Binding CalculateCommand}" Margin="0,25,0,0" Grid.Column="1" />
-            </Grid>
-
-            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
-        </controls:CustomStackLayout>
-    </ContentPage>
-
-    <ContentPage x:Name="ResultPage" AutomationId="ResultPage"
-                 NavigationPage.HasBackButton="False"
-                 NavigationPage.HasNavigationBar="False">
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
-            <controls:CustomStackLayout.Padding>
-                <OnPlatform x:TypeArguments="d:Thickness">
-                    <On Platform="iOS">0,25,0,25</On>
-                    <On Platform="Android">0,5,0,0</On>
-                </OnPlatform>
-            </controls:CustomStackLayout.Padding>
-            <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
-
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-                <Label Text="The verdict" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
-                <!--Result images-->
-                <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
-                <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
-            </StackLayout>
-
-            <!--Bottom menu-->
-            <Grid ColumnSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="0" Command="{Binding ResetCommand}"
-                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf2f9;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
-                            VerticalOptions="Center"></Button>
-
-                <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding BackCommand}"
-                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
-                            VerticalOptions="Center"></Button>
-            </Grid>
-
-            <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
-        </controls:CustomStackLayout>
-    </ContentPage>
+    <views:WizardPage2 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
+    
+    <!-- Result page-->
+    <views:WizardPage3 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
 </CarouselPage>

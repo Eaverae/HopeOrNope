@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using HopeNope.Interfaces;
+using HopeNope.Services;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -98,6 +99,14 @@ namespace HopeNope.ViewModels
 		public ILogHandler LogHandler { get; private set; }
 
 		/// <summary>
+		/// Gets the navigation service.
+		/// </summary>
+		/// <value>
+		/// The navigation service.
+		/// </value>
+		public INavigationService NavigationService { get; private set; }
+
+		/// <summary>
 		/// Gets a value indicating whether this instance is initialized.
 		/// </summary>
 		/// <value>
@@ -168,7 +177,7 @@ namespace HopeNope.ViewModels
 		{
 			using (ILifetimeScope scope = GuidApp.Container.BeginLifetimeScope())
 			{
-				// NavigationService = scope.Resolve<INavigationService>();
+				NavigationService = scope.Resolve<INavigationService>();
 
 				LogHandler = scope.Resolve<ILogHandler>();
 				AlertHandler = scope.Resolve<IAlertHandler>();
@@ -215,7 +224,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		public virtual async void BackAsync()
 		{
-			await GuidApp.Current.MainPage.Navigation.PopToRootAsync();
+			await NavigationService.PopToRootAsync();
 		}
 
 	}

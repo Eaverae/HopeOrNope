@@ -1,0 +1,46 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             mc:Ignorable="d"
+             xmlns:ext="clr-namespace:HopeNope.Extensions" 
+             x:Class="HopeNope.Views.WizardPage1"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
+            <Label Text="{ext:Translate EnterYourAge}" />
+            <controls:CustomEntry Text="{Binding FirstAge}" 
+                                  Keyboard="Numeric"
+                                  BackgroundColor="Transparent" 
+                                  TextColor="White"
+                                  FontSize="Large"
+                                  HorizontalOptions="Center"
+                                  HorizontalTextAlignment="Center"
+                                  WidthRequest="125"
+                                  UnderlineColor="White" />
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding HasDefaultAge}">
+                <Image>
+                    <Image.Source>
+                        <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf05a;" Color="White" />
+                    </Image.Source>
+                </Image>
+                <Label Text="Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!" />
+            </StackLayout>
+        </StackLayout>
+
+        <!--Bottom menu-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Back" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Column="0" />
+            <Button Text="Next" Command="{Binding SelectSecondTabCommand}" Margin="0,25,0,0" Grid.Column="1" />
+        </Grid>
+
+        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+    </controls:CustomStackLayout>
+</ContentPage>

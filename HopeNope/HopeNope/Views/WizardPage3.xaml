@@ -1,0 +1,43 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:HopeNope.Controls"
+             mc:Ignorable="d"
+             x:Class="HopeNope.Views.WizardPage3" 
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <controls:CustomStackLayout.Padding>
+            <OnPlatform x:TypeArguments="d:Thickness">
+                <On Platform="iOS">0,25,0,25</On>
+                <On Platform="Android">0,5,0,0</On>
+            </OnPlatform>
+        </controls:CustomStackLayout.Padding>
+        <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
+
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
+            <Label Text="The verdict" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+            <!--Result images-->
+            <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
+            <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
+        </StackLayout>
+
+        <!--Bottom menu-->
+        <Grid ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="0" Command="{Binding ResetCommand}"
+                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf2f9;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
+                            VerticalOptions="Center"></Button>
+
+            <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding BackCommand}"
+                            FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
+                            VerticalOptions="Center"></Button>
+        </Grid>
+
+        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+    </controls:CustomStackLayout>
+</ContentPage>
