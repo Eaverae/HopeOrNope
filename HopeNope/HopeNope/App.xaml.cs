@@ -1,4 +1,6 @@
-﻿using HopeNope.Classes;
+﻿using Autofac;
+using HopeNope.Classes;
+using HopeNope.Interfaces;
 using HopeNope.Services;
 using HopeNope.ViewModels;
 using HopeNope.Views;
@@ -43,6 +45,14 @@ namespace HopeNope
 		protected override void OnStart()
 		{
 			base.OnStart();
+
+			// Set the language
+			using (ILifetimeScope scope = Container.BeginLifetimeScope())
+			{
+				// Set the app language
+				ILanguageHandler languageHandler = scope.Resolve<ILanguageHandler>();
+				languageHandler.SetLanguage(languageHandler.GetUserLanguage().CultureName);
+			}
 
 			// Hide statusbar before navigating
 			if (statusBarService == null)

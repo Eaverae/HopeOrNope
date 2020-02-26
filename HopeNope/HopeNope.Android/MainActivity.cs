@@ -4,6 +4,7 @@ using Android.Gms.Ads;
 using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
+using Plugin.Multilingual;
 
 namespace HopeNope.Droid
 {
@@ -27,6 +28,7 @@ namespace HopeNope.Droid
 			MobileAds.Initialize(ApplicationContext, "ca-app-pub-3950359454148049~9381262238");
 			Xamarin.Essentials.Platform.Init(this, bundle);
 			CrossCurrentActivity.Current.Init(this, bundle);
+			
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			LoadApplication(new App());
