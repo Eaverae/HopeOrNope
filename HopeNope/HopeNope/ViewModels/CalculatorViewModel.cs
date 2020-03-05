@@ -209,7 +209,7 @@ namespace HopeNope.ViewModels
 
 			if (maxAds > 0)
 			{
-				AdHandler.ShowFullScreenAd(BannerAdId, () =>
+				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
 				{
 					NavigateToResult();
 					maxAds--;
@@ -241,7 +241,7 @@ namespace HopeNope.ViewModels
 		{
 			if (maxAds > 0)
 			{
-				AdHandler.ShowFullScreenAd(BannerAdId, () =>
+				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
 				{
 					NavigateToSecondTab();
 					maxAds--;

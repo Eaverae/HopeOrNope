@@ -33,46 +33,60 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
-		/// Gets the main transition ad identifier.
+		/// Gets the second banner ad identifier.
 		/// </summary>
 		/// <value>
-		/// The main transition ad identifier.
+		/// The second banner ad identifier.
 		/// </value>
-		public string MainTransitionAdId
+		public string SecondBannerAdId
 		{
 			get
 			{
-				return "ca-app-pub-3950359454148049/3683332556";
+				return "ca-app-pub-3950359454148049/1593149392";
 			}
 		}
 
-		/// <summary>
-		/// Gets the main smart banner ad.
-		/// </summary>
-		/// <value>
-		/// The main smart banner ad.
-		/// </value>
-		public string MainSmartBannerAd
-		{
-			get
-			{
-				return "ca-app-pub-3950359454148049/8576925375";
-			}
-		}
+		///// <summary>
+		///// Gets the main transition ad identifier.
+		///// </summary>
+		///// <value>
+		///// The main transition ad identifier.
+		///// </value>
+		//public string MainTransitionAdId
+		//{
+		//	get
+		//	{
+		//		return "ca-app-pub-3950359454148049/3683332556";
+		//	}
+		//}
 
-		/// <summary>
-		/// Gets the main reward ad identifier.
-		/// </summary>
-		/// <value>
-		/// The main reward ad identifier.
-		/// </value>
-		public string MainRewardAdId
-		{
-			get
-			{
-				return "ca-app-pub-3950359454148049/7304206305";
-			}
-		}
+		///// <summary>
+		///// Gets the main smart banner ad.
+		///// </summary>
+		///// <value>
+		///// The main smart banner ad.
+		///// </value>
+		//public string MainSmartBannerAd
+		//{
+		//	get
+		//	{
+		//		return "ca-app-pub-3950359454148049/8576925375";
+		//	}
+		//}
+
+		///// <summary>
+		///// Gets the main reward ad identifier.
+		///// </summary>
+		///// <value>
+		///// The main reward ad identifier.
+		///// </value>
+		//public string MainRewardAdId
+		//{
+		//	get
+		//	{
+		//		return "ca-app-pub-3950359454148049/7304206305";
+		//	}
+		//}
 
 		/// <summary>
 		/// Gets the alert handler.

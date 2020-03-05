@@ -60,8 +60,9 @@ namespace HopeNope.Handlers
 		/// Shows the full screen ad.
 		/// </summary>
 		/// <param name="adId">The ad identifier.</param>
-		/// <param name="continueWithAction">The continue with action.</param>
-		public static async void ShowFullScreenAd(string adId, Action continueWithAction = null)
+		/// <param name="secondaryAdId">[Optional] The seondary ad identifier</param>
+		/// <param name="continueWithAction">[Optional] The continue with action.</param>
+		public static async void ShowFullScreenAd(string adId, string secondaryAdId = null, Action continueWithAction = null)
 		{
 			if (adId.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(adId));
@@ -70,7 +71,7 @@ namespace HopeNope.Handlers
 			{
 				FullscreenAdPopup adview = new FullscreenAdPopup()
 				{
-					BindingContext = new FullscreenAdPopupViewModel(adId)
+					BindingContext = new FullscreenAdPopupViewModel(adId, secondaryAdId)
 				};
 
 				await GuidApp.Current.MainPage.Navigation.PushModalAsync(adview);

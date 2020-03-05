@@ -7,7 +7,7 @@
              xmlns:controls="clr-namespace:HopeNope.Controls"
              x:Class="HopeNope.Views.FullscreenAdPopup">
     <ContentPage.Content>
-        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" Spacing="0" StartPointX="0" EndPointX="0">
             <controls:CustomStackLayout.Padding>
                 <OnPlatform x:TypeArguments="d:Thickness">
                     <On Platform="iOS">0,25,0,25</On>
@@ -24,7 +24,8 @@
                         Grid.Column="1" HorizontalOptions="End"
                         BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
             </Grid>
-            <controls:AdBanner AdId="{Binding AdId}" Size="WideSkyscraper" BackgroundColor="Accent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <controls:AdBanner AdId="{Binding AdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <controls:AdBanner AdId="{Binding AdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </controls:CustomStackLayout>
     </ContentPage.Content>
 </ContentPage>
