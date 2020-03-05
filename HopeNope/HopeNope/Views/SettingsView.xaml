@@ -13,6 +13,9 @@
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="{ext:Translate Settings}" HorizontalOptions="Center" />
+            
+            
+            
             <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
             <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
         </StackLayout>
