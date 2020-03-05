@@ -16,16 +16,10 @@
 
             <controls:CustomPicker ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
                                    ItemDisplayBinding="{Binding DisplayName}" 
-                                   AcceptButtonText="{ext:Translate Ok}" 
-                                   CancelButtonText="{ext:Translate Cancel}"
-                                   DoneButtonText="{ext:Translate Done}"
+                                   
                                    Title="{ext:Translate SelectLanguage}" 
-                                   TextColor="{StaticResource SubColor}"
-                                   TitleColor="{StaticResource SubColor}"
-                                   TitleTextColor="{StaticResource SubColor}"
                                    BackgroundColor="Transparent"
-                                   UnderlineColor="White"
-                                   Style="{StaticResource CustomPickerStyle}"/>
+                                   UnderlineColor="White" />
 
             <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
             <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />

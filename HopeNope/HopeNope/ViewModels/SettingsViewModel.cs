@@ -1,4 +1,5 @@
-﻿using HopeNope.Entities;
+﻿using Autofac;
+using HopeNope.Entities;
 using HopeNope.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace HopeNope.ViewModels
 			get;
 			private set;
 		}
-		
+
 		/// <summary>
 		/// Gets or sets the selected language.
 		/// </summary>
@@ -41,6 +42,17 @@ namespace HopeNope.ViewModels
 				SetLanguage(value);
 
 				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
+		/// </summary>
+		public SettingsViewModel()
+		{
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
+			{
+				languageHandler = scope.Resolve<ILanguageHandler>();
 			}
 		}
 
