@@ -89,23 +89,6 @@ namespace HopeNope.Controls
 		}
 
 		/// <summary>
-		/// The validatable object bindable property
-		/// </summary>
-		public static readonly BindableProperty EnableValidationUnderlineProperty = BindableProperty.CreateAttached(nameof(EnableValidationUnderline), typeof(bool), typeof(CustomPicker), true);
-
-		/// <summary>
-		/// Gets or sets a value indicating whether [enable validation underline].
-		/// </summary>
-		/// <value>
-		///   <c>true</c> if [enable validation underline]; otherwise, <c>false</c>.
-		/// </value>
-		public bool EnableValidationUnderline
-		{
-			get => (bool)GetValue(EnableValidationUnderlineProperty);
-			set => SetValue(EnableValidationUnderlineProperty, value);
-		}
-
-		/// <summary>
 		/// Bindable property for Padding
 		/// </summary>
 		public static readonly BindableProperty PaddingProperty = BindableProperty.Create(nameof(Padding), typeof(Thickness), typeof(CustomPicker), default(Thickness));
