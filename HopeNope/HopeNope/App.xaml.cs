@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using HopeNope.Classes;
+using HopeNope.Handlers;
 using HopeNope.Interfaces;
 using HopeNope.Services;
 using HopeNope.ViewModels;
@@ -63,6 +64,17 @@ namespace HopeNope
 			RegisterViews();
 
 			MainPage = new NavigationPage(ViewFactory.CreateView<MainViewModel>());
+		}
+
+		/// <summary>
+		/// Registers the dependencies.
+		/// </summary>
+		/// <param name="ignoreDefaults">if set to <c>true</c> [ignores default dependencies].</param>
+		protected override void RegisterDependencies(bool ignoreDefaults = false)
+		{
+			base.RegisterDependencies(ignoreDefaults);
+
+			ContainerBuilder.RegisterType<LanguageHandler>().As<ILanguageHandler>();
 		}
 
 		/// <summary>
