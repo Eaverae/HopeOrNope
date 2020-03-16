@@ -74,4 +74,19 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="Next" xml:space="preserve">
     <value>Volgende</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Selecteer taal</value>
+  </data>
+  <data name="DefaultDateOfBirth" xml:space="preserve">
+    <value>Standaardgeboortedatum</value>
+  </data>
+  <data name="AlertMessageItemAlreadyPurchased" xml:space="preserve">
+    <value>Artikel al gekocht</value>
+  </data>
+  <data name="AlertTitleItemAlreadyPurchased" xml:space="preserve">
+    <value>Artikel al gekocht</value>
+  </data>
+  <data name="ToastMessagePurchaseSuccess" xml:space="preserve">
+    <value>Artikel gekocht</value>
+  </data>
 </root>

@@ -92,23 +92,23 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="SelectLanguage" translate="yes" xml:space="preserve">
           <source>Select language</source>
-          <target state="new">Select language</target>
+          <target state="translated">Selecteer taal</target>
         </trans-unit>
         <trans-unit id="DefaultDateOfBirth" translate="yes" xml:space="preserve">
           <source>Default date of birth</source>
-          <target state="new">Default date of birth</target>
+          <target state="translated" state-qualifier="mt-suggestion">Standaardgeboortedatum</target>
         </trans-unit>
         <trans-unit id="AlertMessageItemAlreadyPurchased" translate="yes" xml:space="preserve">
           <source>Item already purchased</source>
-          <target state="new">Item already purchased</target>
+          <target state="translated">Artikel al gekocht</target>
         </trans-unit>
         <trans-unit id="AlertTitleItemAlreadyPurchased" translate="yes" xml:space="preserve">
           <source>Item already purchased</source>
-          <target state="new">Item already purchased</target>
+          <target state="translated">Artikel al gekocht</target>
         </trans-unit>
         <trans-unit id="ToastMessagePurchaseSuccess" translate="yes" xml:space="preserve">
           <source>Item purchased</source>
-          <target state="new">Item purchased</target>
+          <target state="translated">Artikel gekocht</target>
         </trans-unit>
       </group>
     </body>
