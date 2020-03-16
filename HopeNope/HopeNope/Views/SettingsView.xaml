@@ -26,7 +26,7 @@
                                    UnderlineColor="White" />
 
             <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
-            <Button Text="Back" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
+            <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
         </StackLayout>
 
         <controls:AdBanner AdId="{Binding BannerAdId}" Size="Standardbanner" VerticalOptions="End" />

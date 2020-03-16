@@ -33,8 +33,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Back" Command="{Binding SelectFirstTabCommand}" Margin="0,25,0,0" Grid.Column="0" />
-            <Button Text="Next" Command="{Binding CalculateCommand}" Margin="0,25,0,0" Grid.Column="1" />
+            <Button Text="{ext:Translate Back}" Command="{Binding SelectFirstTabCommand}" Margin="0,25,0,0" Grid.Column="0" />
+            <Button Text="{ext:Translate Next}" Command="{Binding CalculateCommand}" Margin="0,25,0,0" Grid.Column="1" />
         </Grid>
 
         <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />

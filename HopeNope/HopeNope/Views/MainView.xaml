@@ -12,10 +12,10 @@
         <Image Source="Logo_White.png" HeightRequest="250" />
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Button x:Name="StartButton" Text="Start" Command="{Binding StartCommand}" />
-            <Button x:Name="SettingsButton" Text="Settings" Command="{Binding SettingsCommand}" />
-            <Button x:Name="AboutButton" Text="About" Command="{Binding AboutCommand}" />
-            <Button x:Name="RemoveAdsButton" Text="Remove ads" Command="{Binding RemoveAdsCommand}"  />
+            <Button x:Name="StartButton" Text="{ext:Translate StartTitle}" Command="{Binding StartCommand}" />
+            <Button x:Name="SettingsButton" Text="{ext:Translate SettingsTitle}" Command="{Binding SettingsCommand}" />
+            <Button x:Name="AboutButton" Text="{ext:Translate AboutTitle}" Command="{Binding AboutCommand}" />
+            <Button x:Name="RemoveAdsButton" Text="{ext:Translate RemoveAdsTitle}" Command="{Binding RemoveAdsCommand}"  />
         </StackLayout>
 
         <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />
