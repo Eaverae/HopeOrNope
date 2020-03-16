@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -90,6 +91,14 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the reset application command.
+		/// </summary>
+		/// <value>
+		/// The reset application command.
+		/// </value>
+		public ICommand ResetAppCommand => new Command(ResetAppAsync);
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
 		/// </summary>
 		public SettingsViewModel()
@@ -145,10 +154,10 @@ namespace HopeNope.ViewModels
 		{
 			if (dateOfBirth == null)
 				throw new ArgumentNullException(nameof(dateOfBirth));
-			
+
 			Settings.DateOfBirth = dateOfBirth.Value;
 		}
-		
+
 		/// <summary>
 		/// Saves the language asynchronous.
 		/// </summary>
@@ -158,7 +167,7 @@ namespace HopeNope.ViewModels
 			bool result = false;
 
 			if (selectedLanguage != null)
-				result = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageSettingLanguageLogoutWarning, Resources.Ok, Resources.Cancel);
+				result = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageRebootWarning, Resources.Ok, Resources.Cancel);
 
 			if (result)
 			{
@@ -175,6 +184,26 @@ namespace HopeNope.ViewModels
 			}
 
 			return result;
+		}
+
+		/// <summary>
+		/// Resets the application asynchronous.
+		/// </summary>
+		private async void ResetAppAsync()
+		{
+			if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageRebootWarning, Resources.Ok, Resources.Cancel))
+			{
+				Preferences.Clear();
+
+				// Set the default language
+				languageHandler.SetLanguage(languageHandler.GetDefaultLanguage().CultureName);
+
+				await ToastHandler.ShowNotificationMessageAsync(Resources.ToastMessageResetComplete);
+
+				// Return to root
+				if (NavigationService.CanNavigate<MainViewModel>())
+					await NavigationService.NavigateAsync<MainViewModel>(noHistory: true);
+			}
 		}
 	}
 }

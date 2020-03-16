@@ -28,15 +28,11 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="Loading" translate="yes" xml:space="preserve">
           <source>Loading..</source>
-          <target state="translated" state-qualifier="tm-suggestion">Laden...</target>
+          <target state="translated">Laden..</target>
         </trans-unit>
         <trans-unit id="Settings" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated" state-qualifier="tm-suggestion">Instellingen</target>
-        </trans-unit>
-        <trans-unit id="AlertMessageSettingLanguageLogoutWarning" translate="yes" xml:space="preserve">
-          <source>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</source>
-          <target state="translated" state-qualifier="mt-suggestion">De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</target>
         </trans-unit>
         <trans-unit id="AlertTitleAreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
@@ -109,6 +105,18 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         <trans-unit id="ToastMessagePurchaseSuccess" translate="yes" xml:space="preserve">
           <source>Item purchased</source>
           <target state="translated">Artikel gekocht</target>
+        </trans-unit>
+        <trans-unit id="Reset" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="translated">Opnieuw instellen</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageResetComplete" translate="yes" xml:space="preserve">
+          <source>App succesfully reset</source>
+          <target state="translated">App succesvol opnieuw ingesteld</target>
+        </trans-unit>
+        <trans-unit id="AlertMessageRebootWarning" translate="yes" xml:space="preserve">
+          <source>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</source>
+          <target state="translated" state-qualifier="mt-suggestion">De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</target>
         </trans-unit>
       </group>
     </body>

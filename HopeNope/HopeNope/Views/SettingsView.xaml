@@ -39,6 +39,11 @@
                                        BackgroundColor="Transparent"
                                        UnderlineColor="White" />
             </StackLayout>
+            
+            <!--Reset the app-->
+            <Button Text="{ext:Translate Reset}" Command="{Binding ResetAppCommand}" HorizontalOptions="Center" VerticalOptions="End" />
+            
+            
             <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
         </StackLayout>
 

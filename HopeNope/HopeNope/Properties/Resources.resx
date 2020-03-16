@@ -128,7 +128,7 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageItemAlreadyPurchased" xml:space="preserve">
     <value>Item already purchased</value>
   </data>
-  <data name="AlertMessageSettingLanguageLogoutWarning" xml:space="preserve">
+  <data name="AlertMessageRebootWarning" xml:space="preserve">
     <value>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</value>
   </data>
   <data name="AlertTitleAreYouSure" xml:space="preserve">
@@ -170,6 +170,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="RemoveAdsTitle" xml:space="preserve">
     <value>Remove ads</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>
   </data>
@@ -187,6 +190,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="ToastMessagePurchaseSuccess" xml:space="preserve">
     <value>Item purchased</value>
+  </data>
+  <data name="ToastMessageResetComplete" xml:space="preserve">
+    <value>App succesfully reset</value>
   </data>
   <data name="Verdict" xml:space="preserve">
     <value>The verdict</value>

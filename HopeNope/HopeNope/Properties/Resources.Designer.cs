@@ -92,9 +92,9 @@ namespace HopeNope.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The app needs to be rebooted in order for the changes to take effect. Do you want to continue?.
         /// </summary>
-        internal static string AlertMessageSettingLanguageLogoutWarning {
+        internal static string AlertMessageRebootWarning {
             get {
-                return ResourceManager.GetString("AlertMessageSettingLanguageLogoutWarning", resourceCulture);
+                return ResourceManager.GetString("AlertMessageRebootWarning", resourceCulture);
             }
         }
         
@@ -216,6 +216,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select language.
         /// </summary>
         internal static string SelectLanguage {
@@ -266,6 +275,15 @@ namespace HopeNope.Properties {
         internal static string ToastMessagePurchaseSuccess {
             get {
                 return ResourceManager.GetString("ToastMessagePurchaseSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App succesfully reset.
+        /// </summary>
+        internal static string ToastMessageResetComplete {
+            get {
+                return ResourceManager.GetString("ToastMessageResetComplete", resourceCulture);
             }
         }
         
