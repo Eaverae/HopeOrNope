@@ -13,7 +13,10 @@
         <Color x:Key="SuccessColor">#50BE64</Color>
         <Color x:Key="WarningColor">#F9C24D</Color>
         <Color x:Key="ErrorColor">#FF5252</Color>
-        
+
+        <Color x:Key="DarkRed">#8B0000</Color>
+        <Color x:Key="OrangeRed">#FF4500</Color>
+
         <!--Converters-->
         <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter"></converters:ReverseBooleanConverter>
 
