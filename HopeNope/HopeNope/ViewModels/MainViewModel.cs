@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using HopeNope.Interfaces;
+using HopeNope.Properties;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -24,7 +25,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		public ICommand StartCommand => new Command(async () =>
 		{
-			await NavigationService.NavigateAsync<CalculatorViewModel>();
+			await NavigationService.NavigateAsync<CalculatorViewModel>(animated: false);
 		});
 
 		/// <summary>
@@ -35,7 +36,7 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand AboutCommand => new Command(async () =>
 		{
-			await NavigationService.NavigateAsync<AboutViewModel>();
+			await NavigationService.NavigateAsync<AboutViewModel>(animated: false);
 		});
 
 		/// <summary>
@@ -46,7 +47,7 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand SettingsCommand => new Command(async () =>
 		{
-			await NavigationService.NavigateAsync<SettingsViewModel>();
+			await NavigationService.NavigateAsync<SettingsViewModel>(animated: false);
 		});
 
 		/// <summary>
@@ -58,11 +59,11 @@ namespace HopeNope.ViewModels
 		public ICommand RemoveAdsCommand => new Command(async () =>
 		{
 			if (await PurchaseHandler.WasItemPurchased())
-				await AlertHandler.DisplayAlertAsync("Item already purchased", "Item already purchased", "Ok");
+				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleItemAlreadyPurchased, Resources.AlertMessageItemAlreadyPurchased, Resources.Ok);
 			else
 			{
 				if (await PurchaseHandler.MakePurchase())
-					await ToastHandler.ShowSuccessMessageAsync("Great success!");
+					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessagePurchaseSuccess);
 			}
 		});
 

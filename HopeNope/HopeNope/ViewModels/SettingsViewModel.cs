@@ -3,8 +3,11 @@ using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Interfaces;
 using HopeNope.Properties;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -17,6 +20,7 @@ namespace HopeNope.ViewModels
 	{
 		private readonly ILanguageHandler languageHandler;
 		private Language selectedLanguage;
+		private DateTime? dateOfBirth = null;
 
 		/// <summary>
 		/// Gets the languages.
@@ -49,6 +53,43 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the current age.
+		/// </summary>
+		/// <value>
+		/// The current age.
+		/// </value>
+		public string CurrentAge
+		{
+			get
+			{
+				return Settings.HasDefaultAge ? Settings.DefaultAge : string.Empty;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the date of birth.
+		/// </summary>
+		/// <value>
+		/// The date of birth.
+		/// </value>
+		public DateTime? DateOfBirth
+		{
+			get => dateOfBirth;
+			set
+			{
+				if (value != null)
+				{
+					dateOfBirth = value;
+					SetCurrentAge(dateOfBirth);
+
+					OnPropertyChanged(nameof(CurrentAge));
+				}
+
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
 		/// </summary>
 		public SettingsViewModel()
@@ -68,6 +109,15 @@ namespace HopeNope.ViewModels
 			base.Init();
 
 			Languages = languageHandler.GetLanguages();
+
+			// Manually set the SelectedLanguage
+			Language current = languageHandler.GetUserLanguage();
+
+			selectedLanguage = Languages.Single(item => item.CultureName == current.CultureName);
+			OnPropertyChanged(nameof(SelectedLanguage));
+
+			if (Settings.HasDefaultAge)
+				dateOfBirth = Settings.DateOfBirth;
 		}
 
 		/// <summary>
@@ -87,6 +137,18 @@ namespace HopeNope.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Sets the current age.
+		/// </summary>
+		/// <param name="dateOfBirth">The date of birth.</param>
+		private void SetCurrentAge(DateTime? dateOfBirth)
+		{
+			if (dateOfBirth == null)
+				throw new ArgumentNullException(nameof(dateOfBirth));
+			
+			Settings.DateOfBirth = dateOfBirth.Value;
+		}
+		
 		/// <summary>
 		/// Saves the language asynchronous.
 		/// </summary>

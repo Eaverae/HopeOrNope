@@ -16,7 +16,6 @@ namespace HopeNope.ViewModels
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
 	public class CalculatorViewModel : BaseViewModel
 	{
-		private const string currentAgeKey = "currentAge";
 		private const int threshold = 16;
 		private const int legalThreshold = 18;
 		private int maxAds = 3;
@@ -36,26 +35,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				return CurrentAge != 0;
-			}
-		}
-
-		/// <summary>
-		/// Gets the current age.
-		/// </summary>
-		/// <value>
-		/// The current age.
-		/// </value>
-		public int CurrentAge
-		{
-			get
-			{
-				return Preferences.Get(currentAgeKey, 0);
-			}
-			private set
-			{
-				Preferences.Set(currentAgeKey, value);
-				OnPropertyChanged();
+				return Settings.HasDefaultAge;
 			}
 		}
 
@@ -152,7 +132,7 @@ namespace HopeNope.ViewModels
 		public override void Init()
 		{
 			if (HasDefaultAge)
-				FirstAge = CurrentAge.ToString();
+				FirstAge = Settings.DefaultAge.ToString();
 
 			base.Init();
 		}
@@ -185,10 +165,6 @@ namespace HopeNope.ViewModels
 			if (!FirstAge.IsNullOrWhiteSpace() && !SecondAge.IsNullOrWhiteSpace())
 			{
 				double firstAge = Convert.ToDouble(FirstAge);
-
-				if (CurrentAge == 0)
-					CurrentAge = (int)Math.Ceiling(firstAge);
-
 				double secondAge = Convert.ToDouble(SecondAge);
 
 				double calcA = firstAge > secondAge ? firstAge : secondAge;

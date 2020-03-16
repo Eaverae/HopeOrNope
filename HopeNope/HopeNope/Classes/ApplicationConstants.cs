@@ -8,6 +8,11 @@
 		/// <summary>
 		/// The language selected message
 		/// </summary>
-		public const  string LanguageSelectedMessage = "LanguageSelectedMessage";
+		public const string LanguageSelectedMessage = "LanguageSelectedMessage";
+
+		/// <summary>
+		/// The current age setting key
+		/// </summary>
+		public const string CurrentAgeSettingKey = "currentAge";
 	}
 }

@@ -81,6 +81,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item already purchased.
+        /// </summary>
+        internal static string AlertMessageItemAlreadyPurchased {
+            get {
+                return ResourceManager.GetString("AlertMessageItemAlreadyPurchased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The app needs to be rebooted in order for the changes to take effect. Do you want to continue?.
         /// </summary>
         internal static string AlertMessageSettingLanguageLogoutWarning {
@@ -95,6 +104,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitleAreYouSure {
             get {
                 return ResourceManager.GetString("AlertTitleAreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item already purchased.
+        /// </summary>
+        internal static string AlertTitleItemAlreadyPurchased {
+            get {
+                return ResourceManager.GetString("AlertTitleItemAlreadyPurchased", resourceCulture);
             }
         }
         
@@ -122,6 +140,15 @@ namespace HopeNope.Properties {
         internal static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default date of birth.
+        /// </summary>
+        internal static string DefaultDateOfBirth {
+            get {
+                return ResourceManager.GetString("DefaultDateOfBirth", resourceCulture);
             }
         }
         
@@ -189,6 +216,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select language.
+        /// </summary>
+        internal static string SelectLanguage {
+            get {
+                return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
@@ -221,6 +257,15 @@ namespace HopeNope.Properties {
         internal static string ToastMessageLanguageSet {
             get {
                 return ResourceManager.GetString("ToastMessageLanguageSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item purchased.
+        /// </summary>
+        internal static string ToastMessagePurchaseSuccess {
+            get {
+                return ResourceManager.GetString("ToastMessagePurchaseSuccess", resourceCulture);
             }
         }
         

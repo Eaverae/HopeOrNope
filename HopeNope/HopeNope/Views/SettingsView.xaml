@@ -11,21 +11,34 @@
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
         <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
 
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Label Text="{ext:Translate Settings}" HorizontalOptions="Center" />
-
-            <controls:CustomPicker ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
-                                   ItemDisplayBinding="{Binding DisplayName}" 
-                                   AcceptButtonText="{ext:Translate Ok}" 
-                                   CancelButtonText="{ext:Translate Cancel}"
-                                   DoneButtonText="{ext:Translate Done}"
-                                   Title="{ext:Translate SelectLanguage}" 
-                                   TitleTextColor="Black"
-                                   TitleColor="Black"
-                                   BackgroundColor="Transparent"
-                                   UnderlineColor="White" />
-
-            <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
+        <StackLayout>
+            <!--Default age settings-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="{ext:Translate DefaultDateOfBirth}" />
+                <controls:CustomDatePicker Date="{Binding DateOfBirth}"
+                                           TextColor="White"
+                                           FontSize="Small"
+                                           BackgroundColor="Transparent"
+                                           UnderlineColor="White" />
+                <Label Text="{Binding CurrentAge}" />
+            </StackLayout>
+            
+            <!--Language settings-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="{ext:Translate SelectLanguage}" />
+                <controls:CustomPicker ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
+                                       ItemDisplayBinding="{Binding DisplayName}" 
+                                       AcceptButtonText="{ext:Translate Ok}" 
+                                       CancelButtonText="{ext:Translate Cancel}"
+                                       DoneButtonText="{ext:Translate Done}"
+                                       Title="{ext:Translate SelectLanguage}" 
+                                       TitleTextColor="Black"
+                                       TitleColor="Black"
+                                       TextColor="White"
+                                       FontSize="Small"
+                                       BackgroundColor="Transparent"
+                                       UnderlineColor="White" />
+            </StackLayout>
             <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
         </StackLayout>
 
