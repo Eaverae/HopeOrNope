@@ -32,4 +32,28 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="Settings" xml:space="preserve">
     <value>Instellingen</value>
   </data>
+  <data name="AlertMessageSettingLanguageLogoutWarning" xml:space="preserve">
+    <value>De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</value>
+  </data>
+  <data name="AlertTitleAreYouSure" xml:space="preserve">
+    <value>Weet u het zeker?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ToastMessageLanguageSet" xml:space="preserve">
+    <value>Taalset</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Gereed</value>
+  </data>
+  <data name="Verdict" xml:space="preserve">
+    <value>Het vonnis</value>
+  </data>
+  <data name="YourAgeShortcut" xml:space="preserve">
+    <value>Wist u dat u uw geboortedatum instellen op de instellingenpagina? Op die manier kan overslaan de eerste stap in deze wizard!</value>
+  </data>
 </root>

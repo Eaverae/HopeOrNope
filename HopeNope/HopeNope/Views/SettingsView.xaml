@@ -16,8 +16,12 @@
 
             <controls:CustomPicker ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
                                    ItemDisplayBinding="{Binding DisplayName}" 
-                                   
+                                   AcceptButtonText="{ext:Translate Ok}" 
+                                   CancelButtonText="{ext:Translate Cancel}"
+                                   DoneButtonText="{ext:Translate Done}"
                                    Title="{ext:Translate SelectLanguage}" 
+                                   TitleTextColor="Black"
+                                   TitleColor="Black"
                                    BackgroundColor="Transparent"
                                    UnderlineColor="White" />
 

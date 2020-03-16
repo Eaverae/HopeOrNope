@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
              mc:Ignorable="d"
+             xmlns:ext="clr-namespace:HopeNope.Extensions" 
              x:Class="HopeNope.Views.WizardPage3" 
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
@@ -17,7 +18,7 @@
         <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-            <Label Text="The verdict" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+            <Label Text="{ext:Translate Verdict}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
             <!--Result images-->
             <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
             <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />

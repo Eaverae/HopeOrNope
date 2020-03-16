@@ -1,8 +1,11 @@
 ﻿using Autofac;
+using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Interfaces;
+using HopeNope.Properties;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
 {
@@ -92,20 +95,22 @@ namespace HopeNope.ViewModels
 		{
 			bool result = false;
 
-			/*if (selectedLanguage != null)
-				result = await AlertHandler.DisplayAlertAsync(AppResources.AlertTitleAreYouSure, AppResources.AlertMessageSettingLanguageLogoutWarning, AppResources.Ok, AppResources.Cancel);
+			if (selectedLanguage != null)
+				result = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageSettingLanguageLogoutWarning, Resources.Ok, Resources.Cancel);
 
 			if (result)
 			{
 				languageHandler.SetLanguage(selectedLanguage.CultureName);
 
-				await ToastHandler.ShowNotificationMessageAsync(AppResources.ToastMessageLanguageSet);
+				await ToastHandler.ShowNotificationMessageAsync(Resources.ToastMessageLanguageSet);
 
 				// Send the message to the app that the language has been changed.
 				MessagingCenter.Send(this, ApplicationConstants.LanguageSelectedMessage);
 
-				await LogoutAsync();
-			}*/
+				// Return to root
+				if (NavigationService.CanNavigate<MainViewModel>())
+					await NavigationService.NavigateAsync<MainViewModel>(noHistory: true);
+			}
 
 			return result;
 		}

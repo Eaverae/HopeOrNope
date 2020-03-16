@@ -72,11 +72,47 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The app needs to be rebooted in order for the changes to take effect. Do you want to continue?.
+        /// </summary>
+        internal static string AlertMessageSettingLanguageLogoutWarning {
+            get {
+                return ResourceManager.GetString("AlertMessageSettingLanguageLogoutWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string AlertTitleAreYouSure {
+            get {
+                return ResourceManager.GetString("AlertTitleAreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to © copyright Guido Schippers.
         /// </summary>
         internal static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
             }
         }
         
@@ -108,11 +144,47 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language set.
+        /// </summary>
+        internal static string ToastMessageLanguageSet {
+            get {
+                return ResourceManager.GetString("ToastMessageLanguageSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The verdict.
+        /// </summary>
+        internal static string Verdict {
+            get {
+                return ResourceManager.GetString("Verdict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!.
+        /// </summary>
+        internal static string YourAgeShortcut {
+            get {
+                return ResourceManager.GetString("YourAgeShortcut", resourceCulture);
             }
         }
     }

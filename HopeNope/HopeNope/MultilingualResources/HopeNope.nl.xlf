@@ -34,6 +34,38 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Settings</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Instellingen</target>
         </trans-unit>
+        <trans-unit id="AlertMessageSettingLanguageLogoutWarning" translate="yes" xml:space="preserve">
+          <source>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleAreYouSure" translate="yes" xml:space="preserve">
+          <source>Are you sure?</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Weet u het zeker?</target>
+        </trans-unit>
+        <trans-unit id="Cancel" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Annuleren</target>
+        </trans-unit>
+        <trans-unit id="Ok" translate="yes" xml:space="preserve">
+          <source>Ok</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">OK</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageLanguageSet" translate="yes" xml:space="preserve">
+          <source>Language set</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Taalset</target>
+        </trans-unit>
+        <trans-unit id="Done" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Gereed</target>
+        </trans-unit>
+        <trans-unit id="Verdict" translate="yes" xml:space="preserve">
+          <source>The verdict</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Het vonnis</target>
+        </trans-unit>
+        <trans-unit id="YourAgeShortcut" translate="yes" xml:space="preserve">
+          <source>Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Wist u dat u uw geboortedatum instellen op de instellingenpagina? Op die manier kan overslaan de eerste stap in deze wizard!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

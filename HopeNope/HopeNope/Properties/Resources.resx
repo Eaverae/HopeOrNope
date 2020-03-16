@@ -122,8 +122,20 @@
 
 This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require custom functionality like monetization.</value>
   </data>
+  <data name="AlertMessageSettingLanguageLogoutWarning" xml:space="preserve">
+    <value>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</value>
+  </data>
+  <data name="AlertTitleAreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© copyright Guido Schippers</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
   </data>
   <data name="EnterDateAge" xml:space="preserve">
     <value>Enter your date's age</value>
@@ -134,7 +146,19 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Loading" xml:space="preserve">
     <value>Loading..</value>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="ToastMessageLanguageSet" xml:space="preserve">
+    <value>Language set</value>
+  </data>
+  <data name="Verdict" xml:space="preserve">
+    <value>The verdict</value>
+  </data>
+  <data name="YourAgeShortcut" xml:space="preserve">
+    <value>Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!</value>
   </data>
 </root>

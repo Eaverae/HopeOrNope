@@ -27,7 +27,7 @@
                         <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf05a;" Color="White" />
                     </Image.Source>
                 </Image>
-                <Label Text="Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!" />
+                <Label Text="{ext:Translate YourAgeShortcut}" />
             </StackLayout>
         </StackLayout>
 

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:HopeNope.Controls"
              mc:Ignorable="d"
+             xmlns:ext="clr-namespace:HopeNope.Extensions" 
              x:Class="HopeNope.Views.WizardPage2"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
@@ -16,7 +17,7 @@
         </controls:CustomStackLayout.Padding>
         <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
-            <Label Text="Your date's age:" />
+            <Label Text="{ext:Translate EnterDateAge}" />
             <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
                                   BackgroundColor="Transparent" 
                                   TextColor="White"
