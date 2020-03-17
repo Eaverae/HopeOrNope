@@ -28,12 +28,13 @@ namespace HopeNope.Handlers
 		{
 			get
 			{
-				string returnValue = string.Empty;
+				// ios shared secret: 0dff0c71e22841c39b17274249841999
+				string returnValue = "hopenoperemoveads";
 
-				if (Device.RuntimePlatform == Device.Android)
+				/*if (Device.RuntimePlatform == Device.Android)
 					returnValue = "hopenoperemoveads";
 				else if (Device.RuntimePlatform == Device.iOS)
-					returnValue = "1497520749";
+					returnValue = "1497520749";*/
 
 				return returnValue;
 			}
