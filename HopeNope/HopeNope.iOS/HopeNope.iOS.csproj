@@ -75,6 +75,7 @@
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
+    <Compile Include="Services\InAppBillingVerifyService.cs" />
     <Compile Include="Services\InterstitialAdService.cs" />
     <Compile Include="Services\StatusBarService.cs" />
     <None Include="Entitlements.plist" />

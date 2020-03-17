@@ -32,8 +32,8 @@ namespace HopeNope.Handlers
 
 				if (Device.RuntimePlatform == Device.Android)
 					returnValue = "hopenoperemoveads";
-				//else if (Device.RuntimePlatform == Device.iOS)
-				//returnValue = "1497520749";
+				else if (Device.RuntimePlatform == Device.iOS)
+					returnValue = "1497520749";
 
 				return returnValue;
 			}
