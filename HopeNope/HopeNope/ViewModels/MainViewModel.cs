@@ -48,14 +48,7 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand SettingsCommand => new Command(async () =>
 		{
-			try
-			{
-				await NavigationService.NavigateAsync<SettingsViewModel>(animated: false);
-			}
-			catch (Exception ex)
-			{
-				LogHandler.LogException(ex);
-			}
+			await NavigationService.NavigateAsync<SettingsViewModel>(animated: false);
 		});
 
 		/// <summary>
