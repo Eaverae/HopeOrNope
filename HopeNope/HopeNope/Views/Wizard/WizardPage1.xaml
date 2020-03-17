@@ -9,6 +9,12 @@
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0">
+        <controls:CustomStackLayout.Padding>
+            <OnPlatform x:TypeArguments="d:Thickness">
+                <On Platform="iOS">0,25,0,25</On>
+                <On Platform="Android">0,5,0,0</On>
+            </OnPlatform>
+        </controls:CustomStackLayout.Padding>
         <Image Source="Logo_White.png" Margin="0" HeightRequest="200" />
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300">
             <Label Text="{ext:Translate EnterYourAge}" />
