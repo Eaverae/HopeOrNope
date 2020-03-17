@@ -7,6 +7,9 @@ using HopeNope.ViewModels;
 using HopeNope.Views;
 using System.Diagnostics;
 using Xamarin.Forms;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace HopeNope
 {
@@ -45,6 +48,9 @@ namespace HopeNope
 		/// </summary>
 		protected override void OnStart()
 		{
+			// Start appcenter
+			AppCenter.Start(ApplicationConstants.AppCenterKey, typeof(Analytics), typeof(Crashes));
+
 			base.OnStart();
 
 			// Set the language
