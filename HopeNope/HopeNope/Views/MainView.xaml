@@ -19,8 +19,8 @@
         </StackLayout>
 
         <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />
-        
-        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+
+        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
     </controls:CustomStackLayout>
 
 </ContentPage>

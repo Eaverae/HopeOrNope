@@ -14,6 +14,6 @@
         <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
         <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
 
-        <controls:AdBanner AdId="{Binding BannerAdId}" BackgroundColor="Accent" Size="Standardbanner" VerticalOptions="End" />
+        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" BackgroundColor="Accent" Size="Standardbanner" VerticalOptions="End" />
     </controls:CustomStackLayout>
 </ContentPage>

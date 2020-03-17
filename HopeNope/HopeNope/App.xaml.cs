@@ -5,11 +5,10 @@ using HopeNope.Interfaces;
 using HopeNope.Services;
 using HopeNope.ViewModels;
 using HopeNope.Views;
-using System.Diagnostics;
-using Xamarin.Forms;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Xamarin.Forms;
 
 namespace HopeNope
 {
@@ -20,20 +19,6 @@ namespace HopeNope
 	public partial class App : GuidApp
 	{
 		private IStatusBarService statusBarService;
-
-		/// <summary>
-		/// Gets a value indicating whether [ads enabled].
-		/// </summary>
-		/// <value>
-		///   <c>true</c> if [ads enabled]; otherwise, <c>false</c>.
-		/// </value>
-		public static bool AdsEnabled
-		{
-			get
-			{
-				return !Debugger.IsAttached;
-			}
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="App"/> class.

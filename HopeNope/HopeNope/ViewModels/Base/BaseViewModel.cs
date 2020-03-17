@@ -21,6 +21,20 @@ namespace HopeNope.ViewModels
 		private bool isLoading;
 
 		/// <summary>
+		/// Gets a value indicating whether [ads enabled].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [ads enabled]; otherwise, <c>false</c>.
+		/// </value>
+		public bool AdsEnabled
+		{
+			get
+			{
+				return Settings.AdsEnabled;
+			}
+		}
+
+		/// <summary>
 		/// Gets the banner ad identifier.
 		/// </summary>
 		/// <value>

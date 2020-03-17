@@ -39,6 +39,6 @@
                             VerticalOptions="Center"></Button>
         </Grid>
 
-        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
     </controls:CustomStackLayout>
 </ContentPage>

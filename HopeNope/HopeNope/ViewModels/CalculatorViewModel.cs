@@ -183,7 +183,7 @@ namespace HopeNope.ViewModels
 					await ToastHandler.ShowErrorMessageAsync($"Oh hell no! {threshold} should be the minimum age!");
 			}
 
-			if (maxAds > 0)
+			if (AdsEnabled && maxAds > 0)
 			{
 				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
 				{

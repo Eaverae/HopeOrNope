@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using HopeNope.Classes;
 using HopeNope.Interfaces;
 using HopeNope.Properties;
 using System;
@@ -64,7 +65,14 @@ namespace HopeNope.ViewModels
 			else
 			{
 				if (await PurchaseHandler.MakePurchase())
+				{
+					// Success
+					Settings.AdsEnabled = false;
+
 					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessagePurchaseSuccess);
+
+					OnPropertyChanged(nameof(AdsEnabled));
+				}
 			}
 		});
 

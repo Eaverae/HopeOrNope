@@ -47,7 +47,7 @@
             <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
         </StackLayout>
 
-        <controls:AdBanner AdId="{Binding BannerAdId}" Size="Standardbanner" VerticalOptions="End" />
+        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Size="Standardbanner" VerticalOptions="End" />
         
     </controls:CustomStackLayout>
 </ContentPage>

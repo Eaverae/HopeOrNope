@@ -25,7 +25,7 @@
                         BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
             </Grid>
             <controls:AdBanner AdId="{Binding AdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-            <controls:AdBanner AdId="{Binding AdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <controls:AdBanner AdId="{Binding SecondaryAdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </controls:CustomStackLayout>
     </ContentPage.Content>
 </ContentPage>

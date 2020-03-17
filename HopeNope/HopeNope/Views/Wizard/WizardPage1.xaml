@@ -47,6 +47,6 @@
             <Button Text="{ext:Translate Next}" Command="{Binding SelectSecondTabCommand}" Margin="0,25,0,0" Grid.Column="1" />
         </Grid>
 
-        <controls:AdBanner AdId="{Binding BannerAdId}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
+        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" VerticalOptions="End" />
     </controls:CustomStackLayout>
 </ContentPage>
