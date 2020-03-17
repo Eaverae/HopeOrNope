@@ -69,7 +69,8 @@ namespace HopeNope.iOS.Renderers
 		{
 			base.OnElementPropertyChanged(sender, e);
 
-			underlineBorder.BorderColor = customPicker.UnderlineColor.ToCGColor();
+			if (underlineBorder != null && customPicker != null)
+				underlineBorder.BorderColor = customPicker.UnderlineColor.ToCGColor();
 		}
 
 		/// <summary>

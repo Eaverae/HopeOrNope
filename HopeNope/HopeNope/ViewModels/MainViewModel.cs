@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using HopeNope.Interfaces;
 using HopeNope.Properties;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -47,7 +48,14 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand SettingsCommand => new Command(async () =>
 		{
-			await NavigationService.NavigateAsync<SettingsViewModel>(animated: false);
+			try
+			{
+				await NavigationService.NavigateAsync<SettingsViewModel>(animated: false);
+			}
+			catch (Exception ex)
+			{
+				LogHandler.LogException(ex);
+			}
 		});
 
 		/// <summary>
