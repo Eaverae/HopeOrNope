@@ -92,7 +92,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="DefaultDateOfBirth" translate="yes" xml:space="preserve">
           <source>Default date of birth</source>
-          <target state="translated" state-qualifier="mt-suggestion">Standaardgeboortedatum</target>
+          <target state="translated">Standaard geboortedatum</target>
         </trans-unit>
         <trans-unit id="AlertMessageItemAlreadyPurchased" translate="yes" xml:space="preserve">
           <source>Item already purchased</source>

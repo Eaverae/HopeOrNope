@@ -15,7 +15,7 @@
             <Button x:Name="StartButton" Text="{ext:Translate StartTitle}" Command="{Binding StartCommand}" />
             <Button x:Name="SettingsButton" Text="{ext:Translate SettingsTitle}" Command="{Binding SettingsCommand}" />
             <Button x:Name="AboutButton" Text="{ext:Translate AboutTitle}" Command="{Binding AboutCommand}" />
-            <Button x:Name="RemoveAdsButton" Text="{ext:Translate RemoveAdsTitle}" Command="{Binding RemoveAdsCommand}"  />
+            <Button x:Name="RemoveAdsButton" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Text="{ext:Translate RemoveAdsTitle}" Command="{Binding RemoveAdsCommand}"  />
         </StackLayout>
 
         <Label HorizontalOptions="Center" FontSize="Micro" Text="{ext:Translate Copyright}" />

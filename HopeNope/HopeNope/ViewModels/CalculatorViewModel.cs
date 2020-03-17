@@ -215,7 +215,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void SelectSecondTab()
 		{
-			if (maxAds > 0)
+			if (AdsEnabled && maxAds > 0)
 			{
 				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
 				{

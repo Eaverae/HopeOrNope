@@ -75,7 +75,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>Selecteer taal</value>
   </data>
   <data name="DefaultDateOfBirth" xml:space="preserve">
-    <value>Standaardgeboortedatum</value>
+    <value>Standaard geboortedatum</value>
   </data>
   <data name="AlertMessageItemAlreadyPurchased" xml:space="preserve">
     <value>Artikel al gekocht</value>
