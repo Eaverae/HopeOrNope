@@ -160,6 +160,9 @@
 		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
 			<Visible>false</Visible>
 		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon20x20.png">
+			<Visible>false</Visible>
+		</ImageAsset>
 		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
