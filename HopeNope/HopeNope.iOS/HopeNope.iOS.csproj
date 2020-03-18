@@ -167,33 +167,33 @@
       <Visible>false</Visible>
     </EmbeddedResource>-->
 
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\1024.png">
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\1024.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\120.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\120.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\1201.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\1201.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\180.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\180.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\40.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\40.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\58.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\58.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\60.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\60.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\80.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\80.png">
 			<Visible>false</Visible>
-		</ImageAsset>
-		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\87.png">
+		</EmbeddedResource>
+		<EmbeddedResource Include="Assets.xcassets\AppIcons.appiconset\87.png">
 			<Visible>false</Visible>
-		</ImageAsset>
+		</EmbeddedResource>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
