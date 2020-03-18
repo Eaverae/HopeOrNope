@@ -96,36 +96,6 @@
     <BundleResource Include="Resources\Fonts\fontawesome_solid.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\1024.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\120.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\1201.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\180.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\40.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\58.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\60.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\80.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets.xcassets\AppIcon2.appiconset\87.png">
-      <Visible>false</Visible>
-    </EmbeddedResource>
-    <ImageAsset Include="Assets.xcassets\AppIcon2.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-1125@3x~iphoneX-portrait_1125x2436.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -160,7 +130,7 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <EmbeddedResource Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+    <!--<EmbeddedResource Include="Assets.xcassets\AppIcon.appiconset\1024.png">
       <Visible>false</Visible>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets.xcassets\AppIcon.appiconset\180.png">
@@ -195,13 +165,41 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Assets.xcassets\AppIcon.appiconset\20.png">
       <Visible>false</Visible>
-    </EmbeddedResource>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
+    </EmbeddedResource>-->
+
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\1024.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\120.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\1201.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\180.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\40.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\58.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\60.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\80.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\87.png">
+			<Visible>false</Visible>
+		</ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+			<Visible>false</Visible>
+		</ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
