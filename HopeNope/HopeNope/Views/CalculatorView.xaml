@@ -7,7 +7,6 @@
               x:Name="RelatioWizard"
               x:Class="HopeNope.Views.CalculatorView"
               NavigationPage.HasNavigationBar="False">
-    
     <views:WizardPage1 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
 
     <views:WizardPage2 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
