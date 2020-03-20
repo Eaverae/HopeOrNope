@@ -99,9 +99,9 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>Minimumleeftijd is 16 jaar.</value>
   </data>
   <data name="ToastMessageInputAgeEmpty" xml:space="preserve">
-    <value>Gelieve een leeftijd in te voeren</value>
+    <value>Voer een leeftijd in</value>
   </data>
   <data name="ToastMessageInputAgeInvalidInput" xml:space="preserve">
-    <value>De gegeven input is geen geldige leeftijd</value>
+    <value>De gegeven invoer is geen geldige leeftijd</value>
   </data>
 </root>
