@@ -29,8 +29,8 @@
             </StackLayout>
 
             <StackLayout Grid.Row="1">
-                <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
-                <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Size="Standardbanner" VerticalOptions="End" />
+                <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
+                <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" Margin="0" />
             </StackLayout>
         </Grid>
     </controls:CustomStackLayout>

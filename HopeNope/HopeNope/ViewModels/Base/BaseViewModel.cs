@@ -4,9 +4,7 @@ using HopeNope.Interfaces;
 using HopeNope.Services;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -31,10 +29,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				if (!Debugger.IsAttached)
-					return Settings.AdsEnabled;
-				else
-					return false;
+				return !Debugger.IsAttached && Settings.AdsEnabled;
 			}
 		}
 
