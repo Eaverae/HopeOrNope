@@ -3,51 +3,101 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:controls="clr-namespace:HopeNope.Controls"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:ext="clr-namespace:HopeNope.Extensions"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="False"
              x:Class="HopeNope.Views.SettingsView">
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand">
+        <controls:CustomStackLayout.Padding>
+            <OnPlatform x:TypeArguments="d:Thickness">
+                <On Platform="iOS">0,0,0,25</On>
+                <On Platform="Android">0,0,0,0</On>
+            </OnPlatform>
+        </controls:CustomStackLayout.Padding>
 
-    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand" Padding="0,25,0,25">
-        <Image Source="Logo_White.png" Margin="0" HeightRequest="250" />
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="250" Grid.Row="0" />
 
-        <StackLayout>
-            <!--Default age settings-->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="{ext:Translate DefaultDateOfBirth}" />
+            <Grid Grid.Row="0" Margin="10, 275, 10, 0" VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Default age settings-->
+                <Label Text="{ext:Translate DefaultDateOfBirth}" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" VerticalOptions="Center">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="d:Thickness">
+                            <On Platform="iOS">-5,0,0,0</On>
+                            <On Platform="Android">0,0,0,0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
                 <controls:CustomDatePicker Date="{Binding DateOfBirth}"
-                                           TextColor="White"
-                                           FontSize="Small"
-                                           BackgroundColor="Transparent"
-                                           UnderlineColor="White" />
-                <Label Text="{Binding CurrentAge}" />
-            </StackLayout>
-            
-            <!--Language settings-->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="{ext:Translate SelectLanguage}" />
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    Margin="0"
+                                    TextColor="White"
+                                    BackgroundColor="Transparent"
+                                    UnderlineColor="White" />
+
+                <!--Current age label-->
+                <Label Text="{Binding CurrentAge}" FontSize="Medium" Grid.Column="1" Grid.Row="1" Margin="-5,5,0,0" VerticalOptions="Center" HorizontalOptions="Start">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="d:Thickness">
+                            <On Platform="iOS">-5,0,0,0</On>
+                            <On Platform="Android">-1,0,0,0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
+
+                <!--Language settings-->
+                <Label Text="{ext:Translate SelectLanguage}" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" VerticalOptions="Center">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="d:Thickness">
+                            <On Platform="iOS">-5,0,0,0</On>
+                            <On Platform="Android">0,0,0,0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                </Label>
                 <controls:CustomPicker ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
                                        ItemDisplayBinding="{Binding DisplayName}" 
                                        AcceptButtonText="{ext:Translate Ok}" 
                                        CancelButtonText="{ext:Translate Cancel}"
                                        DoneButtonText="{ext:Translate Done}"
                                        Title="{ext:Translate SelectLanguage}" 
+                                       Grid.Column="1"
+                                       Grid.Row="2"
                                        TitleTextColor="Black"
                                        TitleColor="Black"
                                        TextColor="White"
-                                       FontSize="Small"
                                        BackgroundColor="Transparent"
                                        UnderlineColor="White" />
-            </StackLayout>
-            
-            <!--Reset the app-->
-            <Button Text="{ext:Translate Reset}" Command="{Binding ResetAppCommand}" HorizontalOptions="Center" VerticalOptions="End" />
-            
-            
-            <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
-        </StackLayout>
 
-        <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Size="Standardbanner" VerticalOptions="End" />
-        
+                <!--Reset the app-->
+                <Label Text="{ext:Translate Reset}" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" Grid.Column="1" Grid.Row="3">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="d:Thickness">
+                            <On Platform="iOS">-5,10,0,0</On>
+                            <On Platform="Android">-1,0,0,0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ResetAppCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <StackLayout Grid.Row="1">
+                <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" VerticalOptions="End" />
+                <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Size="Standardbanner" VerticalOptions="End" />
+            </StackLayout>
+        </Grid>
     </controls:CustomStackLayout>
 </ContentPage>
