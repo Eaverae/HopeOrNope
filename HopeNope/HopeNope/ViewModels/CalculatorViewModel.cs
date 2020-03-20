@@ -1,5 +1,6 @@
 ﻿using HopeNope.Classes;
 using HopeNope.Handlers;
+using HopeNope.Properties;
 using HopeNope.Views;
 using System;
 using System.Windows.Input;
@@ -13,14 +14,50 @@ namespace HopeNope.ViewModels
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
 	public class CalculatorViewModel : BaseViewModel
 	{
-		private const int threshold = 16;
-		private const int legalThreshold = 18;
-		private int maxAds = 3;
+		private int maxAds = new Random().Next(2, 5);
 
-		private string firstAge;
-		private string secondAge;
+		private string firstAgeInput;
+		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
+
+		/// <summary>
+		/// Gets the first age.
+		/// </summary>
+		/// <value>
+		/// The first age.
+		/// </value>
+		private double FirstAge
+		{
+			get
+			{
+				double firstAge;
+
+				if (!double.TryParse(firstAgeInput, out firstAge))
+					firstAge = 0;
+
+				return firstAge;
+			}
+		}
+
+		/// <summary>
+		/// Gets the second age.
+		/// </summary>
+		/// <value>
+		/// The second age.
+		/// </value>
+		private double SecondAge
+		{
+			get
+			{
+				double secondAge;
+
+				if (!double.TryParse(secondAgeInput, out secondAge))
+					secondAge = 0;
+
+				return secondAge;
+			}
+		}
 
 		/// <summary>
 		/// Gets a value indicating whether this instance has default age.
@@ -42,15 +79,15 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The first age.
 		/// </value>
-		public string FirstAge
+		public string FirstAgeInput
 		{
 			get
 			{
-				return firstAge;
+				return firstAgeInput;
 			}
 			set
 			{
-				firstAge = value;
+				firstAgeInput = value;
 				OnPropertyChanged();
 			}
 		}
@@ -61,15 +98,15 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The second age.
 		/// </value>
-		public string SecondAge
+		public string SecondAgeInput
 		{
 			get
 			{
-				return secondAge;
+				return secondAgeInput;
 			}
 			set
 			{
-				secondAge = value;
+				secondAgeInput = value;
 				OnPropertyChanged();
 			}
 		}
@@ -129,7 +166,7 @@ namespace HopeNope.ViewModels
 		public override void Init()
 		{
 			if (HasDefaultAge)
-				FirstAge = Settings.DefaultAge.ToString();
+				FirstAgeInput = Settings.DefaultAge.ToString();
 
 			base.Init();
 		}
@@ -143,7 +180,7 @@ namespace HopeNope.ViewModels
 		public override void OnAppearing(object sender, EventArgs e)
 		{
 			base.OnAppearing(sender, e);
-			
+
 			// This code may only execute when the wizard first appears.
 			if (HasDefaultAge && !isWizardInitialized)
 			{
@@ -159,43 +196,41 @@ namespace HopeNope.ViewModels
 		/// <exception cref="NotImplementedException"></exception>
 		private async void DetermineHopeOrNope()
 		{
-			if (!FirstAge.IsNullOrWhiteSpace() && !SecondAge.IsNullOrWhiteSpace())
+			if (SecondAgeInput.IsNullOrWhiteSpace())
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageInputAgeEmpty);
+			else if (SecondAge <= 0)
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageInputAgeInvalidInput);
+			else if (SecondAge < Settings.MinimumAgeThreshold)
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageAgeTooLow);
+			else
 			{
-				double firstAge = Convert.ToDouble(FirstAge);
-				double secondAge = Convert.ToDouble(SecondAge);
-
-				double calcA = firstAge > secondAge ? firstAge : secondAge;
-				double calcB = firstAge > secondAge ? secondAge : firstAge;
+				double calcA = FirstAge > SecondAge ? FirstAge : SecondAge;
+				double calcB = FirstAge > SecondAge ? SecondAge : FirstAge;
 
 				double minimum = Math.Ceiling((calcA / 2.0) + 7.0);
 
-				if (calcA >= threshold && calcB >= threshold)
+				if (minimum <= calcB)
+					Hope = true;
+				else
+					Hope = false;
+
+				if (AdsEnabled && maxAds > 0)
 				{
-					if (minimum <= calcB)
-						Hope = true;
-					else
-						Hope = false;
+					AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
+					{
+						NavigateToResult();
+						maxAds--;
+					});
 				}
 				else
-					await ToastHandler.ShowErrorMessageAsync($"Oh hell no! {threshold} should be the minimum age!");
-			}
-
-			if (AdsEnabled && maxAds > 0)
-			{
-				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
-				{
 					NavigateToResult();
-					maxAds--;
-				});
-			}
-			else
-				NavigateToResult();
 
-			// Local function for navigation
-			void NavigateToResult()
-			{
-				// View the result
-				Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+				// Local function for navigation
+				void NavigateToResult()
+				{
+					// View the result
+					Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+				}
 			}
 		}
 
@@ -210,23 +245,32 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// Selects the second tab.
 		/// </summary>
-		private void SelectSecondTab()
+		private async void SelectSecondTab()
 		{
-			if (AdsEnabled && maxAds > 0)
-			{
-				AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
-				{
-					NavigateToSecondTab();
-					maxAds--;
-				});
-			}
+			if (FirstAgeInput.IsNullOrWhiteSpace())
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageInputAgeEmpty);
+			else if (FirstAge <= 0)
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageInputAgeInvalidInput);
+			else if (FirstAge < Settings.MinimumAgeThreshold)
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageAgeTooLow);
 			else
-				NavigateToSecondTab();
-
-			// Local function for navigation
-			void NavigateToSecondTab()
 			{
-				Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+				if (AdsEnabled && maxAds > 0)
+				{
+					AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
+					{
+						NavigateToSecondTab();
+						maxAds--;
+					});
+				}
+				else
+					NavigateToSecondTab();
+
+				// Local function for navigation
+				void NavigateToSecondTab()
+				{
+					Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+				}
 			}
 		}
 
@@ -235,7 +279,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void Reset()
 		{
-			SecondAge = string.Empty;
+			SecondAgeInput = string.Empty;
 
 			SelectSecondTab();
 		}

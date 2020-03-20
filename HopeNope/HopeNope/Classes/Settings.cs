@@ -11,6 +11,25 @@ namespace HopeNope.Classes
 		private const string adsEnabledKey = "adsEnabled";
 		private const string dateOfBirthKey = "dateOfBirth";
 		private const string personalizedAdsKey = "personalizedAds";
+		private const string thresHoldKey = "thresHold";
+
+		/// <summary>
+		/// Gets or sets the minimum age threshold.
+		/// </summary>
+		/// <value>
+		/// The minimum age threshold.
+		/// </value>
+		internal static int MinimumAgeThreshold
+		{
+			get
+			{
+				return Preferences.Get(thresHoldKey, 16);
+			}
+			set
+			{
+				Preferences.Set(thresHoldKey, value);
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets a value indicating whether [ads enabled].

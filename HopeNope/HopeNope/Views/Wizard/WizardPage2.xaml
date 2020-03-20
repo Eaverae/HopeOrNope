@@ -26,14 +26,14 @@
             <!--Content-->
             <StackLayout Grid.Row="0" Margin="10, 275, 10, 0" VerticalOptions="Start">
                 <Label Text="{ext:Translate EnterDateAge}" />
-                <controls:CustomEntry Text="{Binding SecondAge}" Keyboard="Numeric"
-                                  BackgroundColor="Transparent" 
-                                  TextColor="White"
-                                  FontSize="Large"
-                                  HorizontalOptions="Center"
-                                  HorizontalTextAlignment="Center"
-                                  WidthRequest="125"
-                                  UnderlineColor="White" />
+                <controls:CustomEntry Text="{Binding SecondAgeInput}" Keyboard="Numeric"
+                                      BackgroundColor="Transparent" 
+                                      TextColor="White"
+                                      FontSize="Large"
+                                      HorizontalOptions="Center"
+                                      HorizontalTextAlignment="Center"
+                                      WidthRequest="125"
+                                      UnderlineColor="White" />
             </StackLayout>
 
             <!--Footer-->

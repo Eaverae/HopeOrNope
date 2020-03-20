@@ -185,6 +185,15 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="StartTitle" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="ToastMessageAgeTooLow" xml:space="preserve">
+    <value>Minimum age is 16.</value>
+  </data>
+  <data name="ToastMessageInputAgeEmpty" xml:space="preserve">
+    <value>Please input an age</value>
+  </data>
+  <data name="ToastMessageInputAgeInvalidInput" xml:space="preserve">
+    <value>The given input is not a valid age</value>
+  </data>
   <data name="ToastMessageLanguageSet" xml:space="preserve">
     <value>Language set</value>
   </data>

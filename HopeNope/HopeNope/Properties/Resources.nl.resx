@@ -95,4 +95,13 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="AlertMessageRebootWarning" xml:space="preserve">
     <value>De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</value>
   </data>
+  <data name="ToastMessageAgeTooLow" xml:space="preserve">
+    <value>Minimumleeftijd is 16 jaar.</value>
+  </data>
+  <data name="ToastMessageInputAgeEmpty" xml:space="preserve">
+    <value>Gelieve een leeftijd in te voeren</value>
+  </data>
+  <data name="ToastMessageInputAgeInvalidInput" xml:space="preserve">
+    <value>De gegeven input is geen geldige leeftijd</value>
+  </data>
 </root>

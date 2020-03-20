@@ -261,6 +261,33 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimum age is 16..
+        /// </summary>
+        internal static string ToastMessageAgeTooLow {
+            get {
+                return ResourceManager.GetString("ToastMessageAgeTooLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please input an age.
+        /// </summary>
+        internal static string ToastMessageInputAgeEmpty {
+            get {
+                return ResourceManager.GetString("ToastMessageInputAgeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The given input is not a valid age.
+        /// </summary>
+        internal static string ToastMessageInputAgeInvalidInput {
+            get {
+                return ResourceManager.GetString("ToastMessageInputAgeInvalidInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language set.
         /// </summary>
         internal static string ToastMessageLanguageSet {

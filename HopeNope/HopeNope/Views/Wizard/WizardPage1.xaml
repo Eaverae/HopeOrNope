@@ -26,15 +26,15 @@
             <!--Content-->
             <StackLayout Grid.Row="0" Margin="10, 275, 10, 0" HorizontalOptions="CenterAndExpand">
                 <Label Text="{ext:Translate EnterYourAge}" />
-                <controls:CustomEntry Text="{Binding FirstAge}"
-                                  Keyboard="Numeric"
-                                  BackgroundColor="Transparent"
-                                  TextColor="White"
-                                  FontSize="Large"
-                                  HorizontalOptions="Center"
-                                  HorizontalTextAlignment="Center"
-                                  WidthRequest="125"
-                                  UnderlineColor="White" />
+                <controls:CustomEntry Text="{Binding FirstAgeInput}"
+                                      Keyboard="Numeric"
+                                      BackgroundColor="Transparent"
+                                      TextColor="White"
+                                      FontSize="Large"
+                                      HorizontalOptions="Center"
+                                      HorizontalTextAlignment="Center"
+                                      WidthRequest="125"
+                                      UnderlineColor="White" />
                 <StackLayout Orientation="Horizontal" IsVisible="{Binding HasDefaultAge, Converter={StaticResource ReverseBooleanConverter}}" Margin="15">
                     <Image>
                         <Image.Source>
