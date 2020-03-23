@@ -80,8 +80,21 @@
                                        BackgroundColor="Transparent"
                                        UnderlineColor="White" />
 
+                <!--Verify in-app-purchases-->
+                <Label Text="{ext:Translate VerifyPurchases}" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" Grid.Column="1" Grid.Row="3">
+                    <Label.Margin>
+                        <OnPlatform x:TypeArguments="d:Thickness">
+                            <On Platform="iOS">-5,10,0,0</On>
+                            <On Platform="Android">-1,0,0,0</On>
+                        </OnPlatform>
+                    </Label.Margin>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding VerifyPurchasesCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <!--Reset the app-->
-                <Label Text="{ext:Translate Reset}" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" Grid.Column="1" Grid.Row="3">
+                <Label Text="{ext:Translate Reset}" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" Grid.Column="1" Grid.Row="4">
                     <Label.Margin>
                         <OnPlatform x:TypeArguments="d:Thickness">
                             <On Platform="iOS">-5,10,0,0</On>

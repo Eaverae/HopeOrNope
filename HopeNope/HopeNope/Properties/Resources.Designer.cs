@@ -261,7 +261,7 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Minimum age is 16..
+        ///   Looks up a localized string similar to Minimum age is 16.
         /// </summary>
         internal static string ToastMessageAgeTooLow {
             get {
@@ -315,11 +315,38 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Purchase could not be verified.
+        /// </summary>
+        internal static string ToastMessageVerifyPurchaseInvalid {
+            get {
+                return ResourceManager.GetString("ToastMessageVerifyPurchaseInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purchase succesfully verified.
+        /// </summary>
+        internal static string ToastMessageVerifyPurchaseSuccess {
+            get {
+                return ResourceManager.GetString("ToastMessageVerifyPurchaseSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The verdict.
         /// </summary>
         internal static string Verdict {
             get {
                 return ResourceManager.GetString("Verdict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verify purchased item(s).
+        /// </summary>
+        internal static string VerifyPurchases {
+            get {
+                return ResourceManager.GetString("VerifyPurchases", resourceCulture);
             }
         }
         

@@ -8,23 +8,18 @@ namespace HopeNope.Interfaces
 	public interface IPurchaseHandler
 	{
 		/// <summary>
-		/// Gets the product identifier.
-		/// </summary>
-		/// <value>
-		/// The product identifier.
-		/// </value>
-		string ProductId { get; }
-
-		/// <summary>
 		/// Makes the purchase.
 		/// </summary>
-		/// <returns></returns>
-		Task<bool> MakePurchase();
+		/// <param name="productId">The product Id</param>
+		/// <param name="payload">The payload</param>
+		/// <returns>A boolean value</returns>
+		Task<bool> MakePurchase(string productId, string payload);
 
 		/// <summary>
-		/// Wases the item purchased.
+		/// Was the item purchased.
 		/// </summary>
-		/// <returns></returns>
-		Task<bool> WasItemPurchased();
+		/// <param name="productId">The product Id</param>
+		/// <returns>A boolean value</returns>
+		Task<bool> WasItemPurchased(string productId);
 	}
 }

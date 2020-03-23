@@ -20,6 +20,7 @@ namespace HopeNope.ViewModels
 	public class SettingsViewModel : BaseViewModel
 	{
 		private readonly ILanguageHandler languageHandler;
+		private readonly IPurchaseHandler purchaseHandler;
 		private Language selectedLanguage;
 		private DateTime? dateOfBirth = null;
 
@@ -99,6 +100,14 @@ namespace HopeNope.ViewModels
 		public ICommand ResetAppCommand => new Command(ResetAppAsync);
 
 		/// <summary>
+		/// Gets the verify purchases command.
+		/// </summary>
+		/// <value>
+		/// The verify purchases command.
+		/// </value>
+		public ICommand VerifyPurchasesCommand => new Command(VerifyPurchasesAsync);
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
 		/// </summary>
 		public SettingsViewModel()
@@ -106,6 +115,7 @@ namespace HopeNope.ViewModels
 			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
 			{
 				languageHandler = scope.Resolve<ILanguageHandler>();
+				purchaseHandler = scope.Resolve<IPurchaseHandler>();
 			}
 		}
 
@@ -184,6 +194,19 @@ namespace HopeNope.ViewModels
 			}
 
 			return result;
+		}
+
+		/// <summary>
+		/// Verifies the purchases asynchronous.
+		/// </summary>
+		private async void VerifyPurchasesAsync()
+		{
+			if (Settings.AdsEnabled && await purchaseHandler.WasItemPurchased(ApplicationConstants.ProductId))
+			{
+				Settings.AdsEnabled = false;
+				await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageVerifyPurchaseSuccess);
+			}
+			await ToastHandler.ShowWarningMessageAsync(Resources.ToastMessageVerifyPurchaseInvalid);
 		}
 
 		/// <summary>

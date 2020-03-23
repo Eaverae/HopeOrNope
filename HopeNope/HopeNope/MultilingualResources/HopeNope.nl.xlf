@@ -119,8 +119,9 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <target state="translated" state-qualifier="mt-suggestion">De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</target>
         </trans-unit>
         <trans-unit id="ToastMessageAgeTooLow" translate="yes" xml:space="preserve">
-          <source>Minimum age is 16.</source>
-          <target state="translated" state-qualifier="mt-suggestion">Minimumleeftijd is 16 jaar.</target>
+          <source>Minimum age is 16</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Minimumleeftijd is 16 jaar.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ToastMessageInputAgeEmpty" translate="yes" xml:space="preserve">
           <source>Please input an age</source>
@@ -129,6 +130,18 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         <trans-unit id="ToastMessageInputAgeInvalidInput" translate="yes" xml:space="preserve">
           <source>The given input is not a valid age</source>
           <target state="translated">De gegeven invoer is geen geldige leeftijd</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageVerifyPurchaseSuccess" translate="yes" xml:space="preserve">
+          <source>Purchase succesfully verified</source>
+          <target state="new">Purchase succesfully verified</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageVerifyPurchaseInvalid" translate="yes" xml:space="preserve">
+          <source>Purchase could not be verified</source>
+          <target state="new">Purchase could not be verified</target>
+        </trans-unit>
+        <trans-unit id="VerifyPurchases" translate="yes" xml:space="preserve">
+          <source>Verify purchased item(s)</source>
+          <target state="new">Verify purchased item(s)</target>
         </trans-unit>
       </group>
     </body>

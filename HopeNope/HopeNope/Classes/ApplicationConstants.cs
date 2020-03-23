@@ -6,6 +6,16 @@
 	public static class ApplicationConstants
 	{
 		/// <summary>
+		/// The product identifier
+		/// </summary>
+		public const string ProductId = "hopenoperemoveads";
+
+		/// <summary>
+		/// The product pay load
+		/// </summary>
+		public const string ProductPayLoad = "e600bd4d-dda9-44b4-b22d-a1093050b384";
+
+		/// <summary>
 		/// The language selected message
 		/// </summary>
 		public const string LanguageSelectedMessage = "LanguageSelectedMessage";

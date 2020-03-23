@@ -186,7 +186,7 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
     <value>Start</value>
   </data>
   <data name="ToastMessageAgeTooLow" xml:space="preserve">
-    <value>Minimum age is 16.</value>
+    <value>Minimum age is 16</value>
   </data>
   <data name="ToastMessageInputAgeEmpty" xml:space="preserve">
     <value>Please input an age</value>
@@ -203,8 +203,17 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="ToastMessageResetComplete" xml:space="preserve">
     <value>App succesfully reset</value>
   </data>
+  <data name="ToastMessageVerifyPurchaseInvalid" xml:space="preserve">
+    <value>Purchase could not be verified</value>
+  </data>
+  <data name="ToastMessageVerifyPurchaseSuccess" xml:space="preserve">
+    <value>Purchase succesfully verified</value>
+  </data>
   <data name="Verdict" xml:space="preserve">
     <value>The verdict</value>
+  </data>
+  <data name="VerifyPurchases" xml:space="preserve">
+    <value>Verify purchased item(s)</value>
   </data>
   <data name="YourAgeShortcut" xml:space="preserve">
     <value>Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!</value>

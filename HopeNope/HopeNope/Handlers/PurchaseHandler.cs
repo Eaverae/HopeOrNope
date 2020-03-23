@@ -2,10 +2,8 @@
 using Plugin.InAppBilling;
 using Plugin.InAppBilling.Abstractions;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace HopeNope.Handlers
 {
@@ -17,28 +15,6 @@ namespace HopeNope.Handlers
 	{
 		private readonly ILogHandler logHandler;
 		private readonly IAlertHandler alertHandler;
-
-		/// <summary>
-		/// Gets the product identifier.
-		/// </summary>
-		/// <value>
-		/// The product identifier.
-		/// </value>
-		public string ProductId
-		{
-			get
-			{
-				// ios shared secret: 0dff0c71e22841c39b17274249841999
-				string returnValue = "hopenoperemoveads";
-
-				/*if (Device.RuntimePlatform == Device.Android)
-					returnValue = "hopenoperemoveads";
-				else if (Device.RuntimePlatform == Device.iOS)
-					returnValue = "1497520749";*/
-
-				return returnValue;
-			}
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PurchaseHandler"/> class.
@@ -54,9 +30,20 @@ namespace HopeNope.Handlers
 		/// <summary>
 		/// Makes the purchase.
 		/// </summary>
-		/// <returns>A boolean value</returns>
-		public async Task<bool> MakePurchase()
+		/// <param name="productId">The product Id</param>
+		/// <param name="payload">The payload</param>
+		/// <returns>
+		/// A boolean value
+		/// </returns>
+		/// <exception cref="ArgumentNullException">productId</exception>
+		public async Task<bool> MakePurchase(string productId, string payload)
 		{
+			if (productId.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(productId));
+
+			if (payload.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(payload));
+
 			bool returnValue = false;
 
 			if (CrossInAppBilling.IsSupported)
@@ -65,21 +52,15 @@ namespace HopeNope.Handlers
 
 				try
 				{
-					bool connected = await billing.ConnectAsync(ItemType.InAppPurchase);
-
 					// Verify the connection to the stores and the product id
-					if (!ProductId.IsNullOrWhiteSpace() && connected)
+					if (await billing.ConnectAsync(ItemType.InAppPurchase))
 					{
-						var product = await billing.GetProductInfoAsync(ItemType.InAppPurchase, ProductId);
-						bool makepurchase = product != null;
+						var product = await billing.GetProductInfoAsync(ItemType.InAppPurchase, productId);
 
-						if (!makepurchase)
-							makepurchase = await alertHandler.DisplayAlertAsync("Product is null!", $"Product {ProductId} is null! Do you still want to continue?", "Yes", "No");
-
-						if (makepurchase)
+						if (product != null)
 						{
 							// Make additional billing calls
-							InAppBillingPurchase result = await billing.PurchaseAsync(ProductId, ItemType.InAppPurchase, payload: "test");
+							InAppBillingPurchase result = await billing.PurchaseAsync(productId, ItemType.InAppPurchase, payload);
 
 							if (result != null && result.State == PurchaseState.Purchased)
 								returnValue = true;
@@ -87,8 +68,6 @@ namespace HopeNope.Handlers
 								returnValue = false;
 						}
 					}
-					else
-						await alertHandler.DisplayAlertAsync("Not connected!", "Not connected!", "Ok");
 				}
 				catch (Exception exception)
 				{
@@ -104,11 +83,18 @@ namespace HopeNope.Handlers
 		}
 
 		/// <summary>
-		/// Wases the item purchased.
+		/// Was the item purchased.
 		/// </summary>
-		/// <returns></returns>
-		public async Task<bool> WasItemPurchased()
+		/// <param name="productId">The product Id</param>
+		/// <returns>
+		/// A boolean value
+		/// </returns>
+		/// <exception cref="ArgumentNullException">productId</exception>
+		public async Task<bool> WasItemPurchased(string productId)
 		{
+			if (productId.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(productId));
+
 			var billing = CrossInAppBilling.Current;
 			try
 			{
@@ -120,25 +106,20 @@ namespace HopeNope.Handlers
 					return false;
 				}
 
-				//check purchases
+				// check purchases
 				var purchases = await billing.GetPurchasesAsync(ItemType.InAppPurchase);
 
-				//check for null just incase
-				if (purchases?.Any(p => p.ProductId == ProductId) ?? false)
+				// check for null just incase
+				if (purchases?.Any(purchase => purchase.ProductId == productId) ?? false)
 				{
-					//Purchase restored
+					// Purchase restored
 					return true;
 				}
 				else
 				{
-					//no purchases found
+					// no purchases found
 					return false;
 				}
-			}
-			catch (InAppBillingPurchaseException purchaseEx)
-			{
-				//Billing Exception handle this based on the type
-				Debug.WriteLine("Error: " + purchaseEx);
 			}
 			catch (Exception exception)
 			{
