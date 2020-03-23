@@ -61,7 +61,10 @@ namespace HopeNope.ViewModels
 		public ICommand RemoveAdsCommand => new Command(async () =>
 		{
 			if (await PurchaseHandler.WasItemPurchased())
+			{
+				Settings.AdsEnabled = false;
 				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleItemAlreadyPurchased, Resources.AlertMessageItemAlreadyPurchased, Resources.Ok);
+			}
 			else
 			{
 				if (await PurchaseHandler.MakePurchase())
