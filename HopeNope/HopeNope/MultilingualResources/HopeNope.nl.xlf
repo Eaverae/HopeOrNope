@@ -120,8 +120,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="ToastMessageAgeTooLow" translate="yes" xml:space="preserve">
           <source>Minimum age is 16</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Minimumleeftijd is 16 jaar.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Minimumleeftijd is 16 jaar</target>
         </trans-unit>
         <trans-unit id="ToastMessageInputAgeEmpty" translate="yes" xml:space="preserve">
           <source>Please input an age</source>
@@ -133,15 +132,19 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="ToastMessageVerifyPurchaseSuccess" translate="yes" xml:space="preserve">
           <source>Purchase succesfully verified</source>
-          <target state="new">Purchase succesfully verified</target>
+          <target state="translated" state-qualifier="mt-suggestion">Aankoop succesvol geverifieerd</target>
         </trans-unit>
         <trans-unit id="ToastMessageVerifyPurchaseInvalid" translate="yes" xml:space="preserve">
           <source>Purchase could not be verified</source>
-          <target state="new">Purchase could not be verified</target>
+          <target state="translated" state-qualifier="mt-suggestion">Aankoop kan niet worden geverifieerd</target>
         </trans-unit>
         <trans-unit id="VerifyPurchases" translate="yes" xml:space="preserve">
           <source>Verify purchased item(s)</source>
-          <target state="new">Verify purchased item(s)</target>
+          <target state="translated">Gekochte item(s) verifiëren</target>
+        </trans-unit>
+        <trans-unit id="Continue" translate="yes" xml:space="preserve">
+          <source>Continue</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ga door</target>
         </trans-unit>
       </group>
     </body>

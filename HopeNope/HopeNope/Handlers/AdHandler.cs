@@ -1,4 +1,5 @@
-﻿using HopeNope.Services;
+﻿using HopeNope.Classes;
+using HopeNope.Services;
 using HopeNope.ViewModels;
 using HopeNope.Views;
 using System;
@@ -69,10 +70,7 @@ namespace HopeNope.Handlers
 			
 			try
 			{
-				FullscreenAdPopup adview = new FullscreenAdPopup()
-				{
-					BindingContext = new FullscreenAdPopupViewModel(adId, secondaryAdId)
-				};
+				Page adview = ViewFactory.CreateView(new FullscreenAdPopupViewModel(adId, secondaryAdId));
 
 				await GuidApp.Current.MainPage.Navigation.PushModalAsync(adview);
 

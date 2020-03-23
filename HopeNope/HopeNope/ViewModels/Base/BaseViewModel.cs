@@ -29,7 +29,8 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				return !Debugger.IsAttached && Settings.AdsEnabled;
+				return true;
+				// return !Debugger.IsAttached && Settings.AdsEnabled;
 			}
 		}
 

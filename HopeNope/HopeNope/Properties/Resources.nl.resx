@@ -96,12 +96,24 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>De app moet opnieuw worden opgestart om de wijzigingen van kracht te laten worden. Wil je doorgaan?</value>
   </data>
   <data name="ToastMessageAgeTooLow" xml:space="preserve">
-    <value>Minimumleeftijd is 16 jaar.</value>
+    <value>Minimumleeftijd is 16 jaar</value>
   </data>
   <data name="ToastMessageInputAgeEmpty" xml:space="preserve">
     <value>Voer een leeftijd in</value>
   </data>
   <data name="ToastMessageInputAgeInvalidInput" xml:space="preserve">
     <value>De gegeven invoer is geen geldige leeftijd</value>
+  </data>
+  <data name="ToastMessageVerifyPurchaseSuccess" xml:space="preserve">
+    <value>Aankoop succesvol geverifieerd</value>
+  </data>
+  <data name="ToastMessageVerifyPurchaseInvalid" xml:space="preserve">
+    <value>Aankoop kan niet worden geverifieerd</value>
+  </data>
+  <data name="VerifyPurchases" xml:space="preserve">
+    <value>Gekochte item(s) verifiëren</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Ga door</value>
   </data>
 </root>

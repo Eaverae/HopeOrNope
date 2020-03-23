@@ -143,6 +143,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© copyright Guido Schippers</value>
   </data>

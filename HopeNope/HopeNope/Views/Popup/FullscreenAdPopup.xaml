@@ -14,16 +14,22 @@
                     <On Platform="Android">0,5,0,0</On>
                 </OnPlatform>
             </controls:CustomStackLayout.Padding>
+            
             <Grid Margin="0" Padding="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{ext:Translate Loading}" Grid.Column="0" />
-                <Button FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00d;" Command="{Binding BackCommand}"
+                <Label Text="{Binding LoadingLabel}" Grid.Column="0" />
+                <Label Grid.Column="1" HorizontalOptions="End" Text="{Binding SecondsLeft}" IsVisible="{Binding AllowDismissal, Converter={StaticResource ReverseBooleanConverter}}" />
+                <Button FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf061;" Command="{Binding BackCommand}"
+                        IsEnabled="{Binding AllowDismissal}"
+                        IsVisible="{Binding AllowDismissal}"
                         Grid.Column="1" HorizontalOptions="End"
                         BorderWidth="0" TextColor="White" WidthRequest="25" HeightRequest="25" />
+                
             </Grid>
+            
             <controls:AdBanner AdId="{Binding AdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
             <controls:AdBanner AdId="{Binding SecondaryAdId}" Size="MediumRectangle" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </controls:CustomStackLayout>

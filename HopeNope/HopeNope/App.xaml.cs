@@ -80,6 +80,9 @@ namespace HopeNope
 			ViewFactory.RegisterView<AboutView, AboutViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
+
+			// Register ad view
+			ViewFactory.RegisterView<FullscreenAdPopup, FullscreenAdPopupViewModel>();
 		}
 	}
 }
