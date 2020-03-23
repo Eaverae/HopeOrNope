@@ -257,6 +257,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\120.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo_Icon.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties XamarinHotReloadWrongLinkerErrorInfoBarHopeNopeiOSHideInfoBar="True" />
