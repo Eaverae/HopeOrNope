@@ -100,39 +100,6 @@
     <BundleResource Include="Resources\Fonts\fontawesome_solid.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-1125@3x~iphoneX-portrait_1125x2436.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-1242@3x~iphone6s-portrait_1242x22081.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-1242@3x~iphoneXsMax-portrait_1242x26881.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-568h@2x~iphone_640x11361.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-750@2x~iphone6-portrait_750x13341.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-828@2x~iphoneXr-portrait_828x17921.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-Landscape@2x~ipad_2048x15361.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-Landscape~ipad_1024x7681.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-Portrait@2x~ipad_1536x20481.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage-Portrait~ipad_768x10241.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\LaunchImage~iphone_640x9602.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
       <Visible>false</Visible>
@@ -149,15 +116,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\144.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\114.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\100.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -167,34 +125,19 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\72.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\57.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\50.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
