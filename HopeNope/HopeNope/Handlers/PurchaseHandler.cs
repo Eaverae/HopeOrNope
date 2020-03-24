@@ -64,8 +64,6 @@ namespace HopeNope.Handlers
 
 							if (result != null && result.State == PurchaseState.Purchased)
 								returnValue = true;
-							else
-								returnValue = false;
 						}
 					}
 				}
@@ -95,30 +93,18 @@ namespace HopeNope.Handlers
 			if (productId.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(productId));
 
+			bool returnValue = false;
+
 			var billing = CrossInAppBilling.Current;
 			try
 			{
-				var connected = await billing.ConnectAsync(ItemType.InAppPurchase);
-
-				if (!connected)
+				if (await billing.ConnectAsync(ItemType.InAppPurchase))
 				{
-					// Couldn't connect
-					return false;
-				}
+					// Check purchases
+					var purchases = await billing.GetPurchasesAsync(ItemType.InAppPurchase);
 
-				// check purchases
-				var purchases = await billing.GetPurchasesAsync(ItemType.InAppPurchase);
-
-				// check for null just incase
-				if (purchases?.Any(purchase => purchase.ProductId == productId) ?? false)
-				{
-					// Purchase restored
-					return true;
-				}
-				else
-				{
-					// no purchases found
-					return false;
+					// Check for null just incase
+					returnValue = (purchases?.Any(purchase => purchase.ProductId == productId)).Value;
 				}
 			}
 			catch (Exception exception)
@@ -131,8 +117,7 @@ namespace HopeNope.Handlers
 				await billing.DisconnectAsync();
 			}
 
-			return false;
+			return returnValue;
 		}
-
 	}
 }
