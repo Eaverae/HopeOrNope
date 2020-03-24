@@ -14,17 +14,14 @@ namespace HopeNope.Handlers
 	public class PurchaseHandler : IPurchaseHandler
 	{
 		private readonly ILogHandler logHandler;
-		private readonly IAlertHandler alertHandler;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PurchaseHandler"/> class.
 		/// </summary>
 		/// <param name="logHandler">The log handler.</param>
-		/// <param name="alertHandler">The alert handler</param>
-		public PurchaseHandler(ILogHandler logHandler, IAlertHandler alertHandler)
+		public PurchaseHandler(ILogHandler logHandler)
 		{
 			this.logHandler = logHandler;
-			this.alertHandler = alertHandler;
 		}
 
 		/// <summary>
