@@ -144,7 +144,7 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © copyright Guido Schippers.
+        ///   Looks up a localized string similar to © copyright guidoschippers.com.
         /// </summary>
         internal static string Copyright {
             get {
