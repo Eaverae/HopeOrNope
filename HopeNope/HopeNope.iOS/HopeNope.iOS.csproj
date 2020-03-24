@@ -62,6 +62,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Guido Schippers (5F62D5BM46)</CodesignKey>
     <CodesignEntitlements>
     </CodesignEntitlements>
