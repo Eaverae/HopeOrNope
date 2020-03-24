@@ -206,7 +206,10 @@ namespace HopeNope.ViewModels
 				Settings.AdsEnabled = false;
 				await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageVerifyPurchaseSuccess);
 			}
-			await ToastHandler.ShowWarningMessageAsync(Resources.ToastMessageVerifyPurchaseInvalid);
+			else
+				await ToastHandler.ShowWarningMessageAsync(Resources.ToastMessageVerifyPurchaseInvalid);
+
+			OnPropertyChanged(nameof(AdsEnabled));
 		}
 
 		/// <summary>

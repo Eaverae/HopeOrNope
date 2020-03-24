@@ -63,6 +63,7 @@ namespace HopeNope.ViewModels
 			if (await PurchaseHandler.WasItemPurchased(ApplicationConstants.ProductId))
 			{
 				Settings.AdsEnabled = false;
+
 				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleItemAlreadyPurchased, Resources.AlertMessageItemAlreadyPurchased, Resources.Ok);
 			}
 			else
@@ -74,9 +75,10 @@ namespace HopeNope.ViewModels
 
 					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessagePurchaseSuccess);
 
-					OnPropertyChanged(nameof(AdsEnabled));
 				}
 			}
+
+			OnPropertyChanged(nameof(AdsEnabled));
 		});
 
 		/// <summary>
