@@ -74,7 +74,6 @@ namespace HopeNope.ViewModels
 					Settings.AdsEnabled = false;
 
 					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessagePurchaseSuccess);
-
 				}
 			}
 
