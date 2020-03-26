@@ -164,6 +164,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="EnterYourAge" xml:space="preserve">
     <value>Enter your age</value>
   </data>
+  <data name="LastAttempt" xml:space="preserve">
+    <value>Last attempt</value>
+  </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading..</value>
   </data>
@@ -191,6 +194,12 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="StartTitle" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="StatisticsDescription" xml:space="preserve">
+    <value>Current statistics are as follows. You can reset your statistics on the settings page.</value>
+  </data>
+  <data name="StatisticsTitle" xml:space="preserve">
+    <value>View stats</value>
+  </data>
   <data name="ToastMessageAgeTooLow" xml:space="preserve">
     <value>Minimum age is 16</value>
   </data>
@@ -215,6 +224,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="ToastMessageVerifyPurchaseSuccess" xml:space="preserve">
     <value>Purchase succesfully verified</value>
   </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="Verdict" xml:space="preserve">
     <value>The verdict</value>
   </data>
@@ -222,6 +234,6 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
     <value>Verify purchased item(s)</value>
   </data>
   <data name="YourAgeShortcut" xml:space="preserve">
-    <value>Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!</value>
+    <value>Did you know you can set your date of birth on the settings page? That way can skip the first step in this wizard!</value>
   </data>
 </root>

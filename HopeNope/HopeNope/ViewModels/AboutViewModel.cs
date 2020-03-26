@@ -1,5 +1,7 @@
 ﻿using HopeNope.Properties;
+using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
 {
@@ -22,5 +24,16 @@ namespace HopeNope.ViewModels
 				return $"{Resources.CurrentVersion}: {VersionTracking.CurrentVersion}";
 			}
 		}
+
+		/// <summary>
+		/// Gets the statistics command.
+		/// </summary>
+		/// <value>
+		/// The statistics command.
+		/// </value>
+		public ICommand StatisticsCommand => new Command(async () =>
+		{
+			await NavigationService.NavigateAsync<StatsViewModel>(animated: false);
+		});
 	}
 }

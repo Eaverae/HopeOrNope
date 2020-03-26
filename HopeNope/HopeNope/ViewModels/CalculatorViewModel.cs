@@ -1,4 +1,5 @@
 ﻿using HopeNope.Classes;
+using HopeNope.Entities;
 using HopeNope.Handlers;
 using HopeNope.Properties;
 using HopeNope.Views;
@@ -160,6 +161,17 @@ namespace HopeNope.ViewModels
 		public ICommand SelectSecondTabCommand => new Command(SelectSecondTab, CanExecuteCommands);
 
 		/// <summary>
+		/// Gets the statistics command.
+		/// </summary>
+		/// <value>
+		/// The statistics command.
+		/// </value>
+		public ICommand StatisticsCommand => new Command(async () =>
+		{
+			await NavigationService.NavigateAsync<StatsViewModel>(animated: false);
+		});
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -213,6 +225,15 @@ namespace HopeNope.ViewModels
 					Hope = true;
 				else
 					Hope = false;
+
+				// Add the result as a statistic
+				Settings.SaveStatistic(new CalculatedResult()
+				{
+					Age = calcA,
+					CompareAge = calcB,
+					DeterminedDate = DateTime.Now,
+					Verdict = Hope
+				});
 
 				if (AdsEnabled && maxAds > 0)
 				{

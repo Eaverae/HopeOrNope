@@ -20,12 +20,28 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="250" Grid.Row="0" />
+            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
 
-            <StackLayout Grid.Row="0" Margin="10, 275, 10, 0" VerticalOptions="Start">
-                <Label Text="{ext:Translate About}" HorizontalOptions="Center" />
-                <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
-            </StackLayout>
+            <Grid Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="{ext:Translate StatisticsDescription}" HorizontalOptions="FillAndExpand" />
+
+                <Image Grid.Row="1" Grid.Column="0" Margin="15,0,0,0" Source="hope.png" WidthRequest="160" Aspect="AspectFit" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding NumberOfHope}" />
+
+                <Image Grid.Row="2" Grid.Column="0" Margin="15,0,0,0" Source="nope.png" WidthRequest="160" Aspect="AspectFit" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding NumberOfNope}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="{ext:Translate Total}" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Total}" />
+                
+                <Label Grid.Row="4" Grid.Column="0" Text="{ext:Translate LastAttempt}" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding LastAttempt}" />
+            </Grid>
 
             <StackLayout Grid.Row="1">
                 <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />

@@ -35,6 +35,7 @@
 
             <!--Footer-->
             <StackLayout Grid.Row="1">
+                <Button Text="{ext:Translate StatisticsTitle}" Command="{Binding StatisticsCommand}" HorizontalOptions="Center" Margin="0" />
                 <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
                 <Grid ColumnSpacing="0">
                     <Grid.ColumnDefinitions>
