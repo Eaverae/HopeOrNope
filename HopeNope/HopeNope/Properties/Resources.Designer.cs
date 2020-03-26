@@ -153,6 +153,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current app version.
+        /// </summary>
+        internal static string CurrentVersion {
+            get {
+                return ResourceManager.GetString("CurrentVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default date of birth.
         /// </summary>
         internal static string DefaultDateOfBirth {
@@ -185,6 +194,15 @@ namespace HopeNope.Properties {
         internal static string EnterYourAge {
             get {
                 return ResourceManager.GetString("EnterYourAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last attempt.
+        /// </summary>
+        internal static string LastAttempt {
+            get {
+                return ResourceManager.GetString("LastAttempt", resourceCulture);
             }
         }
         
@@ -270,6 +288,24 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current statistics are as follows. You can reset your statistics on the settings page..
+        /// </summary>
+        internal static string StatisticsDescription {
+            get {
+                return ResourceManager.GetString("StatisticsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View stats.
+        /// </summary>
+        internal static string StatisticsTitle {
+            get {
+                return ResourceManager.GetString("StatisticsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimum age is 16.
         /// </summary>
         internal static string ToastMessageAgeTooLow {
@@ -342,6 +378,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The verdict.
         /// </summary>
         internal static string Verdict {
@@ -360,7 +405,7 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!.
+        ///   Looks up a localized string similar to Did you know you can set your date of birth on the settings page? That way can skip the first step in this wizard!.
         /// </summary>
         internal static string YourAgeShortcut {
             get {

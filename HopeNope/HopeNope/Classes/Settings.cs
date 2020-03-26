@@ -1,4 +1,8 @@
-﻿using System;
+﻿using HopeNope.Entities;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Essentials;
 
 namespace HopeNope.Classes
@@ -8,10 +12,47 @@ namespace HopeNope.Classes
 	/// </summary>
 	internal static class Settings
 	{
+		private const string statisticsKey = "statistics";
 		private const string adsEnabledKey = "adsEnabled";
 		private const string dateOfBirthKey = "dateOfBirth";
 		private const string personalizedAdsKey = "personalizedAds";
 		private const string thresHoldKey = "thresHold";
+
+		/// <summary>
+		/// Gets the current statistics.
+		/// </summary>
+		/// <value>
+		/// The current statistics.
+		/// </value>
+		internal static IList<CalculatedResult> CurrentStatistics
+		{
+			get
+			{
+				IList<CalculatedResult> results = null;
+
+				string statsSettings = Preferences.Get(statisticsKey, string.Empty);
+
+				if (!statsSettings.IsNullOrWhiteSpace())
+					results = JsonConvert.DeserializeObject<List<CalculatedResult>>(statsSettings);
+
+				return results;
+			}
+		}
+
+		/// <summary>
+		/// Saves the statistic.
+		/// </summary>
+		/// <param name="statistic">The statistic.</param>
+		internal static void SaveStatistic(CalculatedResult statistic)
+		{
+			if (statistic != null)
+			{
+				IList<CalculatedResult> statistics = CurrentStatistics ?? new List<CalculatedResult>();
+				statistics.Add(statistic);
+
+				Preferences.Set(statisticsKey, JsonConvert.SerializeObject(statistics));
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the minimum age threshold.

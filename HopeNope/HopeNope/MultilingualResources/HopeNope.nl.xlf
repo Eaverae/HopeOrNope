@@ -10,7 +10,7 @@
           <source>HOPE or NOPE! is an application which uses the world-famous Relatio algorithm to determine whether or not a potential relationship can be iffy. If not, the app will give you the go-ahead.
 
 This app was developed as a showcase for guidoschippers.com and it's sole purpose is to demonstrate that I can create apps that require custom functionality like monetization.</source>
-          <target state="translated">HOPE or NOPE! is een applicatie die het wereldberoemde Relatio-algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app u groen licht.
+          <target state="translated">HOPE or NOPE! is een applicatie die het wereldberoemde Relatio-algoritme gebruikt om te bepalen of een potentiële relatie dubieus kan zijn. Zo niet, dan geeft de app je groen licht.
 
 Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doel is om aan te tonen dat ik apps kan maken die aangepaste functionaliteit vereisen, zoals het genereren van inkomsten.</target>
         </trans-unit>
@@ -59,7 +59,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <target state="translated">Resultaat</target>
         </trans-unit>
         <trans-unit id="YourAgeShortcut" translate="yes" xml:space="preserve">
-          <source>Did you know you can set your date of birth in the settings page? That way can skip the first step in this wizard!</source>
+          <source>Did you know you can set your date of birth on the settings page? That way can skip the first step in this wizard!</source>
           <target state="translated">Wist je dat je jouw geboortedatum instellen op de instellingenpagina? Op die manier kan je de eerste stap van deze wizard overslaan!</target>
         </trans-unit>
         <trans-unit id="AboutTitle" translate="yes" xml:space="preserve">
@@ -145,6 +145,26 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         <trans-unit id="Continue" translate="yes" xml:space="preserve">
           <source>Continue</source>
           <target state="translated" state-qualifier="tm-suggestion">Ga door</target>
+        </trans-unit>
+        <trans-unit id="CurrentVersion" translate="yes" xml:space="preserve">
+          <source>Current app version</source>
+          <target state="translated" state-qualifier="mt-suggestion">Huidige app-versie</target>
+        </trans-unit>
+        <trans-unit id="StatisticsDescription" translate="yes" xml:space="preserve">
+          <source>Current statistics are as follows. You can reset your statistics on the settings page.</source>
+          <target state="translated">De huidige statistieken zijn als volgt. Je kan je statistieken verwijderen op de instellingenpagina.</target>
+        </trans-unit>
+        <trans-unit id="StatisticsTitle" translate="yes" xml:space="preserve">
+          <source>View stats</source>
+          <target state="translated" state-qualifier="mt-suggestion">Bekijk statistieken</target>
+        </trans-unit>
+        <trans-unit id="Total" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target state="translated" state-qualifier="tm-suggestion">Totaal</target>
+        </trans-unit>
+        <trans-unit id="LastAttempt" translate="yes" xml:space="preserve">
+          <source>Last attempt</source>
+          <target state="translated" state-qualifier="mt-suggestion">Laatste poging</target>
         </trans-unit>
       </group>
     </body>
