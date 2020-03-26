@@ -146,6 +146,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Continue</source>
           <target state="translated" state-qualifier="tm-suggestion">Ga door</target>
         </trans-unit>
+        <trans-unit id="CurrentVersion" translate="yes" xml:space="preserve">
+          <source>Current app version</source>
+          <target state="new">Current app version</target>
+        </trans-unit>
       </group>
     </body>
   </file>

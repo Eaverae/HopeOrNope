@@ -6,7 +6,7 @@
              xmlns:ext="clr-namespace:HopeNope.Extensions"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
-             x:Class="HopeNope.Views.AboutView">
+             x:Class="HopeNope.Views.StatsView">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand">
         <controls:CustomStackLayout.Padding>
             <OnPlatform x:TypeArguments="d:Thickness">
@@ -25,7 +25,6 @@
             <StackLayout Grid.Row="0" Margin="10, 275, 10, 0" VerticalOptions="Start">
                 <Label Text="{ext:Translate About}" HorizontalOptions="Center" />
                 <Label Text="{ext:Translate Copyright}" HorizontalOptions="Start" FontSize="Micro" />
-                <Label Text="{Binding CurrentVersion}" VerticalOptions="End" HorizontalOptions="Start" FontSize="Micro" />
             </StackLayout>
 
             <StackLayout Grid.Row="1">

@@ -153,6 +153,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current app version.
+        /// </summary>
+        internal static string CurrentVersion {
+            get {
+                return ResourceManager.GetString("CurrentVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default date of birth.
         /// </summary>
         internal static string DefaultDateOfBirth {

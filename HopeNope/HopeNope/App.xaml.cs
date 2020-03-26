@@ -8,6 +8,7 @@ using HopeNope.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope
@@ -33,6 +34,8 @@ namespace HopeNope
 		/// </summary>
 		protected override void OnStart()
 		{
+			VersionTracking.Track();
+
 			// Start appcenter
 			AppCenter.Start(ApplicationConstants.AppCenterKey, typeof(Analytics), typeof(Crashes));
 
@@ -78,6 +81,7 @@ namespace HopeNope
 			// Generic application views
 			ViewFactory.RegisterView<MainView, MainViewModel>();
 			ViewFactory.RegisterView<AboutView, AboutViewModel>();
+			ViewFactory.RegisterView<StatsView, StatsViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
 
