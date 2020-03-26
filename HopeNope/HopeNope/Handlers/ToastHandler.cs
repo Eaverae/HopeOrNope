@@ -148,6 +148,7 @@ namespace HopeNope.Handlers
 
 			timer.Stop();
 			timer.Dispose();
+
 			timer = null;
 		}
 	}
