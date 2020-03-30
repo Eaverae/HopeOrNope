@@ -1,8 +1,10 @@
 ﻿using Autofac;
+using GuidFramework;
+using GuidFramework.Classes;
+using GuidFramework.Services;
 using HopeNope.Classes;
 using HopeNope.Handlers;
 using HopeNope.Interfaces;
-using HopeNope.Services;
 using HopeNope.ViewModels;
 using HopeNope.Views;
 using Microsoft.AppCenter;
@@ -55,8 +57,6 @@ namespace HopeNope
 
 			statusBarService.HideStatusBar();
 
-			RegisterViews();
-
 			MainPage = new NavigationPage(ViewFactory.CreateView<MainViewModel>());
 		}
 
@@ -74,9 +74,9 @@ namespace HopeNope
 		/// <summary>
 		/// Registers the views.
 		/// </summary>
-		private void RegisterViews()
+		protected override void RegisterViews()
 		{
-			ViewFactory.DeregisterAll();
+			base.RegisterViews();
 
 			// Generic application views
 			ViewFactory.RegisterView<MainView, MainViewModel>();
@@ -84,9 +84,6 @@ namespace HopeNope
 			ViewFactory.RegisterView<StatsView, StatsViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
-
-			// Register ad view
-			ViewFactory.RegisterView<FullscreenAdPopup, FullscreenAdPopupViewModel>();
 		}
 	}
 }

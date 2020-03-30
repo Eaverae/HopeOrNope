@@ -1,4 +1,5 @@
 ﻿using HopeNope.Properties;
+using HopeNope.ViewModels.Base;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -9,7 +10,7 @@ namespace HopeNope.ViewModels
 	/// AboutViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class AboutViewModel : BaseViewModel
+	public class AboutViewModel : HopeNopeViewModel
 	{
 		/// <summary>
 		/// Gets the current version.

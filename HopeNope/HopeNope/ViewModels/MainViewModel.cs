@@ -1,8 +1,9 @@
 ﻿using Autofac;
+using GuidFramework;
+using GuidFramework.Interfaces;
 using HopeNope.Classes;
-using HopeNope.Interfaces;
 using HopeNope.Properties;
-using System;
+using HopeNope.ViewModels.Base;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,7 +13,7 @@ namespace HopeNope.ViewModels
 	/// MainViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class MainViewModel : BaseViewModel
+	public class MainViewModel : HopeNopeViewModel
 	{
 		/// <summary>
 		/// Gets the purchase handler.

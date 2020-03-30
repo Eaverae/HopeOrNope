@@ -1,7 +1,10 @@
-﻿using HopeNope.Classes;
+﻿using GuidFramework.Extensions;
+using GuidFramework.Handlers;
+using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Handlers;
 using HopeNope.Properties;
+using HopeNope.ViewModels.Base;
 using HopeNope.Views;
 using System;
 using System.Windows.Input;
@@ -13,7 +16,7 @@ namespace HopeNope.ViewModels
 	/// CalculatorViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class CalculatorViewModel : BaseViewModel
+	public class CalculatorViewModel : HopeNopeViewModel
 	{
 		private int maxAds = new Random().Next(2, 5);
 
@@ -196,7 +199,7 @@ namespace HopeNope.ViewModels
 			// This code may only execute when the wizard first appears.
 			if (HasDefaultAge && !isWizardInitialized)
 			{
-				Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+				GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
 				isWizardInitialized = true;
 			}
 		}
@@ -237,7 +240,7 @@ namespace HopeNope.ViewModels
 
 				if (AdsEnabled && maxAds > 0)
 				{
-					AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
+					AdHandler.ShowFullScreenAd(BannerAdId, Resources.Loading, Resources.Continue, SecondBannerAdId, () =>
 					{
 						NavigateToResult();
 						maxAds--;
@@ -250,7 +253,7 @@ namespace HopeNope.ViewModels
 				void NavigateToResult()
 				{
 					// View the result
-					Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
 				}
 			}
 		}
@@ -260,7 +263,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void SelectFirstTab()
 		{
-			Services.NavigationService.MultipageSetSelectedItem<WizardPage1>();
+			GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage1>();
 		}
 
 		/// <summary>
@@ -278,7 +281,7 @@ namespace HopeNope.ViewModels
 			{
 				if (AdsEnabled && maxAds > 0)
 				{
-					AdHandler.ShowFullScreenAd(BannerAdId, SecondBannerAdId, () =>
+					AdHandler.ShowFullScreenAd(BannerAdId, Resources.Loading, Resources.Continue, SecondBannerAdId, () =>
 					{
 						NavigateToSecondTab();
 						maxAds--;
@@ -290,7 +293,7 @@ namespace HopeNope.ViewModels
 				// Local function for navigation
 				void NavigateToSecondTab()
 				{
-					Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
+					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
 				}
 			}
 		}

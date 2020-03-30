@@ -1,7 +1,5 @@
 ﻿using HopeNope.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace HopeNope.Interfaces
 {

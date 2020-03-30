@@ -1,8 +1,10 @@
 ﻿using Autofac;
+using GuidFramework.Interfaces;
 using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Interfaces;
 using HopeNope.Properties;
+using HopeNope.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace HopeNope.ViewModels
 	/// AboutViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class SettingsViewModel : BaseViewModel
+	public class SettingsViewModel : HopeNopeViewModel
 	{
 		private readonly ILanguageHandler languageHandler;
 		private readonly IPurchaseHandler purchaseHandler;

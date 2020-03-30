@@ -2,8 +2,8 @@
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-               xmlns:local="clr-namespace:HopeNope"
-               xmlns:converters="clr-namespace:HopeNope.Converters"
+               xmlns:local="clr-namespace:GuidFramework;assembly=GuidFramework"
+               xmlns:converters="clr-namespace:GuidFramework.Converters;assembly=GuidFramework"
                mc:Ignorable="d"
                x:Class="HopeNope.App">
     <Application.Resources>

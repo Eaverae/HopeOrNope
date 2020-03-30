@@ -1,5 +1,6 @@
 ﻿using HopeNope.Classes;
 using HopeNope.Entities;
+using HopeNope.ViewModels.Base;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +10,7 @@ namespace HopeNope.ViewModels
 	/// StatsViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class StatsViewModel : BaseViewModel
+	public class StatsViewModel : HopeNopeViewModel
 	{
 		IList<CalculatedResult> statistics = null;
 

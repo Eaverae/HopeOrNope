@@ -3,17 +3,21 @@ using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.OS;
 using Android.Runtime;
-using Plugin.CurrentActivity;
-using Plugin.Multilingual;
+using GuidFramework.Android;
 
 namespace HopeNope.Droid
 {
-	[Activity(Label = "HopeNope", Theme = "@style/MainTheme", MainLauncher = false,
-			  ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+	/// <summary>
+	/// MainActivity
+	/// </summary>
+	/// <seealso cref="GuidFramework.Android.GuidFrameworkActivity" />
+	[Activity(Label = "HopeNope", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	public class MainActivity : GuidFrameworkActivity
 	{
-		public static Activity CurrentActivity { get; private set; }
-
+		/// <summary>
+		/// Called when the activity is created.
+		/// </summary>
+		/// <param name="bundle">The bundle.</param>
 		protected override void OnCreate(Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
@@ -21,19 +25,20 @@ namespace HopeNope.Droid
 
 			base.OnCreate(bundle);
 
-			Rg.Plugins.Popup.Popup.Init(this, bundle);
-
-			CurrentActivity = this;
-
 			MobileAds.Initialize(ApplicationContext, "ca-app-pub-3950359454148049~9381262238");
-			Xamarin.Essentials.Platform.Init(this, bundle);
-			CrossCurrentActivity.Current.Init(this, bundle);
 			
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			LoadApplication(new App());
 		}
-		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+
+		/// <summary>
+		/// OnRequestPermissionsResult.
+		/// </summary>
+		/// <param name="requestCode">To be added.</param>
+		/// <param name="permissions">To be added.</param>
+		/// <param name="grantResults">To be added.</param>
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
 		{
 			Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
