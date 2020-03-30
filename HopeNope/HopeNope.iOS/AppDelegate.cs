@@ -23,6 +23,7 @@ namespace HopeNope.iOS
 			global::Xamarin.Forms.Forms.Init();
 
 			MobileAds.SharedInstance.Start(null);
+			GuidFramework.iOS.Framework.Init();
 
 			LoadApplication(new App());
 

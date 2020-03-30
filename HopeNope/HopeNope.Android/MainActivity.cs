@@ -28,6 +28,8 @@ namespace HopeNope.Droid
 			MobileAds.Initialize(ApplicationContext, "ca-app-pub-3950359454148049~9381262238");
 			
 			global::Xamarin.Forms.Forms.Init(this, bundle);
+			
+			Framework.Init();
 
 			LoadApplication(new App());
 		}
