@@ -1,8 +1,8 @@
-﻿using HopeNope.Entities;
+﻿using GuidFramework.Extensions;
+using HopeNope.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Xamarin.Essentials;
 
 namespace HopeNope.Classes

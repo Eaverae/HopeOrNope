@@ -77,23 +77,15 @@
       <Version>1.2.0.223</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.GooglePlayServices.Ads">
       <Version>71.1720.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\AdBannerRenderer.cs" />
-    <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
-    <Compile Include="Renderers\CustomEntryRenderer.cs" />
-    <Compile Include="Renderers\CustomPickerRenderer.cs" />
-    <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\InAppBillingVerifyService.cs" />
-    <Compile Include="Services\InterstitialAdService.cs" />
-    <Compile Include="Services\StatusBarService.cs" />
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +115,14 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GuidFramework.Android\GuidFramework.Android.csproj">
+      <Project>{CBC38628-AE42-4E85-A2EA-91D15DCE4296}</Project>
+      <Name>GuidFramework.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GuidFramework\GuidFramework.csproj">
+      <Project>{0947120d-d6cc-40cd-ad71-ab3c20bcbf1c}</Project>
+      <Name>GuidFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HopeNope\HopeNope.csproj">
       <Project>{C21C3B16-4475-45D3-82E4-023330E86C34}</Project>
       <Name>HopeNope</Name>

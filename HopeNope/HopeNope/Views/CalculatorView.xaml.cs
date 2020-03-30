@@ -21,7 +21,7 @@ namespace HopeNope.Views
 		/// </summary>
 		protected override bool OnBackButtonPressed()
 		{
-			Services.NavigationService.MultipageSetSelectedItem<WizardPage1>();
+			GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage1>();
 
 			return true;
 		}
