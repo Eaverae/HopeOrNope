@@ -34,6 +34,9 @@
                                       HorizontalTextAlignment="Center"
                                       WidthRequest="125"
                                       UnderlineColor="White" />
+                <Label Text="{ext:Translate Or}" />
+                <Button Text="{ext:Translate Determine}" Command="{Binding DetermineAgeCommand}" />
+                <Image Source="{Binding ProfilePicture}" />
             </StackLayout>
 
             <!--Footer-->

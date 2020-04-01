@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Views;
-using GuidFramework.Android;
+using GuidFramework.Droid;
 using GuidFramework.Droid.Services;
 using GuidFramework.Services;
 using Xamarin.Forms;

@@ -22,7 +22,7 @@ namespace GuidFramework.Droid.Renderers
 	/// CustomPickerRenderer
 	/// </summary>
 	/// <seealso cref="Xamarin.Forms.Platform.Android.PickerRenderer" />
-	/// <seealso cref="Android.Views.View.IOnClickListener" />
+	/// <seealso cref="Droid.Views.View.IOnClickListener" />
 	public class CustomPickerRenderer : PickerRenderer, IOnClickListener
 	{
 		private IElementController ElementController => Element as IElementController;

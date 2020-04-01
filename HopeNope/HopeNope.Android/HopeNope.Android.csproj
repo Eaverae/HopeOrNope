@@ -76,6 +76,9 @@
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>1.2.0.223</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.GooglePlayServices.Ads">
@@ -115,9 +118,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GuidFramework.Android\GuidFramework.Android.csproj">
+    <ProjectReference Include="..\..\GuidFramework.Android\GuidFramework.Droid.csproj">
       <Project>{CBC38628-AE42-4E85-A2EA-91D15DCE4296}</Project>
-      <Name>GuidFramework.Android</Name>
+      <Name>GuidFramework.Droid</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\GuidFramework\GuidFramework.csproj">
       <Project>{0947120d-d6cc-40cd-ad71-ab3c20bcbf1c}</Project>
@@ -175,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\nope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\filepaths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

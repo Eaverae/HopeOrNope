@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HopeNope.iOS", "HopeNope\Ho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HopeNope", "HopeNope\HopeNope\HopeNope.csproj", "{C2CC701D-3E10-4425-95F6-1C65E90CA8B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidFramework", "GuidFramework\GuidFramework.csproj", "{0947120D-D6CC-40CD-AD71-AB3C20BCBF1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuidFramework", "GuidFramework\GuidFramework.csproj", "{0947120D-D6CC-40CD-AD71-AB3C20BCBF1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidFramework.Android", "GuidFramework.Android\GuidFramework.Android.csproj", "{CBC38628-AE42-4E85-A2EA-91D15DCE4296}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidFramework.Droid", "GuidFramework.Android\GuidFramework.Droid.csproj", "{CBC38628-AE42-4E85-A2EA-91D15DCE4296}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidFramework.iOS", "GuidFramework.iOS\GuidFramework.iOS.csproj", "{6349AC35-9730-41DF-A26A-834C03D198EC}"
 EndProject

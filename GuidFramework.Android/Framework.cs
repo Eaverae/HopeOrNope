@@ -1,7 +1,7 @@
 ﻿using GuidFramework.Droid.Renderers;
 using GuidFramework.Droid.Services;
 
-namespace GuidFramework.Android
+namespace GuidFramework.Droid
 {
 	/// <summary>
 	/// Static framework class for Android

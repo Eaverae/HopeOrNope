@@ -5,6 +5,10 @@
 	/// </summary>
 	public static class ApplicationConstants
 	{
+		public const string FaceApiKey = "6996bddf4d51448fb545c37374f334df";
+		public const string FaceApiEndpoint = "https://hopenopeface.cognitiveservices.azure.com/";
+		public const string AzureSubscriptionKey = "a72d2eb8-bb93-4543-b6ea-646b36df1502";
+
 		/// <summary>
 		/// The product identifier
 		/// </summary>
