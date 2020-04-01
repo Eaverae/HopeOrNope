@@ -1,109 +1,199 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HopeNope.Entities
 {
-    public class FaceRectangle
+    public partial class FaceAnalysis
     {
-        public int top { get; set; }
-        public int left { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
+        [JsonProperty("faceId")]
+        public Guid FaceId { get; set; }
+
+        [JsonProperty("faceRectangle")]
+        public FaceRectangle FaceRectangle { get; set; }
+
+        [JsonProperty("faceAttributes")]
+        public FaceAttributes FaceAttributes { get; set; }
     }
 
-    public class HeadPose
+    public partial class FaceAttributes
     {
-        public double pitch { get; set; }
-        public double roll { get; set; }
-        public double yaw { get; set; }
+        [JsonProperty("smile")]
+        public long Smile { get; set; }
+
+        [JsonProperty("headPose")]
+        public HeadPose HeadPose { get; set; }
+
+        [JsonProperty("gender")]
+        public string Gender { get; set; }
+
+        [JsonProperty("age")]
+        public long Age { get; set; }
+
+        [JsonProperty("facialHair")]
+        public FacialHair FacialHair { get; set; }
+
+        [JsonProperty("glasses")]
+        public string Glasses { get; set; }
+
+        [JsonProperty("emotion")]
+        public Emotion Emotion { get; set; }
+
+        [JsonProperty("blur")]
+        public Blur Blur { get; set; }
+
+        [JsonProperty("exposure")]
+        public Exposure Exposure { get; set; }
+
+        [JsonProperty("noise")]
+        public Noise Noise { get; set; }
+
+        [JsonProperty("makeup")]
+        public Makeup Makeup { get; set; }
+
+        [JsonProperty("accessories")]
+        public object[] Accessories { get; set; }
+
+        [JsonProperty("occlusion")]
+        public Occlusion Occlusion { get; set; }
+
+        [JsonProperty("hair")]
+        public Hair Hair { get; set; }
     }
 
-    public class FacialHair
+    public partial class Blur
     {
-        public double moustache { get; set; }
-        public double beard { get; set; }
-        public double sideburns { get; set; }
+        [JsonProperty("blurLevel")]
+        public string BlurLevel { get; set; }
+
+        [JsonProperty("value")]
+        public double Value { get; set; }
     }
 
-    public class Emotion
+    public partial class Emotion
     {
-        public double anger { get; set; }
-        public double contempt { get; set; }
-        public double disgust { get; set; }
-        public double fear { get; set; }
-        public double happiness { get; set; }
-        public double neutral { get; set; }
-        public double sadness { get; set; }
-        public double surprise { get; set; }
+        [JsonProperty("anger")]
+        public long Anger { get; set; }
+
+        [JsonProperty("contempt")]
+        public long Contempt { get; set; }
+
+        [JsonProperty("disgust")]
+        public long Disgust { get; set; }
+
+        [JsonProperty("fear")]
+        public long Fear { get; set; }
+
+        [JsonProperty("happiness")]
+        public long Happiness { get; set; }
+
+        [JsonProperty("neutral")]
+        public double Neutral { get; set; }
+
+        [JsonProperty("sadness")]
+        public long Sadness { get; set; }
+
+        [JsonProperty("surprise")]
+        public long Surprise { get; set; }
     }
 
-    public class Blur
+    public partial class Exposure
     {
-        public string blurLevel { get; set; }
-        public double value { get; set; }
+        [JsonProperty("exposureLevel")]
+        public string ExposureLevel { get; set; }
+
+        [JsonProperty("value")]
+        public double Value { get; set; }
     }
 
-    public class Exposure
+    public partial class FacialHair
     {
-        public string exposureLevel { get; set; }
-        public double value { get; set; }
+        [JsonProperty("moustache")]
+        public long Moustache { get; set; }
+
+        [JsonProperty("beard")]
+        public long Beard { get; set; }
+
+        [JsonProperty("sideburns")]
+        public long Sideburns { get; set; }
     }
 
-    public class Noise
+    public partial class Hair
     {
-        public string noiseLevel { get; set; }
-        public double value { get; set; }
+        [JsonProperty("bald")]
+        public double Bald { get; set; }
+
+        [JsonProperty("invisible")]
+        public bool Invisible { get; set; }
+
+        [JsonProperty("hairColor")]
+        public HairColor[] HairColor { get; set; }
     }
 
-    public class Makeup
+    public partial class HairColor
     {
-        public bool eyeMakeup { get; set; }
-        public bool lipMakeup { get; set; }
+        [JsonProperty("color")]
+        public string Color { get; set; }
+
+        [JsonProperty("confidence")]
+        public double Confidence { get; set; }
     }
 
-    public class Occlusion
+    public partial class HeadPose
     {
-        public bool foreheadOccluded { get; set; }
-        public bool eyeOccluded { get; set; }
-        public bool mouthOccluded { get; set; }
+        [JsonProperty("pitch")]
+        public double Pitch { get; set; }
+
+        [JsonProperty("roll")]
+        public double Roll { get; set; }
+
+        [JsonProperty("yaw")]
+        public double Yaw { get; set; }
     }
 
-    public class HairColor
+    public partial class Makeup
     {
-        public string color { get; set; }
-        public double confidence { get; set; }
+        [JsonProperty("eyeMakeup")]
+        public bool EyeMakeup { get; set; }
+
+        [JsonProperty("lipMakeup")]
+        public bool LipMakeup { get; set; }
     }
 
-    public class Hair
+    public partial class Noise
     {
-        public double bald { get; set; }
-        public bool invisible { get; set; }
-        public List<HairColor> hairColor { get; set; }
+        [JsonProperty("noiseLevel")]
+        public string NoiseLevel { get; set; }
+
+        [JsonProperty("value")]
+        public double Value { get; set; }
     }
 
-    public class FaceAttributes
+    public partial class Occlusion
     {
-        public double smile { get; set; }
-        public HeadPose headPose { get; set; }
-        public string gender { get; set; }
-        public double age { get; set; }
-        public FacialHair facialHair { get; set; }
-        public string glasses { get; set; }
-        public Emotion emotion { get; set; }
-        public Blur blur { get; set; }
-        public Exposure exposure { get; set; }
-        public Noise noise { get; set; }
-        public Makeup makeup { get; set; }
-        //public List<object> accessories { get; set; }
-        public Occlusion occlusion { get; set; }
-        public Hair hair { get; set; }
+        [JsonProperty("foreheadOccluded")]
+        public bool ForeheadOccluded { get; set; }
+
+        [JsonProperty("eyeOccluded")]
+        public bool EyeOccluded { get; set; }
+
+        [JsonProperty("mouthOccluded")]
+        public bool MouthOccluded { get; set; }
     }
 
-    public class FaceAnalysis
+    public partial class FaceRectangle
     {
-        public string faceId { get; set; }
-        public FaceRectangle faceRectangle { get; set; }
-        public FaceAttributes faceAttributes { get; set; }
+        [JsonProperty("top")]
+        public long Top { get; set; }
+
+        [JsonProperty("left")]
+        public long Left { get; set; }
+
+        [JsonProperty("width")]
+        public long Width { get; set; }
+
+        [JsonProperty("height")]
+        public long Height { get; set; }
     }
 }
