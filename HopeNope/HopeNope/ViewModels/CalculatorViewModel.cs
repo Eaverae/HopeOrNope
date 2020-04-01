@@ -311,7 +311,7 @@ namespace HopeNope.ViewModels
 									{
 										FaceAnalysis analysis = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult).FirstOrDefault();
 
-										SecondAgeInput = analysis.faceAttributes.age.ToString();
+										SecondAgeInput = analysis.FaceAttributes.Age.ToString();
 									}
 									catch (Exception ex)
 									{
