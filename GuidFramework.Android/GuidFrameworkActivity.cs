@@ -3,7 +3,7 @@ using Android.App;
 using Android.OS;
 using Plugin.CurrentActivity;
 
-namespace GuidFramework.Android
+namespace GuidFramework.Droid
 {
 	[Activity(Label = "GuidFrameworkActivity")]
 	public class GuidFrameworkActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

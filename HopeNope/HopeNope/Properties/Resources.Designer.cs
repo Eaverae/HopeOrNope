@@ -81,6 +81,33 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action not supported on current device..
+        /// </summary>
+        internal static string AlertMessageActionNotSupported {
+            get {
+                return ResourceManager.GetString("AlertMessageActionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camera permission needed to execute the selected action..
+        /// </summary>
+        internal static string AlertMessageCameraPermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertMessageCameraPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photogallery permission needed to execute the selected action..
+        /// </summary>
+        internal static string AlertMessageGalleryPermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertMessageGalleryPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item already purchased.
         /// </summary>
         internal static string AlertMessageItemAlreadyPurchased {
@@ -99,11 +126,38 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action not supported.
+        /// </summary>
+        internal static string AlertTitleActionNotSupported {
+            get {
+                return ResourceManager.GetString("AlertTitleActionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure?.
         /// </summary>
         internal static string AlertTitleAreYouSure {
             get {
                 return ResourceManager.GetString("AlertTitleAreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camera permission needed.
+        /// </summary>
+        internal static string AlertTitleCameraPermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertTitleCameraPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photogallery permission needed.
+        /// </summary>
+        internal static string AlertTitleGalleryPermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertTitleGalleryPermissionNeeded", resourceCulture);
             }
         }
         
@@ -122,6 +176,15 @@ namespace HopeNope.Properties {
         internal static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camera.
+        /// </summary>
+        internal static string Camera {
+            get {
+                return ResourceManager.GetString("Camera", resourceCulture);
             }
         }
         
@@ -171,6 +234,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Determine.
+        /// </summary>
+        internal static string Determine {
+            get {
+                return ResourceManager.GetString("Determine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done.
         /// </summary>
         internal static string Done {
@@ -194,6 +266,24 @@ namespace HopeNope.Properties {
         internal static string EnterYourAge {
             get {
                 return ResourceManager.GetString("EnterYourAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determine age by picture.
+        /// </summary>
+        internal static string FacialRecognition {
+            get {
+                return ResourceManager.GetString("FacialRecognition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery.
+        /// </summary>
+        internal static string Gallery {
+            get {
+                return ResourceManager.GetString("Gallery", resourceCulture);
             }
         }
         
@@ -230,6 +320,15 @@ namespace HopeNope.Properties {
         internal static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to or.
+        /// </summary>
+        internal static string Or {
+            get {
+                return ResourceManager.GetString("Or", resourceCulture);
             }
         }
         

@@ -3,14 +3,14 @@ using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.OS;
 using Android.Runtime;
-using GuidFramework.Android;
+using GuidFramework.Droid;
 
 namespace HopeNope.Droid
 {
 	/// <summary>
 	/// MainActivity
 	/// </summary>
-	/// <seealso cref="GuidFramework.Android.GuidFrameworkActivity" />
+	/// <seealso cref="GuidFramework.Droid.GuidFrameworkActivity" />
 	[Activity(Label = "HopeNope", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : GuidFrameworkActivity
 	{
@@ -43,6 +43,8 @@ namespace HopeNope.Droid
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
 		{
 			Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+			Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
 			base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}

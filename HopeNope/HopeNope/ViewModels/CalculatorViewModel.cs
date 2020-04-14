@@ -6,7 +6,15 @@ using HopeNope.Handlers;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
 using HopeNope.Views;
+using Newtonsoft.Json;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -19,6 +27,10 @@ namespace HopeNope.ViewModels
 	public class CalculatorViewModel : HopeNopeViewModel
 	{
 		private int maxAds = new Random().Next(2, 5);
+
+		private byte[] imageData;
+		private MediaFile photo;
+		private ImageSource profilePicture;
 
 		private string firstAgeInput;
 		private string secondAgeInput;
@@ -60,6 +72,26 @@ namespace HopeNope.ViewModels
 					secondAge = 0;
 
 				return secondAge;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the current image.
+		/// </summary>
+		/// <value>
+		/// The current image.
+		/// </value>
+		public ImageSource ProfilePicture
+		{
+			get
+			{
+				return profilePicture;
+			}
+			set
+			{
+				profilePicture = value;
+
+				OnPropertyChanged();
 			}
 		}
 
@@ -147,6 +179,8 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand ResetCommand => new Command(Reset, CanExecuteCommands);
 
+		public ICommand DetermineAgeCommand => new Command(DetermineAge, CanExecuteCommands);
+
 		/// <summary>
 		/// Gets the select first tab command.
 		/// </summary>
@@ -201,6 +235,104 @@ namespace HopeNope.ViewModels
 			{
 				GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
 				isWizardInitialized = true;
+			}
+		}
+
+		/// <summary>
+		/// Determines the age.
+		/// </summary>
+		private void DetermineAge()
+		{
+			EditProfilePictureAsync();
+		}
+
+		/// <summary>
+		/// Edits the profile picture asynchronous.
+		/// </summary>
+		private async void EditProfilePictureAsync()
+		{
+			// Check if the device is compatible
+			if (!CrossMedia.IsSupported)
+				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleActionNotSupported, Resources.AlertMessageActionNotSupported, Resources.Ok);
+			else if (await CrossMedia.Current.Initialize())
+			{
+				photo = null;
+
+				string result = await AlertHandler.DisplayActionSheetAsync(Resources.FacialRecognition, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
+
+				// Error handling for the actionsheet
+				if (!result.IsNullOrWhiteSpace() && !result.Equals(Resources.Cancel))
+				{
+					if (result.Equals(Resources.Camera))
+					{
+						
+						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+						
+						if (cameraStatus != PermissionStatus.Granted)
+							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+
+						if (cameraStatus == PermissionStatus.Granted)
+						{
+							photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
+							{
+								Directory = "hopenopefaces",
+								Name = $"{DateTime.Now.ToFileTimeUtc()}.jpg"
+							});
+						}
+						else
+							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleCameraPermissionNeeded, Resources.AlertMessageCameraPermissionNeeded, Resources.Ok);
+					}
+					else if (result.Equals(Resources.Gallery))
+					{
+						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+						
+						if (photoStatus != PermissionStatus.Granted)
+							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+
+						if (photoStatus == PermissionStatus.Granted)
+							photo = await CrossMedia.Current.PickPhotoAsync();
+						else
+							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
+					}
+
+					if (photo != null)
+					{
+						// Set the profilepicture as imagedata
+						using (MemoryStream photoStream = new MemoryStream())
+						{
+							// Copy the stream to cache the data
+							await photo.GetStream().CopyToAsync(photoStream);
+							imageData = photoStream.ToArray();
+
+							if (imageData != null)
+							{
+								string analysisResult = await FaceHandler.MakeAnalysisRequestAsync(imageData);
+
+								if (!analysisResult.IsNullOrWhiteSpace())
+								{
+									try
+									{
+										List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
+
+										FaceAnalysis analysis = faceGroup.FirstOrDefault();
+
+										if (analysis != null)
+											SecondAgeInput = analysis.FaceAttributes.Age.ToString();
+									}
+									catch (Exception ex)
+									{
+										LogHandler.LogException(ex);
+									}
+								}
+							}
+
+							ProfilePicture = ImageSource.FromStream(() =>
+							{
+								return new MemoryStream(imageData);
+							});
+						}
+					}
+				}
 			}
 		}
 
