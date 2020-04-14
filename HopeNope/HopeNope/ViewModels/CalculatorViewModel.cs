@@ -238,13 +238,13 @@ namespace HopeNope.ViewModels
 			}
 		}
 
-
-		private async void DetermineAge()
+		/// <summary>
+		/// Determines the age.
+		/// </summary>
+		private void DetermineAge()
 		{
 			EditProfilePictureAsync();
-
 		}
-
 
 		/// <summary>
 		/// Edits the profile picture asynchronous.
@@ -265,9 +265,11 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+						
+						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+						
 						if (cameraStatus != PermissionStatus.Granted)
-							cameraStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera))[Permission.Camera];
+							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
 
 						if (cameraStatus == PermissionStatus.Granted)
 						{
@@ -282,9 +284,10 @@ namespace HopeNope.ViewModels
 					}
 					else if (result.Equals(Resources.Gallery))
 					{
-						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
+						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+						
 						if (photoStatus != PermissionStatus.Granted)
-							photoStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Photos))[Permission.Photos];
+							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
 
 						if (photoStatus == PermissionStatus.Granted)
 							photo = await CrossMedia.Current.PickPhotoAsync();
@@ -309,7 +312,9 @@ namespace HopeNope.ViewModels
 								{
 									try
 									{
-										FaceAnalysis analysis = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult).FirstOrDefault();
+										List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
+
+										FaceAnalysis analysis = faceGroup.FirstOrDefault();
 
 										if (analysis != null)
 											SecondAgeInput = analysis.FaceAttributes.Age.ToString();

@@ -1,21 +1,25 @@
 ﻿using HopeNope.Classes;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HopeNope.Handlers
 {
-	public class FaceHandler  
+	/// <summary>
+	/// Handler for the face api
+	/// </summary>
+	public static class FaceHandler  
 	{
-
 		// replace <myresourcename> with the string found in your endpoint URL
 		const string uriBase = ApplicationConstants.FaceApiEndpoint + "/face/v1.0/detect";
 
-		// Gets the analysis of the specified image by using the Face REST API.
+		/// <summary>
+		/// Gets the analysis of the specified image by using the Face REST API.
+		/// </summary>
+		/// <param name="image">The image.</param>
+		/// <returns>A string value</returns>
+		/// <exception cref="ArgumentNullException">image</exception>
 		public static async Task<string> MakeAnalysisRequestAsync(byte[] image)
 		{
 			if (image == null)
@@ -36,11 +40,7 @@ namespace HopeNope.Handlers
 			// Assemble the URI for the REST API Call.
 			string uri = uriBase + "?" + requestParameters;
 
-			HttpResponseMessage response;
-
 			// Request body. Posts a locally stored JPEG image.
-			//byte[] byteData = GetImageAsByteArray(imageFilePath);
-
 			using (ByteArrayContent content = new ByteArrayContent(image))
 			{
 				// This example uses content type "application/octet-stream".
@@ -49,7 +49,7 @@ namespace HopeNope.Handlers
 				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
 				// Execute the REST API call.
-				response = await client.PostAsync(uri, content);
+				HttpResponseMessage response = await client.PostAsync(uri, content);
 
 				// Get the JSON response.
 				contentString = await response.Content.ReadAsStringAsync();
