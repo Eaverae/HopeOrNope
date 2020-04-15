@@ -30,7 +30,7 @@ namespace HopeNope
 		{
 			InitializeComponent();
 		}
-
+		
 		/// <summary>
 		/// Application developers override this method to perform actions when the application starts.
 		/// </summary>
