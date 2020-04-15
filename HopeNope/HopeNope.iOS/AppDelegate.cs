@@ -28,7 +28,7 @@ namespace HopeNope.iOS
 			GuidFramework.iOS.Framework.Init();
 
 			LoadApplication(new App());
-
+			
 			return base.FinishedLaunching(app, options);
 		}
 	}
