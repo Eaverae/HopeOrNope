@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using Google.MobileAds;
+using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
 
 namespace HopeNope.iOS
@@ -22,6 +23,7 @@ namespace HopeNope.iOS
 			Rg.Plugins.Popup.Popup.Init();
 			global::Xamarin.Forms.Forms.Init();
 
+			ImageCircleRenderer.Init();
 			MobileAds.SharedInstance.Start(null);
 			GuidFramework.iOS.Framework.Init();
 
