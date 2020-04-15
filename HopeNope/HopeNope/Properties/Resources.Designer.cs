@@ -117,6 +117,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We tried to take the picture&apos;s date into account to determine the current age of the person depicted..
+        /// </summary>
+        internal static string AlertMessagePictureDateTakenIntoAccount {
+            get {
+                return ResourceManager.GetString("AlertMessagePictureDateTakenIntoAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The app needs to be rebooted in order for the changes to take effect. Do you want to continue?.
         /// </summary>
         internal static string AlertMessageRebootWarning {
@@ -167,6 +176,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitleItemAlreadyPurchased {
             get {
                 return ResourceManager.GetString("AlertTitleItemAlreadyPurchased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture&apos;s date was taken into account.
+        /// </summary>
+        internal static string AlertTitlePictureDateTakenIntoAccount {
+            get {
+                return ResourceManager.GetString("AlertTitlePictureDateTakenIntoAccount", resourceCulture);
             }
         }
         

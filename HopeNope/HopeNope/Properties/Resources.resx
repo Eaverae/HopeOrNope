@@ -137,6 +137,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageItemAlreadyPurchased" xml:space="preserve">
     <value>Item already purchased</value>
   </data>
+  <data name="AlertMessagePictureDateTakenIntoAccount" xml:space="preserve">
+    <value>We tried to take the picture's date into account to determine the current age of the person depicted.</value>
+  </data>
   <data name="AlertMessageRebootWarning" xml:space="preserve">
     <value>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</value>
   </data>
@@ -154,6 +157,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertTitleItemAlreadyPurchased" xml:space="preserve">
     <value>Item already purchased</value>
+  </data>
+  <data name="AlertTitlePictureDateTakenIntoAccount" xml:space="preserve">
+    <value>Picture's date was taken into account</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>

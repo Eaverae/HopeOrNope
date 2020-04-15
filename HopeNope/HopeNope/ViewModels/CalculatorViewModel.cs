@@ -1,4 +1,5 @@
-﻿using GuidFramework.Extensions;
+﻿using ExifLib;
+using GuidFramework.Extensions;
 using GuidFramework.Handlers;
 using HopeNope.Classes;
 using HopeNope.Entities;
@@ -269,6 +270,7 @@ namespace HopeNope.ViewModels
 			else if (await CrossMedia.Current.Initialize())
 			{
 				photo = null;
+				DateTime? fileDateTime = null;
 
 				string result = await AlertHandler.DisplayActionSheetAsync(Resources.FacialRecognition, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
 
@@ -301,12 +303,24 @@ namespace HopeNope.ViewModels
 							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
 
 						if (photoStatus == PermissionStatus.Granted)
-							photo = await CrossMedia.Current.PickPhotoAsync();
+							photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { SaveMetaData = true });
 						else
 							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
+
+						if (photo != null)
+						{
+							ExifReader exifReader = new ExifReader(photo.Path);
+							DateTime exifDate = new DateTime();
+
+							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
+								fileDateTime = exifDate;
+
+							if (!fileDateTime.HasValue)
+								fileDateTime = new FileInfo(photo.Path).CreationTime;
+						}
 					}
 
-					SetProfilePictureAsync();
+					SetProfilePictureAsync(fileDateTime);
 				}
 			}
 		}
@@ -314,8 +328,10 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// Sets the profile picture asynchronous
 		/// </summary>
-		private async void SetProfilePictureAsync()
+		private async void SetProfilePictureAsync(DateTime? pictureDate = null)
 		{
+			bool showPictureDateMessage = false;
+
 			if (photo != null)
 			{
 				IsLoading = true;
@@ -341,7 +357,23 @@ namespace HopeNope.ViewModels
 							FaceAnalysis analysis = faceGroup.FirstOrDefault();
 
 							if (analysis != null)
-								SecondAgeInput = analysis.FaceAttributes.Age.ToString();
+							{
+								// Take the date of the picture into account when needed
+								long age = analysis.FaceAttributes.Age;
+
+								if (pictureDate.HasValue)
+								{
+									showPictureDateMessage = true;
+									DateTime current = DateTime.Now;
+
+									int year = new DateTime(current.Subtract(pictureDate.Value).Ticks).Year - 1;
+
+									age += year;
+								}
+
+								SecondAgeInput = age.ToString();
+							}
+
 						}
 						catch (Exception ex)
 						{
@@ -354,6 +386,9 @@ namespace HopeNope.ViewModels
 				{
 					return new MemoryStream(imageData);
 				});
+
+				if (showPictureDateMessage)
+					await AlertHandler.DisplayAlertAsync(Resources.AlertTitlePictureDateTakenIntoAccount, Resources.AlertMessagePictureDateTakenIntoAccount, Resources.Ok);
 
 				IsLoading = false;
 			}

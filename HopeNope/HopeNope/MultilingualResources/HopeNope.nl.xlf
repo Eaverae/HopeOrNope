@@ -210,6 +210,14 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Determine by picture</source>
           <target state="translated">Fotobepaling</target>
         </trans-unit>
+        <trans-unit id="AlertTitlePictureDateTakenIntoAccount" translate="yes" xml:space="preserve">
+          <source>Picture's date was taken into account</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Er is rekening gehouden met de datum van de afbeelding</target>
+        </trans-unit>
+        <trans-unit id="AlertMessagePictureDateTakenIntoAccount" translate="yes" xml:space="preserve">
+          <source>We tried to take the picture's date into account to determine the current age of the person depicted.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">We hebben geprobeerd om rekening te houden met de datum van de foto om de huidige leeftijd van de afgebeelde persoon te bepalen.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
