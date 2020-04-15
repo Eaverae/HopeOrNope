@@ -12,5 +12,5 @@
     <views:WizardPage2 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
     
     <!-- Result page-->
-    <views:WizardPage3 BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
+    <views:ResultWizardPage BindingContext="{Binding Path=BindingContext, Source={x:Reference RelatioWizard}}" />
 </CarouselPage>

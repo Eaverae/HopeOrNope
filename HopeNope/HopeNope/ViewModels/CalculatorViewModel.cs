@@ -76,6 +76,17 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Returns a boolean value that indicates whether or not there is a profile picture
+		/// </summary>
+		public bool HasProfilePicture
+		{
+			get
+			{
+				return ProfilePicture != null;
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the current image.
 		/// </summary>
 		/// <value>
@@ -92,6 +103,7 @@ namespace HopeNope.ViewModels
 				profilePicture = value;
 
 				OnPropertyChanged();
+				OnPropertyChanged(nameof(HasProfilePicture));
 			}
 		}
 
@@ -265,9 +277,8 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						
 						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
-						
+
 						if (cameraStatus != PermissionStatus.Granted)
 							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
 
@@ -285,7 +296,7 @@ namespace HopeNope.ViewModels
 					else if (result.Equals(Resources.Gallery))
 					{
 						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
-						
+
 						if (photoStatus != PermissionStatus.Granted)
 							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
 
@@ -295,44 +306,56 @@ namespace HopeNope.ViewModels
 							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
 					}
 
-					if (photo != null)
+					SetProfilePictureAsync();
+				}
+			}
+		}
+
+		/// <summary>
+		/// Sets the profile picture asynchronous
+		/// </summary>
+		private async void SetProfilePictureAsync()
+		{
+			if (photo != null)
+			{
+				IsLoading = true;
+
+				// Set the profilepicture as imagedata
+				using (MemoryStream photoStream = new MemoryStream())
+				{
+					// Copy the stream to cache the data
+					await photo.GetStream().CopyToAsync(photoStream);
+					imageData = photoStream.ToArray();
+				}
+
+				if (imageData != null)
+				{
+					string analysisResult = await FaceHandler.MakeAnalysisRequestAsync(imageData);
+
+					if (!analysisResult.IsNullOrWhiteSpace())
 					{
-						// Set the profilepicture as imagedata
-						using (MemoryStream photoStream = new MemoryStream())
+						try
 						{
-							// Copy the stream to cache the data
-							await photo.GetStream().CopyToAsync(photoStream);
-							imageData = photoStream.ToArray();
+							List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
 
-							if (imageData != null)
-							{
-								string analysisResult = await FaceHandler.MakeAnalysisRequestAsync(imageData);
+							FaceAnalysis analysis = faceGroup.FirstOrDefault();
 
-								if (!analysisResult.IsNullOrWhiteSpace())
-								{
-									try
-									{
-										List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
-
-										FaceAnalysis analysis = faceGroup.FirstOrDefault();
-
-										if (analysis != null)
-											SecondAgeInput = analysis.FaceAttributes.Age.ToString();
-									}
-									catch (Exception ex)
-									{
-										LogHandler.LogException(ex);
-									}
-								}
-							}
-
-							ProfilePicture = ImageSource.FromStream(() =>
-							{
-								return new MemoryStream(imageData);
-							});
+							if (analysis != null)
+								SecondAgeInput = analysis.FaceAttributes.Age.ToString();
+						}
+						catch (Exception ex)
+						{
+							LogHandler.LogException(ex);
 						}
 					}
 				}
+
+				ProfilePicture = ImageSource.FromStream(() =>
+				{
+					return new MemoryStream(imageData);
+				});
+
+				IsLoading = false;
 			}
 		}
 
@@ -385,7 +408,7 @@ namespace HopeNope.ViewModels
 				void NavigateToResult()
 				{
 					// View the result
-					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<ResultWizardPage>();
 				}
 			}
 		}

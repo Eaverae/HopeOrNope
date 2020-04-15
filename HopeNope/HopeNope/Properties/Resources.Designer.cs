@@ -234,11 +234,11 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Determine.
+        ///   Looks up a localized string similar to Determine by picture.
         /// </summary>
-        internal static string Determine {
+        internal static string DetermineByPicture {
             get {
-                return ResourceManager.GetString("Determine", resourceCulture);
+                return ResourceManager.GetString("DetermineByPicture", resourceCulture);
             }
         }
         

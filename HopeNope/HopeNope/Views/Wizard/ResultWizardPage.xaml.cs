@@ -2,9 +2,9 @@
 
 namespace HopeNope.Views
 {
-	public partial class WizardPage3 : ContentPage
+	public partial class ResultWizardPage : ContentPage
 	{
-		public WizardPage3()
+		public ResultWizardPage()
 		{
 			InitializeComponent();
 		}

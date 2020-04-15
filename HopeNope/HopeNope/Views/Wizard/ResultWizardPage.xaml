@@ -5,7 +5,8 @@
              xmlns:controls="clr-namespace:GuidFramework.Controls;assembly=GuidFramework"
              mc:Ignorable="d"
              xmlns:ext="clr-namespace:HopeNope.Extensions" 
-             x:Class="HopeNope.Views.WizardPage3" 
+             xmlns:controls1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="HopeNope.Views.ResultWizardPage" 
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
 
@@ -17,17 +18,29 @@
                 <On Platform="Android">0,0,0,0</On>
             </OnPlatform>
         </controls:CustomStackLayout.Padding>
-
+        
         <Grid VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="250" Grid.Row="0" />
+            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
 
             <!--Content-->
-            <StackLayout Grid.Row="0" Margin="10, 275, 10, 0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+            <StackLayout Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Grid WidthRequest="100" HeightRequest="100" IsVisible="{Binding HasProfilePicture}">
+                    <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
+                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
+                        <!--<controls:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ProfilePictureDetailCommand}"></TapGestureRecognizer>
+                        </controls:CircleImage.GestureRecognizers>-->
+                    </controls1:CircleImage>
+
+                    <!--<ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
+                                                             WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>-->
+                </Grid>
                 <Label Text="{ext:Translate Verdict}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+
                 <!--Result images-->
                 <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
                 <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
@@ -35,18 +48,19 @@
 
             <!--Footer-->
             <StackLayout Grid.Row="1">
-                <Button Text="{ext:Translate StatisticsTitle}" Command="{Binding StatisticsCommand}" HorizontalOptions="Center" Margin="0" />
                 <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
                 <Grid ColumnSpacing="0">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="0" Command="{Binding ResetCommand}"
                             FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf2f9;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
                             VerticalOptions="Center" />
-
-                    <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding BackCommand}"
+                    <Button HeightRequest="48"  HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding StatisticsCommand}"
+                            Text="{ext:Translate StatisticsTitle}" />
+                    <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="2" Command="{Binding BackCommand}"
                             FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
                             VerticalOptions="Center" />
                 </Grid>
