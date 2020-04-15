@@ -131,4 +131,43 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="LastAttempt" xml:space="preserve">
     <value>Laatste poging</value>
   </data>
+  <data name="AlertMessageActionNotSupported" xml:space="preserve">
+    <value>Actie wordt niet ondersteund door dit apparaat.</value>
+  </data>
+  <data name="AlertMessageCameraPermissionNeeded" xml:space="preserve">
+    <value>Er is toestemming benodigd voor de camera om de actie uit te kunnen voeren.</value>
+  </data>
+  <data name="AlertMessageGalleryPermissionNeeded" xml:space="preserve">
+    <value>Er is toestemming benodigd voor de mediagallerij om de actie te kunnen voltooien</value>
+  </data>
+  <data name="AlertTitleActionNotSupported" xml:space="preserve">
+    <value>Actie wordt niet ondersteund</value>
+  </data>
+  <data name="AlertTitleCameraPermissionNeeded" xml:space="preserve">
+    <value>Toestemming benodigd</value>
+  </data>
+  <data name="AlertTitleGalleryPermissionNeeded" xml:space="preserve">
+    <value>Toestemming benodigd</value>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="FacialRecognition" xml:space="preserve">
+    <value>Bepaal leeftijd aan de hand van een foto</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Mediagallerij</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="DetermineByPicture" xml:space="preserve">
+    <value>Fotobepaling</value>
+  </data>
+  <data name="AlertTitlePictureDateTakenIntoAccount" xml:space="preserve">
+    <value>Er is rekening gehouden met de datum van de afbeelding</value>
+  </data>
+  <data name="AlertMessagePictureDateTakenIntoAccount" xml:space="preserve">
+    <value>We hebben geprobeerd om rekening te houden met de datum van de foto om de huidige leeftijd van de afgebeelde persoon te bepalen.</value>
+  </data>
 </root>

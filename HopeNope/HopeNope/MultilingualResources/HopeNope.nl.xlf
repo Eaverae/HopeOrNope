@@ -168,47 +168,55 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="AlertMessageActionNotSupported" translate="yes" xml:space="preserve">
           <source>Action not supported on current device.</source>
-          <target state="new">Action not supported on current device.</target>
+          <target state="translated">Actie wordt niet ondersteund door dit apparaat.</target>
         </trans-unit>
         <trans-unit id="AlertMessageCameraPermissionNeeded" translate="yes" xml:space="preserve">
           <source>Camera permission needed to execute the selected action.</source>
-          <target state="new">Camera permission needed to execute the selected action.</target>
+          <target state="translated">Er is toestemming benodigd voor de camera om de actie uit te kunnen voeren.</target>
         </trans-unit>
         <trans-unit id="AlertMessageGalleryPermissionNeeded" translate="yes" xml:space="preserve">
           <source>Photogallery permission needed to execute the selected action.</source>
-          <target state="new">Photogallery permission needed to execute the selected action.</target>
+          <target state="translated">Er is toestemming benodigd voor de mediagallerij om de actie te kunnen voltooien</target>
         </trans-unit>
         <trans-unit id="AlertTitleActionNotSupported" translate="yes" xml:space="preserve">
           <source>Action not supported</source>
-          <target state="new">Action not supported</target>
+          <target state="translated">Actie wordt niet ondersteund</target>
         </trans-unit>
         <trans-unit id="AlertTitleCameraPermissionNeeded" translate="yes" xml:space="preserve">
           <source>Camera permission needed</source>
-          <target state="new">Camera permission needed</target>
+          <target state="translated">Toestemming benodigd</target>
         </trans-unit>
         <trans-unit id="AlertTitleGalleryPermissionNeeded" translate="yes" xml:space="preserve">
           <source>Photogallery permission needed</source>
-          <target state="new">Photogallery permission needed</target>
+          <target state="translated">Toestemming benodigd</target>
         </trans-unit>
         <trans-unit id="Camera" translate="yes" xml:space="preserve">
           <source>Camera</source>
-          <target state="new">Camera</target>
+          <target state="translated">Camera</target>
         </trans-unit>
         <trans-unit id="FacialRecognition" translate="yes" xml:space="preserve">
           <source>Determine age by picture</source>
-          <target state="new">Determine age by picture</target>
+          <target state="translated">Bepaal leeftijd aan de hand van een foto</target>
         </trans-unit>
         <trans-unit id="Gallery" translate="yes" xml:space="preserve">
           <source>Gallery</source>
-          <target state="new">Gallery</target>
-        </trans-unit>
-        <trans-unit id="Determine" translate="yes" xml:space="preserve">
-          <source>Determine</source>
-          <target state="new">Determine</target>
+          <target state="translated">Mediagallerij</target>
         </trans-unit>
         <trans-unit id="Or" translate="yes" xml:space="preserve">
           <source>or</source>
-          <target state="new">or</target>
+          <target state="translated">of</target>
+        </trans-unit>
+        <trans-unit id="DetermineByPicture" translate="yes" xml:space="preserve">
+          <source>Determine by picture</source>
+          <target state="translated">Fotobepaling</target>
+        </trans-unit>
+        <trans-unit id="AlertTitlePictureDateTakenIntoAccount" translate="yes" xml:space="preserve">
+          <source>Picture's date was taken into account</source>
+          <target state="translated" state-qualifier="mt-suggestion">Er is rekening gehouden met de datum van de afbeelding</target>
+        </trans-unit>
+        <trans-unit id="AlertMessagePictureDateTakenIntoAccount" translate="yes" xml:space="preserve">
+          <source>We tried to take the picture's date into account to determine the current age of the person depicted.</source>
+          <target state="translated" state-qualifier="mt-suggestion">We hebben geprobeerd om rekening te houden met de datum van de foto om de huidige leeftijd van de afgebeelde persoon te bepalen.</target>
         </trans-unit>
       </group>
     </body>

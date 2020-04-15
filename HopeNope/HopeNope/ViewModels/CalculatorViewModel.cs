@@ -1,4 +1,5 @@
-﻿using GuidFramework.Extensions;
+﻿using ExifLib;
+using GuidFramework.Extensions;
 using GuidFramework.Handlers;
 using HopeNope.Classes;
 using HopeNope.Entities;
@@ -76,6 +77,17 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Returns a boolean value that indicates whether or not there is a profile picture
+		/// </summary>
+		public bool HasProfilePicture
+		{
+			get
+			{
+				return ProfilePicture != null;
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the current image.
 		/// </summary>
 		/// <value>
@@ -92,6 +104,7 @@ namespace HopeNope.ViewModels
 				profilePicture = value;
 
 				OnPropertyChanged();
+				OnPropertyChanged(nameof(HasProfilePicture));
 			}
 		}
 
@@ -257,6 +270,7 @@ namespace HopeNope.ViewModels
 			else if (await CrossMedia.Current.Initialize())
 			{
 				photo = null;
+				DateTime? fileDateTime = null;
 
 				string result = await AlertHandler.DisplayActionSheetAsync(Resources.FacialRecognition, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
 
@@ -265,9 +279,8 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						
 						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
-						
+
 						if (cameraStatus != PermissionStatus.Granted)
 							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
 
@@ -285,54 +298,99 @@ namespace HopeNope.ViewModels
 					else if (result.Equals(Resources.Gallery))
 					{
 						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
-						
+
 						if (photoStatus != PermissionStatus.Granted)
 							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
 
 						if (photoStatus == PermissionStatus.Granted)
-							photo = await CrossMedia.Current.PickPhotoAsync();
+							photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { SaveMetaData = true });
 						else
 							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
+
+						if (photo != null)
+						{
+							ExifReader exifReader = new ExifReader(photo.Path);
+							DateTime exifDate = new DateTime();
+
+							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
+								fileDateTime = exifDate;
+
+							if (!fileDateTime.HasValue)
+								fileDateTime = new FileInfo(photo.Path).CreationTime;
+						}
 					}
 
-					if (photo != null)
+					SetProfilePictureAsync(fileDateTime);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Sets the profile picture asynchronous
+		/// </summary>
+		private async void SetProfilePictureAsync(DateTime? pictureDate = null)
+		{
+			bool showPictureDateMessage = false;
+
+			if (photo != null)
+			{
+				IsLoading = true;
+
+				// Set the profilepicture as imagedata
+				using (MemoryStream photoStream = new MemoryStream())
+				{
+					// Copy the stream to cache the data
+					await photo.GetStream().CopyToAsync(photoStream);
+					imageData = photoStream.ToArray();
+				}
+
+				if (imageData != null)
+				{
+					string analysisResult = await FaceHandler.MakeAnalysisRequestAsync(imageData);
+
+					if (!analysisResult.IsNullOrWhiteSpace())
 					{
-						// Set the profilepicture as imagedata
-						using (MemoryStream photoStream = new MemoryStream())
+						try
 						{
-							// Copy the stream to cache the data
-							await photo.GetStream().CopyToAsync(photoStream);
-							imageData = photoStream.ToArray();
+							List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
 
-							if (imageData != null)
+							FaceAnalysis analysis = faceGroup.FirstOrDefault();
+
+							if (analysis != null)
 							{
-								string analysisResult = await FaceHandler.MakeAnalysisRequestAsync(imageData);
+								// Take the date of the picture into account when needed
+								long age = analysis.FaceAttributes.Age;
 
-								if (!analysisResult.IsNullOrWhiteSpace())
+								if (pictureDate.HasValue)
 								{
-									try
-									{
-										List<FaceAnalysis> faceGroup = JsonConvert.DeserializeObject<List<FaceAnalysis>>(analysisResult);
+									showPictureDateMessage = true;
+									DateTime current = DateTime.Now;
 
-										FaceAnalysis analysis = faceGroup.FirstOrDefault();
+									int year = new DateTime(current.Subtract(pictureDate.Value).Ticks).Year - 1;
 
-										if (analysis != null)
-											SecondAgeInput = analysis.FaceAttributes.Age.ToString();
-									}
-									catch (Exception ex)
-									{
-										LogHandler.LogException(ex);
-									}
+									age += year;
 								}
+
+								SecondAgeInput = age.ToString();
 							}
 
-							ProfilePicture = ImageSource.FromStream(() =>
-							{
-								return new MemoryStream(imageData);
-							});
+						}
+						catch (Exception ex)
+						{
+							LogHandler.LogException(ex);
 						}
 					}
 				}
+
+				ProfilePicture = ImageSource.FromStream(() =>
+				{
+					return new MemoryStream(imageData);
+				});
+
+				if (showPictureDateMessage)
+					await AlertHandler.DisplayAlertAsync(Resources.AlertTitlePictureDateTakenIntoAccount, Resources.AlertMessagePictureDateTakenIntoAccount, Resources.Ok);
+
+				IsLoading = false;
 			}
 		}
 
@@ -385,7 +443,7 @@ namespace HopeNope.ViewModels
 				void NavigateToResult()
 				{
 					// View the result
-					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage3>();
+					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<ResultWizardPage>();
 				}
 			}
 		}
@@ -436,6 +494,7 @@ namespace HopeNope.ViewModels
 		private void Reset()
 		{
 			SecondAgeInput = string.Empty;
+			ProfilePicture = null;
 
 			SelectSecondTab();
 		}
