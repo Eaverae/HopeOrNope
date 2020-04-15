@@ -494,6 +494,7 @@ namespace HopeNope.ViewModels
 		private void Reset()
 		{
 			SecondAgeInput = string.Empty;
+			ProfilePicture = null;
 
 			SelectSecondTab();
 		}
