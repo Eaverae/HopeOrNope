@@ -24,11 +24,19 @@ namespace HopeNope.ViewModels
 		public IPurchaseHandler PurchaseHandler { get; private set; }
 
 		/// <summary>
-		/// The back command
+		/// The start command
 		/// </summary>
 		public ICommand StartCommand => new Command(async () =>
 		{
 			await NavigationService.NavigateAsync<CalculatorViewModel>(animated: false);
+		});
+
+		/// <summary>
+		/// The wishlist command
+		/// </summary>
+		public ICommand WishlistCommand => new Command(async () =>
+		{
+			await NavigationService.NavigateAsync<WishListOverviewViewModel>(animated: false);
 		});
 
 		/// <summary>

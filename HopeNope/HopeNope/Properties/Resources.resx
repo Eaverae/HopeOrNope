@@ -209,6 +209,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Next" xml:space="preserve">
     <value>Next</value>
   </data>
+  <data name="NoItemsFound" xml:space="preserve">
+    <value>No items found</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
   </data>

@@ -1,0 +1,93 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:controls="clr-namespace:GuidFramework.Controls;assembly=GuidFramework"
+             xmlns:ext="clr-namespace:HopeNope.Extensions"
+             xmlns:Behaviors="clr-namespace:Xam.Behaviors;assembly=Xam.Behaviors"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Name="WishListPage"
+             x:Class="HopeNope.Views.WishListOverview">
+    <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand">
+        <controls:CustomStackLayout.Padding>
+            <OnPlatform x:TypeArguments="d:Thickness">
+                <On Platform="iOS">0,0,0,25</On>
+                <On Platform="Android">0,0,0,0</On>
+            </OnPlatform>
+        </controls:CustomStackLayout.Padding>
+        
+        <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
+                   TextColor="{StaticResource GrayColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
+
+        <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:CustomViewCell SelectedBackgroundColor="{StaticResource BlackColor}">
+                        <StackLayout Spacing="0" Margin="0" Padding="5, 0, 5, 0">
+                            <Grid Margin="5, 5, 0, 5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+                                <BoxView Grid.Row="0" Grid.Column="0">
+                                    <BoxView.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="BoxView">
+                                            <Setter Property="BackgroundColor" Value="{StaticResource SuccessColor}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="BoxView">
+                                            <Setter Property="BackgroundColor" Value="{StaticResource ErrorColor}" />
+                                        </DataTrigger>
+                                    </BoxView.Triggers>
+                                </BoxView>
+
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" Margin="0" Padding="0" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Label">
+                                            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Label">
+                                            <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <Image Grid.Row="0" Grid.Column="2" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                                    <Image.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Image">
+                                            <Setter Property="Source">
+                                                <Setter.Value>
+                                                    <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource WhiteColor}" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Image">
+                                            <Setter Property="Source">
+                                                <Setter.Value>
+                                                    <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource GrayColor}" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                            </Grid>
+                            <BoxView Style="{StaticResource GraySeparator}" Margin="0"></BoxView>
+                        </StackLayout>
+                        <!-- Use Event to Command for Commanding of the item tap event -->
+                        <Behaviors:Interaction.Behaviors>
+                            <Behaviors:BehaviorCollection>
+                                <Behaviors:EventToCommand Command="{Binding Path=BindingContext.PersonDetailsCommand, Source={x:Reference Name=WishListPage}}" EventName="Tapped" />
+                            </Behaviors:BehaviorCollection>
+                        </Behaviors:Interaction.Behaviors>
+                    </controls:CustomViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </controls:CustomStackLayout>
+</ContentPage>

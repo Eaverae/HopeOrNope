@@ -222,6 +222,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Wishlist</source>
           <target state="new">Wishlist</target>
         </trans-unit>
+        <trans-unit id="NoItemsFound" translate="yes" xml:space="preserve">
+          <source>No items found</source>
+          <target state="new">No items found</target>
+        </trans-unit>
       </group>
     </body>
   </file>

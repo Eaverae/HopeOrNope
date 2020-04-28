@@ -333,6 +333,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No items found.
+        /// </summary>
+        internal static string NoItemsFound {
+            get {
+                return ResourceManager.GetString("NoItemsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string Ok {

@@ -15,7 +15,6 @@ namespace GuidFramework.ViewModels
 		/// <returns></returns>
 		public event PropertyChangedEventHandler PropertyChanged;
 
-
 		/// <summary>
 		/// Occurs when a property value changes
 		/// </summary>
