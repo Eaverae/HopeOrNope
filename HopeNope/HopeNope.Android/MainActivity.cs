@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.OS;
 using Android.Runtime;
+using GuidFramework.Android;
 using GuidFramework.Droid;
 using System;
 using System.Threading.Tasks;
@@ -32,10 +33,10 @@ namespace HopeNope.Droid
 			AppDomain.CurrentDomain.UnhandledException += OnCurrentDomainOnUnhandledException;
 			TaskScheduler.UnobservedTaskException += OnTaskSchedulerOnUnobservedTaskException;
 			AndroidEnvironment.UnhandledExceptionRaiser += OnAndroidEnvironmentUnhandledException;
-			Java.Lang.Thread.DefaultUncaughtExceptionHandler = this;
+			Java.Lang.Thread.DefaultUncaughtExceptionHandler = new UncaughtExceptionHandler();
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
-			
+
 			Framework.Init();
 
 			LoadApplication(new App());
@@ -69,50 +70,43 @@ namespace HopeNope.Droid
 			base.Dispose(disposing);
 		}
 
-
 		/// <summary>
-		/// Method that gets called on UnhandledException in AndroidEnvironment
+		/// Called when [android environment unhandled exception].
 		/// </summary>
-		/// <param name="sender">Sender of the event</param>
-		/// <param name="e">Event arguments</param>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="RaiseThrowableEventArgs"/> instance containing the event data.</param>
 		private static void OnAndroidEnvironmentUnhandledException(object sender, RaiseThrowableEventArgs e)
 		{
-			LogUnhandledException(AnalyticsResources.AndroidEnvironmentUnhandledExceptionRaiser, e.Exception);
+			LogUnhandledException(e.Exception);
 		}
 
 		/// <summary>
-		/// Method that gets called on UnhandledException in TaskScheduler
+		/// Called when [task scheduler on unobserved task exception].
 		/// </summary>
-		/// <param name="sender">Sender of the event</param>
-		/// <param name="e">Event arguments</param>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="UnobservedTaskExceptionEventArgs"/> instance containing the event data.</param>
 		private static void OnTaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
 		{
-			LogUnhandledException(AnalyticsResources.TaskSchedulerOnUnobservedTaskException, e.Exception);
+			LogUnhandledException(e.Exception);
 		}
 
 		/// <summary>
-		/// Method that gets called on UnhandledException in CurrentDomain
+		/// Called when [current domain on unhandled exception].
 		/// </summary>
-		/// <param name="sender">Sender of the event</param>
-		/// <param name="eventArguments">Event arguments</param>
+		/// <param name="sender">The sender.</param>
+		/// <param name="eventArguments">The <see cref="UnhandledExceptionEventArgs"/> instance containing the event data.</param>
 		private static void OnCurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs eventArguments)
 		{
-			LogUnhandledException(AnalyticsResources.CurrentDomainOnUnhandledException, eventArguments.ExceptionObject as System.Exception);
+			LogUnhandledException(eventArguments.ExceptionObject as Exception);
 		}
 
 		/// <summary>
-		/// Logs an unhandled exception
+		/// Logs the unhandled exception.
 		/// </summary>
-		/// <param name="exceptionName">Name of 'type' of the exception</param>
-		/// <param name="unhandledException">Unhandled exception to log</param>
-		private static void LogUnhandledException(string exceptionName, System.Exception unhandledException)
+		/// <param name="unhandledException">The unhandled exception.</param>
+		private static void LogUnhandledException(Exception unhandledException)
 		{
-			App.OnUnhandledException(exceptionName, unhandledException);
-		}
-
-		public void UncaughtException(Thread t, Throwable e)
-		{
-			App.OnUnhandledException(e.GetType().Name, new System.Exception(e));
+			App.OnUnhandledException(unhandledException);
 		}
 	}
 }
