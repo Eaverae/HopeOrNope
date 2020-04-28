@@ -218,6 +218,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>We tried to take the picture's date into account to determine the current age of the person depicted.</source>
           <target state="translated" state-qualifier="mt-suggestion">We hebben geprobeerd om rekening te houden met de datum van de foto om de huidige leeftijd van de afgebeelde persoon te bepalen.</target>
         </trans-unit>
+        <trans-unit id="WishlistTitle" translate="yes" xml:space="preserve">
+          <source>Wishlist</source>
+          <target state="new">Wishlist</target>
+        </trans-unit>
       </group>
     </body>
   </file>

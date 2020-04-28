@@ -13,6 +13,7 @@
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button x:Name="StartButton" Text="{ext:Translate StartTitle}" Command="{Binding StartCommand}" />
+            <Button x:Name="WishlistButton" Text="{ext:Translate WishlistTitle}" Command="{Binding WishlistCommand}" />
             <Button x:Name="SettingsButton" Text="{ext:Translate SettingsTitle}" Command="{Binding SettingsCommand}" />
             <Button x:Name="AboutButton" Text="{ext:Translate AboutTitle}" Command="{Binding AboutCommand}" />
             <Button x:Name="RemoveAdsButton" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Text="{ext:Translate RemoveAdsTitle}" Command="{Binding RemoveAdsCommand}"  />

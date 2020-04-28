@@ -59,6 +59,7 @@
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\InAppBillingVerifyService.cs" />
     <Compile Include="Services\StatusBarService.cs" />
+    <Compile Include="UncaughtExceptionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

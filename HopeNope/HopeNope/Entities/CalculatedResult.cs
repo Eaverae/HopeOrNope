@@ -77,7 +77,7 @@ namespace HopeNope.Entities
 		/// <returns>
 		/// A <see cref="System.String" /> that represents this instance.
 		/// </returns>
-		public string ToString()
+		public override string ToString()
 		{
 			return JsonConvert.SerializeObject(this);
 		}

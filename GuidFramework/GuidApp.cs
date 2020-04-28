@@ -87,5 +87,29 @@ namespace GuidFramework
 			// Register ad view
 			ViewFactory.RegisterView<FullscreenAdPopup, FullscreenAdPopupViewModel>();
 		}
+
+		/// <summary>
+		/// Called when an exception is unhandled.
+		/// </summary>
+		/// <param name="exception">The exception.</param>
+		/// <exception cref="NotImplementedException"></exception>
+		public static void OnUnhandledException(Exception exception)
+		{
+			if (exception != null)
+			{
+				try
+				{
+					using (ILifetimeScope scope = GuidApp.Container.BeginLifetimeScope())
+					{
+						ILogHandler logHandler = scope.Resolve<ILogHandler>();
+						logHandler.LogException(exception);
+					}
+				}
+				catch
+				{
+					// catch any further exceptions so no circular references can occur
+				}
+			}
+		}
 	}
 }

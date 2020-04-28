@@ -10,6 +10,7 @@ using HopeNope.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

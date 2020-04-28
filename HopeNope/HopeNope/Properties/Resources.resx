@@ -272,6 +272,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="VerifyPurchases" xml:space="preserve">
     <value>Verify purchased item(s)</value>
   </data>
+  <data name="WishlistTitle" xml:space="preserve">
+    <value>Wishlist</value>
+  </data>
   <data name="YourAgeShortcut" xml:space="preserve">
     <value>Did you know you can set your date of birth on the settings page? That way can skip the first step in this wizard!</value>
   </data>

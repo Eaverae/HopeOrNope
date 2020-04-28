@@ -522,6 +522,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wishlist.
+        /// </summary>
+        internal static string WishlistTitle {
+            get {
+                return ResourceManager.GetString("WishlistTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Did you know you can set your date of birth on the settings page? That way can skip the first step in this wizard!.
         /// </summary>
         internal static string YourAgeShortcut {
