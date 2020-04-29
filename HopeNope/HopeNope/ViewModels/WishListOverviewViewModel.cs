@@ -1,4 +1,5 @@
-﻿using GuidFramework.Interfaces;
+﻿using Autofac;
+using GuidFramework.Interfaces;
 using HopeNope.Entities;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
@@ -17,6 +18,7 @@ namespace HopeNope.ViewModels
 	public class WishListOverviewViewModel : HopeNopeViewModel, IListViewModel
 	{
 		private Person selectedPerson;
+		private ILocalStorageHandler localStorageHandler;
 
 		/// <summary>
 		/// Gets the people.
@@ -83,6 +85,17 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="WishListOverviewViewModel"/> class.
+		/// </summary>
+		public WishListOverviewViewModel()
+		{
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
+			{
+				localStorageHandler = scope.Resolve<ILocalStorageHandler>();
+			}
+		}
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -97,19 +110,12 @@ namespace HopeNope.ViewModels
 		/// Loads the people.
 		/// </summary>
 		/// <exception cref="NotImplementedException"></exception>
-		private void LoadPeople()
+		private async void LoadPeople()
 		{
-			List<Person> people = new List<Person>();
+			IEnumerable<Person> result = await localStorageHandler.ListAsync<Person>();
 
-			bool unlocked = false;
-			// Test
-			for (int i = 0; i < 5; i++)
-			{
-				people.Add(new Person(determinedAgeDate: DateTime.Now.AddYears(i * -1), name: $"Hope_{i}", isUnlocked: unlocked));
-				unlocked = !unlocked;
-			}
-
-			People = people.OrderByDescending(item => item.IsUnlocked);
+			if (result != null && result.Any())
+				People = result.OrderByDescending(item => item.IsUnlocked);
 
 			OnPropertyChanged(nameof(People));
 		}

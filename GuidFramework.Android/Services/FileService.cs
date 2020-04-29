@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.Content.Res;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.Content.Res;
+using GuidFramework.Droid.Services;
 using GuidFramework.Extensions;
 using GuidFramework.Services;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FileService))]
 namespace GuidFramework.Droid.Services
 {
 	/// <summary>
@@ -47,7 +42,7 @@ namespace GuidFramework.Droid.Services
 
 			FileInfo[] fileInfos = null;
 
-			using (AssetManager assets = Application.Context.Assets)
+			using (AssetManager assets = GuidFrameworkActivity.CurrentActivity.ApplicationContext.Assets)
 			{
 				string[] files = await assets.ListAsync(directoryName);
 
@@ -92,7 +87,7 @@ namespace GuidFramework.Droid.Services
 
 			byte[] file = null;
 
-			using (AssetManager assets = Application.Context.Assets)
+			using (AssetManager assets = GuidFrameworkActivity.CurrentActivity.ApplicationContext.Assets)
 			using (MemoryStream memoryStream = new MemoryStream())
 			using (Stream stream = assets.Open(filename))
 			{
@@ -149,7 +144,7 @@ namespace GuidFramework.Droid.Services
 
 			// Save files to internal storage; no other user or apps can access these files.
 			// Unlike the external storage directories, your app does not require any system permissions to read and write to the internal directories returned by these methods.
-			string folder = Path.Combine(GuidFramework.Droid.GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 			Java.IO.File newFile = new Java.IO.File(folder, fileName);
 
 			if (!newFile.Exists())

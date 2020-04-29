@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using GuidFramework;
 using GuidFramework.Classes;
+using GuidFramework.Handlers;
+using GuidFramework.Interfaces;
 using GuidFramework.Services;
 using HopeNope.Classes;
 using HopeNope.Handlers;
@@ -31,7 +33,7 @@ namespace HopeNope
 		{
 			InitializeComponent();
 		}
-		
+
 		/// <summary>
 		/// Application developers override this method to perform actions when the application starts.
 		/// </summary>
@@ -70,6 +72,7 @@ namespace HopeNope
 			base.RegisterDependencies(ignoreDefaults);
 
 			ContainerBuilder.RegisterType<LanguageHandler>().As<ILanguageHandler>();
+			ContainerBuilder.RegisterType<LocalStorageHandler>().As<ILocalStorageHandler>();
 		}
 
 		/// <summary>

@@ -1,15 +1,12 @@
-﻿using GuidFramework.ViewModels;
+﻿using GuidFramework.Classes;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace HopeNope.Entities
 {
 	/// <summary>
 	/// Person entity
 	/// </summary>
-	public class Person : NotifyPropertyChanged
+	public class Person : BaseEntity
 	{
 		/// <summary>
 		/// Gets a value indicating whether this instance is unlocked.
@@ -64,16 +61,12 @@ namespace HopeNope.Entities
 		/// </summary>
 		/// <param name="determinedAgeDate">The determined age date.</param>
 		/// <param name="name">The name.</param>
+		/// <param name="isUnlocked">Indicates whether or not the person has been unlocked</param>
 		public Person(DateTime determinedAgeDate, string name, bool isUnlocked = false)
 		{
 			DeterminedAgeDate = determinedAgeDate;
-			OnPropertyChanged(nameof(DeterminedAgeDate));
-
 			DisplayName = name;
-			OnPropertyChanged(nameof(DisplayName));
-
 			IsUnlocked = isUnlocked;
-			OnPropertyChanged(nameof(IsUnlocked));
 		}
 	}
 }
