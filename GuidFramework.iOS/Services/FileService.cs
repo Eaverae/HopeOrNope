@@ -73,17 +73,21 @@ namespace GuidFramework.iOS.Services
 		/// <summary>
 		/// Reads from internal storage asynchronous.
 		/// </summary>
-		/// <param name="filename">The filename.</param>
+		/// <param name="fileName">The filename.</param>
+		/// <param name="directoryName">The directoryname</param>
 		/// <returns>
 		/// a string value
 		/// </returns>
 		/// <exception cref="ArgumentNullException">filename</exception>
-		public async Task<string> ReadFromInternalStorageAsync(string filename)
+		public async Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons")
 		{
-			if (filename.IsNullOrWhiteSpace())
-				throw new ArgumentNullException(nameof(filename));
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
 
-			return await File.ReadAllTextAsync(filename);
+			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
+			string filePath = Path.Combine(folder, fileName);
+
+			return await File.ReadAllTextAsync(filePath);
 		}
 
 		/// <summary>

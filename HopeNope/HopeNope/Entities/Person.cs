@@ -21,7 +21,7 @@ namespace HopeNope.Entities
 		}
 
 		/// <summary>
-		/// Gets the determined age date.
+		/// Gets or sets the determined age date.
 		/// </summary>
 		/// <value>
 		/// The determined age date.
@@ -29,7 +29,7 @@ namespace HopeNope.Entities
 		public DateTime DeterminedAgeDate
 		{
 			get;
-			private set;
+			set;
 		}
 
 		/// <summary>
@@ -41,11 +41,11 @@ namespace HopeNope.Entities
 		public double Age
 		{
 			get;
-			private set;
+			set;
 		}
 
 		/// <summary>
-		/// Gets the display name.
+		/// Gets or sets the display name.
 		/// </summary>
 		/// <value>
 		/// The display name.
@@ -53,20 +53,7 @@ namespace HopeNope.Entities
 		public string DisplayName
 		{
 			get;
-			private set;
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Person"/> class.
-		/// </summary>
-		/// <param name="determinedAgeDate">The determined age date.</param>
-		/// <param name="name">The name.</param>
-		/// <param name="isUnlocked">Indicates whether or not the person has been unlocked</param>
-		public Person(DateTime determinedAgeDate, string name, bool isUnlocked = false)
-		{
-			DeterminedAgeDate = determinedAgeDate;
-			DisplayName = name;
-			IsUnlocked = isUnlocked;
+			set;
 		}
 	}
 }

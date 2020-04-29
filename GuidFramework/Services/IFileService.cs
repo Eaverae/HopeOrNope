@@ -32,9 +32,10 @@ namespace GuidFramework.Services
 		/// <summary>
 		/// Reads from internal storage asynchronous.
 		/// </summary>
-		/// <param name="filename">The filename.</param>
+		/// <param name="fileName">The filename.</param>
+		/// <param name="directoryName">The directory name</param>
 		/// <returns>a string value</returns>
-		Task<string> ReadFromInternalStorageAsync(string filename);
+		Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons");
 
 		/// <summary>
 		/// Saves the file to internal storage asynchronous;

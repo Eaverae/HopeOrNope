@@ -16,7 +16,9 @@
                 <On Platform="Android">0,0,0,0</On>
             </OnPlatform>
         </controls:CustomStackLayout.Padding>
-        
+
+        <Button Command="{Binding AddPersonCommand}" Text="Add Person" />
+
         <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
                    TextColor="{StaticResource GrayColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
 

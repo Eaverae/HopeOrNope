@@ -102,22 +102,27 @@ namespace GuidFramework.Droid.Services
 		/// Reads from internal storage asynchronous.
 		/// </summary>
 		/// <param name="filename">The filename.</param>
+		/// <param name="directoryName">Name of the folder.</param>
 		/// <returns>
 		/// a string value
 		/// </returns>
 		/// <exception cref="ArgumentNullException">filename</exception>
-		public async Task<string> ReadFromInternalStorageAsync(string filename)
+		public async Task<string> ReadFromInternalStorageAsync(string filename, string directoryName = "persons")
 		{
 			if (filename.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(filename));
 
 			string fileContents = string.Empty;
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			Java.IO.File newFile = new Java.IO.File(folder, filename);
 
-			if (File.Exists(filename))
-				fileContents = await File.ReadAllTextAsync(filename);
+			if (newFile.Exists())
+				fileContents = await File.ReadAllTextAsync(newFile.Path);
 
 			return fileContents;
 		}
+
+		// get directory method
 
 		/// <summary>
 		/// Saves the file to internal storage;
@@ -186,9 +191,10 @@ namespace GuidFramework.Droid.Services
 			if (!newFile.Exists())
 				newFile.ParentFile?.Mkdirs();
 
-			await File.WriteAllTextAsync(newFile.Path, fileContents);
+			if (newFile.CanWrite())
+				await File.WriteAllTextAsync(newFile.Path, fileContents);
 
-			return newFile.Path; ;
+			return newFile.Path;
 		}
 	}
 }

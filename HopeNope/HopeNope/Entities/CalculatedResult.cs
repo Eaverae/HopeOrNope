@@ -77,7 +77,11 @@ namespace HopeNope.Entities
 		/// <returns></returns>
 		public Person ToPerson()
 		{
-			return new Person(DeterminedDate, $"Hope_{DeterminedDate.Ticks}", Verdict);
+			return new Person()
+			{
+				DeterminedAgeDate = DeterminedDate,
+				DisplayName = $"Hope_{DeterminedDate.Ticks}"
+			};
 		}
 
 		/// <summary>

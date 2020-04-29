@@ -26,7 +26,7 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The people.
 		/// </value>
-		public IEnumerable<Person> People
+		public List<Person> People
 		{
 			get;
 			private set;
@@ -50,6 +50,24 @@ namespace HopeNope.ViewModels
 
 				OnPropertyChanged();
 			}
+		}
+
+		public ICommand AddPersonCommand => new Command(AddPersonAsync);
+
+		private async void AddPersonAsync()
+		{
+			Person person = new Person()
+			{
+				Age = 27,
+				DeterminedAgeDate = DateTime.Now,
+				DisplayName = "Test",
+				Id = Guid.NewGuid().ToString()
+			};
+
+			bool result = await localStorageHandler.SaveAsync(person);
+
+			if (result)
+				LoadPeople();
 		}
 
 		/// <summary>
@@ -115,9 +133,10 @@ namespace HopeNope.ViewModels
 			IEnumerable<Person> result = await localStorageHandler.ListAsync<Person>();
 
 			if (result != null && result.Any())
-				People = result.OrderByDescending(item => item.IsUnlocked);
+				People = result.OrderByDescending(item => item.IsUnlocked).ToList();
 
 			OnPropertyChanged(nameof(People));
+			OnPropertyChanged(nameof(HasItems));
 		}
 	}
 }

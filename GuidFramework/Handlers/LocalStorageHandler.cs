@@ -54,7 +54,11 @@ namespace GuidFramework.Handlers
 		public async Task<TEntity> Details<TEntity>(string id)
 			where TEntity : BaseEntity
 		{
-			return (await ListAsync<TEntity>()).SingleOrDefault(item => item.Id.Equals(id));
+			// Nullcheck for any entities
+			IEnumerable<TEntity> tempEntities = await ListAsync<TEntity>();
+			List<TEntity> entities = (tempEntities != null) ? tempEntities.ToList() : null;
+
+			return entities?.SingleOrDefault(item => item.Id.Equals(id));
 		}
 
 		/// <summary>
@@ -73,7 +77,9 @@ namespace GuidFramework.Handlers
 			string fileContents = string.Empty;
 			string result = string.Empty;
 
-			List<TEntity> entities = (await ListAsync<TEntity>()).ToList();
+			// Nullcheck for any entities
+			IEnumerable<TEntity> tempEntities = await ListAsync<TEntity>();
+			List<TEntity> entities = (tempEntities != null) ? tempEntities.ToList() : new List<TEntity>();
 
 			// Remove when exists
 			if (!entity.Id.IsNullOrWhiteSpace())
@@ -110,7 +116,10 @@ namespace GuidFramework.Handlers
 			string fileName = typeof(TEntity).FullName.RemoveSpecialCharacters();
 
 			bool result = false;
-			List<TEntity> entities = (await ListAsync<TEntity>()).ToList();
+
+			// Nullcheck for any entities
+			IEnumerable<TEntity> tempEntities = await ListAsync<TEntity>();
+			List<TEntity> entities = (tempEntities != null) ? tempEntities.ToList() : new List<TEntity>();
 
 			// Remove when exists
 			if (!entity.Id.IsNullOrWhiteSpace())
