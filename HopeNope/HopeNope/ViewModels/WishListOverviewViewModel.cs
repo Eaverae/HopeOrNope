@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using GuidFramework.Interfaces;
+using GuidFramework.Services;
 using HopeNope.Entities;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
@@ -52,41 +53,21 @@ namespace HopeNope.ViewModels
 			}
 		}
 
-		public ICommand AddPersonCommand => new Command(AddPersonAsync);
-
-		private async void AddPersonAsync()
-		{
-			Person person = new Person()
-			{
-				Age = 27,
-				DeterminedAgeDate = DateTime.Now,
-				DisplayName = "Test",
-				Id = Guid.NewGuid().ToString()
-			};
-
-			bool result = await localStorageHandler.SaveAsync(person);
-
-			if (result)
-				LoadPeople();
-		}
-
 		/// <summary>
 		/// Gets the person details command.
 		/// </summary>
 		/// <value>
 		/// The person details command.
 		/// </value>
-		public ICommand PersonDetailsCommand => new Command(PersonDetailsAsync);
+		public ICommand PersonDetailsCommand => new Command(PersonDetailsAsync, CanExecuteCommands);
 
 		/// <summary>
-		/// Persons the details asynchronous.
+		/// Gets the clear command.
 		/// </summary>
-		private async void PersonDetailsAsync()
-		{
-			await AlertHandler.DisplayAlertAsync(Resources.AlertTitleActionNotSupported, Resources.AlertMessageActionNotSupported, Resources.Ok);
-
-			SelectedPerson = null;
-		}
+		/// <value>
+		/// The clear command.
+		/// </value>
+		public ICommand ClearCommand => new Command(ClearWishlistAsync, CanExecuteCommands);
 
 		/// <summary>
 		/// Gets a value indicating whether this instance has items.
@@ -137,6 +118,30 @@ namespace HopeNope.ViewModels
 
 			OnPropertyChanged(nameof(People));
 			OnPropertyChanged(nameof(HasItems));
+		}
+
+		/// <summary>
+		/// Clears the wishlist.
+		/// </summary>
+		private async void ClearWishlistAsync()
+		{
+			SelectedPerson = null;
+
+			if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageAreYouSure, Resources.Ok, Resources.Cancel))
+			{
+				DependencyService.Get<IFileService>().ClearInternalStorageFolder();
+				LoadPeople();
+			}
+		}
+
+		/// <summary>
+		/// Persons the details asynchronous.
+		/// </summary>
+		private async void PersonDetailsAsync()
+		{
+			await AlertHandler.DisplayAlertAsync(Resources.AlertTitleActionNotSupported, Resources.AlertMessageActionNotSupported, Resources.Ok);
+
+			SelectedPerson = null;
 		}
 	}
 }

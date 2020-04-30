@@ -1,4 +1,5 @@
 ﻿using GuidFramework.Classes;
+using HopeNope.Classes;
 using System;
 
 namespace HopeNope.Entities
@@ -8,6 +9,8 @@ namespace HopeNope.Entities
 	/// </summary>
 	public class Person : BaseEntity
 	{
+		#region Properties
+
 		/// <summary>
 		/// Gets a value indicating whether this instance is unlocked.
 		/// </summary>
@@ -16,8 +19,18 @@ namespace HopeNope.Entities
 		/// </value>
 		public bool IsUnlocked
 		{
-			get;
-			private set;
+			get
+			{
+				DateTime current = DateTime.Now;
+				int year = new DateTime(current.Subtract(DeterminedAgeDate).Ticks).Year - 1;
+
+				double age = Age;
+
+				if (year > 0)
+					age += year;
+
+				return Calculator.DetermineHopeOrNope(CompareAge, age);
+			}
 		}
 
 		/// <summary>
@@ -45,6 +58,18 @@ namespace HopeNope.Entities
 		}
 
 		/// <summary>
+		/// Gets or sets the compare age.
+		/// </summary>
+		/// <value>
+		/// The compare age.
+		/// </value>
+		public double CompareAge
+		{
+			get;
+			set;
+		}
+
+		/// <summary>
 		/// Gets or sets the display name.
 		/// </summary>
 		/// <value>
@@ -54,6 +79,16 @@ namespace HopeNope.Entities
 		{
 			get;
 			set;
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Person"/> class.
+		/// </summary>
+		public Person()
+		{
+			Id = Guid.NewGuid().ToString();
 		}
 	}
 }

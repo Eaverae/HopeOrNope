@@ -1,6 +1,8 @@
-﻿using ExifLib;
+﻿using Autofac;
+using ExifLib;
 using GuidFramework.Extensions;
 using GuidFramework.Handlers;
+using GuidFramework.Interfaces;
 using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Handlers;
@@ -32,11 +34,13 @@ namespace HopeNope.ViewModels
 		private byte[] imageData;
 		private MediaFile photo;
 		private ImageSource profilePicture;
+		private CalculatedResult calculatedResult;
 
 		private string firstAgeInput;
 		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
+		private ILocalStorageHandler localStorageHandler;
 
 		/// <summary>
 		/// Gets the first age.
@@ -192,6 +196,20 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand ResetCommand => new Command(Reset, CanExecuteCommands);
 
+		/// <summary>
+		/// Gets the add person command.
+		/// </summary>
+		/// <value>
+		/// The add person command.
+		/// </value>
+		public ICommand AddPersonCommand => new Command(AddPersonAsync, CanExecuteCommands);
+
+		/// <summary>
+		/// Gets the determine age command.
+		/// </summary>
+		/// <value>
+		/// The determine age command.
+		/// </value>
 		public ICommand DetermineAgeCommand => new Command(DetermineAge, CanExecuteCommands);
 
 		/// <summary>
@@ -222,6 +240,18 @@ namespace HopeNope.ViewModels
 		});
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="CalculatorViewModel"/> class.
+		/// </summary>
+		public CalculatorViewModel()
+		{
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
+			{
+				localStorageHandler = scope.Resolve<ILocalStorageHandler>();
+			}
+
+		}
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -248,6 +278,22 @@ namespace HopeNope.ViewModels
 			{
 				GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
 				isWizardInitialized = true;
+			}
+		}
+
+		/// <summary>
+		/// Adds the person asynchronous.
+		/// </summary>
+		private async void AddPersonAsync()
+		{
+			if (calculatedResult != null)
+			{
+				Person person = calculatedResult.ToPerson();
+
+				bool result = await localStorageHandler.SaveAsync(person);
+
+				if (result)
+					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
 			}
 		}
 
@@ -368,7 +414,8 @@ namespace HopeNope.ViewModels
 
 									int year = new DateTime(current.Subtract(pictureDate.Value).Ticks).Year - 1;
 
-									age += year;
+									if (year > 0)
+										age += year;
 								}
 
 								SecondAgeInput = age.ToString();
@@ -409,24 +456,17 @@ namespace HopeNope.ViewModels
 				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageAgeTooLow);
 			else
 			{
-				double calcA = FirstAge > SecondAge ? FirstAge : SecondAge;
-				double calcB = FirstAge > SecondAge ? SecondAge : FirstAge;
-
-				double minimum = Math.Ceiling((calcA / 2.0) + 7.0);
-
-				if (minimum <= calcB)
-					Hope = true;
-				else
-					Hope = false;
-
-				// Add the result as a statistic
-				Settings.SaveStatistic(new CalculatedResult()
+				Hope = Calculator.DetermineHopeOrNope(FirstAge, SecondAge);
+				calculatedResult = new CalculatedResult()
 				{
-					Age = calcA,
-					CompareAge = calcB,
+					Age = FirstAge,
+					CompareAge = SecondAge,
 					DeterminedDate = DateTime.Now,
 					Verdict = Hope
-				});
+				};
+
+				// Add the result as a statistic
+				Settings.SaveStatistic(calculatedResult);
 
 				if (AdsEnabled && maxAds > 0)
 				{
@@ -495,6 +535,7 @@ namespace HopeNope.ViewModels
 		{
 			SecondAgeInput = string.Empty;
 			ProfilePicture = null;
+			calculatedResult = null;
 
 			SelectSecondTab();
 		}

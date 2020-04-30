@@ -44,6 +44,7 @@
                 <!--Result images-->
                 <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
                 <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
+                <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
             </StackLayout>
 
             <!--Footer-->

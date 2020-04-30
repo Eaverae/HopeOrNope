@@ -81,11 +81,29 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to wishlist.
+        /// </summary>
+        internal static string AddToWishlist {
+            get {
+                return ResourceManager.GetString("AddToWishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported on current device..
         /// </summary>
         internal static string AlertMessageActionNotSupported {
             get {
                 return ResourceManager.GetString("AlertMessageActionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string AlertMessageAreYouSure {
+            get {
+                return ResourceManager.GetString("AlertMessageAreYouSure", resourceCulture);
             }
         }
         
@@ -212,6 +230,15 @@ namespace HopeNope.Properties {
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear wishlist.
+        /// </summary>
+        internal static string ClearWishlist {
+            get {
+                return ResourceManager.GetString("ClearWishlist", resourceCulture);
             }
         }
         
@@ -428,6 +455,15 @@ namespace HopeNope.Properties {
         internal static string StatisticsTitle {
             get {
                 return ResourceManager.GetString("StatisticsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person added to wishlist.
+        /// </summary>
+        internal static string ToastMessageAddToWishlistSuccess {
+            get {
+                return ResourceManager.GetString("ToastMessageAddToWishlistSuccess", resourceCulture);
             }
         }
         

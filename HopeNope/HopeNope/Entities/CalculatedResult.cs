@@ -79,8 +79,9 @@ namespace HopeNope.Entities
 		{
 			return new Person()
 			{
-				DeterminedAgeDate = DeterminedDate,
-				DisplayName = $"Hope_{DeterminedDate.Ticks}"
+				Age = Age,
+				CompareAge = CompareAge,
+				DeterminedAgeDate = DeterminedDate
 			};
 		}
 

@@ -125,8 +125,14 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AboutTitle" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AddToWishlist" xml:space="preserve">
+    <value>Add to wishlist</value>
+  </data>
   <data name="AlertMessageActionNotSupported" xml:space="preserve">
     <value>Action not supported on current device.</value>
+  </data>
+  <data name="AlertMessageAreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
   </data>
   <data name="AlertMessageCameraPermissionNeeded" xml:space="preserve">
     <value>Camera permission needed to execute the selected action.</value>
@@ -169,6 +175,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="ClearWishlist" xml:space="preserve">
+    <value>Clear wishlist</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Continue</value>
@@ -241,6 +250,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="StatisticsTitle" xml:space="preserve">
     <value>View stats</value>
+  </data>
+  <data name="ToastMessageAddToWishlistSuccess" xml:space="preserve">
+    <value>Person added to wishlist</value>
   </data>
   <data name="ToastMessageAgeTooLow" xml:space="preserve">
     <value>Minimum age is 16</value>

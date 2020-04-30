@@ -17,10 +17,10 @@
             </OnPlatform>
         </controls:CustomStackLayout.Padding>
 
-        <Button Command="{Binding AddPersonCommand}" Text="Add Person" />
-
         <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
                    TextColor="{StaticResource GrayColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
+
+        <Button Text="{ext:Translate ClearWishlist}" Command="{Binding ClearCommand}" />
 
         <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
             <ListView.ItemTemplate>
