@@ -188,11 +188,10 @@ namespace GuidFramework.Droid.Services
 			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 			Java.IO.File newFile = new Java.IO.File(folder, fileName);
 
-			if (!newFile.Exists())
+			if (!newFile.ParentFile.Exists())
 				newFile.ParentFile?.Mkdirs();
 
-			if (newFile.CanWrite())
-				await File.WriteAllTextAsync(newFile.Path, fileContents);
+			await File.WriteAllTextAsync(newFile.Path, fileContents);
 
 			return newFile.Path;
 		}

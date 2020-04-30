@@ -115,6 +115,8 @@ namespace HopeNope.ViewModels
 
 			if (result != null && result.Any())
 				People = result.OrderByDescending(item => item.IsUnlocked).ToList();
+			else
+				People?.Clear();
 
 			OnPropertyChanged(nameof(People));
 			OnPropertyChanged(nameof(HasItems));
