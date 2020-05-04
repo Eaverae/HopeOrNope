@@ -149,6 +149,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageRebootWarning" xml:space="preserve">
     <value>The app needs to be rebooted in order for the changes to take effect. Do you want to continue?</value>
   </data>
+  <data name="AlertMessageStoragePermissionNeeded" xml:space="preserve">
+    <value>Storage permission needed to execute the selected action.</value>
+  </data>
   <data name="AlertTitleActionNotSupported" xml:space="preserve">
     <value>Action not supported</value>
   </data>
@@ -166,6 +169,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertTitlePictureDateTakenIntoAccount" xml:space="preserve">
     <value>Picture's date was taken into account</value>
+  </data>
+  <data name="AlertTitleStoragePermissionNeeded" xml:space="preserve">
+    <value>Storage permission needed</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>

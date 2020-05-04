@@ -17,79 +17,92 @@
             </OnPlatform>
         </controls:CustomStackLayout.Padding>
 
-        <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
                    TextColor="{StaticResource GrayColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
 
-        <Button Text="{ext:Translate ClearWishlist}" Command="{Binding ClearCommand}" />
+            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
 
-        <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <controls:CustomViewCell SelectedBackgroundColor="{StaticResource BlackColor}">
-                        <StackLayout Spacing="0" Margin="0" Padding="5, 0, 5, 0">
-                            <Grid Margin="5, 5, 0, 5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="30" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="10" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="30" />
-                                </Grid.ColumnDefinitions>
-                                <BoxView Grid.Row="0" Grid.Column="0">
-                                    <BoxView.Triggers>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="BoxView">
-                                            <Setter Property="BackgroundColor" Value="{StaticResource SuccessColor}" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="BoxView">
-                                            <Setter Property="BackgroundColor" Value="{StaticResource ErrorColor}" />
-                                        </DataTrigger>
-                                    </BoxView.Triggers>
-                                </BoxView>
+            <StackLayout Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start">
+                <Button Text="{ext:Translate ClearWishlist}" Command="{Binding ClearCommand}" />
 
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" Margin="0" Padding="0" VerticalOptions="Center">
-                                    <Label.Triggers>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Label">
-                                            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Label">
-                                            <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
-                                        </DataTrigger>
-                                    </Label.Triggers>
-                                </Label>
+                <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:CustomViewCell SelectedBackgroundColor="{StaticResource BlackColor}">
+                                <StackLayout Spacing="0" Margin="0" Padding="5, 0, 5, 0">
+                                    <Grid Margin="5, 5, 0, 5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
+                                        <BoxView Grid.Row="0" Grid.Column="0">
+                                            <BoxView.Triggers>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="BoxView">
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource SuccessColor}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="BoxView">
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource ErrorColor}" />
+                                                </DataTrigger>
+                                            </BoxView.Triggers>
+                                        </BoxView>
 
-                                <Image Grid.Row="0" Grid.Column="2" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
-                                    <Image.Triggers>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Image">
-                                            <Setter Property="Source">
-                                                <Setter.Value>
-                                                    <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource WhiteColor}" />
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Image">
-                                            <Setter Property="Source">
-                                                <Setter.Value>
-                                                    <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource GrayColor}" />
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                    </Image.Triggers>
-                                </Image>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" Margin="0" Padding="0" VerticalOptions="Center">
+                                            <Label.Triggers>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Label">
+                                                    <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Label">
+                                                    <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
 
-                            </Grid>
-                            <BoxView Style="{StaticResource GraySeparator}" Margin="0"></BoxView>
-                        </StackLayout>
-                        <!-- Use Event to Command for Commanding of the item tap event -->
-                        <Behaviors:Interaction.Behaviors>
-                            <Behaviors:BehaviorCollection>
-                                <Behaviors:EventToCommand Command="{Binding Path=BindingContext.PersonDetailsCommand, Source={x:Reference Name=WishListPage}}" EventName="Tapped" />
-                            </Behaviors:BehaviorCollection>
-                        </Behaviors:Interaction.Behaviors>
-                    </controls:CustomViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                        <Image Grid.Row="0" Grid.Column="2" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
+                                            <Image.Triggers>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Image">
+                                                    <Setter Property="Source">
+                                                        <Setter.Value>
+                                                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource WhiteColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Image">
+                                                    <Setter Property="Source">
+                                                        <Setter.Value>
+                                                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource GrayColor}" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Image.Triggers>
+                                        </Image>
 
+                                    </Grid>
+                                    <BoxView Style="{StaticResource GraySeparator}" Margin="0"></BoxView>
+                                </StackLayout>
+                                <!-- Use Event to Command for Commanding of the item tap event -->
+                                <Behaviors:Interaction.Behaviors>
+                                    <Behaviors:BehaviorCollection>
+                                        <Behaviors:EventToCommand Command="{Binding Path=BindingContext.PersonDetailsCommand, Source={x:Reference Name=WishListPage}}" EventName="Tapped" />
+                                    </Behaviors:BehaviorCollection>
+                                </Behaviors:Interaction.Behaviors>
+                            </controls:CustomViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
+                <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" Margin="0" />
+            </StackLayout>
+        </Grid>
     </controls:CustomStackLayout>
 </ContentPage>

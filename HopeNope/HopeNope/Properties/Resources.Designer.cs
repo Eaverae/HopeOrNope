@@ -153,6 +153,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Storage permission needed to execute the selected action..
+        /// </summary>
+        internal static string AlertMessageStoragePermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertMessageStoragePermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported.
         /// </summary>
         internal static string AlertTitleActionNotSupported {
@@ -203,6 +212,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitlePictureDateTakenIntoAccount {
             get {
                 return ResourceManager.GetString("AlertTitlePictureDateTakenIntoAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Storage permission needed.
+        /// </summary>
+        internal static string AlertTitleStoragePermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertTitleStoragePermissionNeeded", resourceCulture);
             }
         }
         

@@ -4,6 +4,8 @@ using GuidFramework.Services;
 using HopeNope.Entities;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -129,13 +131,24 @@ namespace HopeNope.ViewModels
 		{
 			SelectedPerson = null;
 
-			if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageAreYouSure, Resources.Ok, Resources.Cancel))
-			{
-				DependencyService.Get<IFileService>().ClearInternalStorageFolder();
-				LoadPeople();
+			// Check storage permissions first
+			PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
-				await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageWishlistCleared);
+			if (storageStatus != PermissionStatus.Granted)
+				storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+
+			if (storageStatus == PermissionStatus.Granted)
+			{
+				if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageAreYouSure, Resources.Ok, Resources.Cancel))
+				{
+					DependencyService.Get<IFileService>().ClearInternalStorageFolder();
+					LoadPeople();
+
+					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageWishlistCleared);
+				}
 			}
+			else
+				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
 		}
 
 		/// <summary>

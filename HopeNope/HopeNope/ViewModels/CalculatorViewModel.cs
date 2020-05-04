@@ -288,12 +288,22 @@ namespace HopeNope.ViewModels
 		{
 			if (calculatedResult != null)
 			{
-				Person person = calculatedResult.ToPerson();
+				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
-				bool result = await localStorageHandler.SaveAsync(person);
+				if (storageStatus != PermissionStatus.Granted)
+					storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
 
-				if (result)
-					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
+				if (storageStatus == PermissionStatus.Granted)
+				{
+					Person person = calculatedResult.ToPerson();
+
+					bool result = await localStorageHandler.SaveAsync(person);
+
+					if (result)
+						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
+				}
+				else
+					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
 			}
 		}
 

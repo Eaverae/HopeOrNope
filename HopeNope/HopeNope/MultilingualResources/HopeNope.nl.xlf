@@ -246,6 +246,14 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Wishlist cleared</source>
           <target state="translated">Verlanglijst leeg gemaakt</target>
         </trans-unit>
+        <trans-unit id="AlertMessageStoragePermissionNeeded" translate="yes" xml:space="preserve">
+          <source>Storage permission needed to execute the selected action.</source>
+          <target state="translated">Er is toestemming benodigd voor de opslag om de actie uit te kunnen voeren.</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleStoragePermissionNeeded" translate="yes" xml:space="preserve">
+          <source>Storage permission needed</source>
+          <target state="translated">Toestemming benodigd</target>
+        </trans-unit>
       </group>
     </body>
   </file>
