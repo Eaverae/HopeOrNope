@@ -133,6 +133,8 @@ namespace HopeNope.ViewModels
 			{
 				DependencyService.Get<IFileService>().ClearInternalStorageFolder();
 				LoadPeople();
+
+				await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageWishlistCleared);
 			}
 		}
 

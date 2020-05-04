@@ -79,7 +79,7 @@ namespace GuidFramework.Handlers
 
 			// Nullcheck for any entities
 			IEnumerable<TEntity> tempEntities = await ListAsync<TEntity>();
-			List<TEntity> entities = (tempEntities != null) ? tempEntities.ToList() : new List<TEntity>();
+			List<TEntity> entities = (tempEntities != null && tempEntities.Any()) ? tempEntities.ToList() : new List<TEntity>();
 
 			// Remove when exists
 			if (!entity.Id.IsNullOrWhiteSpace())

@@ -278,6 +278,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="ToastMessageVerifyPurchaseSuccess" xml:space="preserve">
     <value>Purchase succesfully verified</value>
   </data>
+  <data name="ToastMessageWishlistCleared" xml:space="preserve">
+    <value>Wishlist cleared</value>
+  </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>

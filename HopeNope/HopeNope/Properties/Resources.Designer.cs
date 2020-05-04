@@ -540,6 +540,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wishlist cleared.
+        /// </summary>
+        internal static string ToastMessageWishlistCleared {
+            get {
+                return ResourceManager.GetString("ToastMessageWishlistCleared", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         internal static string Total {
