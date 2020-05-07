@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace HopeNope.Classes
 {
@@ -18,9 +19,10 @@ namespace HopeNope.Classes
 			double majorAge = firstAge > secondAge ? firstAge : secondAge;
 			double minorAge = firstAge > secondAge ? secondAge : firstAge;
 
-			double minimum = Math.Ceiling((firstAge / 2.0) + 7.0);
+			double minimum = Math.Ceiling((majorAge / 2.0) + 7.0);
 
-			return (minimum <= secondAge);
+			return (minimum <= minorAge);
+
 		}
 	}
 }
