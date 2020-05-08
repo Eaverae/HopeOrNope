@@ -477,6 +477,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please input a name.
+        /// </summary>
+        internal static string ToastErrorEnterName {
+            get {
+                return ResourceManager.GetString("ToastErrorEnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Person added to wishlist.
         /// </summary>
         internal static string ToastMessageAddToWishlistSuccess {

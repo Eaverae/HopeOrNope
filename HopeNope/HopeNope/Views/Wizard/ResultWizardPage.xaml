@@ -18,7 +18,7 @@
                 <On Platform="Android">0,0,0,0</On>
             </OnPlatform>
         </controls:CustomStackLayout.Padding>
-        
+
         <Grid VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -44,6 +44,14 @@
                 <!--Result images-->
                 <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
                 <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
+                <controls:CustomEntry Text="{Binding Name}"
+                                      Keyboard="Text"
+                                      BackgroundColor="Transparent"
+                                      TextColor="White"
+                                      HorizontalOptions="FillAndExpand"
+                                      HorizontalTextAlignment="Center"
+                                      IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}"
+                                      UnderlineColor="White" />
                 <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
             </StackLayout>
 

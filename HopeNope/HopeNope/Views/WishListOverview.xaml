@@ -28,8 +28,6 @@
             <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
 
             <StackLayout Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start">
-                <Button Text="{ext:Translate ClearWishlist}" Command="{Binding ClearCommand}" />
-
                 <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -101,7 +99,14 @@
             </StackLayout>
             <StackLayout Grid.Row="1">
                 <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
-                <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" HorizontalOptions="Center" Margin="0" />
+                <Grid ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Column="0" />
+                    <Button Text="{ext:Translate ClearWishlist}" Command="{Binding ClearCommand}" Margin="0,25,0,0" Grid.Column="1" />
+                </Grid>
             </StackLayout>
         </Grid>
     </controls:CustomStackLayout>

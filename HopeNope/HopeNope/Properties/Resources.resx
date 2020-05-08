@@ -257,6 +257,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="StatisticsTitle" xml:space="preserve">
     <value>View stats</value>
   </data>
+  <data name="ToastErrorEnterName" xml:space="preserve">
+    <value>Please input a name</value>
+  </data>
   <data name="ToastMessageAddToWishlistSuccess" xml:space="preserve">
     <value>Person added to wishlist</value>
   </data>

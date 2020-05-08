@@ -36,11 +36,13 @@ namespace HopeNope.ViewModels
 		private ImageSource profilePicture;
 		private CalculatedResult calculatedResult;
 
+		private string name;
 		private string firstAgeInput;
 		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
 		private ILocalStorageHandler localStorageHandler;
+		private const double minimumWishListAge = 18;
 
 		/// <summary>
 		/// Gets the first age.
@@ -127,6 +129,25 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>
+		/// The name.
+		/// </value>
+		public string Name
+		{
+			get
+			{
+				return name;
+			}
+			set
+			{
+				name = value;
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the first age.
 		/// </summary>
 		/// <value>
@@ -202,7 +223,12 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The add person command.
 		/// </value>
-		public ICommand AddPersonCommand => new Command(AddPersonAsync, CanExecuteCommands);
+		public ICommand AddPersonCommand => new Command(AddPersonAsync, () =>
+		{
+			return CanExecuteCommands() &&
+				calculatedResult?.Age >= minimumWishListAge &&
+				calculatedResult?.CompareAge >= minimumWishListAge;
+		});
 
 		/// <summary>
 		/// Gets the determine age command.
@@ -286,7 +312,9 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private async void AddPersonAsync()
 		{
-			if (calculatedResult != null)
+			if (Name.IsNullOrWhiteSpace())
+				await ToastHandler.ShowErrorMessageAsync(Resources.ToastErrorEnterName);
+			else if (calculatedResult != null && calculatedResult.Age > minimumWishListAge)
 			{
 				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
@@ -295,12 +323,14 @@ namespace HopeNope.ViewModels
 
 				if (storageStatus == PermissionStatus.Granted)
 				{
-					Person person = calculatedResult.ToPerson();
+					Person person = calculatedResult.ToPerson(Name);
 
 					bool result = await localStorageHandler.SaveAsync(person);
 
 					if (result)
 						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
+
+					Name = string.Empty;
 				}
 				else
 					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
@@ -494,6 +524,8 @@ namespace HopeNope.ViewModels
 				{
 					// View the result
 					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<ResultWizardPage>();
+
+					OnPropertyChanged(nameof(AddPersonCommand));
 				}
 			}
 		}
