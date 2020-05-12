@@ -1,6 +1,8 @@
 ﻿using GuidFramework.Classes;
 using HopeNope.Classes;
+using Plugin.Media.Abstractions;
 using System;
+using Xamarin.Forms;
 
 namespace HopeNope.Entities
 {

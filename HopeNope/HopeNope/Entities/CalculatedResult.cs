@@ -1,5 +1,5 @@
-﻿using GuidFramework.Extensions;
-using GuidFramework.ViewModels;
+﻿using GuidFramework;
+using GuidFramework.Extensions;
 using Newtonsoft.Json;
 using System;
 

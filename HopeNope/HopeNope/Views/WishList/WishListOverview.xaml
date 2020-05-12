@@ -22,12 +22,13 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
-                   TextColor="{StaticResource GrayColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
-
             <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
 
             <StackLayout Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start">
+
+                <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
+                   TextColor="{StaticResource WhiteColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
+
                 <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -53,38 +54,16 @@
                                             </BoxView.Triggers>
                                         </BoxView>
 
-                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" Margin="0" Padding="0" VerticalOptions="Center">
-                                            <Label.Triggers>
-                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Label">
-                                                    <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Label">
-                                                    <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
-                                                </DataTrigger>
-                                            </Label.Triggers>
-                                        </Label>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName}" TextColor="{StaticResource WhiteColor}" Margin="0" Padding="0" VerticalOptions="Center" />
 
                                         <Image Grid.Row="0" Grid.Column="2" VerticalOptions="Center" HeightRequest="20" WidthRequest="20">
-                                            <Image.Triggers>
-                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="true" TargetType="Image">
-                                                    <Setter Property="Source">
-                                                        <Setter.Value>
-                                                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource WhiteColor}" />
-                                                        </Setter.Value>
-                                                    </Setter>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding IsUnlocked}" Value="false" TargetType="Image">
-                                                    <Setter Property="Source">
-                                                        <Setter.Value>
-                                                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource GrayColor}" />
-                                                        </Setter.Value>
-                                                    </Setter>
-                                                </DataTrigger>
-                                            </Image.Triggers>
+                                            <Image.Source>
+                                                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf054;" Color="{StaticResource WhiteColor}" />
+                                            </Image.Source>
                                         </Image>
 
                                     </Grid>
-                                    <BoxView Style="{StaticResource GraySeparator}" Margin="0"></BoxView>
+                                    <BoxView Style="{StaticResource WhiteSeparator}" Margin="0"></BoxView>
                                 </StackLayout>
                                 <!-- Use Event to Command for Commanding of the item tap event -->
                                 <Behaviors:Interaction.Behaviors>
@@ -96,6 +75,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
             </StackLayout>
             <StackLayout Grid.Row="1">
                 <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />

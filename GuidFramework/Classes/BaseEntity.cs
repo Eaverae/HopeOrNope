@@ -1,9 +1,11 @@
-﻿namespace GuidFramework.Classes
+﻿using GuidFramework.ViewModels;
+
+namespace GuidFramework.Classes
 {
 	/// <summary>
 	/// BaseEntity
 	/// </summary>
-	public class BaseEntity
+	public class BaseEntity : NotifyPropertyChanged
 	{
 		/// <summary>
 		/// Gets or sets the identifier.

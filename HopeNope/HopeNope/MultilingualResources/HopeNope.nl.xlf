@@ -258,6 +258,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Please input a name</source>
           <target state="new">Please input a name</target>
         </trans-unit>
+        <trans-unit id="ValildationMultipleFieldsAreInvalid" translate="yes" xml:space="preserve">
+          <source>Multiple fields are invalid</source>
+          <target state="new">Multiple fields are invalid</target>
+        </trans-unit>
       </group>
     </body>
   </file>

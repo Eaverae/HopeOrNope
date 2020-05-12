@@ -156,7 +156,8 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private async void PersonDetailsAsync()
 		{
-			await AlertHandler.DisplayAlertAsync(Resources.AlertTitleActionNotSupported, Resources.AlertMessageActionNotSupported, Resources.Ok);
+			if (NavigationService.CanNavigate<PersonDetailsViewModel>())
+				await NavigationService.NavigateAsync(viewModel: new PersonDetailsViewModel() { Person = SelectedPerson });
 
 			SelectedPerson = null;
 		}

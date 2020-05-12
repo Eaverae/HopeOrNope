@@ -1,10 +1,13 @@
 ﻿using Autofac;
 using ExifLib;
+using GuidFramework;
 using GuidFramework.Extensions;
 using GuidFramework.Handlers;
 using GuidFramework.Interfaces;
+using GuidFramework.ValidationRules;
 using HopeNope.Classes;
 using HopeNope.Entities;
+using HopeNope.Extensions;
 using HopeNope.Handlers;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
@@ -18,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -27,8 +31,11 @@ namespace HopeNope.ViewModels
 	/// CalculatorViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class CalculatorViewModel : HopeNopeViewModel
+	public class CalculatorViewModel : HopeNopeViewModel, IValidatableViewModel
 	{
+		private readonly IValidationHandler validationHandler;
+		private ValidatableObject<string> name;
+
 		private int maxAds = new Random().Next(2, 5);
 
 		private byte[] imageData;
@@ -36,7 +43,6 @@ namespace HopeNope.ViewModels
 		private ImageSource profilePicture;
 		private CalculatedResult calculatedResult;
 
-		private string name;
 		private string firstAgeInput;
 		private string secondAgeInput;
 		private bool hope;
@@ -134,7 +140,7 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The name.
 		/// </value>
-		public string Name
+		public ValidatableObject<string> Name
 		{
 			get
 			{
@@ -273,8 +279,8 @@ namespace HopeNope.ViewModels
 			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
 			{
 				localStorageHandler = scope.Resolve<ILocalStorageHandler>();
+				validationHandler = scope.ResolveValidationHandlerWithParameters();
 			}
-
 		}
 
 		/// <summary>
@@ -285,6 +291,8 @@ namespace HopeNope.ViewModels
 		{
 			if (HasDefaultAge)
 				FirstAgeInput = Settings.DefaultAge.ToString();
+
+			AddValidationRules();
 
 			base.Init();
 		}
@@ -311,10 +319,8 @@ namespace HopeNope.ViewModels
 		/// Adds the person asynchronous.
 		/// </summary>
 		private async void AddPersonAsync()
-		{
-			if (Name.IsNullOrWhiteSpace())
-				await ToastHandler.ShowErrorMessageAsync(Resources.ToastErrorEnterName);
-			else if (calculatedResult != null && calculatedResult.Age > minimumWishListAge)
+		{			
+			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge)
 			{
 				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
@@ -323,14 +329,14 @@ namespace HopeNope.ViewModels
 
 				if (storageStatus == PermissionStatus.Granted)
 				{
-					Person person = calculatedResult.ToPerson(Name);
+					Person person = calculatedResult.ToPerson(Name.Value);
 
 					bool result = await localStorageHandler.SaveAsync(person);
 
 					if (result)
 						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
 
-					Name = string.Empty;
+					Name.Value = string.Empty;
 				}
 				else
 					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
@@ -396,7 +402,7 @@ namespace HopeNope.ViewModels
 						if (photo != null)
 						{
 							ExifReader exifReader = new ExifReader(photo.Path);
-							DateTime exifDate = new DateTime();
+							DateTime exifDate;
 
 							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
 								fileDateTime = exifDate;
@@ -580,6 +586,25 @@ namespace HopeNope.ViewModels
 			calculatedResult = null;
 
 			SelectSecondTab();
+		}
+
+		/// <summary>
+		/// Adds the validation rules.
+		/// </summary>
+		public void AddValidationRules()
+		{
+			name.ValidationRules.Add(new IsNullOrWhiteSpaceRule<string>());
+		}
+
+		/// <summary>
+		/// Validates this instance.
+		/// </summary>
+		/// <returns>
+		/// A boolean value
+		/// </returns>
+		public async Task<bool> ValidateAsync()
+		{
+			return await validationHandler.ValidateAsync(this);
 		}
 	}
 }

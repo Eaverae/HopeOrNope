@@ -53,7 +53,10 @@
     <Compile Update="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\WishlistOverview.xaml.cs">
+    <Compile Update="Views\WishList\PersonDetailsView.xaml.cs">
+      <DependentUpon>PersonDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WishList\WishlistOverview.xaml.cs">
       <DependentUpon>WishListOverview.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Wizard\ResultWizardPage.xaml.cs">
@@ -74,7 +77,10 @@
     <EmbeddedResource Update="Views\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\WishListOverview.xaml">
+    <EmbeddedResource Update="Views\WishList\PersonDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WishList\WishListOverview.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Wizard\WizardPage1.xaml">

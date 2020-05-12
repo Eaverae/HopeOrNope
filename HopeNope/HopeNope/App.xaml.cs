@@ -88,7 +88,9 @@ namespace HopeNope
 			ViewFactory.RegisterView<StatsView, StatsViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
+
 			ViewFactory.RegisterView<WishListOverview, WishListOverviewViewModel>();
+			ViewFactory.RegisterView<PersonDetailsView, PersonDetailsViewModel>();
 		}
 	}
 }

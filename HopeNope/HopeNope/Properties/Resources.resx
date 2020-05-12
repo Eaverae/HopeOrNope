@@ -293,6 +293,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
+  <data name="ValildationMultipleFieldsAreInvalid" xml:space="preserve">
+    <value>Multiple fields are invalid</value>
+  </data>
   <data name="Verdict" xml:space="preserve">
     <value>The verdict</value>
   </data>

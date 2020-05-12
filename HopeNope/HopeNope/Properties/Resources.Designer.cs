@@ -585,6 +585,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple fields are invalid.
+        /// </summary>
+        internal static string ValildationMultipleFieldsAreInvalid {
+            get {
+                return ResourceManager.GetString("ValildationMultipleFieldsAreInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The verdict.
         /// </summary>
         internal static string Verdict {
