@@ -12,7 +12,6 @@ using HopeNope.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -40,10 +39,10 @@ namespace HopeNope
 		protected override void OnStart()
 		{
 			VersionTracking.Track();
-
+			
 			// Start appcenter
 			AppCenter.Start(ApplicationConstants.AppCenterKey, typeof(Analytics), typeof(Crashes));
-
+			
 			base.OnStart();
 
 			// Set the language
@@ -74,7 +73,7 @@ namespace HopeNope
 			ContainerBuilder.RegisterType<LanguageHandler>().As<ILanguageHandler>();
 			ContainerBuilder.RegisterType<LocalStorageHandler>().As<ILocalStorageHandler>();
 		}
-
+		
 		/// <summary>
 		/// Registers the views.
 		/// </summary>

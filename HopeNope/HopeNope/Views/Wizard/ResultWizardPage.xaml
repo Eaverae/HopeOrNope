@@ -31,27 +31,22 @@
                 <Grid WidthRequest="100" HeightRequest="100" IsVisible="{Binding HasProfilePicture}">
                     <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
                                            WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
-                        <!--<controls:CircleImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ProfilePictureDetailCommand}"></TapGestureRecognizer>
-                        </controls:CircleImage.GestureRecognizers>-->
                     </controls1:CircleImage>
-
-                    <!--<ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
-                                                             WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>-->
                 </Grid>
                 <Label Text="{ext:Translate Verdict}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
 
                 <!--Result images-->
                 <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
                 <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
-                <controls:CustomEntry Text="{Binding Name}"
-                                      Keyboard="Text"
-                                      BackgroundColor="Transparent"
-                                      TextColor="White"
-                                      HorizontalOptions="FillAndExpand"
-                                      HorizontalTextAlignment="Center"
-                                      IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}"
-                                      UnderlineColor="White" />
+                <controls:ValidationEntry ValidatableObject="{Binding Name}"
+                                          x:TypeArguments="x:String"
+                                          Keyboard="Text"
+                                          BackgroundColor="Transparent"
+                                          TextColor="White"
+                                          HorizontalOptions="FillAndExpand"
+                                          HorizontalTextAlignment="Center"
+                                          IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}"
+                                          UnderlineColor="White" />
                 <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
             </StackLayout>
 

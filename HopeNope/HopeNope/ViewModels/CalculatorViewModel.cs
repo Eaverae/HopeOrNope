@@ -34,7 +34,7 @@ namespace HopeNope.ViewModels
 	public class CalculatorViewModel : HopeNopeViewModel, IValidatableViewModel
 	{
 		private readonly IValidationHandler validationHandler;
-		private ValidatableObject<string> name;
+		private ValidatableObject<string> name = new ValidatableObject<string>();
 
 		private int maxAds = new Random().Next(2, 5);
 
@@ -319,7 +319,7 @@ namespace HopeNope.ViewModels
 		/// Adds the person asynchronous.
 		/// </summary>
 		private async void AddPersonAsync()
-		{			
+		{
 			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge)
 			{
 				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
@@ -593,7 +593,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		public void AddValidationRules()
 		{
-			name.ValidationRules.Add(new IsNullOrWhiteSpaceRule<string>());
+			name.ValidationRules.Add(new IsNullOrWhiteSpaceRule<string>() { ValidationMessage = Resources.ValidationInvalidName });
 		}
 
 		/// <summary>
