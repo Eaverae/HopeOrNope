@@ -1,8 +1,13 @@
-﻿using ExifLib;
+﻿using Autofac;
+using ExifLib;
+using GuidFramework;
 using GuidFramework.Extensions;
 using GuidFramework.Handlers;
+using GuidFramework.Interfaces;
+using GuidFramework.ValidationRules;
 using HopeNope.Classes;
 using HopeNope.Entities;
+using HopeNope.Extensions;
 using HopeNope.Handlers;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
@@ -16,7 +21,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -25,18 +32,24 @@ namespace HopeNope.ViewModels
 	/// CalculatorViewModel
 	/// </summary>
 	/// <seealso cref="HopeNope.ViewModels.BaseViewModel" />
-	public class CalculatorViewModel : HopeNopeViewModel
+	public class CalculatorViewModel : HopeNopeViewModel, IValidatableViewModel
 	{
+		private readonly IValidationHandler validationHandler;
+		private ValidatableObject<string> name = new ValidatableObject<string>();
+
 		private int maxAds = new Random().Next(2, 5);
 
 		private byte[] imageData;
 		private MediaFile photo;
 		private ImageSource profilePicture;
+		private CalculatedResult calculatedResult;
 
 		private string firstAgeInput;
 		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
+		private ILocalStorageHandler localStorageHandler;
+		private const double minimumWishListAge = 18;
 
 		/// <summary>
 		/// Gets the first age.
@@ -123,6 +136,37 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>
+		/// The name.
+		/// </value>
+		public ValidatableObject<string> Name
+		{
+			get
+			{
+				return name;
+			}
+			set
+			{
+				name = value;
+				OnPropertyChanged();
+			}
+		}
+
+		/// <summary>
+		/// Gets a value indicating whether [wishlist enabled].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [wishlist enabled]; otherwise, <c>false</c>.
+		/// </value>
+		public bool WishlistEnabled
+		{
+			get;
+			private set;
+		}
+
+		/// <summary>
 		/// Gets or sets the first age.
 		/// </summary>
 		/// <value>
@@ -192,6 +236,33 @@ namespace HopeNope.ViewModels
 		/// </value>
 		public ICommand ResetCommand => new Command(Reset, CanExecuteCommands);
 
+		/// <summary>
+		/// Gets the finish command.
+		/// </summary>
+		/// <value>
+		/// The finish command.
+		/// </value>
+		public ICommand FinishCommand => new Command(Finish, CanExecuteCommands);
+
+		/// <summary>
+		/// Gets the add person command.
+		/// </summary>
+		/// <value>
+		/// The add person command.
+		/// </value>
+		public ICommand AddPersonCommand => new Command(AddPersonAsync, () =>
+		{
+			return CanExecuteCommands() &&
+				calculatedResult?.Age >= minimumWishListAge &&
+				calculatedResult?.CompareAge >= minimumWishListAge;
+		});
+
+		/// <summary>
+		/// Gets the determine age command.
+		/// </summary>
+		/// <value>
+		/// The determine age command.
+		/// </value>
 		public ICommand DetermineAgeCommand => new Command(DetermineAge, CanExecuteCommands);
 
 		/// <summary>
@@ -222,6 +293,18 @@ namespace HopeNope.ViewModels
 		});
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="CalculatorViewModel"/> class.
+		/// </summary>
+		public CalculatorViewModel()
+		{
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
+			{
+				localStorageHandler = scope.Resolve<ILocalStorageHandler>();
+				validationHandler = scope.ResolveValidationHandlerWithParameters();
+			}
+		}
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -229,6 +312,8 @@ namespace HopeNope.ViewModels
 		{
 			if (HasDefaultAge)
 				FirstAgeInput = Settings.DefaultAge.ToString();
+
+			AddValidationRules();
 
 			base.Init();
 		}
@@ -248,6 +333,37 @@ namespace HopeNope.ViewModels
 			{
 				GuidFramework.Services.NavigationService.MultipageSetSelectedItem<WizardPage2>();
 				isWizardInitialized = true;
+			}
+		}
+
+		/// <summary>
+		/// Adds the person asynchronous.
+		/// </summary>
+		private async void AddPersonAsync()
+		{
+			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge && WishlistEnabled)
+			{
+				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+
+				if (storageStatus != PermissionStatus.Granted)
+					storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+
+				if (storageStatus == PermissionStatus.Granted)
+				{
+					Person person = calculatedResult.ToPerson(Name.Value);
+
+					bool result = await localStorageHandler.SaveAsync(person);
+
+					if (result)
+						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
+
+					Name.Value = string.Empty;
+				}
+				else
+					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
+
+				WishlistEnabled = false;
+				OnPropertyChanged(nameof(WishlistEnabled));
 			}
 		}
 
@@ -310,7 +426,7 @@ namespace HopeNope.ViewModels
 						if (photo != null)
 						{
 							ExifReader exifReader = new ExifReader(photo.Path);
-							DateTime exifDate = new DateTime();
+							DateTime exifDate;
 
 							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
 								fileDateTime = exifDate;
@@ -368,7 +484,8 @@ namespace HopeNope.ViewModels
 
 									int year = new DateTime(current.Subtract(pictureDate.Value).Ticks).Year - 1;
 
-									age += year;
+									if (year > 0)
+										age += year;
 								}
 
 								SecondAgeInput = age.ToString();
@@ -409,24 +526,20 @@ namespace HopeNope.ViewModels
 				await ToastHandler.ShowErrorMessageAsync(Resources.ToastMessageAgeTooLow);
 			else
 			{
-				double calcA = FirstAge > SecondAge ? FirstAge : SecondAge;
-				double calcB = FirstAge > SecondAge ? SecondAge : FirstAge;
-
-				double minimum = Math.Ceiling((calcA / 2.0) + 7.0);
-
-				if (minimum <= calcB)
-					Hope = true;
-				else
-					Hope = false;
-
-				// Add the result as a statistic
-				Settings.SaveStatistic(new CalculatedResult()
+				Hope = Calculator.DetermineHopeOrNope(FirstAge, SecondAge);
+				calculatedResult = new CalculatedResult()
 				{
-					Age = calcA,
-					CompareAge = calcB,
+					Age = FirstAge,
+					CompareAge = SecondAge,
 					DeterminedDate = DateTime.Now,
 					Verdict = Hope
-				});
+				};
+
+				// Add the result as a statistic
+				Settings.SaveStatistic(calculatedResult);
+
+				WishlistEnabled = FirstAge >= minimumWishListAge && SecondAge >= minimumWishListAge;
+				OnPropertyChanged(nameof(WishlistEnabled));
 
 				if (AdsEnabled && maxAds > 0)
 				{
@@ -444,6 +557,8 @@ namespace HopeNope.ViewModels
 				{
 					// View the result
 					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<ResultWizardPage>();
+
+					OnPropertyChanged(nameof(AddPersonCommand));
 				}
 			}
 		}
@@ -495,8 +610,52 @@ namespace HopeNope.ViewModels
 		{
 			SecondAgeInput = string.Empty;
 			ProfilePicture = null;
+			WishlistEnabled = false;
+
+			calculatedResult = null;
 
 			SelectSecondTab();
+		}
+
+		/// <summary>
+		/// Finishes this instance.
+		/// </summary>
+		private async void Finish()
+		{
+			bool exitWizard = !WishlistEnabled;
+
+			if (!exitWizard && Name.HasValue && !Name.Value.IsNullOrWhiteSpace())
+				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleUnsavedChanges, Resources.AlertMessagePersonNotAddedToWishlist, Resources.Ok, Resources.Cancel);
+
+			if (exitWizard)
+			{
+				SecondAgeInput = string.Empty;
+				ProfilePicture = null; 
+				WishlistEnabled = false;
+
+				calculatedResult = null;
+
+				BackAsync();
+			}
+		}
+
+		/// <summary>
+		/// Adds the validation rules.
+		/// </summary>
+		public void AddValidationRules()
+		{
+			name.ValidationRules.Add(new IsNullOrWhiteSpaceRule<string>() { ValidationMessage = Resources.ValidationInvalidName });
+		}
+
+		/// <summary>
+		/// Validates this instance.
+		/// </summary>
+		/// <returns>
+		/// A boolean value
+		/// </returns>
+		public async Task<bool> ValidateAsync()
+		{
+			return await validationHandler.ValidateAsync(this);
 		}
 	}
 }

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.Content.Res;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.Content.Res;
+using GuidFramework.Droid.Services;
 using GuidFramework.Extensions;
 using GuidFramework.Services;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FileService))]
 namespace GuidFramework.Droid.Services
 {
 	/// <summary>
@@ -26,7 +21,7 @@ namespace GuidFramework.Droid.Services
 		/// </summary>
 		/// <param name="directoryName">Name of the directory.</param>
 		/// <exception cref="ArgumentNullException">directoryName</exception>
-		public void ClearInternalStorageFolder(string directoryName = "scans")
+		public void ClearInternalStorageFolder(string directoryName = "persons")
 		{
 			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 
@@ -47,7 +42,7 @@ namespace GuidFramework.Droid.Services
 
 			FileInfo[] fileInfos = null;
 
-			using (AssetManager assets = Application.Context.Assets)
+			using (AssetManager assets = GuidFrameworkActivity.CurrentActivity.ApplicationContext.Assets)
 			{
 				string[] files = await assets.ListAsync(directoryName);
 
@@ -92,7 +87,7 @@ namespace GuidFramework.Droid.Services
 
 			byte[] file = null;
 
-			using (AssetManager assets = Application.Context.Assets)
+			using (AssetManager assets = GuidFrameworkActivity.CurrentActivity.ApplicationContext.Assets)
 			using (MemoryStream memoryStream = new MemoryStream())
 			using (Stream stream = assets.Open(filename))
 			{
@@ -102,6 +97,32 @@ namespace GuidFramework.Droid.Services
 
 			return file;
 		}
+
+		/// <summary>
+		/// Reads from internal storage asynchronous.
+		/// </summary>
+		/// <param name="filename">The filename.</param>
+		/// <param name="directoryName">Name of the folder.</param>
+		/// <returns>
+		/// a string value
+		/// </returns>
+		/// <exception cref="ArgumentNullException">filename</exception>
+		public async Task<string> ReadFromInternalStorageAsync(string filename, string directoryName = "persons")
+		{
+			if (filename.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(filename));
+
+			string fileContents = string.Empty;
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			Java.IO.File newFile = new Java.IO.File(folder, filename);
+
+			if (newFile.Exists())
+				fileContents = await File.ReadAllTextAsync(newFile.Path);
+
+			return fileContents;
+		}
+
+		// get directory method
 
 		/// <summary>
 		/// Saves the file to internal storage;
@@ -118,7 +139,7 @@ namespace GuidFramework.Droid.Services
 		/// or
 		/// folderName
 		/// </exception>
-		public string SaveFileToInternalStorage(byte[] file, string fileName, string directoryName = "scans")
+		public string SaveFileToInternalStorage(byte[] file, string fileName, string directoryName = "persons")
 		{
 			if (fileName.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(fileName));
@@ -128,13 +149,49 @@ namespace GuidFramework.Droid.Services
 
 			// Save files to internal storage; no other user or apps can access these files.
 			// Unlike the external storage directories, your app does not require any system permissions to read and write to the internal directories returned by these methods.
-			string folder = Path.Combine(GuidFramework.Droid.GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 			Java.IO.File newFile = new Java.IO.File(folder, fileName);
 
 			if (!newFile.Exists())
 				newFile.ParentFile?.Mkdirs();
 
 			File.WriteAllBytes(newFile.Path, file);
+
+			return newFile.Path;
+		}
+
+		/// <summary>
+		/// Saves the file to internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileContents">The file contents.</param>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the directory.</param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException">
+		/// fileName
+		/// or
+		/// directoryName
+		/// </exception>
+		public async Task<string> SaveFileToInternalStorageAsync(string fileContents, string fileName, string directoryName = "persons")
+		{
+			if (fileContents.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileContents));
+
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
+			// Save files to internal storage; no other user or apps can access these files.
+			// Unlike the external storage directories, your app does not require any system permissions to read and write to the internal directories returned by these methods.
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			Java.IO.File newFile = new Java.IO.File(folder, fileName);
+
+			if (!newFile.Exists())
+				newFile.ParentFile?.Mkdirs();
+
+			await File.WriteAllTextAsync(newFile.Path, fileContents);
 
 			return newFile.Path;
 		}

@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using GuidFramework;
 using GuidFramework.Classes;
+using GuidFramework.Handlers;
+using GuidFramework.Interfaces;
 using GuidFramework.Services;
 using HopeNope.Classes;
 using HopeNope.Handlers;
@@ -30,17 +32,17 @@ namespace HopeNope
 		{
 			InitializeComponent();
 		}
-		
+
 		/// <summary>
 		/// Application developers override this method to perform actions when the application starts.
 		/// </summary>
 		protected override void OnStart()
 		{
 			VersionTracking.Track();
-
+			
 			// Start appcenter
 			AppCenter.Start(ApplicationConstants.AppCenterKey, typeof(Analytics), typeof(Crashes));
-
+			
 			base.OnStart();
 
 			// Set the language
@@ -69,8 +71,9 @@ namespace HopeNope
 			base.RegisterDependencies(ignoreDefaults);
 
 			ContainerBuilder.RegisterType<LanguageHandler>().As<ILanguageHandler>();
+			ContainerBuilder.RegisterType<LocalStorageHandler>().As<ILocalStorageHandler>();
 		}
-
+		
 		/// <summary>
 		/// Registers the views.
 		/// </summary>
@@ -84,6 +87,9 @@ namespace HopeNope
 			ViewFactory.RegisterView<StatsView, StatsViewModel>();
 			ViewFactory.RegisterView<CalculatorView, CalculatorViewModel>();
 			ViewFactory.RegisterView<SettingsView, SettingsViewModel>();
+
+			ViewFactory.RegisterView<WishListOverview, WishListOverviewViewModel>();
+			ViewFactory.RegisterView<PersonDetailsView, PersonDetailsViewModel>();
 		}
 	}
 }

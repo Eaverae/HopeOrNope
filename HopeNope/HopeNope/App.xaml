@@ -51,5 +51,16 @@
             <Setter Property="Padding" Value="5" />
             <Setter Property="Margin" Value="10" />
         </Style>
+
+        <Style TargetType="BoxView" x:Key="GraySeparator">
+            <Setter Property="Color" Value="{StaticResource GrayColor}" />
+            <Setter Property="HeightRequest" Value="1" />
+        </Style>
+
+        <Style TargetType="BoxView" x:Key="WhiteSeparator">
+            <Setter Property="Color" Value="{StaticResource WhiteColor}" />
+            <Setter Property="HeightRequest" Value="1" />
+        </Style>
+        
     </Application.Resources>
 </local:GuidApp>

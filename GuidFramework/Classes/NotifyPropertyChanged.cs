@@ -2,10 +2,10 @@
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
-namespace GuidFramework.ViewModels
+namespace GuidFramework
 {
 	/// <summary>
-	/// NotifiyPropertyChanged
+	/// INotifyPropertyChanged implementation
 	/// </summary>
 	public class NotifyPropertyChanged : INotifyPropertyChanged
 	{
@@ -14,7 +14,6 @@ namespace GuidFramework.ViewModels
 		/// </summary>
 		/// <returns></returns>
 		public event PropertyChangedEventHandler PropertyChanged;
-
 
 		/// <summary>
 		/// Occurs when a property value changes

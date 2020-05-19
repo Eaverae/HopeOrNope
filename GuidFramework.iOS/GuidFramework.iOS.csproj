@@ -47,6 +47,8 @@
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
+    <Compile Include="Renderers\CustomViewCellRenderer.cs" />
+    <Compile Include="Renderers\ValidationEntryRenderer.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\InAppBillingVerifyService.cs" />
     <Compile Include="Services\StatusBarService.cs" />

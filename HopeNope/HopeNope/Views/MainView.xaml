@@ -9,10 +9,11 @@
              x:Class="HopeNope.MainView">
 
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" Padding="0,25,0,25">
-        <Image Source="Logo_White.png" HeightRequest="250" />
+        <Image Source="Logo_White.png" HeightRequest="200" />
 
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="0">
             <Button x:Name="StartButton" Text="{ext:Translate StartTitle}" Command="{Binding StartCommand}" />
+            <Button x:Name="WishlistButton" Text="{ext:Translate WishlistTitle}" Command="{Binding WishlistCommand}" />
             <Button x:Name="SettingsButton" Text="{ext:Translate SettingsTitle}" Command="{Binding SettingsCommand}" />
             <Button x:Name="AboutButton" Text="{ext:Translate AboutTitle}" Command="{Binding AboutCommand}" />
             <Button x:Name="RemoveAdsButton" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" Text="{ext:Translate RemoveAdsTitle}" Command="{Binding RemoveAdsCommand}"  />

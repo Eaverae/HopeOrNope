@@ -218,6 +218,62 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>We tried to take the picture's date into account to determine the current age of the person depicted.</source>
           <target state="translated" state-qualifier="mt-suggestion">We hebben geprobeerd om rekening te houden met de datum van de foto om de huidige leeftijd van de afgebeelde persoon te bepalen.</target>
         </trans-unit>
+        <trans-unit id="WishlistTitle" translate="yes" xml:space="preserve">
+          <source>Wishlist</source>
+          <target state="translated">Verlanglijst</target>
+        </trans-unit>
+        <trans-unit id="NoItemsFound" translate="yes" xml:space="preserve">
+          <source>No items found</source>
+          <target state="translated">Geen items gevonden</target>
+        </trans-unit>
+        <trans-unit id="AddToWishlist" translate="yes" xml:space="preserve">
+          <source>Add to wishlist</source>
+          <target state="translated">Toevoegen aan verlanglijst</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageAddToWishlistSuccess" translate="yes" xml:space="preserve">
+          <source>Person added to wishlist</source>
+          <target state="translated">Toegevoegd aan verlanglijst</target>
+        </trans-unit>
+        <trans-unit id="AlertMessageAreYouSure" translate="yes" xml:space="preserve">
+          <source>Are you sure?</source>
+          <target state="translated">Weet je het zeker?</target>
+        </trans-unit>
+        <trans-unit id="ClearWishlist" translate="yes" xml:space="preserve">
+          <source>Clear wishlist</source>
+          <target state="translated">Verlanglijst leegmaken</target>
+        </trans-unit>
+        <trans-unit id="ToastMessageWishlistCleared" translate="yes" xml:space="preserve">
+          <source>Wishlist cleared</source>
+          <target state="translated">Verlanglijst leeg gemaakt</target>
+        </trans-unit>
+        <trans-unit id="AlertMessageStoragePermissionNeeded" translate="yes" xml:space="preserve">
+          <source>Storage permission needed to execute the selected action.</source>
+          <target state="translated">Er is toestemming benodigd voor de opslag om de actie uit te kunnen voeren.</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleStoragePermissionNeeded" translate="yes" xml:space="preserve">
+          <source>Storage permission needed</source>
+          <target state="translated">Toestemming benodigd</target>
+        </trans-unit>
+        <trans-unit id="ToastErrorEnterName" translate="yes" xml:space="preserve">
+          <source>Please input a name</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Voer een naam in</target>
+        </trans-unit>
+        <trans-unit id="ValildationMultipleFieldsAreInvalid" translate="yes" xml:space="preserve">
+          <source>Multiple fields are invalid</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Meerdere velden zijn ongeldig</target>
+        </trans-unit>
+        <trans-unit id="ValidationInvalidName" translate="yes" xml:space="preserve">
+          <source>Invalid name</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Ongeldige naam</target>
+        </trans-unit>
+        <trans-unit id="AlertMessagePersonNotAddedToWishlist" translate="yes" xml:space="preserve">
+          <source>You have entered a name but not added the person to the wishlist. Do you want to continue?</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Je hebt een naam ingevoerd, maar de persoon niet toegevoegd aan de verlanglijst. Wil je doorgaan?</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleUnsavedChanges" translate="yes" xml:space="preserve">
+          <source>Unsaved changes detected</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Niet-opgeslagen wijzigingen gedetecteerd</target>
+        </trans-unit>
       </group>
     </body>
   </file>

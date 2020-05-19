@@ -81,11 +81,29 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to wishlist.
+        /// </summary>
+        internal static string AddToWishlist {
+            get {
+                return ResourceManager.GetString("AddToWishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported on current device..
         /// </summary>
         internal static string AlertMessageActionNotSupported {
             get {
                 return ResourceManager.GetString("AlertMessageActionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        internal static string AlertMessageAreYouSure {
+            get {
+                return ResourceManager.GetString("AlertMessageAreYouSure", resourceCulture);
             }
         }
         
@@ -117,6 +135,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have entered a name but not added the person to the wishlist. Do you want to continue?.
+        /// </summary>
+        internal static string AlertMessagePersonNotAddedToWishlist {
+            get {
+                return ResourceManager.GetString("AlertMessagePersonNotAddedToWishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We tried to take the picture&apos;s date into account to determine the current age of the person depicted..
         /// </summary>
         internal static string AlertMessagePictureDateTakenIntoAccount {
@@ -131,6 +158,15 @@ namespace HopeNope.Properties {
         internal static string AlertMessageRebootWarning {
             get {
                 return ResourceManager.GetString("AlertMessageRebootWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Storage permission needed to execute the selected action..
+        /// </summary>
+        internal static string AlertMessageStoragePermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertMessageStoragePermissionNeeded", resourceCulture);
             }
         }
         
@@ -189,6 +225,24 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Storage permission needed.
+        /// </summary>
+        internal static string AlertTitleStoragePermissionNeeded {
+            get {
+                return ResourceManager.GetString("AlertTitleStoragePermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsaved changes detected.
+        /// </summary>
+        internal static string AlertTitleUnsavedChanges {
+            get {
+                return ResourceManager.GetString("AlertTitleUnsavedChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string Back {
@@ -212,6 +266,15 @@ namespace HopeNope.Properties {
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear wishlist.
+        /// </summary>
+        internal static string ClearWishlist {
+            get {
+                return ResourceManager.GetString("ClearWishlist", resourceCulture);
             }
         }
         
@@ -333,6 +396,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No items found.
+        /// </summary>
+        internal static string NoItemsFound {
+            get {
+                return ResourceManager.GetString("NoItemsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string Ok {
@@ -423,6 +495,24 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please input a name.
+        /// </summary>
+        internal static string ToastErrorEnterName {
+            get {
+                return ResourceManager.GetString("ToastErrorEnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person added to wishlist.
+        /// </summary>
+        internal static string ToastMessageAddToWishlistSuccess {
+            get {
+                return ResourceManager.GetString("ToastMessageAddToWishlistSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimum age is 16.
         /// </summary>
         internal static string ToastMessageAgeTooLow {
@@ -495,11 +585,38 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wishlist cleared.
+        /// </summary>
+        internal static string ToastMessageWishlistCleared {
+            get {
+                return ResourceManager.GetString("ToastMessageWishlistCleared", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         internal static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid name.
+        /// </summary>
+        internal static string ValidationInvalidName {
+            get {
+                return ResourceManager.GetString("ValidationInvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple fields are invalid.
+        /// </summary>
+        internal static string ValildationMultipleFieldsAreInvalid {
+            get {
+                return ResourceManager.GetString("ValildationMultipleFieldsAreInvalid", resourceCulture);
             }
         }
         
@@ -518,6 +635,15 @@ namespace HopeNope.Properties {
         internal static string VerifyPurchases {
             get {
                 return ResourceManager.GetString("VerifyPurchases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wishlist.
+        /// </summary>
+        internal static string WishlistTitle {
+            get {
+                return ResourceManager.GetString("WishlistTitle", resourceCulture);
             }
         }
         

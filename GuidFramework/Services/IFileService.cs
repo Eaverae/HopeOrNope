@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 
 namespace GuidFramework.Services
@@ -33,6 +30,24 @@ namespace GuidFramework.Services
 		FileInfo[] GetFilesFromInternalStorage(string directoryName);
 
 		/// <summary>
+		/// Reads from internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileName">The filename.</param>
+		/// <param name="directoryName">The directory name</param>
+		/// <returns>a string value</returns>
+		Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons");
+
+		/// <summary>
+		/// Saves the file to internal storage asynchronous;
+		/// no other user or apps can access these files.
+		/// </summary>
+		/// <param name="fileContents">The file contents.</param>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the folder.</param>
+		/// <returns>A string value with the filepath</returns>
+		Task<string> SaveFileToInternalStorageAsync(string fileContents, string fileName, string directoryName = "persons");
+
+		/// <summary>
 		/// Saves the file to internal storage;
 		/// no other user or apps can access these files.
 		/// </summary>
@@ -40,13 +55,13 @@ namespace GuidFramework.Services
 		/// <param name="fileName">Name of the file.</param>
 		/// <param name="directoryName">Name of the folder.</param>
 		/// <returns>A string value with the filepath</returns>
-		string SaveFileToInternalStorage(byte[] file, string fileName, string directoryName = "scans");
+		string SaveFileToInternalStorage(byte[] file, string fileName, string directoryName = "persons");
 
 		/// <summary>
 		/// Clears the internal storage folder.
 		/// </summary>
 		/// <param name="directoryName">Name of the directory.</param>
-		void ClearInternalStorageFolder(string directoryName = "scans");
+		void ClearInternalStorageFolder(string directoryName = "persons");
 
 	}
 }
