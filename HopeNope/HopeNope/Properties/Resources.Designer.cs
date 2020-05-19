@@ -135,6 +135,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have entered a name but not added the person to the wishlist. Do you want to continue?.
+        /// </summary>
+        internal static string AlertMessagePersonNotAddedToWishlist {
+            get {
+                return ResourceManager.GetString("AlertMessagePersonNotAddedToWishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We tried to take the picture&apos;s date into account to determine the current age of the person depicted..
         /// </summary>
         internal static string AlertMessagePictureDateTakenIntoAccount {
@@ -221,6 +230,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitleStoragePermissionNeeded {
             get {
                 return ResourceManager.GetString("AlertTitleStoragePermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsaved changes detected.
+        /// </summary>
+        internal static string AlertTitleUnsavedChanges {
+            get {
+                return ResourceManager.GetString("AlertTitleUnsavedChanges", resourceCulture);
             }
         }
         

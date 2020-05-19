@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -154,6 +155,18 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets a value indicating whether [wishlist enabled].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [wishlist enabled]; otherwise, <c>false</c>.
+		/// </value>
+		public bool WishlistEnabled
+		{
+			get;
+			private set;
+		}
+
+		/// <summary>
 		/// Gets or sets the first age.
 		/// </summary>
 		/// <value>
@@ -222,6 +235,14 @@ namespace HopeNope.ViewModels
 		/// The reset command.
 		/// </value>
 		public ICommand ResetCommand => new Command(Reset, CanExecuteCommands);
+
+		/// <summary>
+		/// Gets the finish command.
+		/// </summary>
+		/// <value>
+		/// The finish command.
+		/// </value>
+		public ICommand FinishCommand => new Command(Finish, CanExecuteCommands);
 
 		/// <summary>
 		/// Gets the add person command.
@@ -320,7 +341,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private async void AddPersonAsync()
 		{
-			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge)
+			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge && WishlistEnabled)
 			{
 				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
@@ -340,6 +361,9 @@ namespace HopeNope.ViewModels
 				}
 				else
 					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
+
+				WishlistEnabled = false;
+				OnPropertyChanged(nameof(WishlistEnabled));
 			}
 		}
 
@@ -514,6 +538,9 @@ namespace HopeNope.ViewModels
 				// Add the result as a statistic
 				Settings.SaveStatistic(calculatedResult);
 
+				WishlistEnabled = FirstAge >= minimumWishListAge && SecondAge >= minimumWishListAge;
+				OnPropertyChanged(nameof(WishlistEnabled));
+
 				if (AdsEnabled && maxAds > 0)
 				{
 					AdHandler.ShowFullScreenAd(BannerAdId, Resources.Loading, Resources.Continue, SecondBannerAdId, () =>
@@ -583,9 +610,33 @@ namespace HopeNope.ViewModels
 		{
 			SecondAgeInput = string.Empty;
 			ProfilePicture = null;
+			WishlistEnabled = false;
+
 			calculatedResult = null;
 
 			SelectSecondTab();
+		}
+
+		/// <summary>
+		/// Finishes this instance.
+		/// </summary>
+		private async void Finish()
+		{
+			bool exitWizard = !WishlistEnabled;
+
+			if (!exitWizard && Name.HasValue && !Name.Value.IsNullOrWhiteSpace())
+				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleUnsavedChanges, Resources.AlertMessagePersonNotAddedToWishlist, Resources.Ok, Resources.Cancel);
+
+			if (exitWizard)
+			{
+				SecondAgeInput = string.Empty;
+				ProfilePicture = null; 
+				WishlistEnabled = false;
+
+				calculatedResult = null;
+
+				BackAsync();
+			}
 		}
 
 		/// <summary>

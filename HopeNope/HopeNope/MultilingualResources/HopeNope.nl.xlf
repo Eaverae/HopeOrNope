@@ -262,6 +262,18 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Multiple fields are invalid</source>
           <target state="new">Multiple fields are invalid</target>
         </trans-unit>
+        <trans-unit id="ValidationInvalidName" translate="yes" xml:space="preserve">
+          <source>Invalid name</source>
+          <target state="new">Invalid name</target>
+        </trans-unit>
+        <trans-unit id="AlertMessagePersonNotAddedToWishlist" translate="yes" xml:space="preserve">
+          <source>You have entered a name but not added the person to the wishlist. Do you want to continue?</source>
+          <target state="new">You have entered a name but not added the person to the wishlist. Do you want to continue?</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleUnsavedChanges" translate="yes" xml:space="preserve">
+          <source>Unsaved changes detected</source>
+          <target state="new">Unsaved changes detected</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -45,9 +45,9 @@
                                           TextColor="White"
                                           HorizontalOptions="FillAndExpand"
                                           HorizontalTextAlignment="Center"
-                                          IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}"
+                                          IsVisible="{Binding WishlistEnabled}"
                                           UnderlineColor="White" />
-                <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
+                <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding WishlistEnabled}" />
             </StackLayout>
 
             <!--Footer-->
@@ -64,7 +64,7 @@
                             VerticalOptions="Center" />
                     <Button HeightRequest="48"  HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="1" Command="{Binding StatisticsCommand}"
                             Text="{ext:Translate StatisticsTitle}" />
-                    <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="2" Command="{Binding BackCommand}"
+                    <Button HeightRequest="48" HorizontalOptions="Center" Margin="0,25,0,0" Grid.Column="2" Command="{Binding FinishCommand}"
                             FontFamily="{StaticResource FontAwesomeSolid}" Text="&#xf00c;" FontSize="20" TextColor="White" BackgroundColor="Transparent"
                             VerticalOptions="Center" />
                 </Grid>

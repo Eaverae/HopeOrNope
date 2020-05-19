@@ -143,6 +143,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageItemAlreadyPurchased" xml:space="preserve">
     <value>Item already purchased</value>
   </data>
+  <data name="AlertMessagePersonNotAddedToWishlist" xml:space="preserve">
+    <value>You have entered a name but not added the person to the wishlist. Do you want to continue?</value>
+  </data>
   <data name="AlertMessagePictureDateTakenIntoAccount" xml:space="preserve">
     <value>We tried to take the picture's date into account to determine the current age of the person depicted.</value>
   </data>
@@ -172,6 +175,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertTitleStoragePermissionNeeded" xml:space="preserve">
     <value>Storage permission needed</value>
+  </data>
+  <data name="AlertTitleUnsavedChanges" xml:space="preserve">
+    <value>Unsaved changes detected</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
