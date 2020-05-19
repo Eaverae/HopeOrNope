@@ -256,23 +256,23 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="ToastErrorEnterName" translate="yes" xml:space="preserve">
           <source>Please input a name</source>
-          <target state="new">Please input a name</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Voer een naam in</target>
         </trans-unit>
         <trans-unit id="ValildationMultipleFieldsAreInvalid" translate="yes" xml:space="preserve">
           <source>Multiple fields are invalid</source>
-          <target state="new">Multiple fields are invalid</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Meerdere velden zijn ongeldig</target>
         </trans-unit>
         <trans-unit id="ValidationInvalidName" translate="yes" xml:space="preserve">
           <source>Invalid name</source>
-          <target state="new">Invalid name</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Ongeldige naam</target>
         </trans-unit>
         <trans-unit id="AlertMessagePersonNotAddedToWishlist" translate="yes" xml:space="preserve">
           <source>You have entered a name but not added the person to the wishlist. Do you want to continue?</source>
-          <target state="new">You have entered a name but not added the person to the wishlist. Do you want to continue?</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Je hebt een naam ingevoerd, maar de persoon niet toegevoegd aan de verlanglijst. Wil je doorgaan?</target>
         </trans-unit>
         <trans-unit id="AlertTitleUnsavedChanges" translate="yes" xml:space="preserve">
           <source>Unsaved changes detected</source>
-          <target state="new">Unsaved changes detected</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Niet-opgeslagen wijzigingen gedetecteerd</target>
         </trans-unit>
       </group>
     </body>

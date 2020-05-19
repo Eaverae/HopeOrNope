@@ -197,4 +197,19 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="AlertTitleStoragePermissionNeeded" xml:space="preserve">
     <value>Toestemming benodigd</value>
   </data>
+  <data name="ToastErrorEnterName" xml:space="preserve">
+    <value>Voer een naam in</value>
+  </data>
+  <data name="ValildationMultipleFieldsAreInvalid" xml:space="preserve">
+    <value>Meerdere velden zijn ongeldig</value>
+  </data>
+  <data name="ValidationInvalidName" xml:space="preserve">
+    <value>Ongeldige naam</value>
+  </data>
+  <data name="AlertMessagePersonNotAddedToWishlist" xml:space="preserve">
+    <value>Je hebt een naam ingevoerd, maar de persoon niet toegevoegd aan de verlanglijst. Wil je doorgaan?</value>
+  </data>
+  <data name="AlertTitleUnsavedChanges" xml:space="preserve">
+    <value>Niet-opgeslagen wijzigingen gedetecteerd</value>
+  </data>
 </root>
