@@ -1,9 +1,16 @@
-﻿using GuidFramework.Services;
+﻿using GuidFramework.Extensions;
+using GuidFramework.Services;
 using HopeNope.Classes;
 using HopeNope.Entities;
+using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+using System;
 using System.IO;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -18,6 +25,7 @@ namespace HopeNope.ViewModels
 		private bool isLoadingProfilePicture = false;
 
 		private byte[] imageData;
+		private MediaFile photo;
 
 		private ImageSource profilePicture;
 
@@ -94,13 +102,79 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the edit profile picture command.
+		/// </summary>
+		/// <value>
+		/// The edit profile picture command.
+		/// </value>
+		public ICommand EditProfilePictureCommand => new Command(EditProfilePictureAsync, CanExecuteCommands);
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
 		public override void Init()
 		{
 			LoadProfilePicture();
+
 			base.Init();
+		}
+
+		/// <summary>
+		/// Edits the profile picture asynchronous.
+		/// </summary>
+		private async void EditProfilePictureAsync()
+		{
+			// Check if the device is compatible
+			if (!CrossMedia.IsSupported)
+				await AlertHandler.DisplayAlertAsync(Resources.AlertTitleActionNotSupported, Resources.AlertMessageActionNotSupported, Resources.Ok);
+			else if (await CrossMedia.Current.Initialize())
+			{
+				photo = null;
+
+				string result = await AlertHandler.DisplayActionSheetAsync(Resources.EditPicture, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
+
+				// Error handling for the actionsheet
+				if (!result.IsNullOrWhiteSpace() && !result.Equals(Resources.Cancel))
+				{
+					if (result.Equals(Resources.Camera))
+					{
+						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+
+						if (cameraStatus != PermissionStatus.Granted)
+							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+
+						if (cameraStatus == PermissionStatus.Granted)
+						{
+							photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
+							{
+								Directory = ApplicationConstants.PictureFolder,
+								Name = $"{Person.Id}.jpg"
+							}); ;
+						}
+						else
+							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleCameraPermissionNeeded, Resources.AlertMessageCameraPermissionNeeded, Resources.Ok);
+					}
+					else if (result.Equals(Resources.Gallery))
+					{
+						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+
+						if (photoStatus != PermissionStatus.Granted)
+							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+
+						if (photoStatus == PermissionStatus.Granted)
+							photo = await CrossMedia.Current.PickPhotoAsync();
+						else
+							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
+					}
+
+					if (photo != null)
+					{
+						// Set the profilepicture as imagedata
+						LoadProfilePicture();
+					}
+				}
+			}
 		}
 
 		/// <summary>

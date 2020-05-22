@@ -212,6 +212,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Done" xml:space="preserve">
     <value>Done</value>
   </data>
+  <data name="EditPicture" xml:space="preserve">
+    <value>Update picture</value>
+  </data>
   <data name="EnterDateAge" xml:space="preserve">
     <value>Enter your date's age</value>
   </data>

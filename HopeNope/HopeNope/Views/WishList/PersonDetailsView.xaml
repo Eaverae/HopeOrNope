@@ -34,7 +34,8 @@
                     <ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
                                        WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
                 </Grid>
-                <Label Text="{ext:Translate EditProfilePicture}" HorizontalOptions="Center" FontSize="Small" TextColor="{StaticResource WhiteColor}" Margin="5">
+                <Label Text="{ext:Translate EditPicture}" HorizontalOptions="Center" FontSize="Small" 
+                       TextColor="{StaticResource WhiteColor}" Margin="5">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding EditProfilePictureCommand}"></TapGestureRecognizer>
                     </Label.GestureRecognizers>

@@ -342,6 +342,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update picture.
+        /// </summary>
+        internal static string EditPicture {
+            get {
+                return ResourceManager.GetString("EditPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your date&apos;s age.
         /// </summary>
         internal static string EnterDateAge {

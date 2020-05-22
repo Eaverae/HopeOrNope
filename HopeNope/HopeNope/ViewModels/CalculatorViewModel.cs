@@ -416,7 +416,7 @@ namespace HopeNope.ViewModels
 						{
 							photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
 							{
-								Directory = "hopenopefaces",
+								Directory = ApplicationConstants.PictureFolder,
 								Name = $"{DateTime.Now.ToFileTimeUtc()}.jpg"
 							});
 						}
