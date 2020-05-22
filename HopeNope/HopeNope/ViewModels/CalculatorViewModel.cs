@@ -356,7 +356,7 @@ namespace HopeNope.ViewModels
 					bool result = await localStorageHandler.SaveAsync(person);
 
 					// Rename the picture if it was taken
-					if (File.Exists(photo.Path))
+					if (photo != null && File.Exists(photo.Path))
 					{
 						byte[] existing = File.ReadAllBytes(photo.Path);
 
