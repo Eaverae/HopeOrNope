@@ -24,7 +24,7 @@
 
             <StackLayout Margin="20" Padding="0" Grid.Row="0">
                 <Grid WidthRequest="100" HeightRequest="100">
-                    <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource BlackColor}" BorderThickness="3" Aspect="AspectFill"
+                    <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
                         <controls1:CircleImage.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ProfilePictureDetailCommand}"></TapGestureRecognizer>
