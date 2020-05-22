@@ -6,6 +6,7 @@
              xmlns:controls="clr-namespace:GuidFramework.Controls;assembly=GuidFramework" 
              xmlns:controls1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
              x:Class="HopeNope.Views.PersonDetailsView">
     <controls:CustomStackLayout StartColor="OrangeRed" EndColor="DarkRed" StartPointX="0" EndPointX="0" VerticalOptions="FillAndExpand">
         <controls:CustomStackLayout.Padding>
@@ -21,7 +22,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <StackLayout Margin="10" Padding="0" Grid.Row="0">
+            <StackLayout Margin="20" Padding="0" Grid.Row="0">
                 <Grid WidthRequest="100" HeightRequest="100">
                     <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource BlackColor}" BorderThickness="3" Aspect="AspectFill"
                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
@@ -33,7 +34,7 @@
                     <ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
                                        WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
                 </Grid>
-                <Label Text="{ext:Translate EditProfilePicture}" HorizontalOptions="Center" FontSize="Small" TextColor="{StaticResource SubColor}" Margin="5">
+                <Label Text="{ext:Translate EditProfilePicture}" HorizontalOptions="Center" FontSize="Small" TextColor="{StaticResource WhiteColor}" Margin="5">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding EditProfilePictureCommand}"></TapGestureRecognizer>
                     </Label.GestureRecognizers>

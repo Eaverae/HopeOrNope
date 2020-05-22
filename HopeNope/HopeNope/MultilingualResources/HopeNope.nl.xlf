@@ -274,6 +274,14 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Unsaved changes detected</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Niet-opgeslagen wijzigingen gedetecteerd</target>
         </trans-unit>
+        <trans-unit id="Delete" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+        </trans-unit>
       </group>
     </body>
   </file>

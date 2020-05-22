@@ -38,6 +38,14 @@ namespace GuidFramework.Services
 		Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons");
 
 		/// <summary>
+		/// Opens the file from internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the directory.</param>
+		/// <returns></returns>
+		Task<byte[]> OpenFromInternalStorageAsync(string fileName, string directoryName = "persons");
+
+		/// <summary>
 		/// Saves the file to internal storage asynchronous;
 		/// no other user or apps can access these files.
 		/// </summary>

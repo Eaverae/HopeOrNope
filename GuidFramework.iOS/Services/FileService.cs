@@ -74,20 +74,52 @@ namespace GuidFramework.iOS.Services
 		/// Reads from internal storage asynchronous.
 		/// </summary>
 		/// <param name="fileName">The filename.</param>
-		/// <param name="directoryName">The directoryname</param>
+		/// <param name="directoryName">The directory name</param>
 		/// <returns>
 		/// a string value
 		/// </returns>
-		/// <exception cref="ArgumentNullException">filename</exception>
+		/// <exception cref="ArgumentNullException">
+		/// fileName
+		/// or
+		/// directoryName
+		/// </exception>
 		public async Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons")
 		{
 			if (fileName.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(fileName));
 
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
 			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
 			string filePath = Path.Combine(folder, fileName);
 
 			return await File.ReadAllTextAsync(filePath);
+		}
+
+		/// <summary>
+		/// Opens the file from internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the directory.</param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException">
+		/// fileName
+		/// or
+		/// directoryName
+		/// </exception>
+		public async Task<byte[]> OpenFromInternalStorageAsync(string fileName, string directoryName = "persons")
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
+			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
+			string filePath = Path.Combine(folder, fileName);
+
+			return await File.ReadAllBytesAsync(filePath);
 		}
 
 		/// <summary>

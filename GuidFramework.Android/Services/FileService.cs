@@ -75,6 +75,32 @@ namespace GuidFramework.Droid.Services
 		}
 
 		/// <summary>
+		/// Opens the file from internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the directory.</param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException">fileName</exception>
+		public async Task<byte[]> OpenFromInternalStorageAsync(string fileName, string directoryName = "persons")
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
+			byte[] result = null;
+
+			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
+			Java.IO.File newFile = new Java.IO.File(folder, fileName);
+
+			if (newFile.Exists())
+				result = await File.ReadAllBytesAsync(newFile.Path);
+
+			return result;
+		}
+
+		/// <summary>
 		/// Reads the file as bytes.
 		/// </summary>
 		/// <param name="filename">The filename.</param>
@@ -112,6 +138,9 @@ namespace GuidFramework.Droid.Services
 			if (filename.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(filename));
 
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
 			string fileContents = string.Empty;
 			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 			Java.IO.File newFile = new Java.IO.File(folder, filename);
@@ -121,8 +150,6 @@ namespace GuidFramework.Droid.Services
 
 			return fileContents;
 		}
-
-		// get directory method
 
 		/// <summary>
 		/// Saves the file to internal storage;

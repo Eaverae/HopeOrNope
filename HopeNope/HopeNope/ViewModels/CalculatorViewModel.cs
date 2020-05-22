@@ -4,6 +4,7 @@ using GuidFramework;
 using GuidFramework.Extensions;
 using GuidFramework.Handlers;
 using GuidFramework.Interfaces;
+using GuidFramework.Services;
 using GuidFramework.ValidationRules;
 using HopeNope.Classes;
 using HopeNope.Entities;
@@ -354,6 +355,17 @@ namespace HopeNope.ViewModels
 
 					bool result = await localStorageHandler.SaveAsync(person);
 
+					// Rename the picture if it was taken
+					if (File.Exists(photo.Path))
+					{
+						byte[] existing = File.ReadAllBytes(photo.Path);
+
+						IFileService fileService = DependencyService.Get<IFileService>();
+						fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
+
+						File.Delete(photo.Path);
+					}
+
 					if (result)
 						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
 
@@ -630,7 +642,7 @@ namespace HopeNope.ViewModels
 			if (exitWizard)
 			{
 				SecondAgeInput = string.Empty;
-				ProfilePicture = null; 
+				ProfilePicture = null;
 				WishlistEnabled = false;
 
 				calculatedResult = null;

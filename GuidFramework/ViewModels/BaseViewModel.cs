@@ -167,7 +167,7 @@ namespace GuidFramework.ViewModels
 		/// </summary>
 		public virtual async void BackAsync()
 		{
-			await NavigationService.PopToRootAsync();
+			await NavigationService.CloseAsync();
 		}
 
 	}
