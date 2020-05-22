@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using GuidFramework.Interfaces;
 using GuidFramework.Services;
+using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
@@ -141,7 +142,10 @@ namespace HopeNope.ViewModels
 			{
 				if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageAreYouSure, Resources.Ok, Resources.Cancel))
 				{
-					DependencyService.Get<IFileService>().ClearInternalStorageFolder();
+					IFileService fileService = DependencyService.Get<IFileService>();
+					fileService.ClearInternalStorageFolder();
+					fileService.ClearInternalStorageFolder(ApplicationConstants.PictureFolder);
+
 					LoadPeople();
 
 					await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageWishlistCleared);
