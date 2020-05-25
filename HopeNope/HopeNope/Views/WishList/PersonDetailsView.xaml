@@ -24,7 +24,7 @@
 
             <ScrollView Grid.Row="0">
                 <StackLayout Margin="20" Padding="0" VerticalOptions="StartAndExpand">
-                    <Label Text="{Binding Person.DisplayName}" TextColor="{StaticResource WhiteColor}" FontSize="Large" HorizontalOptions="Start" />
+                    <Label Text="{Binding Person.DisplayName}" TextColor="{StaticResource WhiteColor}" FontSize="Large" HorizontalOptions="Center" />
                     <Grid WidthRequest="100" HeightRequest="100">
                         <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
@@ -43,15 +43,20 @@
                         </Label.GestureRecognizers>
                     </Label>
 
+                    <Label Text="{ext:Translate Age}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
                     <Label Text="{Binding Person.CurrentAge}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" FontSize="Header" />
 
                     <!--Result images-->
+                    <Label Text="{ext:Translate Verdict}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
                     <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked}" />
-                    <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
-                    <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
-                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
-                    <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
-                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                    <StackLayout Margin="25" IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}">
+                        <Image Source="nope.png" Aspect="AspectFit" HeightRequest="100" />
+                        <Label Text="{ext:Translate UnlockDate}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
+                        <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center"  />
+                        <Label Text="{ext:Translate Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
+                        <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" />
+                    </StackLayout>
+
                 </StackLayout>
             </ScrollView>
 

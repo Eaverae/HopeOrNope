@@ -90,6 +90,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        internal static string Age {
+            get {
+                return ResourceManager.GetString("Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported on current device..
         /// </summary>
         internal static string AlertMessageActionNotSupported {
@@ -293,6 +302,15 @@ namespace HopeNope.Properties {
         internal static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ll just have to wait for.
+        /// </summary>
+        internal static string Countdown {
+            get {
+                return ResourceManager.GetString("Countdown", resourceCulture);
             }
         }
         
@@ -662,6 +680,15 @@ namespace HopeNope.Properties {
         internal static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nope to Hope on.
+        /// </summary>
+        internal static string UnlockDate {
+            get {
+                return ResourceManager.GetString("UnlockDate", resourceCulture);
             }
         }
         

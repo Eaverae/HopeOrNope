@@ -128,6 +128,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AddToWishlist" xml:space="preserve">
     <value>Add to wishlist</value>
   </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
   <data name="AlertMessageActionNotSupported" xml:space="preserve">
     <value>Action not supported on current device.</value>
   </data>
@@ -196,6 +199,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="Copyright" xml:space="preserve">
     <value>© copyright guidoschippers.com</value>
+  </data>
+  <data name="Countdown" xml:space="preserve">
+    <value>You'll just have to wait for</value>
   </data>
   <data name="CurrentVersion" xml:space="preserve">
     <value>Current app version</value>
@@ -319,6 +325,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
+  </data>
+  <data name="UnlockDate" xml:space="preserve">
+    <value>Nope to Hope on</value>
   </data>
   <data name="ValidationInvalidName" xml:space="preserve">
     <value>Invalid name</value>

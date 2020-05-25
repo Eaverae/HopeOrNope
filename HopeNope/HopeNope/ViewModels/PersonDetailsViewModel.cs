@@ -129,7 +129,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private void InitializeTimer()
 		{
-			if (refreshTimer == null)
+			if (refreshTimer == null && Person != null && !Person.IsUnlocked)
 			{
 				refreshTimer = new Timer(1000);
 				refreshTimer.Elapsed += (s, e) =>
@@ -139,9 +139,9 @@ namespace HopeNope.ViewModels
 					if (Person.IsUnlocked)
 						refreshTimer.Stop();
 				};
-			}
 
-			refreshTimer.Start();
+				refreshTimer.Start();
+			}
 		}
 
 		/// <summary>

@@ -302,6 +302,18 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>seconds</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Seconden</target>
         </trans-unit>
+        <trans-unit id="Age" translate="yes" xml:space="preserve">
+          <source>Age</source>
+          <target state="new">Age</target>
+        </trans-unit>
+        <trans-unit id="Countdown" translate="yes" xml:space="preserve">
+          <source>You'll just have to wait for</source>
+          <target state="new">You'll just have to wait for</target>
+        </trans-unit>
+        <trans-unit id="UnlockDate" translate="yes" xml:space="preserve">
+          <source>Nope to Hope on</source>
+          <target state="new">Nope to Hope on</target>
+        </trans-unit>
       </group>
     </body>
   </file>
