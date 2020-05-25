@@ -314,6 +314,18 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Nope to Hope on</source>
           <target state="new">Nope to Hope on</target>
         </trans-unit>
+        <trans-unit id="CalendarItemDescriptionNopeIsHope" translate="yes" xml:space="preserve">
+          <source>The wait for {0} is over! Send {0} a message.</source>
+          <target state="new">The wait for {0} is over! Send {0} a message.</target>
+        </trans-unit>
+        <trans-unit id="CalendarItemTitleNopeIsHope" translate="yes" xml:space="preserve">
+          <source>{0}'s Nope becomes Hope!</source>
+          <target state="new">{0}'s Nope becomes Hope!</target>
+        </trans-unit>
+        <trans-unit id="SetReminder" translate="yes" xml:space="preserve">
+          <source>Add to calendar</source>
+          <target state="new">Add to calendar</target>
+        </trans-unit>
       </group>
     </body>
   </file>

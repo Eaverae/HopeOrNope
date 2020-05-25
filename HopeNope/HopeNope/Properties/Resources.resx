@@ -185,6 +185,12 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="CalendarItemDescriptionNopeIsHope" xml:space="preserve">
+    <value>The wait for {0} is over! Send {0} a message.</value>
+  </data>
+  <data name="CalendarItemTitleNopeIsHope" xml:space="preserve">
+    <value>{0}'s Nope becomes Hope!</value>
+  </data>
   <data name="Camera" xml:space="preserve">
     <value>Camera</value>
   </data>
@@ -274,6 +280,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>
+  </data>
+  <data name="SetReminder" xml:space="preserve">
+    <value>Add to calendar</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>

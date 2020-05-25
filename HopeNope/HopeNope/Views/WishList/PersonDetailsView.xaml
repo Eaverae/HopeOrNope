@@ -53,8 +53,13 @@
                         <Image Source="nope.png" Aspect="AspectFit" HeightRequest="100" />
                         <Label Text="{ext:Translate UnlockDate}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
                         <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center"  />
+
+                        <Button Text="{ext:Translate SetReminder}" Command="{Binding SetReminderCommand}" />
+                        
                         <Label Text="{ext:Translate Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" Margin="0" />
                         <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" />
+                        
+                        
                     </StackLayout>
 
                 </StackLayout>

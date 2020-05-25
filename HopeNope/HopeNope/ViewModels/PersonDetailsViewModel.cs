@@ -1,4 +1,5 @@
 ﻿using GuidFramework.Extensions;
+using GuidFramework.Interfaces;
 using GuidFramework.Services;
 using HopeNope.Classes;
 using HopeNope.Entities;
@@ -6,12 +7,11 @@ using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using System;
 using System.IO;
 using System.Timers;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -112,6 +112,14 @@ namespace HopeNope.ViewModels
 		public ICommand EditProfilePictureCommand => new Command(EditProfilePictureAsync, CanExecuteCommands);
 
 		/// <summary>
+		/// Gets the set reminder command.
+		/// </summary>
+		/// <value>
+		/// The set reminder command.
+		/// </value>
+		public ICommand SetReminderCommand => new Command(SetReminderAsync, CanExecuteCommands);
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -163,10 +171,10 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+						PermissionStatus cameraStatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
 
 						if (cameraStatus != PermissionStatus.Granted)
-							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+							cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
 
 						if (cameraStatus == PermissionStatus.Granted)
 						{
@@ -181,10 +189,10 @@ namespace HopeNope.ViewModels
 					}
 					else if (result.Equals(Resources.Gallery))
 					{
-						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+						PermissionStatus photoStatus = await Permissions.CheckStatusAsync<Permissions.Photos>();
 
 						if (photoStatus != PermissionStatus.Granted)
-							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+							photoStatus = await Permissions.RequestAsync<Permissions.Photos>();
 
 						if (photoStatus == PermissionStatus.Granted)
 							photo = await CrossMedia.Current.PickPhotoAsync();
@@ -198,6 +206,25 @@ namespace HopeNope.ViewModels
 						LoadProfilePicture();
 					}
 				}
+			}
+		}
+
+		/// <summary>
+		/// Sets the reminder asynchronous.
+		/// </summary>
+		private async void SetReminderAsync()
+		{
+			PermissionStatus calenderStatus = await Permissions.CheckStatusAsync<Permissions.CalendarWrite>();
+
+			if (calenderStatus != PermissionStatus.Granted)
+				calenderStatus = await Permissions.RequestAsync<Permissions.CalendarWrite>();
+
+			if (calenderStatus == PermissionStatus.Granted)
+			{
+				ICalendarService calendarService = DependencyService.Get<ICalendarService>();
+				calendarService.CreateCalendarItem(Resources.CalendarItemTitleNopeIsHope.FormatInvariant(Person.DisplayName),
+												   Resources.CalendarItemDescriptionNopeIsHope.FormatInvariant(Person.DisplayName),
+												   Person.UnlockDate);
 			}
 		}
 

@@ -261,6 +261,24 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The wait for {0} is over! Send {0} a message..
+        /// </summary>
+        internal static string CalendarItemDescriptionNopeIsHope {
+            get {
+                return ResourceManager.GetString("CalendarItemDescriptionNopeIsHope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}&apos;s Nope becomes Hope!.
+        /// </summary>
+        internal static string CalendarItemTitleNopeIsHope {
+            get {
+                return ResourceManager.GetString("CalendarItemTitleNopeIsHope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Camera.
         /// </summary>
         internal static string Camera {
@@ -527,6 +545,15 @@ namespace HopeNope.Properties {
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to calendar.
+        /// </summary>
+        internal static string SetReminder {
+            get {
+                return ResourceManager.GetString("SetReminder", resourceCulture);
             }
         }
         
