@@ -254,7 +254,7 @@ namespace HopeNope.ViewModels
 		public ICommand AddPersonCommand => new Command(AddPersonAsync, () =>
 		{
 			return CanExecuteCommands() &&
-				calculatedResult?.Age >= minimumWishListAge &&
+				calculatedResult?.UserAge >= minimumWishListAge &&
 				calculatedResult?.CompareAge >= minimumWishListAge;
 		});
 
@@ -342,7 +342,7 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private async void AddPersonAsync()
 		{
-			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge && WishlistEnabled)
+			if (await ValidateAsync() && calculatedResult != null && calculatedResult.UserAge > minimumWishListAge && WishlistEnabled)
 			{
 				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
 
@@ -541,7 +541,7 @@ namespace HopeNope.ViewModels
 				Hope = Calculator.DetermineHopeOrNope(FirstAge, SecondAge);
 				calculatedResult = new CalculatedResult()
 				{
-					Age = FirstAge,
+					UserAge = FirstAge,
 					CompareAge = SecondAge,
 					DeterminedDate = DateTime.Now,
 					Verdict = Hope

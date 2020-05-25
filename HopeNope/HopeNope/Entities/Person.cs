@@ -26,7 +26,7 @@ namespace HopeNope.Entities
 			{
 				double currentAge = DetermineCurrentAge();
 
-				return Calculator.DetermineHopeOrNope(CompareAge, currentAge);
+				return Calculator.DetermineHopeOrNope(UserAge, currentAge);
 			}
 		}
 
@@ -43,7 +43,7 @@ namespace HopeNope.Entities
 				DateTime dateTime = DateTime.Now.Date;
 				double currentAge = DetermineCurrentAge();
 
-				double numberOfYears = Calculator.DetermineUnlockYears(CompareAge, currentAge);
+				double numberOfYears = Calculator.DetermineUnlockYears(UserAge, currentAge);
 
 				var days = Math.Ceiling(numberOfYears * 365.4);
 
@@ -80,24 +80,38 @@ namespace HopeNope.Entities
 		}
 
 		/// <summary>
-		/// Gets or sets the age.
+		/// Gets the current age.
 		/// </summary>
 		/// <value>
-		/// The age.
+		/// The current age.
 		/// </value>
-		public double Age
+		public int CurrentAge
+		{
+			get
+			{
+				return (int)Math.Floor(DetermineCurrentAge());
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the user age.
+		/// </summary>
+		/// <value>
+		/// The user age.
+		/// </value>
+		public double UserAge
 		{
 			get;
 			set;
 		}
 
 		/// <summary>
-		/// Gets or sets the compare age.
+		/// Gets or sets the age.
 		/// </summary>
 		/// <value>
-		/// The compare age.
+		/// The age.
 		/// </value>
-		public double CompareAge
+		public double Age
 		{
 			get;
 			set;

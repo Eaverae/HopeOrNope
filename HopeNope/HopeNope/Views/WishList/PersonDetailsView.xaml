@@ -22,34 +22,38 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <StackLayout Margin="20" Padding="0" Grid.Row="0">
-                <Grid WidthRequest="100" HeightRequest="100">
-                    <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
+            <ScrollView Grid.Row="0">
+                <StackLayout Margin="20" Padding="0" VerticalOptions="StartAndExpand">
+                    <Label Text="{Binding Person.DisplayName}" TextColor="{StaticResource WhiteColor}" FontSize="Large" HorizontalOptions="Start" />
+                    <Grid WidthRequest="100" HeightRequest="100">
+                        <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
-                        <controls1:CircleImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ProfilePictureDetailCommand}"></TapGestureRecognizer>
-                        </controls1:CircleImage.GestureRecognizers>
-                    </controls1:CircleImage>
+                            <controls1:CircleImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ProfilePictureDetailCommand}"></TapGestureRecognizer>
+                            </controls1:CircleImage.GestureRecognizers>
+                        </controls1:CircleImage>
 
-                    <ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
+                        <ActivityIndicator Color="{StaticResource GrayColor}" IsRunning="{Binding IsLoadingProfilePicture}"
                                        WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
-                </Grid>
-                <Label Text="{ext:Translate EditPicture}" HorizontalOptions="Center" FontSize="Small" 
+                    </Grid>
+                    <Label Text="{ext:Translate EditPicture}" HorizontalOptions="Center" FontSize="Small" 
                        TextColor="{StaticResource WhiteColor}" Margin="5">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding EditProfilePictureCommand}"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EditProfilePictureCommand}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
 
-                <!--Result images-->
-                <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked}" />
-                <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
-                <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
-                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
-                <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
-                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
-            </StackLayout>
+                    <Label Text="{Binding Person.CurrentAge}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" FontSize="Header" />
 
+                    <!--Result images-->
+                    <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked}" />
+                    <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                    <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
+                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                    <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
+                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                </StackLayout>
+            </ScrollView>
 
             <StackLayout Grid.Row="1">
                 <controls:AdBanner AdId="{Binding SecondBannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />
