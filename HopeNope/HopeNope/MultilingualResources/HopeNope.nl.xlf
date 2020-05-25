@@ -256,75 +256,75 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="ToastErrorEnterName" translate="yes" xml:space="preserve">
           <source>Please input a name</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Voer een naam in</target>
+          <target state="translated" state-qualifier="mt-suggestion">Voer een naam in</target>
         </trans-unit>
         <trans-unit id="ValildationMultipleFieldsAreInvalid" translate="yes" xml:space="preserve">
           <source>Multiple fields are invalid</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Meerdere velden zijn ongeldig</target>
+          <target state="translated" state-qualifier="mt-suggestion">Meerdere velden zijn ongeldig</target>
         </trans-unit>
         <trans-unit id="ValidationInvalidName" translate="yes" xml:space="preserve">
           <source>Invalid name</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Ongeldige naam</target>
+          <target state="translated" state-qualifier="tm-suggestion">Ongeldige naam</target>
         </trans-unit>
         <trans-unit id="AlertMessagePersonNotAddedToWishlist" translate="yes" xml:space="preserve">
           <source>You have entered a name but not added the person to the wishlist. Do you want to continue?</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Je hebt een naam ingevoerd, maar de persoon niet toegevoegd aan de verlanglijst. Wil je doorgaan?</target>
+          <target state="translated" state-qualifier="mt-suggestion">Je hebt een naam ingevoerd, maar de persoon niet toegevoegd aan de verlanglijst. Wil je doorgaan?</target>
         </trans-unit>
         <trans-unit id="AlertTitleUnsavedChanges" translate="yes" xml:space="preserve">
           <source>Unsaved changes detected</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Niet-opgeslagen wijzigingen gedetecteerd</target>
+          <target state="translated" state-qualifier="mt-suggestion">Niet-opgeslagen wijzigingen gedetecteerd</target>
         </trans-unit>
         <trans-unit id="Delete" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Verwijderen</target>
+          <target state="translated" state-qualifier="mt-suggestion">Verwijderen</target>
         </trans-unit>
         <trans-unit id="Save" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Opslaan</target>
+          <target state="translated" state-qualifier="mt-suggestion">Opslaan</target>
         </trans-unit>
         <trans-unit id="EditPicture" translate="yes" xml:space="preserve">
           <source>Update picture</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Afbeelding bijwerken</target>
+          <target state="translated" state-qualifier="mt-suggestion">Afbeelding bijwerken</target>
         </trans-unit>
         <trans-unit id="Days" translate="yes" xml:space="preserve">
           <source>days</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Dagen</target>
+          <target state="translated">dagen</target>
         </trans-unit>
         <trans-unit id="Hours" translate="yes" xml:space="preserve">
           <source>hours</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Uur</target>
+          <target state="translated">uren</target>
         </trans-unit>
         <trans-unit id="Minutes" translate="yes" xml:space="preserve">
           <source>minutes</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Minuten</target>
+          <target state="translated">minuten</target>
         </trans-unit>
         <trans-unit id="Seconds" translate="yes" xml:space="preserve">
           <source>seconds</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Seconden</target>
+          <target state="translated">seconden</target>
         </trans-unit>
         <trans-unit id="Age" translate="yes" xml:space="preserve">
           <source>Age</source>
-          <target state="new">Age</target>
+          <target state="translated" state-qualifier="tm-suggestion">Leeftijd</target>
         </trans-unit>
         <trans-unit id="Countdown" translate="yes" xml:space="preserve">
           <source>You'll just have to wait for</source>
-          <target state="new">You'll just have to wait for</target>
+          <target state="translated">Je zult moeten wachten tot</target>
         </trans-unit>
         <trans-unit id="UnlockDate" translate="yes" xml:space="preserve">
           <source>Nope to Hope on</source>
-          <target state="new">Nope to Hope on</target>
+          <target state="translated" state-qualifier="mt-suggestion">Nope naar Hope op</target>
         </trans-unit>
         <trans-unit id="CalendarItemDescriptionNopeIsHope" translate="yes" xml:space="preserve">
           <source>The wait for {0} is over! Send {0} a message.</source>
-          <target state="new">The wait for {0} is over! Send {0} a message.</target>
+          <target state="translated" state-qualifier="mt-suggestion">Het wachten op {0} is voorbij! Stuur {0} een bericht.</target>
         </trans-unit>
         <trans-unit id="CalendarItemTitleNopeIsHope" translate="yes" xml:space="preserve">
           <source>{0}'s Nope becomes Hope!</source>
-          <target state="new">{0}'s Nope becomes Hope!</target>
+          <target state="translated">{0}'s Nope wordt Hope!</target>
         </trans-unit>
         <trans-unit id="SetReminder" translate="yes" xml:space="preserve">
           <source>Add to calendar</source>
-          <target state="new">Add to calendar</target>
+          <target state="translated">Toevoegen aan agenda</target>
         </trans-unit>
       </group>
     </body>

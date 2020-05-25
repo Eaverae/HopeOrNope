@@ -54,8 +54,10 @@ namespace GuidFramework.Android.Services
 			// Android's months are index based..
 			int month = date.Month - 1;
 
-			Calendar calendar = new GregorianCalendar(date.Year, month, date.Day);
-			calendar.TimeZone = Java.Util.TimeZone.GetTimeZone("UTC");
+			Calendar calendar = new GregorianCalendar(date.Year, month, date.Day)
+			{
+				TimeZone = Java.Util.TimeZone.GetTimeZone("UTC")
+			};
 			calendar.Set(CalendarField.Hour, 0);
 			calendar.Set(CalendarField.Minute, 0);
 			calendar.Set(CalendarField.Second, 0);

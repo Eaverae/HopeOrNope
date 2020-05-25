@@ -11,7 +11,7 @@ namespace GuidFramework.iOS.Services
 		/// <summary>
 		/// The event controller
 		/// </summary>
-		private EKEventEditViewController eventController;
+		private readonly EKEventEditViewController eventController;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CalendarViewDelegate"/> class.

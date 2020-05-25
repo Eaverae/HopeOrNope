@@ -222,15 +222,33 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>Afbeelding bijwerken</value>
   </data>
   <data name="Days" xml:space="preserve">
-    <value>Dagen</value>
+    <value>dagen</value>
   </data>
   <data name="Hours" xml:space="preserve">
-    <value>Uur</value>
+    <value>uren</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minuten</value>
+    <value>minuten</value>
   </data>
   <data name="Seconds" xml:space="preserve">
-    <value>Seconden</value>
+    <value>seconden</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Leeftijd</value>
+  </data>
+  <data name="Countdown" xml:space="preserve">
+    <value>Je zult moeten wachten tot</value>
+  </data>
+  <data name="UnlockDate" xml:space="preserve">
+    <value>Nope naar Hope op</value>
+  </data>
+  <data name="CalendarItemDescriptionNopeIsHope" xml:space="preserve">
+    <value>Het wachten op {0} is voorbij! Stuur {0} een bericht.</value>
+  </data>
+  <data name="CalendarItemTitleNopeIsHope" xml:space="preserve">
+    <value>{0}'s Nope wordt Hope!</value>
+  </data>
+  <data name="SetReminder" xml:space="preserve">
+    <value>Toevoegen aan agenda</value>
   </data>
 </root>

@@ -3,7 +3,7 @@
 namespace GuidFramework.Interfaces
 {
 	/// <summary>
-	/// Interface for the CalendarSerivce
+	/// Interface for the CalendarService
 	/// </summary>
 	public interface ICalendarService
 	{

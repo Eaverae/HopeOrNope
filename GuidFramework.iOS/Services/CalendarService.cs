@@ -28,7 +28,13 @@ namespace GuidFramework.iOS.Services
 		/// </summary>
 		public static EKEventStore EventStore
 		{
-			get { return eventStore ?? (eventStore = new EKEventStore()); }
+			get
+			{
+				if (eventStore == null)
+					eventStore = new EKEventStore();
+
+				return eventStore;
+			}
 		}
 
 		/// <summary>

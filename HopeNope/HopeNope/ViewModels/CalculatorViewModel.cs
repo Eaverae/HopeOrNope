@@ -49,7 +49,7 @@ namespace HopeNope.ViewModels
 		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
-		private ILocalStorageHandler localStorageHandler;
+		private readonly ILocalStorageHandler localStorageHandler;
 		private const double minimumWishListAge = 18;
 
 		/// <summary>
@@ -62,9 +62,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				double firstAge;
-
-				if (!double.TryParse(firstAgeInput, out firstAge))
+				if (!double.TryParse(firstAgeInput, out double firstAge))
 					firstAge = 0;
 
 				return firstAge;
@@ -81,9 +79,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				double secondAge;
-
-				if (!double.TryParse(secondAgeInput, out secondAge))
+				if (!double.TryParse(secondAgeInput, out double secondAge))
 					secondAge = 0;
 
 				return secondAge;
@@ -438,9 +434,8 @@ namespace HopeNope.ViewModels
 						if (photo != null)
 						{
 							ExifReader exifReader = new ExifReader(photo.Path);
-							DateTime exifDate;
 
-							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
+							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out DateTime exifDate))
 								fileDateTime = exifDate;
 
 							if (!fileDateTime.HasValue)
