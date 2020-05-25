@@ -10,6 +10,7 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using System;
 using System.IO;
+using System.Timers;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -26,8 +27,9 @@ namespace HopeNope.ViewModels
 
 		private byte[] imageData;
 		private MediaFile photo;
-
 		private ImageSource profilePicture;
+
+		private Timer refreshTimer;
 
 		private Person person;
 
@@ -117,7 +119,29 @@ namespace HopeNope.ViewModels
 		{
 			LoadProfilePicture();
 
+			InitializeTimer();
+
 			base.Init();
+		}
+
+		/// <summary>
+		/// Initializes the timer.
+		/// </summary>
+		private void InitializeTimer()
+		{
+			if (refreshTimer == null)
+			{
+				refreshTimer = new Timer(1000);
+				refreshTimer.Elapsed += (s, e) =>
+				{
+					Person.Refresh();
+
+					if (Person.IsUnlocked)
+						refreshTimer.Stop();
+				};
+			}
+
+			refreshTimer.Start();
 		}
 
 		/// <summary>

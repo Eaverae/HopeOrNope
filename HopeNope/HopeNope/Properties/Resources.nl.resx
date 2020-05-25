@@ -212,4 +212,25 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="AlertTitleUnsavedChanges" xml:space="preserve">
     <value>Niet-opgeslagen wijzigingen gedetecteerd</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Opslaan</value>
+  </data>
+  <data name="EditPicture" xml:space="preserve">
+    <value>Afbeelding bijwerken</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dagen</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Uur</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minuten</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Seconden</value>
+  </data>
 </root>

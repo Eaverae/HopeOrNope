@@ -200,6 +200,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="CurrentVersion" xml:space="preserve">
     <value>Current app version</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>days</value>
+  </data>
   <data name="DefaultDateOfBirth" xml:space="preserve">
     <value>Default date of birth</value>
   </data>
@@ -227,11 +230,17 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
   <data name="LastAttempt" xml:space="preserve">
     <value>Last attempt</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading..</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
@@ -253,6 +262,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>

@@ -276,11 +276,31 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="Delete" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Verwijderen</target>
         </trans-unit>
         <trans-unit id="Save" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Opslaan</target>
+        </trans-unit>
+        <trans-unit id="EditPicture" translate="yes" xml:space="preserve">
+          <source>Update picture</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Afbeelding bijwerken</target>
+        </trans-unit>
+        <trans-unit id="Days" translate="yes" xml:space="preserve">
+          <source>days</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Dagen</target>
+        </trans-unit>
+        <trans-unit id="Hours" translate="yes" xml:space="preserve">
+          <source>hours</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Uur</target>
+        </trans-unit>
+        <trans-unit id="Minutes" translate="yes" xml:space="preserve">
+          <source>minutes</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Minuten</target>
+        </trans-unit>
+        <trans-unit id="Seconds" translate="yes" xml:space="preserve">
+          <source>seconds</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Seconden</target>
         </trans-unit>
       </group>
     </body>

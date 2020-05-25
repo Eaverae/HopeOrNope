@@ -1,5 +1,6 @@
 ﻿using GuidFramework.Classes;
 using HopeNope.Classes;
+using HopeNope.Properties;
 using Plugin.Media.Abstractions;
 using System;
 using Xamarin.Forms;
@@ -23,15 +24,46 @@ namespace HopeNope.Entities
 		{
 			get
 			{
-				DateTime current = DateTime.Now;
-				int year = new DateTime(current.Subtract(DeterminedAgeDate).Ticks).Year - 1;
+				double currentAge = DetermineCurrentAge();
 
-				double age = Age;
+				return Calculator.DetermineHopeOrNope(CompareAge, currentAge);
+			}
+		}
 
-				if (year > 0)
-					age += year;
+		/// <summary>
+		/// Gets or sets the determined age date.
+		/// </summary>
+		/// <value>
+		/// The determined age date.
+		/// </value>
+		public DateTime UnlockDate
+		{
+			get
+			{
+				DateTime dateTime = DateTime.Now.Date;
+				double currentAge = DetermineCurrentAge();
 
-				return Calculator.DetermineHopeOrNope(CompareAge, age);
+				double numberOfYears = Calculator.DetermineUnlockYears(CompareAge, currentAge);
+
+				var days = Math.Ceiling(numberOfYears * 365.4);
+
+				return dateTime.Add(TimeSpan.FromDays(days));
+			}
+		}
+
+		/// <summary>
+		/// Gets the countdown.
+		/// </summary>
+		/// <value>
+		/// The countdown.
+		/// </value>
+		public string Countdown
+		{
+			get
+			{
+				TimeSpan timeSpan = UnlockDate.Subtract(DateTime.Now);
+
+				return $"{timeSpan.Days} {Resources.Days}, {timeSpan.Hours} {Resources.Hours}, {timeSpan.Minutes} {Resources.Minutes}, {timeSpan.Seconds} {Resources.Seconds}";
 			}
 		}
 
@@ -91,6 +123,33 @@ namespace HopeNope.Entities
 		public Person()
 		{
 			Id = Guid.NewGuid().ToString();
+		}
+
+		/// <summary>
+		/// Refreshes this instance.
+		/// </summary>
+		public void Refresh()
+		{
+			OnPropertyChanged(nameof(IsUnlocked));
+			OnPropertyChanged(nameof(UnlockDate));
+			OnPropertyChanged(nameof(Countdown));
+		}
+
+		/// <summary>
+		/// Determines the current age.
+		/// </summary>
+		/// <returns>A double value</returns>
+		private double DetermineCurrentAge()
+		{
+			DateTime current = DateTime.Now;
+			int year = new DateTime(current.Subtract(DeterminedAgeDate).Ticks).Year - 1;
+
+			double age = Age;
+
+			if (year > 0)
+				age += year;
+
+			return age;
 		}
 	}
 }

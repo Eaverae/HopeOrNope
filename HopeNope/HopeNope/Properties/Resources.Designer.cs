@@ -306,6 +306,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        internal static string Days {
+            get {
+                return ResourceManager.GetString("Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default date of birth.
         /// </summary>
         internal static string DefaultDateOfBirth {
@@ -387,6 +396,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to hours.
+        /// </summary>
+        internal static string Hours {
+            get {
+                return ResourceManager.GetString("Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last attempt.
         /// </summary>
         internal static string LastAttempt {
@@ -401,6 +419,15 @@ namespace HopeNope.Properties {
         internal static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minutes.
+        /// </summary>
+        internal static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
             }
         }
         
@@ -464,6 +491,15 @@ namespace HopeNope.Properties {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        internal static string Seconds {
+            get {
+                return ResourceManager.GetString("Seconds", resourceCulture);
             }
         }
         

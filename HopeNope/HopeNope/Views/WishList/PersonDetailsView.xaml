@@ -40,6 +40,14 @@
                         <TapGestureRecognizer Command="{Binding EditProfilePictureCommand}"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
+
+                <!--Result images-->
+                <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked}" />
+                <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                <Label Text="{Binding Person.UnlockDate, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
+                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
+                <Label Text="{Binding Person.Countdown}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="Center" 
+                       IsVisible="{Binding Person.IsUnlocked, Converter={StaticResource ReverseBooleanConverter}}" />
             </StackLayout>
 
 
