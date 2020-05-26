@@ -16,15 +16,13 @@ using HopeNope.Views;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xml;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -170,7 +168,7 @@ namespace HopeNope.ViewModels
 		///   <c>true</c> if [display name]; otherwise, <c>false</c>.
 		/// </value>
 		public bool DisplayNameLabel
-		{ 
+		{
 			get;
 			private set;
 		}
@@ -352,10 +350,10 @@ namespace HopeNope.ViewModels
 		{
 			if (await ValidateAsync() && calculatedResult != null && calculatedResult.UserAge > minimumWishListAge && WishlistEnabled)
 			{
-				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+				PermissionStatus storageStatus = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
 
 				if (storageStatus != PermissionStatus.Granted)
-					storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+					storageStatus = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
 				if (storageStatus == PermissionStatus.Granted)
 				{
@@ -369,9 +367,12 @@ namespace HopeNope.ViewModels
 						byte[] existing = File.ReadAllBytes(photo.Path);
 
 						IFileService fileService = DependencyService.Get<IFileService>();
-						fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
+						person.ProfilePicturePath = fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
 
 						File.Delete(photo.Path);
+
+						// Save the person with the profile picture's path
+						result = await localStorageHandler.SaveAsync(person);
 					}
 
 					if (result)
@@ -416,10 +417,10 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+						PermissionStatus cameraStatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
 
 						if (cameraStatus != PermissionStatus.Granted)
-							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+							cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
 
 						if (cameraStatus == PermissionStatus.Granted)
 						{
@@ -434,10 +435,10 @@ namespace HopeNope.ViewModels
 					}
 					else if (result.Equals(Resources.Gallery))
 					{
-						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+						PermissionStatus photoStatus = await Permissions.CheckStatusAsync<Permissions.Photos>();
 
 						if (photoStatus != PermissionStatus.Granted)
-							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+							photoStatus = await Permissions.RequestAsync<Permissions.Photos>();
 
 						if (photoStatus == PermissionStatus.Granted)
 							photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { SaveMetaData = true });

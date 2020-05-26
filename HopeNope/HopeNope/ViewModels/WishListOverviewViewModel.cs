@@ -5,12 +5,11 @@ using HopeNope.Classes;
 using HopeNope.Entities;
 using HopeNope.Properties;
 using HopeNope.ViewModels.Base;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -133,10 +132,10 @@ namespace HopeNope.ViewModels
 			SelectedPerson = null;
 
 			// Check storage permissions first
-			PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+			PermissionStatus storageStatus = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
 
 			if (storageStatus != PermissionStatus.Granted)
-				storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+				storageStatus = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
 			if (storageStatus == PermissionStatus.Granted)
 			{

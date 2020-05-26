@@ -1,4 +1,7 @@
-﻿using GuidFramework.Extensions;
+﻿using Autofac;
+using GuidFramework;
+using GuidFramework.Extensions;
+using GuidFramework.Handlers;
 using GuidFramework.Interfaces;
 using GuidFramework.Services;
 using HopeNope.Classes;
@@ -32,6 +35,7 @@ namespace HopeNope.ViewModels
 		private Timer refreshTimer;
 
 		private Person person;
+		private ILocalStorageHandler localStorageHandler;
 
 		/// <summary>
 		/// Gets or sets the person.
@@ -120,6 +124,14 @@ namespace HopeNope.ViewModels
 		public ICommand SetReminderCommand => new Command(SetReminderAsync, CanExecuteCommands);
 
 		/// <summary>
+		/// Gets the delete command.
+		/// </summary>
+		/// <value>
+		/// The delete command.
+		/// </value>
+		public ICommand DeleteCommand => new Command(DeleteAsync, CanExecuteCommands);
+
+		/// <summary>
 		/// Initializes this instance.
 		/// <para>Sets IsInitialized to true</para>
 		/// </summary>
@@ -128,6 +140,11 @@ namespace HopeNope.ViewModels
 			LoadProfilePicture();
 
 			InitializeTimer();
+
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
+			{
+				localStorageHandler = scope.Resolve<ILocalStorageHandler>();
+			}
 
 			base.Init();
 		}
@@ -225,6 +242,39 @@ namespace HopeNope.ViewModels
 				calendarService.CreateCalendarItem(Resources.CalendarItemTitleNopeIsHope.FormatInvariant(Person.DisplayName),
 												   Resources.CalendarItemDescriptionNopeIsHope.FormatInvariant(Person.DisplayName),
 												   Person.UnlockDate);
+			}
+		}
+
+		/// <summary>
+		/// Deletes the asynchronous.
+		/// </summary>
+		/// <exception cref="NotImplementedException"></exception>
+		private async void DeleteAsync()
+		{
+			if (await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageAreYouSure, Resources.Ok, Resources.Cancel))
+			{
+				if (!Person.ProfilePicturePath.IsNullOrWhiteSpace())
+				{
+					// Check storage permissions first
+					PermissionStatus storageStatus = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
+
+					if (storageStatus != PermissionStatus.Granted)
+						storageStatus = await Permissions.RequestAsync<Permissions.StorageWrite>();
+
+					if (storageStatus == PermissionStatus.Granted)
+					{
+						// Remove the picture
+
+						IFileService fileService = DependencyService.Get<IFileService>();
+						fileService.DeleteFileFromInternalStorage(Person.ProfilePicturePath);
+					}
+				}
+
+				await localStorageHandler.DeleteAsync(Person);
+
+				await NavigationService.CloseAsync();
+
+				InitializeParent();
 			}
 		}
 

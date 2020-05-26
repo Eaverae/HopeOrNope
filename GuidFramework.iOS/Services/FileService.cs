@@ -13,7 +13,7 @@ namespace GuidFramework.iOS.Services
 	/// <summary>
 	/// FileService
 	/// </summary>
-	/// <seealso cref="Rimek.Framework.App.Interfaces.IFileService" />
+	/// <seealso cref="GuidFramework.Services.IFileService" />
 	public class FileService : IFileService
 	{
 		/// <summary>
@@ -30,6 +30,20 @@ namespace GuidFramework.iOS.Services
 
 			if (Directory.Exists(folder))
 				Directory.Delete(folder, true);
+		}
+
+		/// <summary>
+		/// Deletes the file from internal storage.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <exception cref="ArgumentNullException">fileName</exception>
+		public void DeleteFileFromInternalStorage(string fileName)
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (File.Exists(fileName))
+				File.Delete(fileName);
 		}
 
 		/// <summary>

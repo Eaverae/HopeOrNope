@@ -170,5 +170,13 @@ namespace GuidFramework.ViewModels
 			await NavigationService.CloseAsync();
 		}
 
+		/// <summary>
+		/// Initializes the parent.
+		/// </summary>
+		public static void InitializeParent()
+		{
+			BaseViewModel current = Services.NavigationService.CurrentBindingContext();
+			current?.Init();
+		}
 	}
 }

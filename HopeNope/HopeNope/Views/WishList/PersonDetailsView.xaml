@@ -71,11 +71,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <!--<ColumnDefinition Width="*" />-->
                     </Grid.ColumnDefinitions>
                     <Button Text="{ext:Translate Back}" Command="{Binding BackCommand}" Margin="0,25,0,0" Grid.Column="0" />
                     <Button Text="{ext:Translate Delete}" Command="{Binding DeleteCommand}" Margin="0,25,0,0" Grid.Column="1" />
-                    <Button Text="{ext:Translate Save}" Command="{Binding SaveCommand}" Margin="0,25,0,0" Grid.Column="2" />
+                    <!--<Button Text="{ext:Translate Save}" Command="{Binding SaveCommand}" IsEnabled="False" Margin="0,25,0,0" Grid.Column="2" />-->
                 </Grid>
             </StackLayout>
         </Grid>

@@ -129,6 +129,18 @@ namespace HopeNope.Entities
 			set;
 		}
 
+		/// <summary>
+		/// Gets or sets the profile picture path.
+		/// </summary>
+		/// <value>
+		/// The profile picture path.
+		/// </value>
+		public string ProfilePicturePath
+		{
+			get;
+			set;
+		}
+
 		#endregion
 
 		/// <summary>

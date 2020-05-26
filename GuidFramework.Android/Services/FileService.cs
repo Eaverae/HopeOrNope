@@ -14,6 +14,7 @@ namespace GuidFramework.Droid.Services
 	/// <summary>
 	/// FileService
 	/// </summary>
+	/// <seealso cref="GuidFramework.Services.IFileService" />
 	public class FileService : IFileService
 	{
 		/// <summary>
@@ -23,10 +24,27 @@ namespace GuidFramework.Droid.Services
 		/// <exception cref="ArgumentNullException">directoryName</exception>
 		public void ClearInternalStorageFolder(string directoryName = "persons")
 		{
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
 			string folder = Path.Combine(GuidFrameworkActivity.CurrentActivity.ApplicationContext.FilesDir.Path, directoryName);
 
 			if (Directory.Exists(folder))
 				Directory.Delete(folder, true);
+		}
+
+		/// <summary>
+		/// Deletes the file from internal storage.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <exception cref="ArgumentNullException">fileName</exception>
+		public void DeleteFileFromInternalStorage(string fileName)
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (File.Exists(fileName))
+				File.Delete(fileName);
 		}
 
 		/// <summary>
