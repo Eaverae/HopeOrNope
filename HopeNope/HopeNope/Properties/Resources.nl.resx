@@ -237,7 +237,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>Leeftijd</value>
   </data>
   <data name="Countdown" xml:space="preserve">
-    <value>Je zult moeten wachten tot</value>
+    <value>De resterende wachttijd bedraagd</value>
   </data>
   <data name="UnlockDate" xml:space="preserve">
     <value>Nope naar Hope op</value>
@@ -252,6 +252,12 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
     <value>Toevoegen aan agenda</value>
   </data>
   <data name="AlertMessageWishlistIgnoreConfirm" xml:space="preserve">
-    <value>Weet je zeker dat je deze persoon niet aan het verlanglijstje wilt toevoegen?</value>
+    <value>Weet je zeker dat je deze persoon niet aan jouw verlanglijst wilt toevoegen?</value>
+  </data>
+  <data name="AlertMessageErrorOccurred" xml:space="preserve">
+    <value>Er is een fout opgetreden tijdens het verwerken van je aanvraag. De ontwikkelaar is op de hoogte gebracht. Probeer het opnieuw.</value>
+  </data>
+  <data name="AlertTitleErrorOccurred" xml:space="preserve">
+    <value>Er is een fout opgetreden</value>
   </data>
 </root>
