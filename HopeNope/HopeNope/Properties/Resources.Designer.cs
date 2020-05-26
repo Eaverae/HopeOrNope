@@ -180,6 +180,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you don&apos;t want to add this person to the wishlist?.
+        /// </summary>
+        internal static string AlertMessageWishlistIgnoreConfirm {
+            get {
+                return ResourceManager.GetString("AlertMessageWishlistIgnoreConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported.
         /// </summary>
         internal static string AlertTitleActionNotSupported {

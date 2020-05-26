@@ -158,6 +158,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageStoragePermissionNeeded" xml:space="preserve">
     <value>Storage permission needed to execute the selected action.</value>
   </data>
+  <data name="AlertMessageWishlistIgnoreConfirm" xml:space="preserve">
+    <value>Are you sure you don't want to add this person to the wishlist?</value>
+  </data>
   <data name="AlertTitleActionNotSupported" xml:space="preserve">
     <value>Action not supported</value>
   </data>

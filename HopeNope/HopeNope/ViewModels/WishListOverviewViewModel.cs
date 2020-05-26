@@ -103,9 +103,9 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		public override void Init()
 		{
-			base.Init();
-
 			LoadPeople();
+
+			base.Init();
 		}
 
 		/// <summary>

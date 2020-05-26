@@ -326,6 +326,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>Add to calendar</source>
           <target state="translated">Toevoegen aan agenda</target>
         </trans-unit>
+        <trans-unit id="AlertMessageWishlistIgnoreConfirm" translate="yes" xml:space="preserve">
+          <source>Are you sure you don't want to add this person to the wishlist?</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Weet je zeker dat je deze persoon niet aan het verlanglijstje wilt toevoegen?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

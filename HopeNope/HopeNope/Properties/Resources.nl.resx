@@ -251,4 +251,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
   <data name="SetReminder" xml:space="preserve">
     <value>Toevoegen aan agenda</value>
   </data>
+  <data name="AlertMessageWishlistIgnoreConfirm" xml:space="preserve">
+    <value>Weet je zeker dat je deze persoon niet aan het verlanglijstje wilt toevoegen?</value>
+  </data>
 </root>

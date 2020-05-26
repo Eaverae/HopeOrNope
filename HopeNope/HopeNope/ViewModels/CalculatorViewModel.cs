@@ -164,6 +164,18 @@ namespace HopeNope.ViewModels
 		}
 
 		/// <summary>
+		/// Gets a value indicating whether [display name].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [display name]; otherwise, <c>false</c>.
+		/// </value>
+		public bool DisplayNameLabel
+		{ 
+			get;
+			private set;
+		}
+
+		/// <summary>
 		/// Gets or sets the first age.
 		/// </summary>
 		/// <value>
@@ -365,13 +377,14 @@ namespace HopeNope.ViewModels
 					if (result)
 						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
 
-					Name.Value = string.Empty;
+					DisplayNameLabel = true;
 				}
 				else
 					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
 
 				WishlistEnabled = false;
 				OnPropertyChanged(nameof(WishlistEnabled));
+				OnPropertyChanged(nameof(DisplayNameLabel));
 			}
 		}
 
@@ -633,6 +646,8 @@ namespace HopeNope.ViewModels
 
 			if (!exitWizard && Name.HasValue && !Name.Value.IsNullOrWhiteSpace())
 				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleUnsavedChanges, Resources.AlertMessagePersonNotAddedToWishlist, Resources.Ok, Resources.Cancel);
+			else if (!exitWizard && !Name.HasValue)
+				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageWishlistIgnoreConfirm, Resources.Ok, Resources.Cancel);
 
 			if (exitWizard)
 			{
