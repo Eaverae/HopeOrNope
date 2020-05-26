@@ -56,9 +56,9 @@ namespace HopeNope.Classes
 
 			//Max(L1 - 2 * L2 + 14; L2 - 2 * L1 + 14; 0)
 
-			var result1 = firstAge - 2 * secondAge + 14;
-			var result2 = secondAge - 2 * firstAge + 14;
-			var result3 = Math.Max(result1, result2);
+			double result1 = firstAge - 2 * secondAge + 14;
+			double result2 = secondAge - 2 * firstAge + 14;
+			double result3 = Math.Max(result1, result2);
 
 			return Math.Max(result3, 0);
 		}
