@@ -4,6 +4,7 @@ using GuidFramework;
 using GuidFramework.Extensions;
 using GuidFramework.Handlers;
 using GuidFramework.Interfaces;
+using GuidFramework.Services;
 using GuidFramework.ValidationRules;
 using HopeNope.Classes;
 using HopeNope.Entities;
@@ -15,15 +16,13 @@ using HopeNope.Views;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xml;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HopeNope.ViewModels
@@ -48,7 +47,7 @@ namespace HopeNope.ViewModels
 		private string secondAgeInput;
 		private bool hope;
 		private bool isWizardInitialized;
-		private ILocalStorageHandler localStorageHandler;
+		private readonly ILocalStorageHandler localStorageHandler;
 		private const double minimumWishListAge = 18;
 
 		/// <summary>
@@ -61,9 +60,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				double firstAge;
-
-				if (!double.TryParse(firstAgeInput, out firstAge))
+				if (!double.TryParse(firstAgeInput, out double firstAge))
 					firstAge = 0;
 
 				return firstAge;
@@ -80,9 +77,7 @@ namespace HopeNope.ViewModels
 		{
 			get
 			{
-				double secondAge;
-
-				if (!double.TryParse(secondAgeInput, out secondAge))
+				if (!double.TryParse(secondAgeInput, out double secondAge))
 					secondAge = 0;
 
 				return secondAge;
@@ -161,6 +156,18 @@ namespace HopeNope.ViewModels
 		///   <c>true</c> if [wishlist enabled]; otherwise, <c>false</c>.
 		/// </value>
 		public bool WishlistEnabled
+		{
+			get;
+			private set;
+		}
+
+		/// <summary>
+		/// Gets a value indicating whether [display name].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [display name]; otherwise, <c>false</c>.
+		/// </value>
+		public bool DisplayNameLabel
 		{
 			get;
 			private set;
@@ -253,7 +260,7 @@ namespace HopeNope.ViewModels
 		public ICommand AddPersonCommand => new Command(AddPersonAsync, () =>
 		{
 			return CanExecuteCommands() &&
-				calculatedResult?.Age >= minimumWishListAge &&
+				calculatedResult?.UserAge >= minimumWishListAge &&
 				calculatedResult?.CompareAge >= minimumWishListAge;
 		});
 
@@ -263,7 +270,7 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The determine age command.
 		/// </value>
-		public ICommand DetermineAgeCommand => new Command(DetermineAge, CanExecuteCommands);
+		public ICommand DetermineAgeCommand => new Command(DetermineAgeAsync, CanExecuteCommands);
 
 		/// <summary>
 		/// Gets the select first tab command.
@@ -341,12 +348,12 @@ namespace HopeNope.ViewModels
 		/// </summary>
 		private async void AddPersonAsync()
 		{
-			if (await ValidateAsync() && calculatedResult != null && calculatedResult.Age > minimumWishListAge && WishlistEnabled)
+			if (await ValidateAsync() && calculatedResult != null && calculatedResult.UserAge > minimumWishListAge && WishlistEnabled)
 			{
-				PermissionStatus storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<StoragePermission>();
+				PermissionStatus storageStatus = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
 
 				if (storageStatus != PermissionStatus.Granted)
-					storageStatus = await CrossPermissions.Current.RequestPermissionAsync<StoragePermission>();
+					storageStatus = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
 				if (storageStatus == PermissionStatus.Granted)
 				{
@@ -354,31 +361,38 @@ namespace HopeNope.ViewModels
 
 					bool result = await localStorageHandler.SaveAsync(person);
 
+					// Rename the picture if it was taken
+					if (photo != null && File.Exists(photo.Path))
+					{
+						byte[] existing = File.ReadAllBytes(photo.Path);
+
+						IFileService fileService = DependencyService.Get<IFileService>();
+						person.ProfilePicturePath = fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
+
+						File.Delete(photo.Path);
+
+						// Save the person with the profile picture's path
+						result = await localStorageHandler.SaveAsync(person);
+					}
+
 					if (result)
 						await ToastHandler.ShowSuccessMessageAsync(Resources.ToastMessageAddToWishlistSuccess);
 
-					Name.Value = string.Empty;
+					DisplayNameLabel = true;
 				}
 				else
 					await AlertHandler.DisplayAlertAsync(Resources.AlertTitleStoragePermissionNeeded, Resources.AlertMessageStoragePermissionNeeded, Resources.Ok);
 
 				WishlistEnabled = false;
 				OnPropertyChanged(nameof(WishlistEnabled));
+				OnPropertyChanged(nameof(DisplayNameLabel));
 			}
 		}
 
 		/// <summary>
 		/// Determines the age.
 		/// </summary>
-		private void DetermineAge()
-		{
-			EditProfilePictureAsync();
-		}
-
-		/// <summary>
-		/// Edits the profile picture asynchronous.
-		/// </summary>
-		private async void EditProfilePictureAsync()
+		private async void DetermineAgeAsync()
 		{
 			// Check if the device is compatible
 			if (!CrossMedia.IsSupported)
@@ -395,16 +409,16 @@ namespace HopeNope.ViewModels
 				{
 					if (result.Equals(Resources.Camera))
 					{
-						PermissionStatus cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<CameraPermission>();
+						PermissionStatus cameraStatus = await Permissions.CheckStatusAsync<Permissions.Camera>();
 
 						if (cameraStatus != PermissionStatus.Granted)
-							cameraStatus = await CrossPermissions.Current.RequestPermissionAsync<CameraPermission>();
+							cameraStatus = await Permissions.RequestAsync<Permissions.Camera>();
 
 						if (cameraStatus == PermissionStatus.Granted)
 						{
 							photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
 							{
-								Directory = "hopenopefaces",
+								Directory = ApplicationConstants.PictureFolder,
 								Name = $"{DateTime.Now.ToFileTimeUtc()}.jpg"
 							});
 						}
@@ -413,10 +427,10 @@ namespace HopeNope.ViewModels
 					}
 					else if (result.Equals(Resources.Gallery))
 					{
-						PermissionStatus photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync<PhotosPermission>();
+						PermissionStatus photoStatus = await Permissions.CheckStatusAsync<Permissions.Photos>();
 
 						if (photoStatus != PermissionStatus.Granted)
-							photoStatus = await CrossPermissions.Current.RequestPermissionAsync<PhotosPermission>();
+							photoStatus = await Permissions.RequestAsync<Permissions.Photos>();
 
 						if (photoStatus == PermissionStatus.Granted)
 							photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { SaveMetaData = true });
@@ -426,9 +440,8 @@ namespace HopeNope.ViewModels
 						if (photo != null)
 						{
 							ExifReader exifReader = new ExifReader(photo.Path);
-							DateTime exifDate;
 
-							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out exifDate))
+							if (exifReader.GetTagValue(ExifTags.DateTimeOriginal, out DateTime exifDate))
 								fileDateTime = exifDate;
 
 							if (!fileDateTime.HasValue)
@@ -497,6 +510,8 @@ namespace HopeNope.ViewModels
 							LogHandler.LogException(ex);
 						}
 					}
+					else
+						AlertHandler.DisplayAlertAsync(Resources.AlertTitleErrorOccurred, Resources.AlertMessageErrorOccurred, Resources.Ok);
 				}
 
 				ProfilePicture = ImageSource.FromStream(() =>
@@ -529,7 +544,7 @@ namespace HopeNope.ViewModels
 				Hope = Calculator.DetermineHopeOrNope(FirstAge, SecondAge);
 				calculatedResult = new CalculatedResult()
 				{
-					Age = FirstAge,
+					UserAge = FirstAge,
 					CompareAge = SecondAge,
 					DeterminedDate = DateTime.Now,
 					Verdict = Hope
@@ -626,11 +641,13 @@ namespace HopeNope.ViewModels
 
 			if (!exitWizard && Name.HasValue && !Name.Value.IsNullOrWhiteSpace())
 				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleUnsavedChanges, Resources.AlertMessagePersonNotAddedToWishlist, Resources.Ok, Resources.Cancel);
+			else if (!exitWizard && !Name.HasValue)
+				exitWizard = await AlertHandler.DisplayAlertAsync(Resources.AlertTitleAreYouSure, Resources.AlertMessageWishlistIgnoreConfirm, Resources.Ok, Resources.Cancel);
 
 			if (exitWizard)
 			{
 				SecondAgeInput = string.Empty;
-				ProfilePicture = null; 
+				ProfilePicture = null;
 				WishlistEnabled = false;
 
 				calculatedResult = null;

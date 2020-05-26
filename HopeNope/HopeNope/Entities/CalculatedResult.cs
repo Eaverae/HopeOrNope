@@ -16,7 +16,7 @@ namespace HopeNope.Entities
 		/// <value>
 		/// The age.
 		/// </value>
-		public double Age
+		public double UserAge
 		{
 			get;
 			set;
@@ -84,8 +84,8 @@ namespace HopeNope.Entities
 
 			return new Person()
 			{
-				Age = Age,
-				CompareAge = CompareAge,
+				UserAge = UserAge,
+				Age = CompareAge,
 				DeterminedAgeDate = DeterminedDate,
 				DisplayName = name
 			};

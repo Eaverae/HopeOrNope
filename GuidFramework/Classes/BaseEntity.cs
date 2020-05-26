@@ -1,12 +1,12 @@
-﻿using GuidFramework.ViewModels;
-
-namespace GuidFramework.Classes
+﻿namespace GuidFramework.Classes
 {
 	/// <summary>
 	/// BaseEntity
 	/// </summary>
 	public class BaseEntity : NotifyPropertyChanged
 	{
+		private string id;
+
 		/// <summary>
 		/// Gets or sets the identifier.
 		/// </summary>
@@ -15,8 +15,15 @@ namespace GuidFramework.Classes
 		/// </value>
 		public string Id
 		{
-			get;
-			set;
+			get
+			{
+				return id;
+			}
+			set
+			{
+				id = value;
+				OnPropertyChanged(nameof(id));
+			}
 		}
 	}
 }

@@ -90,6 +90,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        internal static string Age {
+            get {
+                return ResourceManager.GetString("Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported on current device..
         /// </summary>
         internal static string AlertMessageActionNotSupported {
@@ -113,6 +122,15 @@ namespace HopeNope.Properties {
         internal static string AlertMessageCameraPermissionNeeded {
             get {
                 return ResourceManager.GetString("AlertMessageCameraPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while processing your request. The developer has been notified. Please try again..
+        /// </summary>
+        internal static string AlertMessageErrorOccurred {
+            get {
+                return ResourceManager.GetString("AlertMessageErrorOccurred", resourceCulture);
             }
         }
         
@@ -171,6 +189,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you don&apos;t want to add this person to the wishlist?.
+        /// </summary>
+        internal static string AlertMessageWishlistIgnoreConfirm {
+            get {
+                return ResourceManager.GetString("AlertMessageWishlistIgnoreConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action not supported.
         /// </summary>
         internal static string AlertTitleActionNotSupported {
@@ -194,6 +221,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitleCameraPermissionNeeded {
             get {
                 return ResourceManager.GetString("AlertTitleCameraPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred.
+        /// </summary>
+        internal static string AlertTitleErrorOccurred {
+            get {
+                return ResourceManager.GetString("AlertTitleErrorOccurred", resourceCulture);
             }
         }
         
@@ -252,6 +288,24 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The wait for {0} is over! Send {0} a message..
+        /// </summary>
+        internal static string CalendarItemDescriptionNopeIsHope {
+            get {
+                return ResourceManager.GetString("CalendarItemDescriptionNopeIsHope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}&apos;s Nope becomes Hope!.
+        /// </summary>
+        internal static string CalendarItemTitleNopeIsHope {
+            get {
+                return ResourceManager.GetString("CalendarItemTitleNopeIsHope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Camera.
         /// </summary>
         internal static string Camera {
@@ -297,6 +351,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You&apos;ll just have to wait for.
+        /// </summary>
+        internal static string Countdown {
+            get {
+                return ResourceManager.GetString("Countdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current app version.
         /// </summary>
         internal static string CurrentVersion {
@@ -306,11 +369,29 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to days.
+        /// </summary>
+        internal static string Days {
+            get {
+                return ResourceManager.GetString("Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default date of birth.
         /// </summary>
         internal static string DefaultDateOfBirth {
             get {
                 return ResourceManager.GetString("DefaultDateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -329,6 +410,15 @@ namespace HopeNope.Properties {
         internal static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update picture.
+        /// </summary>
+        internal static string EditPicture {
+            get {
+                return ResourceManager.GetString("EditPicture", resourceCulture);
             }
         }
         
@@ -369,6 +459,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to hours.
+        /// </summary>
+        internal static string Hours {
+            get {
+                return ResourceManager.GetString("Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last attempt.
         /// </summary>
         internal static string LastAttempt {
@@ -383,6 +482,15 @@ namespace HopeNope.Properties {
         internal static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to minutes.
+        /// </summary>
+        internal static string Minutes {
+            get {
+                return ResourceManager.GetString("Minutes", resourceCulture);
             }
         }
         
@@ -441,11 +549,38 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        internal static string Seconds {
+            get {
+                return ResourceManager.GetString("Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select language.
         /// </summary>
         internal static string SelectLanguage {
             get {
                 return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add to calendar.
+        /// </summary>
+        internal static string SetReminder {
+            get {
+                return ResourceManager.GetString("SetReminder", resourceCulture);
             }
         }
         
@@ -599,6 +734,15 @@ namespace HopeNope.Properties {
         internal static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nope to Hope on.
+        /// </summary>
+        internal static string UnlockDate {
+            get {
+                return ResourceManager.GetString("UnlockDate", resourceCulture);
             }
         }
         

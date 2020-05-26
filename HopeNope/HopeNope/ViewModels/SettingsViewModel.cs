@@ -144,13 +144,16 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// Sets the language.
 		/// </summary>
-		/// <param name="value">The value.</param>
-		private async void SetLanguage(Language value)
+		/// <param name="language">The language.</param>
+		private async void SetLanguage(Language language)
 		{
-			if (value != selectedLanguage)
+			if (language == null)
+				throw new ArgumentNullException(nameof(language));
+
+			if (language != selectedLanguage)
 			{
 				Language temp = selectedLanguage;
-				selectedLanguage = value;
+				selectedLanguage = language;
 
 				// Set the language when the user confirms the change
 				if (await SaveLanguageAsync() == false)

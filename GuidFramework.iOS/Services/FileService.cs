@@ -13,7 +13,7 @@ namespace GuidFramework.iOS.Services
 	/// <summary>
 	/// FileService
 	/// </summary>
-	/// <seealso cref="Rimek.Framework.App.Interfaces.IFileService" />
+	/// <seealso cref="GuidFramework.Services.IFileService" />
 	public class FileService : IFileService
 	{
 		/// <summary>
@@ -30,6 +30,20 @@ namespace GuidFramework.iOS.Services
 
 			if (Directory.Exists(folder))
 				Directory.Delete(folder, true);
+		}
+
+		/// <summary>
+		/// Deletes the file from internal storage.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <exception cref="ArgumentNullException">fileName</exception>
+		public void DeleteFileFromInternalStorage(string fileName)
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (File.Exists(fileName))
+				File.Delete(fileName);
 		}
 
 		/// <summary>
@@ -74,20 +88,52 @@ namespace GuidFramework.iOS.Services
 		/// Reads from internal storage asynchronous.
 		/// </summary>
 		/// <param name="fileName">The filename.</param>
-		/// <param name="directoryName">The directoryname</param>
+		/// <param name="directoryName">The directory name</param>
 		/// <returns>
 		/// a string value
 		/// </returns>
-		/// <exception cref="ArgumentNullException">filename</exception>
+		/// <exception cref="ArgumentNullException">
+		/// fileName
+		/// or
+		/// directoryName
+		/// </exception>
 		public async Task<string> ReadFromInternalStorageAsync(string fileName, string directoryName = "persons")
 		{
 			if (fileName.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(fileName));
 
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
 			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
 			string filePath = Path.Combine(folder, fileName);
 
 			return await File.ReadAllTextAsync(filePath);
+		}
+
+		/// <summary>
+		/// Opens the file from internal storage asynchronous.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <param name="directoryName">Name of the directory.</param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException">
+		/// fileName
+		/// or
+		/// directoryName
+		/// </exception>
+		public async Task<byte[]> OpenFromInternalStorageAsync(string fileName, string directoryName = "persons")
+		{
+			if (fileName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(fileName));
+
+			if (directoryName.IsNullOrWhiteSpace())
+				throw new ArgumentNullException(nameof(directoryName));
+
+			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
+			string filePath = Path.Combine(folder, fileName);
+
+			return await File.ReadAllBytesAsync(filePath);
 		}
 
 		/// <summary>

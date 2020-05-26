@@ -128,6 +128,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AddToWishlist" xml:space="preserve">
     <value>Add to wishlist</value>
   </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
   <data name="AlertMessageActionNotSupported" xml:space="preserve">
     <value>Action not supported on current device.</value>
   </data>
@@ -136,6 +139,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertMessageCameraPermissionNeeded" xml:space="preserve">
     <value>Camera permission needed to execute the selected action.</value>
+  </data>
+  <data name="AlertMessageErrorOccurred" xml:space="preserve">
+    <value>An error occurred while processing your request. The developer has been notified. Please try again.</value>
   </data>
   <data name="AlertMessageGalleryPermissionNeeded" xml:space="preserve">
     <value>Photogallery permission needed to execute the selected action.</value>
@@ -155,6 +161,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageStoragePermissionNeeded" xml:space="preserve">
     <value>Storage permission needed to execute the selected action.</value>
   </data>
+  <data name="AlertMessageWishlistIgnoreConfirm" xml:space="preserve">
+    <value>Are you sure you don't want to add this person to the wishlist?</value>
+  </data>
   <data name="AlertTitleActionNotSupported" xml:space="preserve">
     <value>Action not supported</value>
   </data>
@@ -163,6 +172,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertTitleCameraPermissionNeeded" xml:space="preserve">
     <value>Camera permission needed</value>
+  </data>
+  <data name="AlertTitleErrorOccurred" xml:space="preserve">
+    <value>An error occurred</value>
   </data>
   <data name="AlertTitleGalleryPermissionNeeded" xml:space="preserve">
     <value>Photogallery permission needed</value>
@@ -182,6 +194,12 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="CalendarItemDescriptionNopeIsHope" xml:space="preserve">
+    <value>The wait for {0} is over! Send {0} a message.</value>
+  </data>
+  <data name="CalendarItemTitleNopeIsHope" xml:space="preserve">
+    <value>{0}'s Nope becomes Hope!</value>
+  </data>
   <data name="Camera" xml:space="preserve">
     <value>Camera</value>
   </data>
@@ -197,17 +215,29 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Copyright" xml:space="preserve">
     <value>© copyright guidoschippers.com</value>
   </data>
+  <data name="Countdown" xml:space="preserve">
+    <value>You'll just have to wait for</value>
+  </data>
   <data name="CurrentVersion" xml:space="preserve">
     <value>Current app version</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>days</value>
+  </data>
   <data name="DefaultDateOfBirth" xml:space="preserve">
     <value>Default date of birth</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="DetermineByPicture" xml:space="preserve">
     <value>Determine by picture</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Done</value>
+  </data>
+  <data name="EditPicture" xml:space="preserve">
+    <value>Update picture</value>
   </data>
   <data name="EnterDateAge" xml:space="preserve">
     <value>Enter your date's age</value>
@@ -221,11 +251,17 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
   <data name="LastAttempt" xml:space="preserve">
     <value>Last attempt</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading..</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
@@ -245,8 +281,17 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>
+  </data>
+  <data name="SetReminder" xml:space="preserve">
+    <value>Add to calendar</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
@@ -298,6 +343,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
+  </data>
+  <data name="UnlockDate" xml:space="preserve">
+    <value>Nope to Hope on</value>
   </data>
   <data name="ValidationInvalidName" xml:space="preserve">
     <value>Invalid name</value>

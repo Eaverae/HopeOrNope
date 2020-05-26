@@ -2804,188 +2804,6 @@ namespace HopeNope.Droid
 			global::Plugin.Media.Resource.Styleable.GradientColor_android_tileMode = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Plugin.Media.Resource.Styleable.GradientColor_android_type = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_type;
 			global::Plugin.Media.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::HopeNope.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
-			global::Plugin.Permissions.Resource.Attribute.alpha = global::HopeNope.Droid.Resource.Attribute.alpha;
-			global::Plugin.Permissions.Resource.Attribute.coordinatorLayoutStyle = global::HopeNope.Droid.Resource.Attribute.coordinatorLayoutStyle;
-			global::Plugin.Permissions.Resource.Attribute.font = global::HopeNope.Droid.Resource.Attribute.font;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderAuthority = global::HopeNope.Droid.Resource.Attribute.fontProviderAuthority;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderCerts = global::HopeNope.Droid.Resource.Attribute.fontProviderCerts;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderFetchStrategy = global::HopeNope.Droid.Resource.Attribute.fontProviderFetchStrategy;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderFetchTimeout = global::HopeNope.Droid.Resource.Attribute.fontProviderFetchTimeout;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderPackage = global::HopeNope.Droid.Resource.Attribute.fontProviderPackage;
-			global::Plugin.Permissions.Resource.Attribute.fontProviderQuery = global::HopeNope.Droid.Resource.Attribute.fontProviderQuery;
-			global::Plugin.Permissions.Resource.Attribute.fontStyle = global::HopeNope.Droid.Resource.Attribute.fontStyle;
-			global::Plugin.Permissions.Resource.Attribute.fontVariationSettings = global::HopeNope.Droid.Resource.Attribute.fontVariationSettings;
-			global::Plugin.Permissions.Resource.Attribute.fontWeight = global::HopeNope.Droid.Resource.Attribute.fontWeight;
-			global::Plugin.Permissions.Resource.Attribute.keylines = global::HopeNope.Droid.Resource.Attribute.keylines;
-			global::Plugin.Permissions.Resource.Attribute.layout_anchor = global::HopeNope.Droid.Resource.Attribute.layout_anchor;
-			global::Plugin.Permissions.Resource.Attribute.layout_anchorGravity = global::HopeNope.Droid.Resource.Attribute.layout_anchorGravity;
-			global::Plugin.Permissions.Resource.Attribute.layout_behavior = global::HopeNope.Droid.Resource.Attribute.layout_behavior;
-			global::Plugin.Permissions.Resource.Attribute.layout_dodgeInsetEdges = global::HopeNope.Droid.Resource.Attribute.layout_dodgeInsetEdges;
-			global::Plugin.Permissions.Resource.Attribute.layout_insetEdge = global::HopeNope.Droid.Resource.Attribute.layout_insetEdge;
-			global::Plugin.Permissions.Resource.Attribute.layout_keyline = global::HopeNope.Droid.Resource.Attribute.layout_keyline;
-			global::Plugin.Permissions.Resource.Attribute.statusBarBackground = global::HopeNope.Droid.Resource.Attribute.statusBarBackground;
-			global::Plugin.Permissions.Resource.Attribute.ttcIndex = global::HopeNope.Droid.Resource.Attribute.ttcIndex;
-			global::Plugin.Permissions.Resource.Color.browser_actions_bg_grey = global::HopeNope.Droid.Resource.Color.browser_actions_bg_grey;
-			global::Plugin.Permissions.Resource.Color.browser_actions_divider_color = global::HopeNope.Droid.Resource.Color.browser_actions_divider_color;
-			global::Plugin.Permissions.Resource.Color.browser_actions_text_color = global::HopeNope.Droid.Resource.Color.browser_actions_text_color;
-			global::Plugin.Permissions.Resource.Color.browser_actions_title_color = global::HopeNope.Droid.Resource.Color.browser_actions_title_color;
-			global::Plugin.Permissions.Resource.Color.notification_action_color_filter = global::HopeNope.Droid.Resource.Color.notification_action_color_filter;
-			global::Plugin.Permissions.Resource.Color.notification_icon_bg_color = global::HopeNope.Droid.Resource.Color.notification_icon_bg_color;
-			global::Plugin.Permissions.Resource.Color.ripple_material_light = global::HopeNope.Droid.Resource.Color.ripple_material_light;
-			global::Plugin.Permissions.Resource.Color.secondary_text_default_material_light = global::HopeNope.Droid.Resource.Color.secondary_text_default_material_light;
-			global::Plugin.Permissions.Resource.Dimension.browser_actions_context_menu_max_width = global::HopeNope.Droid.Resource.Dimension.browser_actions_context_menu_max_width;
-			global::Plugin.Permissions.Resource.Dimension.browser_actions_context_menu_min_padding = global::HopeNope.Droid.Resource.Dimension.browser_actions_context_menu_min_padding;
-			global::Plugin.Permissions.Resource.Dimension.compat_button_inset_horizontal_material = global::HopeNope.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Plugin.Permissions.Resource.Dimension.compat_button_inset_vertical_material = global::HopeNope.Droid.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Plugin.Permissions.Resource.Dimension.compat_button_padding_horizontal_material = global::HopeNope.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Plugin.Permissions.Resource.Dimension.compat_button_padding_vertical_material = global::HopeNope.Droid.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Plugin.Permissions.Resource.Dimension.compat_control_corner_material = global::HopeNope.Droid.Resource.Dimension.compat_control_corner_material;
-			global::Plugin.Permissions.Resource.Dimension.compat_notification_large_icon_max_height = global::HopeNope.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
-			global::Plugin.Permissions.Resource.Dimension.compat_notification_large_icon_max_width = global::HopeNope.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
-			global::Plugin.Permissions.Resource.Dimension.notification_action_icon_size = global::HopeNope.Droid.Resource.Dimension.notification_action_icon_size;
-			global::Plugin.Permissions.Resource.Dimension.notification_action_text_size = global::HopeNope.Droid.Resource.Dimension.notification_action_text_size;
-			global::Plugin.Permissions.Resource.Dimension.notification_big_circle_margin = global::HopeNope.Droid.Resource.Dimension.notification_big_circle_margin;
-			global::Plugin.Permissions.Resource.Dimension.notification_content_margin_start = global::HopeNope.Droid.Resource.Dimension.notification_content_margin_start;
-			global::Plugin.Permissions.Resource.Dimension.notification_large_icon_height = global::HopeNope.Droid.Resource.Dimension.notification_large_icon_height;
-			global::Plugin.Permissions.Resource.Dimension.notification_large_icon_width = global::HopeNope.Droid.Resource.Dimension.notification_large_icon_width;
-			global::Plugin.Permissions.Resource.Dimension.notification_main_column_padding_top = global::HopeNope.Droid.Resource.Dimension.notification_main_column_padding_top;
-			global::Plugin.Permissions.Resource.Dimension.notification_media_narrow_margin = global::HopeNope.Droid.Resource.Dimension.notification_media_narrow_margin;
-			global::Plugin.Permissions.Resource.Dimension.notification_right_icon_size = global::HopeNope.Droid.Resource.Dimension.notification_right_icon_size;
-			global::Plugin.Permissions.Resource.Dimension.notification_right_side_padding_top = global::HopeNope.Droid.Resource.Dimension.notification_right_side_padding_top;
-			global::Plugin.Permissions.Resource.Dimension.notification_small_icon_background_padding = global::HopeNope.Droid.Resource.Dimension.notification_small_icon_background_padding;
-			global::Plugin.Permissions.Resource.Dimension.notification_small_icon_size_as_large = global::HopeNope.Droid.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Plugin.Permissions.Resource.Dimension.notification_subtext_size = global::HopeNope.Droid.Resource.Dimension.notification_subtext_size;
-			global::Plugin.Permissions.Resource.Dimension.notification_top_pad = global::HopeNope.Droid.Resource.Dimension.notification_top_pad;
-			global::Plugin.Permissions.Resource.Dimension.notification_top_pad_large_text = global::HopeNope.Droid.Resource.Dimension.notification_top_pad_large_text;
-			global::Plugin.Permissions.Resource.Drawable.notification_action_background = global::HopeNope.Droid.Resource.Drawable.notification_action_background;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg = global::HopeNope.Droid.Resource.Drawable.notification_bg;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg_low = global::HopeNope.Droid.Resource.Drawable.notification_bg_low;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg_low_normal = global::HopeNope.Droid.Resource.Drawable.notification_bg_low_normal;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg_low_pressed = global::HopeNope.Droid.Resource.Drawable.notification_bg_low_pressed;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg_normal = global::HopeNope.Droid.Resource.Drawable.notification_bg_normal;
-			global::Plugin.Permissions.Resource.Drawable.notification_bg_normal_pressed = global::HopeNope.Droid.Resource.Drawable.notification_bg_normal_pressed;
-			global::Plugin.Permissions.Resource.Drawable.notification_icon_background = global::HopeNope.Droid.Resource.Drawable.notification_icon_background;
-			global::Plugin.Permissions.Resource.Drawable.notification_template_icon_bg = global::HopeNope.Droid.Resource.Drawable.notification_template_icon_bg;
-			global::Plugin.Permissions.Resource.Drawable.notification_template_icon_low_bg = global::HopeNope.Droid.Resource.Drawable.notification_template_icon_low_bg;
-			global::Plugin.Permissions.Resource.Drawable.notification_tile_bg = global::HopeNope.Droid.Resource.Drawable.notification_tile_bg;
-			global::Plugin.Permissions.Resource.Drawable.notify_panel_notification_icon_bg = global::HopeNope.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Plugin.Permissions.Resource.Id.actions = global::HopeNope.Droid.Resource.Id.actions;
-			global::Plugin.Permissions.Resource.Id.action_container = global::HopeNope.Droid.Resource.Id.action_container;
-			global::Plugin.Permissions.Resource.Id.action_divider = global::HopeNope.Droid.Resource.Id.action_divider;
-			global::Plugin.Permissions.Resource.Id.action_image = global::HopeNope.Droid.Resource.Id.action_image;
-			global::Plugin.Permissions.Resource.Id.action_text = global::HopeNope.Droid.Resource.Id.action_text;
-			global::Plugin.Permissions.Resource.Id.all = global::HopeNope.Droid.Resource.Id.all;
-			global::Plugin.Permissions.Resource.Id.async = global::HopeNope.Droid.Resource.Id.async;
-			global::Plugin.Permissions.Resource.Id.blocking = global::HopeNope.Droid.Resource.Id.blocking;
-			global::Plugin.Permissions.Resource.Id.bottom = global::HopeNope.Droid.Resource.Id.bottom;
-			global::Plugin.Permissions.Resource.Id.browser_actions_header_text = global::HopeNope.Droid.Resource.Id.browser_actions_header_text;
-			global::Plugin.Permissions.Resource.Id.browser_actions_menu_items = global::HopeNope.Droid.Resource.Id.browser_actions_menu_items;
-			global::Plugin.Permissions.Resource.Id.browser_actions_menu_item_icon = global::HopeNope.Droid.Resource.Id.browser_actions_menu_item_icon;
-			global::Plugin.Permissions.Resource.Id.browser_actions_menu_item_text = global::HopeNope.Droid.Resource.Id.browser_actions_menu_item_text;
-			global::Plugin.Permissions.Resource.Id.browser_actions_menu_view = global::HopeNope.Droid.Resource.Id.browser_actions_menu_view;
-			global::Plugin.Permissions.Resource.Id.center = global::HopeNope.Droid.Resource.Id.center;
-			global::Plugin.Permissions.Resource.Id.center_horizontal = global::HopeNope.Droid.Resource.Id.center_horizontal;
-			global::Plugin.Permissions.Resource.Id.center_vertical = global::HopeNope.Droid.Resource.Id.center_vertical;
-			global::Plugin.Permissions.Resource.Id.chronometer = global::HopeNope.Droid.Resource.Id.chronometer;
-			global::Plugin.Permissions.Resource.Id.clip_horizontal = global::HopeNope.Droid.Resource.Id.clip_horizontal;
-			global::Plugin.Permissions.Resource.Id.clip_vertical = global::HopeNope.Droid.Resource.Id.clip_vertical;
-			global::Plugin.Permissions.Resource.Id.end = global::HopeNope.Droid.Resource.Id.end;
-			global::Plugin.Permissions.Resource.Id.fill = global::HopeNope.Droid.Resource.Id.fill;
-			global::Plugin.Permissions.Resource.Id.fill_horizontal = global::HopeNope.Droid.Resource.Id.fill_horizontal;
-			global::Plugin.Permissions.Resource.Id.fill_vertical = global::HopeNope.Droid.Resource.Id.fill_vertical;
-			global::Plugin.Permissions.Resource.Id.forever = global::HopeNope.Droid.Resource.Id.forever;
-			global::Plugin.Permissions.Resource.Id.icon = global::HopeNope.Droid.Resource.Id.icon;
-			global::Plugin.Permissions.Resource.Id.icon_group = global::HopeNope.Droid.Resource.Id.icon_group;
-			global::Plugin.Permissions.Resource.Id.info = global::HopeNope.Droid.Resource.Id.info;
-			global::Plugin.Permissions.Resource.Id.italic = global::HopeNope.Droid.Resource.Id.italic;
-			global::Plugin.Permissions.Resource.Id.left = global::HopeNope.Droid.Resource.Id.left;
-			global::Plugin.Permissions.Resource.Id.line1 = global::HopeNope.Droid.Resource.Id.line1;
-			global::Plugin.Permissions.Resource.Id.line3 = global::HopeNope.Droid.Resource.Id.line3;
-			global::Plugin.Permissions.Resource.Id.none = global::HopeNope.Droid.Resource.Id.none;
-			global::Plugin.Permissions.Resource.Id.normal = global::HopeNope.Droid.Resource.Id.normal;
-			global::Plugin.Permissions.Resource.Id.notification_background = global::HopeNope.Droid.Resource.Id.notification_background;
-			global::Plugin.Permissions.Resource.Id.notification_main_column = global::HopeNope.Droid.Resource.Id.notification_main_column;
-			global::Plugin.Permissions.Resource.Id.notification_main_column_container = global::HopeNope.Droid.Resource.Id.notification_main_column_container;
-			global::Plugin.Permissions.Resource.Id.right = global::HopeNope.Droid.Resource.Id.right;
-			global::Plugin.Permissions.Resource.Id.right_icon = global::HopeNope.Droid.Resource.Id.right_icon;
-			global::Plugin.Permissions.Resource.Id.right_side = global::HopeNope.Droid.Resource.Id.right_side;
-			global::Plugin.Permissions.Resource.Id.start = global::HopeNope.Droid.Resource.Id.start;
-			global::Plugin.Permissions.Resource.Id.tag_transition_group = global::HopeNope.Droid.Resource.Id.tag_transition_group;
-			global::Plugin.Permissions.Resource.Id.tag_unhandled_key_event_manager = global::HopeNope.Droid.Resource.Id.tag_unhandled_key_event_manager;
-			global::Plugin.Permissions.Resource.Id.tag_unhandled_key_listeners = global::HopeNope.Droid.Resource.Id.tag_unhandled_key_listeners;
-			global::Plugin.Permissions.Resource.Id.text = global::HopeNope.Droid.Resource.Id.text;
-			global::Plugin.Permissions.Resource.Id.text2 = global::HopeNope.Droid.Resource.Id.text2;
-			global::Plugin.Permissions.Resource.Id.time = global::HopeNope.Droid.Resource.Id.time;
-			global::Plugin.Permissions.Resource.Id.title = global::HopeNope.Droid.Resource.Id.title;
-			global::Plugin.Permissions.Resource.Id.top = global::HopeNope.Droid.Resource.Id.top;
-			global::Plugin.Permissions.Resource.Integer.status_bar_notification_info_maxnum = global::HopeNope.Droid.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Plugin.Permissions.Resource.Layout.browser_actions_context_menu_page = global::HopeNope.Droid.Resource.Layout.browser_actions_context_menu_page;
-			global::Plugin.Permissions.Resource.Layout.browser_actions_context_menu_row = global::HopeNope.Droid.Resource.Layout.browser_actions_context_menu_row;
-			global::Plugin.Permissions.Resource.Layout.notification_action = global::HopeNope.Droid.Resource.Layout.notification_action;
-			global::Plugin.Permissions.Resource.Layout.notification_action_tombstone = global::HopeNope.Droid.Resource.Layout.notification_action_tombstone;
-			global::Plugin.Permissions.Resource.Layout.notification_template_custom_big = global::HopeNope.Droid.Resource.Layout.notification_template_custom_big;
-			global::Plugin.Permissions.Resource.Layout.notification_template_icon_group = global::HopeNope.Droid.Resource.Layout.notification_template_icon_group;
-			global::Plugin.Permissions.Resource.Layout.notification_template_part_chronometer = global::HopeNope.Droid.Resource.Layout.notification_template_part_chronometer;
-			global::Plugin.Permissions.Resource.Layout.notification_template_part_time = global::HopeNope.Droid.Resource.Layout.notification_template_part_time;
-			global::Plugin.Permissions.Resource.String.status_bar_notification_info_overflow = global::HopeNope.Droid.Resource.String.status_bar_notification_info_overflow;
-			global::Plugin.Permissions.Resource.Style.TextAppearance_Compat_Notification = global::HopeNope.Droid.Resource.Style.TextAppearance_Compat_Notification;
-			global::Plugin.Permissions.Resource.Style.TextAppearance_Compat_Notification_Info = global::HopeNope.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Plugin.Permissions.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::HopeNope.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Plugin.Permissions.Resource.Style.TextAppearance_Compat_Notification_Time = global::HopeNope.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Plugin.Permissions.Resource.Style.TextAppearance_Compat_Notification_Title = global::HopeNope.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Plugin.Permissions.Resource.Style.Widget_Compat_NotificationActionContainer = global::HopeNope.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Plugin.Permissions.Resource.Style.Widget_Compat_NotificationActionText = global::HopeNope.Droid.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Plugin.Permissions.Resource.Style.Widget_Support_CoordinatorLayout = global::HopeNope.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
-			global::Plugin.Permissions.Resource.Styleable.ColorStateListItem = global::HopeNope.Droid.Resource.Styleable.ColorStateListItem;
-			global::Plugin.Permissions.Resource.Styleable.ColorStateListItem_alpha = global::HopeNope.Droid.Resource.Styleable.ColorStateListItem_alpha;
-			global::Plugin.Permissions.Resource.Styleable.ColorStateListItem_android_alpha = global::HopeNope.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
-			global::Plugin.Permissions.Resource.Styleable.ColorStateListItem_android_color = global::HopeNope.Droid.Resource.Styleable.ColorStateListItem_android_color;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_keylines = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
-			global::Plugin.Permissions.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::HopeNope.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily = global::HopeNope.Droid.Resource.Styleable.FontFamily;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_android_font = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_android_font;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_android_fontStyle = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_android_fontWeight = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_font = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_font;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_fontStyle = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_fontWeight = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
-			global::Plugin.Permissions.Resource.Styleable.FontFamilyFont_ttcIndex = global::HopeNope.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderAuthority = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderCerts = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderPackage = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Plugin.Permissions.Resource.Styleable.FontFamily_fontProviderQuery = global::HopeNope.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor = global::HopeNope.Droid.Resource.Styleable.GradientColor;
-			global::Plugin.Permissions.Resource.Styleable.GradientColorItem = global::HopeNope.Droid.Resource.Styleable.GradientColorItem;
-			global::Plugin.Permissions.Resource.Styleable.GradientColorItem_android_color = global::HopeNope.Droid.Resource.Styleable.GradientColorItem_android_color;
-			global::Plugin.Permissions.Resource.Styleable.GradientColorItem_android_offset = global::HopeNope.Droid.Resource.Styleable.GradientColorItem_android_offset;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_centerColor = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_centerColor;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_centerX = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_centerX;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_centerY = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_centerY;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_endColor = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_endColor;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_endX = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_endX;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_endY = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_endY;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_gradientRadius = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_startColor = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_startColor;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_startX = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_startX;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_startY = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_startY;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_tileMode = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_tileMode;
-			global::Plugin.Permissions.Resource.Styleable.GradientColor_android_type = global::HopeNope.Droid.Resource.Styleable.GradientColor_android_type;
-			global::Plugin.Permissions.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::HopeNope.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Rg.Plugins.Popup.Resource.Animation.abc_fade_in = global::HopeNope.Droid.Resource.Animation.abc_fade_in;
 			global::Rg.Plugins.Popup.Resource.Animation.abc_fade_out = global::HopeNope.Droid.Resource.Animation.abc_fade_out;
 			global::Rg.Plugins.Popup.Resource.Animation.abc_grow_fade_in_from_bottom = global::HopeNope.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -13873,49 +13691,52 @@ namespace HopeNope.Droid
 			public const int nope = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int notification_action_background = 2131165292;
+			public const int NoPicture = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int notification_bg = 2131165293;
+			public const int notification_action_background = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int notification_bg_low = 2131165294;
+			public const int notification_bg = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int notification_bg_low_normal = 2131165295;
+			public const int notification_bg_low = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int notification_bg_low_pressed = 2131165296;
+			public const int notification_bg_low_normal = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int notification_bg_normal = 2131165297;
+			public const int notification_bg_low_pressed = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int notification_bg_normal_pressed = 2131165298;
+			public const int notification_bg_normal = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int notification_icon_background = 2131165299;
+			public const int notification_bg_normal_pressed = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int notification_template_icon_bg = 2131165300;
+			public const int notification_icon_background = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int notification_template_icon_low_bg = 2131165301;
+			public const int notification_template_icon_bg = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int notification_tile_bg = 2131165302;
+			public const int notification_template_icon_low_bg = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int notify_panel_notification_icon_bg = 2131165303;
+			public const int notification_tile_bg = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int screen = 2131165304;
+			public const int notify_panel_notification_icon_bg = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int tooltip_frame_dark = 2131165305;
+			public const int screen = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int tooltip_frame_light = 2131165306;
+			public const int tooltip_frame_dark = 2131165306;
+			
+			// aapt resource value: 0x7F07007B
+			public const int tooltip_frame_light = 2131165307;
 			
 			static Drawable()
 			{

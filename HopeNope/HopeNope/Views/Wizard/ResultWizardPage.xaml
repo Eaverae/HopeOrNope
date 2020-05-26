@@ -24,32 +24,34 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Image Source="Logo_White.png" Margin="0,25,0,0" VerticalOptions="Start" HeightRequest="175" Grid.Row="0" />
+            
 
             <!--Content-->
-            <StackLayout Grid.Row="0" Margin="10, 200, 10, 0" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-                <Grid WidthRequest="100" HeightRequest="100" IsVisible="{Binding HasProfilePicture}">
+            <ScrollView Grid.Row="0">
+                <StackLayout Margin="20" Padding="0" VerticalOptions="StartAndExpand">
+                    <Label Text="{ext:Translate Verdict}" TextColor="White" Margin="0" FontSize="Large" HorizontalTextAlignment="Center" />
+
+                    <!--Result images-->
+                    <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
+                    <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
                     <controls1:CircleImage HorizontalOptions="Center" BorderColor="{StaticResource WhiteColor}" BorderThickness="3" Aspect="AspectFill"
-                                           WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
+                                        WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
                     </controls1:CircleImage>
-                </Grid>
-                <Label Text="{ext:Translate Verdict}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
 
-                <!--Result images-->
-                <Image Source="hope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope}" />
-                <Image Source="nope.png" Margin="25" Aspect="AspectFit" HeightRequest="100" IsVisible="{Binding Hope, Converter={StaticResource ReverseBooleanConverter}}" />
-                <controls:ValidationEntry ValidatableObject="{Binding Name}"
-                                          x:TypeArguments="x:String"
-                                          Keyboard="Text"
-                                          BackgroundColor="Transparent"
-                                          TextColor="White"
-                                          HorizontalOptions="FillAndExpand"
-                                          HorizontalTextAlignment="Center"
-                                          IsVisible="{Binding WishlistEnabled}"
-                                          UnderlineColor="White" />
-                <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding WishlistEnabled}" />
-            </StackLayout>
-
+                    <controls:ValidationEntry ValidatableObject="{Binding Name}"
+                                              x:TypeArguments="x:String"
+                                              Keyboard="Text"
+                                              BackgroundColor="Transparent"
+                                              TextColor="White"
+                                              HorizontalOptions="FillAndExpand"
+                                              HorizontalTextAlignment="Center"
+                                              IsVisible="{Binding WishlistEnabled}"
+                                              UnderlineColor="White" />
+                    <Label Text="{Binding Name.Value}" IsVisible="{Binding DisplayNameLabel}" FontSize="Medium" HorizontalOptions="Center" />
+                    <Button Command="{Binding AddPersonCommand}" Text="{ext:Translate AddToWishlist}" IsVisible="{Binding WishlistEnabled}" />
+                </StackLayout>
+            </ScrollView>
+            
             <!--Footer-->
             <StackLayout Grid.Row="1">
                 <controls:AdBanner AdId="{Binding BannerAdId}" IsEnabled="{Binding AdsEnabled}" IsVisible="{Binding AdsEnabled}" HeightRequest="50" Size="Standardbanner" Margin="0" />

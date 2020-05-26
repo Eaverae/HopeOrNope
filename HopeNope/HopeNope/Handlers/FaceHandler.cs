@@ -1,15 +1,18 @@
-﻿using HopeNope.Classes;
+﻿using Autofac;
+using GuidFramework.Interfaces;
+using HopeNope.Classes;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Xamarin.Forms.Internals;
 
 namespace HopeNope.Handlers
 {
 	/// <summary>
 	/// Handler for the face api
 	/// </summary>
-	public static class FaceHandler  
+	public static class FaceHandler
 	{
 		// replace <myresourcename> with the string found in your endpoint URL
 		const string uriBase = ApplicationConstants.FaceApiEndpoint + "/face/v1.0/detect";
@@ -41,18 +44,26 @@ namespace HopeNope.Handlers
 			string uri = uriBase + "?" + requestParameters;
 
 			// Request body. Posts a locally stored JPEG image.
+			using (ILifetimeScope scope = App.Container.BeginLifetimeScope())
 			using (ByteArrayContent content = new ByteArrayContent(image))
 			{
 				// This example uses content type "application/octet-stream".
 				// The other content types you can use are "application/json"
 				// and "multipart/form-data".
 				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				try
+				{
+					// Execute the REST API call.
+					HttpResponseMessage response = await client.PostAsync(uri, content);
 
-				// Execute the REST API call.
-				HttpResponseMessage response = await client.PostAsync(uri, content);
-
-				// Get the JSON response.
-				contentString = await response.Content.ReadAsStringAsync();
+					// Get the JSON response.
+					contentString = await response.Content.ReadAsStringAsync();
+				}
+				catch (Exception exception)
+				{
+					ILogHandler logHandler = scope.Resolve<ILogHandler>();
+					logHandler.LogException(exception);
+				}
 			}
 
 			return contentString;

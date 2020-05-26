@@ -167,8 +167,16 @@ namespace GuidFramework.ViewModels
 		/// </summary>
 		public virtual async void BackAsync()
 		{
-			await NavigationService.PopToRootAsync();
+			await NavigationService.CloseAsync();
 		}
 
+		/// <summary>
+		/// Initializes the parent.
+		/// </summary>
+		public static void InitializeParent()
+		{
+			BaseViewModel current = Services.NavigationService.CurrentBindingContext();
+			current?.Init();
+		}
 	}
 }
