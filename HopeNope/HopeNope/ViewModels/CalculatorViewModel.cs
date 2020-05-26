@@ -270,7 +270,7 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The determine age command.
 		/// </value>
-		public ICommand DetermineAgeCommand => new Command(DetermineAge, CanExecuteCommands);
+		public ICommand DetermineAgeCommand => new Command(DetermineAgeAsync, CanExecuteCommands);
 
 		/// <summary>
 		/// Gets the select first tab command.
@@ -392,15 +392,7 @@ namespace HopeNope.ViewModels
 		/// <summary>
 		/// Determines the age.
 		/// </summary>
-		private void DetermineAge()
-		{
-			EditProfilePictureAsync();
-		}
-
-		/// <summary>
-		/// Edits the profile picture asynchronous.
-		/// </summary>
-		private async void EditProfilePictureAsync()
+		private async void DetermineAgeAsync()
 		{
 			// Check if the device is compatible
 			if (!CrossMedia.IsSupported)
@@ -518,6 +510,8 @@ namespace HopeNope.ViewModels
 							LogHandler.LogException(ex);
 						}
 					}
+					else
+						AlertHandler.DisplayAlertAsync(Resources.AlertTitleErrorOccurred, Resources.AlertMessageErrorOccurred, Resources.Ok);
 				}
 
 				ProfilePicture = ImageSource.FromStream(() =>

@@ -126,6 +126,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred while processing your request. The developer has been notified. Please try again..
+        /// </summary>
+        internal static string AlertMessageErrorOccurred {
+            get {
+                return ResourceManager.GetString("AlertMessageErrorOccurred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Photogallery permission needed to execute the selected action..
         /// </summary>
         internal static string AlertMessageGalleryPermissionNeeded {
@@ -212,6 +221,15 @@ namespace HopeNope.Properties {
         internal static string AlertTitleCameraPermissionNeeded {
             get {
                 return ResourceManager.GetString("AlertTitleCameraPermissionNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred.
+        /// </summary>
+        internal static string AlertTitleErrorOccurred {
+            get {
+                return ResourceManager.GetString("AlertTitleErrorOccurred", resourceCulture);
             }
         }
         

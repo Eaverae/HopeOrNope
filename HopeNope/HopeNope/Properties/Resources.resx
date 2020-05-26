@@ -140,6 +140,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="AlertMessageCameraPermissionNeeded" xml:space="preserve">
     <value>Camera permission needed to execute the selected action.</value>
   </data>
+  <data name="AlertMessageErrorOccurred" xml:space="preserve">
+    <value>An error occurred while processing your request. The developer has been notified. Please try again.</value>
+  </data>
   <data name="AlertMessageGalleryPermissionNeeded" xml:space="preserve">
     <value>Photogallery permission needed to execute the selected action.</value>
   </data>
@@ -169,6 +172,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   </data>
   <data name="AlertTitleCameraPermissionNeeded" xml:space="preserve">
     <value>Camera permission needed</value>
+  </data>
+  <data name="AlertTitleErrorOccurred" xml:space="preserve">
+    <value>An error occurred</value>
   </data>
   <data name="AlertTitleGalleryPermissionNeeded" xml:space="preserve">
     <value>Photogallery permission needed</value>

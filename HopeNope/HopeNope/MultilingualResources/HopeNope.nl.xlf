@@ -308,7 +308,7 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="Countdown" translate="yes" xml:space="preserve">
           <source>You'll just have to wait for</source>
-          <target state="translated">Je zult moeten wachten tot</target>
+          <target state="translated">De resterende wachttijd bedraagd</target>
         </trans-unit>
         <trans-unit id="UnlockDate" translate="yes" xml:space="preserve">
           <source>Nope to Hope on</source>
@@ -328,7 +328,15 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
         </trans-unit>
         <trans-unit id="AlertMessageWishlistIgnoreConfirm" translate="yes" xml:space="preserve">
           <source>Are you sure you don't want to add this person to the wishlist?</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Weet je zeker dat je deze persoon niet aan het verlanglijstje wilt toevoegen?</target>
+          <target state="translated">Weet je zeker dat je deze persoon niet aan jouw verlanglijst wilt toevoegen?</target>
+        </trans-unit>
+        <trans-unit id="AlertMessageErrorOccurred" translate="yes" xml:space="preserve">
+          <source>An error occurred while processing your request. The developer has been notified. Please try again.</source>
+          <target state="translated">Er is een fout opgetreden tijdens het verwerken van je aanvraag. De ontwikkelaar is op de hoogte gebracht. Probeer het opnieuw.</target>
+        </trans-unit>
+        <trans-unit id="AlertTitleErrorOccurred" translate="yes" xml:space="preserve">
+          <source>An error occurred</source>
+          <target state="translated" state-qualifier="mt-suggestion">Er is een fout opgetreden</target>
         </trans-unit>
       </group>
     </body>
