@@ -1,7 +1,5 @@
 ﻿using Autofac;
-using GuidFramework;
 using GuidFramework.Extensions;
-using GuidFramework.Handlers;
 using GuidFramework.Interfaces;
 using GuidFramework.Services;
 using HopeNope.Classes;
@@ -181,7 +179,7 @@ namespace HopeNope.ViewModels
 			{
 				photo = null;
 
-				string result = await AlertHandler.DisplayActionSheetAsync(Resources.EditPicture, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
+				string result = await AlertHandler.DisplayActionSheetAsync(Resources.FacialRecognition, Resources.Cancel, null, Resources.Camera, Resources.Gallery);
 
 				// Error handling for the actionsheet
 				if (!result.IsNullOrWhiteSpace() && !result.Equals(Resources.Cancel))
@@ -198,8 +196,21 @@ namespace HopeNope.ViewModels
 							photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
 							{
 								Directory = ApplicationConstants.PictureFolder,
-								Name = $"{Person.Id}.jpg"
-							}); ;
+								Name = $"{DateTime.Now.ToFileTimeUtc()}.jpg"
+							});
+
+							// Rename the picture if it was taken
+							if (photo != null && File.Exists(photo.Path))
+							{
+								byte[] existing = File.ReadAllBytes(photo.Path);
+
+								IFileService fileService = DependencyService.Get<IFileService>();
+								person.ProfilePicturePath = fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
+
+								// Save the person with the profile picture's path
+								if (await localStorageHandler.SaveAsync(person))
+									File.Delete(photo.Path);
+							}
 						}
 						else
 							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleCameraPermissionNeeded, Resources.AlertMessageCameraPermissionNeeded, Resources.Ok);
@@ -212,16 +223,28 @@ namespace HopeNope.ViewModels
 							photoStatus = await Permissions.RequestAsync<Permissions.Photos>();
 
 						if (photoStatus == PermissionStatus.Granted)
-							photo = await CrossMedia.Current.PickPhotoAsync();
+						{
+							photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions() { SaveMetaData = true });
+
+							if (photo != null && File.Exists(photo.Path))
+							{
+								// Copy the picture
+								byte[] existing = File.ReadAllBytes(photo.Path);
+
+								IFileService fileService = DependencyService.Get<IFileService>();
+								person.ProfilePicturePath = fileService.SaveFileToInternalStorage(existing, $"{person.Id}.jpg", ApplicationConstants.PictureFolder);
+
+								// Save the person
+								await localStorageHandler.SaveAsync(person);
+							}
+						}
 						else
 							await AlertHandler.DisplayAlertAsync(Resources.AlertTitleGalleryPermissionNeeded, Resources.AlertMessageGalleryPermissionNeeded, Resources.Ok);
 					}
 
+					// Set the profilepicture as imagedata
 					if (photo != null)
-					{
-						// Set the profilepicture as imagedata
 						LoadProfilePicture();
-					}
 				}
 			}
 		}
