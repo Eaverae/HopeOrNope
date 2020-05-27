@@ -338,6 +338,10 @@ Deze app is ontwikkeld als een showcase voor guidoschippers.com en het enige doe
           <source>An error occurred</source>
           <target state="translated" state-qualifier="mt-suggestion">Er is een fout opgetreden</target>
         </trans-unit>
+        <trans-unit id="EnterName" translate="yes" xml:space="preserve">
+          <source>Enter a name for your wishlist</source>
+          <target state="translated">Voer een naam in voor op jouw verlanglijst</target>
+        </trans-unit>
       </group>
     </body>
   </file>

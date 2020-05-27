@@ -29,7 +29,8 @@
                 <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
                    TextColor="{StaticResource WhiteColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
 
-                <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None" BackgroundColor="Transparent">
+                <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" IsVisible="{Binding HasItems}"
+                          SeparatorVisibility="None" BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <controls:CustomViewCell SelectedBackgroundColor="Accent">
