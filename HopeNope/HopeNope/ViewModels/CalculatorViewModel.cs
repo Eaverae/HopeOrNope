@@ -570,6 +570,10 @@ namespace HopeNope.ViewModels
 				// Local function for navigation
 				void NavigateToResult()
 				{
+					// Loads the default picture
+					if (ProfilePicture == null)
+						ProfilePicture = ImageSource.FromFile(ApplicationConstants.DefaultPictureFilename);
+
 					// View the result
 					GuidFramework.Services.NavigationService.MultipageSetSelectedItem<ResultWizardPage>();
 
