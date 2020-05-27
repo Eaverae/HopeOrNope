@@ -31,7 +31,7 @@ namespace HopeNope.iOS
 			ImageCircleRenderer.Init();
 			MobileAds.SharedInstance.Start(null);
 			GuidFramework.iOS.Framework.Init();
-
+			
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);

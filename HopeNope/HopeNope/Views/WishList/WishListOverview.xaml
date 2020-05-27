@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:controls="clr-namespace:GuidFramework.Controls;assembly=GuidFramework"
              xmlns:ext="clr-namespace:HopeNope.Extensions"
-             xmlns:Behaviors="clr-namespace:Xam.Behaviors;assembly=Xam.Behaviors"
+             xmlns:Classes="clr-namespace:GuidFramework.Classes;assembly=GuidFramework"
              NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
              x:Name="WishListPage"
@@ -65,15 +65,12 @@
                                     </Grid>
                                     <BoxView Style="{StaticResource WhiteSeparator}" Margin="0"></BoxView>
                                 </StackLayout>
-                                <!-- Use Event to Command for Commanding of the item tap event -->
-                                <Behaviors:Interaction.Behaviors>
-                                    <Behaviors:BehaviorCollection>
-                                        <Behaviors:EventToCommand Command="{Binding Path=BindingContext.PersonDetailsCommand, Source={x:Reference Name=WishListPage}}" EventName="Tapped" />
-                                    </Behaviors:BehaviorCollection>
-                                </Behaviors:Interaction.Behaviors>
                             </controls:CustomViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
+                    <ListView.Behaviors>
+                        <Classes:EventToCommandBehavior EventName="ItemTapped" Command="{Binding PersonDetailsCommand}" />
+                    </ListView.Behaviors>
                 </ListView>
 
             </StackLayout>
