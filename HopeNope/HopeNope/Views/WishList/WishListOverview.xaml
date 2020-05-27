@@ -29,10 +29,10 @@
                 <Label IsVisible="{Binding HasItems, Converter={StaticResource ReverseBooleanConverter}}" Text="{ext:Translate NoItemsFound}" 
                    TextColor="{StaticResource WhiteColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10" />
 
-                <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None">
+                <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" SeparatorVisibility="None" BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <controls:CustomViewCell>
+                            <controls:CustomViewCell SelectedBackgroundColor="Accent">
                                 <StackLayout Spacing="0" Margin="0" Padding="5, 0, 5, 0">
                                     <Grid Margin="5, 5, 0, 5">
                                         <Grid.RowDefinitions>

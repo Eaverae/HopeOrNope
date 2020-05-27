@@ -105,10 +105,14 @@ namespace GuidFramework.iOS.Services
 			if (directoryName.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(directoryName));
 
+			string fileContents = string.Empty;
 			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
 			string filePath = Path.Combine(folder, fileName);
 
-			return await File.ReadAllTextAsync(filePath);
+			if (File.Exists(filePath))
+				fileContents = await File.ReadAllTextAsync(filePath);
+
+			return fileContents;
 		}
 
 		/// <summary>
@@ -130,10 +134,14 @@ namespace GuidFramework.iOS.Services
 			if (directoryName.IsNullOrWhiteSpace())
 				throw new ArgumentNullException(nameof(directoryName));
 
+			byte[] fileContents = null;
 			string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), directoryName);
 			string filePath = Path.Combine(folder, fileName);
 
-			return await File.ReadAllBytesAsync(filePath);
+			if (File.Exists(filePath))
+				fileContents = await File.ReadAllBytesAsync(filePath);
+
+			return fileContents;
 		}
 
 		/// <summary>

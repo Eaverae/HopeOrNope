@@ -45,6 +45,7 @@
     <Compile Include="Renderers\AdBannerRenderer.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Renderers\CustomListViewRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Renderers\CustomStacklayoutRenderer.cs" />
     <Compile Include="Renderers\CustomViewCellRenderer.cs" />
@@ -63,10 +64,10 @@
       <Version>2.0.0.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.5.2</Version>
+      <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.5.0.617</Version>
+      <Version>4.6.0.800</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.iOS.MobileAds">
       <Version>7.57.0</Version>

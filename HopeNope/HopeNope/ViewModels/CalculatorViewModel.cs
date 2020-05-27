@@ -511,7 +511,7 @@ namespace HopeNope.ViewModels
 						}
 					}
 					else
-						AlertHandler.DisplayAlertAsync(Resources.AlertTitleErrorOccurred, Resources.AlertMessageErrorOccurred, Resources.Ok);
+						await AlertHandler.DisplayAlertAsync(Resources.AlertTitleErrorOccurred, Resources.AlertMessageErrorOccurred, Resources.Ok);
 				}
 
 				ProfilePicture = ImageSource.FromStream(() =>
