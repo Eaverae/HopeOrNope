@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventKit;
+﻿using EventKit;
 using EventKitUI;
 using Foundation;
 using GuidFramework.Extensions;
 using GuidFramework.Interfaces;
+using GuidFramework.iOS.Services;
+using System;
 using UIKit;
 using Xamarin.Forms;
 
+[assembly: Dependency(typeof(CalendarService))]
 namespace GuidFramework.iOS.Services
 {
-
 	/// <summary>
 	/// Class for Calendar service
 	/// </summary>
