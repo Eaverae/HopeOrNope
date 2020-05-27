@@ -242,6 +242,9 @@ This app was developed as a showcase for guidoschippers.com and it's sole purpos
   <data name="EnterDateAge" xml:space="preserve">
     <value>Enter your date's age</value>
   </data>
+  <data name="EnterName" xml:space="preserve">
+    <value>Enter a name for your wishlist</value>
+  </data>
   <data name="EnterYourAge" xml:space="preserve">
     <value>Enter your age</value>
   </data>

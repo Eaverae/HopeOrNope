@@ -23,8 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            
+            </Grid.RowDefinitions>            
 
             <!--Content-->
             <ScrollView Grid.Row="0">
@@ -38,6 +37,7 @@
                                         WidthRequest="100" HeightRequest="100" Source="{Binding ProfilePicture}">
                     </controls1:CircleImage>
 
+                    <Label Text="{ext:Translate EnterName}" IsVisible="{Binding DisplayNameLabel, Converter={StaticResource ReverseBooleanConverter}}" HorizontalOptions="Center" />
                     <controls:ValidationEntry ValidatableObject="{Binding Name}"
                                               x:TypeArguments="x:String"
                                               Keyboard="Text"

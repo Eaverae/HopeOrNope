@@ -432,6 +432,15 @@ namespace HopeNope.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter a name for your wishlist.
+        /// </summary>
+        internal static string EnterName {
+            get {
+                return ResourceManager.GetString("EnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your age.
         /// </summary>
         internal static string EnterYourAge {
