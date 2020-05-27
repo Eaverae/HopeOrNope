@@ -61,7 +61,7 @@ namespace HopeNope.ViewModels
 		/// <value>
 		/// The person details command.
 		/// </value>
-		public ICommand PersonDetailsCommand => new Command(PersonDetailsAsync, CanExecuteCommands);
+		public ICommand PersonDetailsCommand => new Command(PersonDetailsAsync);
 
 		/// <summary>
 		/// Gets the clear command.
