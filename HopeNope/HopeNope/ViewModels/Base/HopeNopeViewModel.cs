@@ -36,7 +36,7 @@ namespace HopeNope.ViewModels.Base
 		{
 			get
 			{
-				return "ca-app-pub-3950359454148049/6551084769";
+				return "YOURBANNERID";
 			}
 		}
 
@@ -50,7 +50,7 @@ namespace HopeNope.ViewModels.Base
 		{
 			get
 			{
-				return "ca-app-pub-3950359454148049/1593149392";
+				return "YOURSECONDBANNERID";
 			}
 		}
 	}
